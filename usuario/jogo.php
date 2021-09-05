@@ -2,8 +2,8 @@
     <div id="logo"></div>
         <nav>
             <ul>
-                <li><a href="http://localhost/RPG"> Página Inicial</a></li>
-                <li><a href="http://localhost/RPG/index.php?pagina=sair">Sair</a></li>
+                <li><a href="http://localhost/rpgbrowser"> Página Inicial</a></li>
+                <li><a href="http://localhost/rpgbrowser/index.php?pagina=sair">Sair</a></li>
             </ul>
         </nav>
 
