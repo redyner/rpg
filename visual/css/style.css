@@ -183,6 +183,26 @@ background-image: url(../imagens/barras/barra_roxa.jpg);
     background-image: url(../imagens/warrior.jpg);
 }
 
+#archer{
+    background-size: contain;
+    background-image: url(../imagens/archer.jpg);
+}
+
+#mage{
+    background-size: contain;
+    background-image: url(../imagens/mage.jpg);
+}
+
+#barb{
+    background-size: contain;
+    background-image: url(../imagens/barb.jpg);
+}
+
+#thief{
+    background-size: contain;
+    background-image: url(../imagens/thief.jpg);
+}
+
 #atributos_personagem
 {
     width: 500px;
