@@ -1,3 +1,20 @@
+<?php
+        include "conexao.php";
+        $id_player = $_SESSION['usuario'];
+        $sql = "SELECT xp, xpmax, classe FROM personagens WHERE idpersonagem = '$id_player'";
+        $id_player = mysqli_fetch_array(mysqli_query($conexao,$sql));
+        $id = $_GET['id'];
+        $sql = "SELECT nick FROM inimigos WHERE idinimigo = '{$id}'";
+        $nick_inimigo = mysqli_fetch_array(mysqli_query($conexao,$sql));
+        $nick_inimigo = $nick_inimigo['0'];
+        $xp = $id_player['0'];
+        $xpmax = $id_player['1'];
+        $classe = $id_player['2'];
+        $porcentagem_xp = $xp*100/$xpmax;
+        if ($porcentagem_xp<0) $porcentagem_xp = 0;
+    ?>
+    
+    
     <div id="painel_principal">
     <div id="logo"></div>
         <nav>
@@ -8,10 +25,8 @@
         </nav>
 
         <div id="painel_batalha">
-
-        <a href="?pagina=batalha&id=1" ><span class="avatar_inimigo" >inimigo 1</span></a>
-        <a href="" ><div class="avatar_personagem"></div></a>
-
+        <a href="" ><div class="avatar_personagem" id = "<?php echo $classe ?>"></div></a>
+        <a href="?pagina=batalha&id=1" ><span class="avatar_inimigo" id="<?php echo $nick_inimigo?>"></span></a>
             <form action="" method="post">
         <input type="submit" name="atacar" value="Atacar" id="sub_atacar">
         </form>

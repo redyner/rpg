@@ -68,7 +68,7 @@ nav ul li a{
 
 #sub_atacar{
     margin-top: 150px;
-    
+    margin-left: 20%;
     width: 97px;
     background-image: url(../imagens/barras/barra_cinza.jpg); 
 }
@@ -133,4 +133,24 @@ background-image: url(../imagens/barras/barra_roxa.jpg);
     border: solid 1px;
     float: left;
 
+}
+
+#Javali{
+    background-size: 100px, 100px;
+    background-image: url(../imagens/jav.jpg);
+}
+
+#Urso{
+    background-size: 150px, 100px;
+    background-image: url(../imagens/urso.jpg);
+}
+
+#Drag{
+    background-size: 100px, 100px;
+    background-image: url(../imagens/drag.jpg);
+}
+
+#warrior{
+    background-size: 100px, 100px;
+    background-image: url(../imagens/warrior.jpg);
 }
