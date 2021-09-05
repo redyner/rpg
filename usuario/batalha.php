@@ -130,10 +130,15 @@ if(isset($_POST['atacar']))
 
     if($hp_batalha_personagem>0) {
         $id_player = $_SESSION['usuario'];
-        $sql = "SELECT `xp`FROM inimigos WHERE idinimigo = '{$id}'";
+        $sql = "SELECT xp, xpmax FROM personagens WHERE idpersonagem = '{$id_player}'";
+        $xp_player = mysqli_fetch_array(mysqli_query($conexao,$sql));
+        $xp_atual = $xp_player['0'];
+        $xpmax = $xp_player['1'];
+        $sql = "SELECT `xp` FROM inimigos WHERE idinimigo = '{$id}'";
         $xp = mysqli_fetch_array(mysqli_query($conexao,$sql));
         $xp = $xp['0'];
-        $sql = "UPDATE `personagens` SET `xp` = {$xp} WHERE idpersonagem = '{$id_player}'";
+        $xp_atual += $xp;
+        $sql = "UPDATE `personagens` SET `xp` = {$xp_atual} WHERE idpersonagem = '{$id_player}'";
         mysqli_query($conexao,$sql);
         echo "<br>Você derrotou seu inimigo!";
     }

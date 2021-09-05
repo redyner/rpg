@@ -26,6 +26,7 @@
         </div>
         <div id="selecao_inimigo">
         <a href="?pagina=batalha&id=1" ><span class="avatar_inimigo">inimigo 1</span></a>
-        <div class="avatar_inimigo" >Inimigo2</div>
+        <a href="?pagina=batalha&id=2" ><div class="avatar_inimigo" >Inimigo2</div></a>
+        <a href="?pagina=batalha&id=3" ><div class="avatar_inimigo" >Inimigo3</div></a>
         </div>
     </div>
