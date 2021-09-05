@@ -49,7 +49,6 @@ else {
     if(isset($_SESSION['usuario'])) include "usuario/jogo.php";
     else include "usuario/login.php";
     }
-
 ?>
 
 </body>
