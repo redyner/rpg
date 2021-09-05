@@ -14,6 +14,10 @@ input {
     color: white;
 }
 
+#atributos_personagem{
+    color: white;
+}
+
 /*Menu do Site*/
 
 nav {
@@ -110,13 +114,23 @@ nav ul li a{
 
 
 .barra{
-margin-top: 10px;
+margin-top: 20px;
 width: 250px;
 height: 20px;
 border: solid 1px;
 float: left;
 text-align: center;
 }
+
+#barra_xp{
+    margin-top: 20px;
+    margin-left: 125px;
+    width: 250px;
+    height: 20px;
+    border: solid 1px;
+    float: left;
+    text-align: center;
+    }
 
 
 #hp_atual{
@@ -168,4 +182,32 @@ background-image: url(../imagens/barras/barra_roxa.jpg);
 #warrior{
     background-size: contain;
     background-image: url(../imagens/warrior.jpg);
+}
+
+#atributos_personagem
+{
+    width: 500px;
+    height: 250px;
+    background-image: url(../imagens/papel.jpg);
+    float: left;
+}
+
+#atributo_xp
+{
+    text-align-last: center;
+}
+
+#lista_atributos
+{
+    margin-left: 150px;
+}
+
+#registro_atributos
+{
+    margin-top: 20px;
+width: 250px;
+height: 20px;
+border: solid 1px;
+float: right;
+text-align: center;
 }
