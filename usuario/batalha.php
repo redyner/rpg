@@ -67,7 +67,7 @@ if(isset($_POST['atacar']))
         if($spd_personagem>$spd_inimigo)
         {
             if($taxa_crit_personagem<=$spd_personagem){
-            echo "<br>você causou {$crit_personagem} de dano crítico!<br>";
+            echo "<br><br>você causou {$crit_personagem} de dano crítico!<br>";
             $sta_batalha_inimigo -= $crit_personagem;
             $porcentagem_sta_inimigo = $sta_batalha_inimigo*100/$sta_inimigo;
             if ($porcentagem_sta_inimigo<0) $porcentagem_sta_inimigo = 0;
@@ -76,7 +76,7 @@ if(isset($_POST['atacar']))
             </div><br>";
             }else
             {
-                echo "<br>você causou {$atk_personagem} de dano<br>";
+                echo "<br><br>você causou {$atk_personagem} de dano<br>";
                 $sta_batalha_inimigo -= $atk_personagem;
                 $porcentagem_sta_inimigo = $sta_batalha_inimigo*100/$sta_inimigo;
                 if ($porcentagem_sta_inimigo<0) $porcentagem_sta_inimigo = 0;
@@ -85,7 +85,7 @@ if(isset($_POST['atacar']))
                 </div><br>";
             }
             if($taxa_crit_inimigo<=$spd_inimigo&&$sta_batalha_inimigo>0){
-            echo "<br>você recebeu {$crit_inimigo} de dano crítico!<br>";
+            echo "<br><br>você recebeu {$crit_inimigo} de dano crítico!<br>";
             $sta_batalha_personagem -= $crit_inimigo;
             $porcentagem_sta_personagem = $sta_batalha_personagem*100/$sta_personagem;
             if ($porcentagem_sta_personagem<0) $porcentagem_sta_personagem = 0;
@@ -94,7 +94,7 @@ if(isset($_POST['atacar']))
             </div><br>";
             }elseif($sta_batalha_inimigo>0)
             {
-                echo "<br>você recebeu {$atk_inimigo} de dano<br>";
+                echo "<br><br>você recebeu {$atk_inimigo} de dano<br>";
                 $sta_batalha_personagem -= $atk_inimigo;
                 $porcentagem_sta_personagem = $sta_batalha_personagem*100/$sta_personagem;
                 if ($porcentagem_sta_personagem<0) $porcentagem_sta_personagem = 0;
@@ -105,7 +105,7 @@ if(isset($_POST['atacar']))
         }else
         {
             if($crit_inimigo<=$spd_inimigo&&$sta_batalha_inimigo>0){
-                echo "<br>você recebeu {$crit_inimigo} de dano crítico!<br>";
+                echo "<br><br>você recebeu {$crit_inimigo} de dano crítico!<br>";
                 $sta_batalha_personagem -= $crit_inimigo;
                 $porcentagem_sta_personagem = $sta_batalha_personagem*100/$sta_personagem;
                 if ($porcentagem_sta_personagem<0) $porcentagem_sta_personagem = 0;
@@ -114,7 +114,7 @@ if(isset($_POST['atacar']))
                 </div><br>";
                 }else
                 {
-                    echo "<br>você recebeu {$atk_inimigo} de dano<br>";
+                    echo "<br><br>você recebeu {$atk_inimigo} de dano<br>";
                     $sta_batalha_personagem -= $atk_inimigo;
                     $porcentagem_sta_personagem = $sta_batalha_personagem*100/$sta_personagem;
                     if ($porcentagem_sta_personagem<0) $porcentagem_sta_personagem = 0;
@@ -123,7 +123,7 @@ if(isset($_POST['atacar']))
                     </div><br>";
                 }
             if($crit_personagem<=$spd_personagem&&$sta_batalha_personagem>0){
-                echo "<br>você causou {$crit_personagem} de dano crítico!<br>";
+                echo "<br><br>você causou {$crit_personagem} de dano crítico!<br>";
                 $sta_batalha_inimigo -= $crit_personagem;
                 $porcentagem_sta_inimigo = $sta_batalha_inimigo*100/$sta_inimigo;
                 if ($porcentagem_sta_inimigo<0) $porcentagem_sta_inimigo = 0;
@@ -132,7 +132,7 @@ if(isset($_POST['atacar']))
                 </div><br>";
                 }elseif($sta_batalha_personagem>0)
                 {
-                    echo "<br>você causou {$atk_personagem} de dano<br>";
+                    echo "<br><br>você causou {$atk_personagem} de dano<br>";
                     $sta_batalha_inimigo -= $atk_personagem;
                     $porcentagem_sta_inimigo = $sta_batalha_inimigo*100/$sta_inimigo;
                     if ($porcentagem_sta_inimigo<0) $porcentagem_sta_inimigo = 0;
@@ -155,7 +155,7 @@ if(isset($_POST['atacar']))
         $xp_atual += $xp;
         $sql = "UPDATE `personagens` SET `xp` = {$xp_atual} WHERE idpersonagem = '{$id_player}'";
         mysqli_query($conexao,$sql);
-        echo "<br>Você derrotou seu inimigo!";
+        echo "<br><br>Você derrotou seu inimigo!";
     }
     else {
         $id_player = $_SESSION['usuario'];
@@ -169,7 +169,7 @@ if(isset($_POST['atacar']))
         $xp_atual -= $xp;
         $sql = "UPDATE `personagens` SET `xp` = {$xp_atual} WHERE idpersonagem = '{$id_player}'";
         mysqli_query($conexao,$sql);
-        echo "<br>Você foi derrotado!";
+        echo "<br><br>Você foi derrotado!";
     }
 
 }
