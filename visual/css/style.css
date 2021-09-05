@@ -10,10 +10,6 @@ body {
     background-size: 1000px 100px;
 }
 
-input {
-    color: white;
-}
-
 #atributos_personagem{
     color: white;
 }
@@ -61,13 +57,15 @@ nav ul li a{
     margin-left: 48.5px;
     width: 97px;
     background-image: url(../imagens/barras/barra_cinza.jpg); 
+    color: white;
 }
 
 #sub_cadastrar {
     margin-top: 10px;
     margin-left: 48.5px;
     width: 97px;
-    background-image: url(../imagens/barras/barra_cinza.jpg); 
+    background-image: url(../imagens/barras/barra_cinza.jpg);
+    color: white;
 }
 
 #sub_atacar{
@@ -75,6 +73,7 @@ nav ul li a{
     margin-left: 43%;
     width: 97px;
     background-image: url(../imagens/barras/barra_cinza.jpg); 
+    color: white;
 }
 
 /*Painel Personagem*/
