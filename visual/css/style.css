@@ -67,8 +67,8 @@ nav ul li a{
 }
 
 #sub_atacar{
-    margin-top: 50px;
-    margin-left: 20%;
+    margin-top: 150px;
+    
     width: 97px;
     background-image: url(../imagens/barras/barra_cinza.jpg); 
 }
@@ -103,8 +103,8 @@ nav ul li a{
 
 .barra{
 margin-top: 10px;
-width: 500px;
-height: 40px;
+width: 250px;
+height: 20px;
 border: solid 1px;
 float: left;
 text-align: center;
@@ -112,16 +112,16 @@ text-align: center;
 
 
 #hp_atual{
-    width: 500px;
-    height: 40px;
+    width: 250px;
+    height: 20px;
     background-image: url(../imagens/barras/barra_vermelha.jpg);
 
     }
 
 
 #xp_atual{
-    width: 500px;
-    height: 40px;
+    width: 250px;
+    height: 20px;
 background-image: url(../imagens/barras/barra_roxa.jpg);
 
 }

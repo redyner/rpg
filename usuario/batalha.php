@@ -11,12 +11,7 @@
 
         <a href="?pagina=batalha&id=1" ><span class="avatar_inimigo" >inimigo 1</span></a>
         <a href="" ><div class="avatar_personagem"></div></a>
-            <div class="barra" id="hp">
-                <div  id="hp_atual" ></div>
-            </div>
-            <div class="barra" id="xp">
-                <div  id="xp_atual" ></div>
-            </div>
+
             <form action="" method="post">
         <input type="submit" name="atacar" value="Atacar" id="sub_atacar">
         </form>
@@ -47,52 +42,115 @@ if(isset($_POST['atacar']))
     $hp_batalha_personagem = $hp_personagem;
     $hp_batalha_inimigo = $hp_inimigo;
 
+
     while($hp_batalha_personagem>0&&$hp_batalha_inimigo>0)
     {
+        // sleep(2);
         $taxa_crit_personagem = rand(1,100);
         $taxa_crit_inimigo = rand(1,100);
 
         if($spd_personagem>$spd_inimigo)
         {
-            if($taxa_crit_personagem<=50){
-            echo "você causou {$crit_personagem} de dano crítico!<br>";
+            if($taxa_crit_personagem<=$spd_personagem){
+            echo "<br>você causou {$crit_personagem} de dano crítico!<br>";
             $hp_batalha_inimigo -= $crit_personagem;
+            $porcentagem_hp_inimigo = $hp_batalha_inimigo*100/$hp_inimigo;
+            if ($porcentagem_hp_inimigo<0) $porcentagem_hp_inimigo = 0;
+            echo "<div class='barra' id='hp'>
+            <div  id='hp_atual' style='width: {$porcentagem_hp_inimigo}%' > {$hp_batalha_inimigo}/{$hp_inimigo} </div>
+            </div><br>";
             }else
             {
-                echo "você causou {$atk_personagem} de dano<br>";
+                echo "<br>você causou {$atk_personagem} de dano<br>";
                 $hp_batalha_inimigo -= $atk_personagem;
+                $porcentagem_hp_inimigo = $hp_batalha_inimigo*100/$hp_inimigo;
+                if ($porcentagem_hp_inimigo<0) $porcentagem_hp_inimigo = 0;
+                echo "<div class='barra' id='hp'>
+                <div  id='hp_atual' style='width: {$porcentagem_hp_inimigo}%' > {$hp_batalha_inimigo}/{$hp_inimigo} </div>
+                </div><br>";
             }
-            if($taxa_crit_inimigo<=10&&$hp_batalha_inimigo>0){
-            echo "você recebeu {$crit_inimigo} de dano crítico!<br>";
+            if($taxa_crit_inimigo<=$spd_inimigo&&$hp_batalha_inimigo>0){
+            echo "<br>você recebeu {$crit_inimigo} de dano crítico!<br>";
             $hp_batalha_personagem -= $crit_inimigo;
+            $porcentagem_hp_personagem = $hp_batalha_personagem*100/$hp_personagem;
+            if ($porcentagem_hp_personagem<0) $porcentagem_hp_personagem = 0;
+            echo "<div class='barra' id='hp'>
+            <div  id='hp_atual' style='width: {$porcentagem_hp_personagem}%' > {$hp_batalha_personagem}/{$hp_personagem} </div>
+            </div><br>";
             }elseif($hp_batalha_inimigo>0)
             {
-                echo "você recebeu {$atk_inimigo} de dano<br>";
+                echo "<br>você recebeu {$atk_inimigo} de dano<br>";
                 $hp_batalha_personagem -= $atk_inimigo;
+                $porcentagem_hp_personagem = $hp_batalha_personagem*100/$hp_personagem;
+                if ($porcentagem_hp_personagem<0) $porcentagem_hp_personagem = 0;
+                echo "<div class='barra' id='hp'>
+                <div  id='hp_atual' style='width: {$porcentagem_hp_personagem}%' > {$hp_batalha_personagem}/{$hp_personagem} </div>
+                </div><br>";
             }
         }else
         {
-            if($crit_inimigo<=10&&$hp_batalha_inimigo>0){
-                echo "você recebeu {$crit_inimigo} de dano crítico!<br>";
+            if($crit_inimigo<=$spd_inimigo&&$hp_batalha_inimigo>0){
+                echo "<br>você recebeu {$crit_inimigo} de dano crítico!<br>";
                 $hp_batalha_personagem -= $crit_inimigo;
+                $porcentagem_hp_personagem = $hp_batalha_personagem*100/$hp_personagem;
+                if ($porcentagem_hp_personagem<0) $porcentagem_hp_personagem = 0;
+                echo "<div class='barra' id='hp'>
+                <div  id='hp_atual' style='width: {$porcentagem_hp_personagem}%' > {$hp_batalha_personagem}/{$hp_personagem} </div>
+                </div><br>";
                 }else
                 {
-                    echo "você recebeu {$atk_inimigo} de dano<br>";
+                    echo "<br>você recebeu {$atk_inimigo} de dano<br>";
                     $hp_batalha_personagem -= $atk_inimigo;
+                    $porcentagem_hp_personagem = $hp_batalha_personagem*100/$hp_personagem;
+                    if ($porcentagem_hp_personagem<0) $porcentagem_hp_personagem = 0;
+                    echo "<div class='barra' id='hp'>
+                    <div  id='hp_atual' style='width: {$porcentagem_hp_personagem}%' > {$hp_batalha_personagem}/{$hp_personagem} </div>
+                    </div><br>";
                 }
-            if($crit_personagem<=50&&$hp_batalha_personagem>0){
-                echo "você causou {$crit_personagem} de dano crítico!<br>";
+            if($crit_personagem<=$spd_personagem&&$hp_batalha_personagem>0){
+                echo "<br>você causou {$crit_personagem} de dano crítico!<br>";
                 $hp_batalha_inimigo -= $crit_personagem;
+                $porcentagem_hp_inimigo = $hp_batalha_inimigo*100/$hp_inimigo;
+                if ($porcentagem_hp_inimigo<0) $porcentagem_hp_inimigo = 0;
+                echo "<div class='barra' id='hp'>
+                <div  id='hp_atual' style='width: {$porcentagem_hp_inimigo}%' > {$hp_batalha_inimigo}/{$hp_inimigo} </div>
+                </div><br>";
                 }elseif($hp_batalha_personagem>0)
                 {
-                    echo "você causou {$atk_personagem} de dano<br>";
+                    echo "<br>você causou {$atk_personagem} de dano<br>";
                     $hp_batalha_inimigo -= $atk_personagem;
+                    $porcentagem_hp_inimigo = $hp_batalha_inimigo*100/$hp_inimigo;
+                    if ($porcentagem_hp_inimigo<0) $porcentagem_hp_inimigo = 0;
+                    echo "<div class='barra' id='hp'>
+                    <div  id='hp_atual' style='width: {$porcentagem_hp_inimigo}%' > {$hp_batalha_inimigo}/{$hp_inimigo} </div>
+                    </div><br>";
                 }
         }
     }
 
-    if($hp_batalha_personagem>0) echo "Você derrotou seu inimigo!";
-    else echo "Você foi derrotado!";
+    if($hp_batalha_personagem>0) {
+        $id_player = $_SESSION['usuario'];
+        $sql = "SELECT `xp`FROM inimigos WHERE idinimigo = '{$id}'";
+        $xp = mysqli_fetch_array(mysqli_query($conexao,$sql));
+        $xp = $xp['0'];
+        $sql = "UPDATE `personagens` SET `xp` = {$xp} WHERE idpersonagem = '{$id_player}'";
+        mysqli_query($conexao,$sql);
+        echo "<br>Você derrotou seu inimigo!";
+    }
+    else {
+        $id_player = $_SESSION['usuario'];
+        $sql = "SELECT xp, xpmax FROM personagens WHERE idpersonagem = '{$id_player}'";
+        $xp_player = mysqli_fetch_array(mysqli_query($conexao,$sql));
+        $xp_atual = $xp_player['0'];
+        $xpmax = $xp_player['1'];
+        $sql = "SELECT `xp` FROM inimigos WHERE idinimigo = '{$id}'";
+        $xp = mysqli_fetch_array(mysqli_query($conexao,$sql));
+        $xp = $xp['0'];
+        $xp_atual -= $xp;
+        $sql = "UPDATE `personagens` SET `xp` = {$xp_atual} WHERE idpersonagem = '{$id_player}'";
+        mysqli_query($conexao,$sql);
+        echo "<br>Você foi derrotado!";
+    }
 
 }
 ?>
