@@ -8,7 +8,7 @@
         </nav>
 
         <div id="painel_personagem">
-            <div class="avatar"></div>
+        <a href="" ><div class="avatar_personagem"></div></a>
             <div class="barra" id="hp">
                 <div  id="hp_atual" ></div>
             </div>
@@ -16,10 +16,8 @@
                 <div  id="xp_atual" ></div>
             </div>
         </div>
-        <div id="painel_batalha">
-        <div class="avatar" id="inimigo"></div>
-        <div class="avatar" id="inimigo"></div>
+        <div id="selecao_inimigo">
+        <a href="?pagina=inimigo&id=1" ><span class="avatar_inimigo">inimigo 1</span></a>
+        <div class="avatar_inimigo" >Inimigo2</div>
         </div>
-
-
     </div>

@@ -65,21 +65,27 @@ nav ul li a{
     width: 100%;
 }
 
-#painel_batalha{
+#selecao_inimigo{
     margin-top: 250px;
     width: 100%;
-    height: 1000px;
-    border-top: solid 1px;
-    
+    height: 350px;
+    border-top: solid 1px; 
 }
 
-.avatar{
+#painel_batalha{
+    width: 100%;
+    height: 350px;
+    border-top: solid 1px; 
+}
+
+.avatar_personagem{
     margin: 10px 10px 10px;
     width: 100px;
     height: 100px;
     border: solid 1px;
     float: left;
 }
+
 
 .barra{
 margin-top: 10px;
@@ -106,10 +112,10 @@ background-image: url(../imagens/barraxp.png);
 
 }
 
-#inimigo{
-    margin: 30px 70px 10px;
-    width: 350px;
-    height: 300px;
+.avatar_inimigo{
+    margin: 10px 10px 10px;
+    width: 100px;
+    height: 100px;
     border: solid 1px;
     float: left;
 
