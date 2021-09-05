@@ -8,10 +8,8 @@
         </nav>
 
         <div id="painel_batalha">
-            <form action="" method="post">
-        <input type="submit" name="atacar" value="Atacar">
-        </form>
-        <a href="?pagina=inimigo1" ><span class="avatar_inimigo" >inimigo 1</span></a>
+
+        <a href="?pagina=batalha&id=1" ><span class="avatar_inimigo" >inimigo 1</span></a>
         <a href="" ><div class="avatar_personagem"></div></a>
             <div class="barra" id="hp">
                 <div  id="hp_atual" ></div>
@@ -19,10 +17,14 @@
             <div class="barra" id="xp">
                 <div  id="xp_atual" ></div>
             </div>
+            <form action="" method="post">
+        <input type="submit" name="atacar" value="Atacar" id="sub_atacar">
+        </form>
         </div>
 <?php
     include "conexao.php";
-    $sql = "SELECT hp, atk, def, spd FROM rpg.personagens WHERE idpersonagem = '1'";
+    $id_player = $_SESSION['usuario'];
+    $sql = "SELECT hp, atk, def, spd FROM rpg.personagens WHERE idpersonagem = '{$id_player}'";
     $atributos_personagem = mysqli_fetch_array(mysqli_query($conexao,$sql));
     $hp_personagem = $atributos_personagem['0'];
     $atk_personagem = $atributos_personagem['1'];
@@ -30,7 +32,8 @@
     $spd_personagem  = $atributos_personagem['3'];
     $crit_personagem = $atributos_personagem['atk']*2;
 
-    $sql = "SELECT hp, atk, def, spd FROM rpg.inimigos WHERE idinimigo = '1'";
+    $id = $_GET['id'];
+    $sql = "SELECT hp, atk, def, spd FROM rpg.inimigos WHERE idinimigo = '{$id}'";
     $atributos_inimigo = mysqli_fetch_array(mysqli_query($conexao,$sql));
     $hp_inimigo = $atributos_inimigo['0'];
     $atk_inimigo = $atributos_inimigo['1'];

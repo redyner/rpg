@@ -28,7 +28,7 @@ if(isset($_GET['pagina']))
             elseif($pagina == "login") include "usuario/jogo.php";
             elseif($pagina == "cadastrar") include "usuario/cadastrar.php";
             elseif($pagina == "sair") include "usuario/sair.php";
-            elseif($pagina == "inimigo") include "usuario/inimigo.php";
+            elseif($pagina == "batalha") include "usuario/batalha.php";
             else include "usuario/jogo.php";
 
         }

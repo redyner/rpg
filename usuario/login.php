@@ -20,9 +20,10 @@
             $senha = md5($senha);
             $sql = "SELECT idplayer FROM player WHERE login = '{$login}' AND senha = '{$senha}'";
             $valida_login = mysqli_num_rows(mysqli_query($conexao,$sql));
+            $id_player = mysqli_fetch_array(mysqli_query($conexao,$sql));
             if($valida_login == 1)
             {
-                $_SESSION['usuario'] = $login;
+                $_SESSION['usuario'] = $id_player['0'];
                 $teste_de_sessao = $_SESSION['usuario'];
                 header("location: http://localhost/rpgbrowser/index.php?pagina=jogo");
             }else echo "Login ou senha incorretos!";
