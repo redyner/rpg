@@ -25,8 +25,8 @@
         </nav>
 
         <div id="painel_batalha">
-        <a href="" ><div class="avatar_personagem" id = "<?php echo $classe ?>"></div></a>
-        <a href="?pagina=batalha&id=1" ><span class="avatar_inimigo" id="<?php echo $nick_inimigo?>"></span></a>
+        <a href="" ><div class="avatar_personagem_batalha" id = "<?php echo $classe ?>"></div></a>
+        <a href="?pagina=batalha&id=1" ><span class="avatar_inimigo_batalha" id="<?php echo $nick_inimigo?>"></span></a>
             <form action="" method="post">
         <input type="submit" name="atacar" value="Atacar" id="sub_atacar">
         </form>

@@ -20,14 +20,14 @@
         </nav>
 
         <div id="painel_personagem">
-        <a href="" ><div class="avatar_personagem" id = "<?php echo $classe ?>"></div></a>
+        <a href="" ><div class="avatar_personagem_selecao" id = "<?php echo $classe ?>"></div></a>
             <div class="barra" id="xp">
                 <div  id="xp_atual" style="width: <?php echo $porcentagem_xp?>%" > <?php echo "{$xp}/{$xpmax}" ?></div>
             </div>
         </div>
         <div id="selecao_inimigo">
-        <a href="?pagina=batalha&id=1" ><span class="avatar_inimigo" id="Javali"></span></a>
-        <a href="?pagina=batalha&id=2" ><div class="avatar_inimigo" id="Urso"></div></a>
-        <a href="?pagina=batalha&id=3" ><div class="avatar_inimigo" id="Drag"></div></a>
+        <a href="?pagina=batalha&id=1" ><span class="avatar_inimigo_selecao" id="Javali"></span></a>
+        <a href="?pagina=batalha&id=2" ><div class="avatar_inimigo_selecao" id="Urso"></div></a>
+        <a href="?pagina=batalha&id=3" ><div class="avatar_inimigo_selecao" id="Drag"></div></a>
         </div>
     </div>
