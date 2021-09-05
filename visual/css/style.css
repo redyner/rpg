@@ -4,10 +4,10 @@ body {
 }
 
 #logo{
-    width: 1000px;
+    width: 750px;
     height: 100px;
     background-image: url(../imagens/final_logo_jogo.jpg); 
-    background-size: 1000px 100px;
+    background-size: 750px 100px;
 }
 
 #atributos_personagem{
@@ -34,7 +34,7 @@ nav ul li a{
 
 #painel_principal {
     margin: 25px auto;
-    width: 1000px;
+    width: 750px;
     border: solid 1px rgb(0, 0, 0);
     background-color: white;
     box-shadow: 2px 2px 4px;
@@ -96,15 +96,15 @@ nav ul li a{
 }
 
 .avatar_personagem_selecao{
-    margin: 10px 10px 10px;
-    width: 100px;
-    height: 100px;
-    border: solid 1px;
+  
+    width: 250px;
+    height: 250px;
+    
     float: left;
 }
 
 .avatar_personagem_batalha{
-    margin: 10px 150px 10px;
+    margin: 10px 75px 10px;
     width: 250px;
     height: 250px;
     border: solid 1px;

@@ -104,7 +104,7 @@ if(isset($_POST['atacar']))
             }
         }else
         {
-            if($crit_inimigo<=$spd_inimigo&&$sta_batalha_inimigo>0){
+            if($taxa_crit_inimigo<=$spd_inimigo&&$sta_batalha_inimigo>0){
                 echo "<br><br>você recebeu {$crit_inimigo} de dano crítico!<br>";
                 $sta_batalha_personagem -= $crit_inimigo;
                 $porcentagem_sta_personagem = $sta_batalha_personagem*100/$sta_personagem;
@@ -122,7 +122,7 @@ if(isset($_POST['atacar']))
                     <div  id='hp_atual' style='width: {$porcentagem_sta_personagem}%' > {$sta_batalha_personagem}/{$sta_personagem} </div>
                     </div><br>";
                 }
-            if($crit_personagem<=$spd_personagem&&$sta_batalha_personagem>0){
+            if($taxa_crit_personagem<=$spd_personagem&&$sta_batalha_personagem>0){
                 echo "<br><br>você causou {$crit_personagem} de dano crítico!<br>";
                 $sta_batalha_inimigo -= $crit_personagem;
                 $porcentagem_sta_inimigo = $sta_batalha_inimigo*100/$sta_inimigo;
