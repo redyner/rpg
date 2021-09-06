@@ -32,7 +32,7 @@
         <div class="barra" id="barra_xp">
                 <div  id="xp_atual" style="width: <?php echo $porcentagem_xp?>%" > <?php echo "{$xp}/{$xpmax}" ?></div>
         </div>
-        <br><br><br><br><p id="lista_atributos">NICK - <?php echo $nick?></p>
+        <br><br><br><p id="lista_atributos">NICK - <?php echo $nick?></p>
         <br><p id="lista_atributos">STA - <?php echo $sta?></p>
         <br><p id="lista_atributos">ATK - <?php echo $atk?></p>
         <br><p id="lista_atributos">DEF - <?php echo $def?></p>

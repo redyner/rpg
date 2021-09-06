@@ -8,9 +8,9 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <!--<script> src = combate.js> </script>-->
     <link rel = "stylesheet" href = "visual/css/reset.css">
     <link rel = "stylesheet" href = "visual/css/style.css">
+    <script src="js/script.js"></script>
 </head>
 
 <body>

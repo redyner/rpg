@@ -57,7 +57,6 @@ if(isset($_POST['atacar']))
     $sta_batalha_personagem = $sta_personagem;
     $sta_batalha_inimigo = $sta_inimigo;
 
-
     while($sta_batalha_personagem>0&&$sta_batalha_inimigo>0)
     {
         // sleep(2);
