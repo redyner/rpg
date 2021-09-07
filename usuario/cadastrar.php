@@ -17,7 +17,7 @@
            if(empty($login)||empty($senha)) echo "Todos os campos devem ser preenchidos!";
            else{
             $senha = md5($senha);
-            $sql = "SELECT idplayer FROM player WHERE login = '{$login}'";
+            $sql = "SELECT id_player FROM player WHERE login = '{$login}'";
             $valida_login = mysqli_num_rows(mysqli_query($conexao,$sql));
             if($valida_login == 0)
             {
