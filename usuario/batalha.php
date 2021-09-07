@@ -145,17 +145,29 @@ if(isset($_POST['atacar']))
 
     if($sta_batalha_personagem>0) {
         $id_player = $_SESSION['usuario'];
-        $sql = "SELECT xp, xpmax FROM personagens WHERE idpersonagem = '{$id_player}'";
+        $sql = "SELECT xp, xpmax, lv FROM personagens WHERE idpersonagem = '{$id_player}'";
         $xp_player = mysqli_fetch_array(mysqli_query($conexao,$sql));
         $xp_atual = $xp_player['0'];
         $xpmax = $xp_player['1'];
+        $levelAtual = $xp_player['2'];
+        
         $sql = "SELECT `xp` FROM inimigos WHERE idinimigo = '{$id}'";
         $xp = mysqli_fetch_array(mysqli_query($conexao,$sql));
         $xp = $xp['0'];
-        $xp_atual += $xp;
-        $sql = "UPDATE `personagens` SET `xp` = {$xp_atual} WHERE idpersonagem = '{$id_player}'";
-        mysqli_query($conexao,$sql);
-        echo "<br><br>Você derrotou seu inimigo!";
+        $xp_atual += $xp;     
+        if ($xpmax > $xp_atual){
+            $sql = "UPDATE `personagens` SET `xp` = {$xp_atual} WHERE idpersonagem = '{$id_player}'";
+            mysqli_query($conexao,$sql);
+            echo "<br><br>Você derrotou seu inimigo e ganhou ". $xp. " de experiência";
+        }else if ($xpmax >= $xp_atual){
+            $levelAtual += 1;                      
+            $exp_Atual =  $xp_atual - $xpmax ;
+            $sql = "UPDATE `personagens` SET `lv` = {$levelAtual},`xp` = {$exp_Atual}  WHERE idpersonagem = '{$id_player}'";
+            mysqli_query($conexao,$sql);
+            echo "<br><br>Parabéns, você subiu de nivel";
+        }
+        
+        
     }
     else {
         $id_player = $_SESSION['usuario'];
@@ -169,10 +181,9 @@ if(isset($_POST['atacar']))
         $xp_atual -= $xp;
         $sql = "UPDATE `personagens` SET `xp` = {$xp_atual} WHERE idpersonagem = '{$id_player}'";
         mysqli_query($conexao,$sql);
-        echo "<br><br>Você foi derrotado!";
+        echo "<br><br>Você foi derrotado e perdeu ". $xp. "de experiência";
     }
 
 }
 ?>
-
-    </div>
+ </div>

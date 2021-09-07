@@ -1,7 +1,7 @@
     <?php
         include "conexao.php";
         $id_player = $_SESSION['usuario'];
-        $sql = "SELECT xp, xpmax, classe, sta, atk, def, spd, nick FROM personagens WHERE idpersonagem = '$id_player'";
+        $sql = "SELECT xp, xpmax, classe, sta, atk, def, spd, nick, lv FROM personagens WHERE idpersonagem = '$id_player'";
         $id_player = mysqli_fetch_array(mysqli_query($conexao,$sql));
         $xp = $id_player['0'];
         $xpmax = $id_player['1'];
@@ -11,6 +11,7 @@
         $def = $id_player['5'];
         $spd = $id_player['6'];
         $nick = $id_player['7'];
+        $level = $id_player['8'];
         $porcentagem_xp = $xp*100/$xpmax;
         if ($porcentagem_xp<0) $porcentagem_xp = 0;
     ?>
@@ -33,6 +34,7 @@
                 <div  id="xp_atual" style="width: <?php echo $porcentagem_xp?>%" > <?php echo "{$xp}/{$xpmax}" ?></div>
         </div>
         <br><br><br><p id="lista_atributos">NICK - <?php echo $nick?></p>
+        <br><p id="lista_atributos">Level - <?php echo $level?></p>
         <br><p id="lista_atributos">STA - <?php echo $sta?></p>
         <br><p id="lista_atributos">ATK - <?php echo $atk?></p>
         <br><p id="lista_atributos">DEF - <?php echo $def?></p>
