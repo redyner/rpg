@@ -24,7 +24,20 @@
             if($valida_login == 1)
             {
                 $_SESSION['usuario'] = $id_player['0'];
-                $teste_de_sessao = $_SESSION['usuario'];
+                $id_player = $_SESSION['usuario'];
+                $sql = "SELECT nick, lv, xp, xp_max, sta, atk, def, spd, classe FROM rpg.personagens WHERE idpersonagem = '{$id_player}'";
+                $info_player = mysqli_fetch_array(mysqli_query($conexao,$sql));
+                $_SESSION['nick'] = $info_player['0'];
+                $_SESSION['lv'] = $info_player['1'];
+                $_SESSION['xp'] = $info_player['2'];
+                $_SESSION['xp_max'] = $info_player['3'];
+                $_SESSION['sta'] = $info_player['4'];
+                $_SESSION['atk'] = $info_player['5'];
+                $_SESSION['def']  = $info_player['6'];
+                $_SESSION['spd']  = $info_player['7'];
+                $_SESSION['classe']  = $info_player['8'];
+                $_SESSION['crit'] = $_SESSION['atk']*2;
+
                 header("location: http://localhost/rpgbrowser/index.php?pagina=jogo");
             }else echo "Login ou senha incorretos!";
            }

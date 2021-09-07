@@ -1,18 +1,16 @@
     <?php
         include "conexao.php";
         $id_player = $_SESSION['usuario'];
-        $sql = "SELECT xp, xpmax, classe, sta, atk, def, spd, nick, lv FROM personagens WHERE idpersonagem = '$id_player'";
-        $id_player = mysqli_fetch_array(mysqli_query($conexao,$sql));
-        $xp = $id_player['0'];
-        $xpmax = $id_player['1'];
-        $classe = $id_player['2'];
-        $sta = $id_player['3'];
-        $atk = $id_player['4'];
-        $def = $id_player['5'];
-        $spd = $id_player['6'];
-        $nick = $id_player['7'];
-        $level = $id_player['8'];
-        $porcentagem_xp = $xp*100/$xpmax;
+        $nick = $_SESSION['nick'];
+        $level = $_SESSION['lv'];
+        $xp = $_SESSION['xp'];
+        $xp_max = $_SESSION['xp_max'];
+        $classe = $_SESSION['classe'];
+        $sta = $_SESSION['sta'];
+        $atk = $_SESSION['atk'];
+        $def = $_SESSION['def'];
+        $spd = $_SESSION['spd'];
+        $porcentagem_xp = $xp*100/$xp_max;
         if ($porcentagem_xp<0) $porcentagem_xp = 0;
     ?>
     
@@ -31,7 +29,7 @@
         <div id="atributos_personagem">
         <br><p id="atributo_xp">EXP</p>
         <div class="barra" id="barra_xp">
-                <div  id="xp_atual" style="width: <?php echo $porcentagem_xp?>%" > <?php echo "{$xp}/{$xpmax}" ?></div>
+                <div  id="xp_atual" style="width: <?php echo $porcentagem_xp?>%" > <?php echo "{$xp}/{$xp_max}" ?></div>
         </div>
         <br><br><br><p id="lista_atributos">NICK - <?php echo $nick?></p>
         <br><p id="lista_atributos">Level - <?php echo $level?></p>

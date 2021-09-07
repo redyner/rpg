@@ -1,17 +1,23 @@
 <?php
         include "conexao.php";
         $id_player = $_SESSION['usuario'];
-        $sql = "SELECT xp, xpmax, classe FROM personagens WHERE idpersonagem = '$id_player'";
-        $id_player = mysqli_fetch_array(mysqli_query($conexao,$sql));
+        $classe = $_SESSION['classe'];
+        $lv = $_SESSION['lv'];
+        $xp = $_SESSION['xp'];
+        $xp_max = $_SESSION['xp_max'];
+        $sta_personagem = $_SESSION['sta'];
+        $atk_personagem = $_SESSION['atk'];
+        $def_personagem  = $_SESSION['def'];
+        $spd_personagem  = $_SESSION['spd'];
+        $crit_personagem = $_SESSION['crit'];
+        $porcentagem_xp = $xp*100/$xp_max;
+        if ($porcentagem_xp<0) $porcentagem_xp = 0;
+
         $id = $_GET['id'];
         $sql = "SELECT nick FROM inimigos WHERE idinimigo = '{$id}'";
         $nick_inimigo = mysqli_fetch_array(mysqli_query($conexao,$sql));
         $nick_inimigo = $nick_inimigo['0'];
-        $xp = $id_player['0'];
-        $xpmax = $id_player['1'];
-        $classe = $id_player['2'];
-        $porcentagem_xp = $xp*100/$xpmax;
-        if ($porcentagem_xp<0) $porcentagem_xp = 0;
+
     ?>
     
     
@@ -32,15 +38,6 @@
         </form>
         </div>
 <?php
-    include "conexao.php";
-    $id_player = $_SESSION['usuario'];
-    $sql = "SELECT sta, atk, def, spd FROM rpg.personagens WHERE idpersonagem = '{$id_player}'";
-    $atributos_personagem = mysqli_fetch_array(mysqli_query($conexao,$sql));
-    $sta_personagem = $atributos_personagem['0'];
-    $atk_personagem = $atributos_personagem['1'];
-    $def_personagem  = $atributos_personagem['2'];
-    $spd_personagem  = $atributos_personagem['3'];
-    $crit_personagem = $atributos_personagem['atk']*2;
 
     $id = $_GET['id'];
     $sql = "SELECT sta, atk, def, spd FROM rpg.inimigos WHERE idinimigo = '{$id}'";
@@ -144,44 +141,34 @@ if(isset($_POST['atacar']))
     }
 
     if($sta_batalha_personagem>0) {
-        $id_player = $_SESSION['usuario'];
-        $sql = "SELECT xp, xpmax, lv FROM personagens WHERE idpersonagem = '{$id_player}'";
-        $xp_player = mysqli_fetch_array(mysqli_query($conexao,$sql));
-        $xp_atual = $xp_player['0'];
-        $xpmax = $xp_player['1'];
-        $levelAtual = $xp_player['2'];
-        
         $sql = "SELECT `xp` FROM inimigos WHERE idinimigo = '{$id}'";
-        $xp = mysqli_fetch_array(mysqli_query($conexao,$sql));
-        $xp = $xp['0'];
-        $xp_atual += $xp;  
-        if ($xp_atual >= $xpmax){
-            $levelAtual += 1;  
-            $xpmax = $xpmax * 40 / 100 + $xpmax +100;             
-            $sql = "UPDATE `personagens` SET `lv` = {$levelAtual}, `xpmax` = {$xpmax}, `xp` = {$xp_atual}  WHERE idpersonagem = '{$id_player}'";
+        $xp_inimigo = mysqli_fetch_array(mysqli_query($conexao,$sql));
+        $xp_inimigo = $xp_inimigo['0'];
+        $xp += $xp_inimigo;  
+        if ($xp >= $xp_max){
+            $lv += 1;  
+            $xp = 0;
+            $xp_max = $xp_max * 50 / 100 + $xp_max +100;             
+            $sql = "UPDATE `personagens` SET `lv` = {$lv}, `xp_max` = {$xp_max}, `xp` = {$xp}  WHERE idpersonagem = '{$id_player}'";
             mysqli_query($conexao,$sql);
+            $sql = "SELECT `lv`, `xp`, `xp_max` FROM `personagens` WHERE idpersonagem = '{$id_player}'";
+            $level_up = mysqli_fetch_array(mysqli_query($conexao,$sql));
+            $_SESSION['lv'] = $level_up['0'];
+            $_SESSION['xp'] = $level_up['1'];
+            $_SESSION['xp_max'] = $level_up['2'];
             echo "<br><br>Parabéns, você subiu de nivel";
         }
         else{
-            $sql = "UPDATE `personagens` SET `xp` = {$xp_atual} WHERE idpersonagem = '{$id_player}'";
+            $sql = "UPDATE `personagens` SET `xp` = {$xp} WHERE idpersonagem = '{$id_player}'";
             mysqli_query($conexao,$sql);
-            echo "<br><br>Você derrotou seu inimigo e ganhou ". $xp. " de experiência";
+            $sql = "SELECT `xp` FROM `personagens` WHERE idpersonagem = '{$id_player}'";
+            $xp = mysqli_fetch_array(mysqli_query($conexao,$sql));
+            $_SESSION['xp'] = $xp['0'];
+            echo "<br><br>Você derrotou seu inimigo e ganhou ". $xp_inimigo. " de experiência";
         }            
-        
     }
     else {
-        $id_player = $_SESSION['usuario'];
-        $sql = "SELECT xp, xpmax FROM personagens WHERE idpersonagem = '{$id_player}'";
-        $xp_player = mysqli_fetch_array(mysqli_query($conexao,$sql));
-        $xp_atual = $xp_player['0'];
-        $xpmax = $xp_player['1'];
-        $sql = "SELECT `xp` FROM inimigos WHERE idinimigo = '{$id}'";
-        $xp = mysqli_fetch_array(mysqli_query($conexao,$sql));
-        $xp = $xp['0'];
-        //$xp_atual -= $xp;
-        $sql = "UPDATE `personagens` SET `xp` = {$xp_atual} WHERE idpersonagem = '{$id_player}'";
-        mysqli_query($conexao,$sql);
-        echo "<br><br>Você foi derrotado e perdeu ". $xp. "de experiência";
+        echo "<br><br>Você foi derrotado!";
     }
 
 }
