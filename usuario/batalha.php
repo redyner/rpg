@@ -59,7 +59,8 @@ if(isset($_POST['atacar']))
 
     while($sta_batalha_personagem>0&&$sta_batalha_inimigo>0)
     {
-        // sleep(2);
+        //sleep(1);
+        header("Refresh: 5");
         $taxa_crit_personagem = rand(1,100);
         $taxa_crit_inimigo = rand(1,100);
 
