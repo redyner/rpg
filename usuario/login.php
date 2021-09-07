@@ -31,15 +31,29 @@
                 JOIN rpg.atributos a ON c.id_classe = a.id_classe 
                 WHERE p.id_personagem = '{$id_player}'";
                 $info_player = mysqli_fetch_array(mysqli_query($conexao,$sql));
+
+                $sql = "SELECT sta,atk,def,spd,refino
+                FROM rpg.iventarios i
+                JOIN rpg.personagens p ON p.id_personagem = i.id_personagem
+                JOIN rpg.atributos a ON i.id_item = a.id_item
+                WHERE i.id_personagem = '{$id_player}' AND slot IS NULL";
+                $equipamento = mysqli_query($conexao,$sql);
+                $i=0;
+                $equipamentos[] = '';
+                while($i<($equipamento->num_rows)){
+                $equipamentos[$i] = mysqli_fetch_assoc($equipamento);
+                $i = $i+1;
+                }
+
                 $_SESSION['nick'] = $info_player['0'];
                 $_SESSION['lv'] = $info_player['1'];
                 $_SESSION['xp'] = $info_player['2'];
                 $_SESSION['xp_max'] = $info_player['3'];
                 $_SESSION['classe']  = $info_player['4'];
-                $_SESSION['sta'] = $info_player['5']*$info_player['1']*10;
-                $_SESSION['atk'] = $info_player['6']*$info_player['1']+5;
-                $_SESSION['def']  = $info_player['7']*$info_player['1']+5;
-                $_SESSION['spd']  = $info_player['8']*$info_player['1']+5;
+                $_SESSION['sta'] = (($info_player['5']*10)+($info_player['1']*$info_player['5']));
+                $_SESSION['atk'] = ($info_player['6']+($info_player['1']*$info_player['5']));
+                $_SESSION['def']  = ($info_player['7']+($info_player['1']*$info_player['5']));
+                $_SESSION['spd']  = ($info_player['8']+($info_player['1']*$info_player['5']));
                 $_SESSION['crit'] = $_SESSION['atk']*2;
 
                 header("location: http://localhost/rpgbrowser/index.php?pagina=jogo");
