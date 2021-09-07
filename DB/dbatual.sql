@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 07-Set-2021 às 18:26
+-- Tempo de geração: 07-Set-2021 às 21:56
 -- Versão do servidor: 5.7.31
 -- versão do PHP: 7.4.9
 
@@ -41,19 +41,21 @@ CREATE TABLE IF NOT EXISTS `atributos` (
   KEY `fk_atributos_classes1_idx` (`id_classe`),
   KEY `fk_atributos_inimigos1_idx` (`id_inimigo`),
   KEY `fk_atributos_Itens1_idx` (`id_item`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `atributos`
 --
 
 INSERT INTO `atributos` (`id_atributo`, `sta`, `atk`, `def`, `spd`, `id_classe`, `id_inimigo`, `id_item`) VALUES
-(1, 50, 5, 5, 5, NULL, 1, NULL),
+(1, 20, 5, 5, 5, NULL, 1, NULL),
 (2, 100, 10, 10, 10, NULL, 2, NULL),
 (3, 200, 20, 20, 20, NULL, 3, NULL),
-(4, 4, 2, 4, 1, 1, NULL, NULL),
-(5, 2, 2, 3, 4, 2, NULL, NULL),
-(6, 2, 4, 2, 3, 3, NULL, NULL);
+(4, 3, 2, 4, 1, 1, NULL, NULL),
+(5, 3, 2, 1, 4, 2, NULL, NULL),
+(6, 2, 4, 2, 2, 3, NULL, NULL),
+(7, 1, 1, 1, 1, NULL, NULL, 1),
+(8, 2, 2, 2, 2, NULL, NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -118,6 +120,14 @@ CREATE TABLE IF NOT EXISTS `itens` (
   PRIMARY KEY (`id_item`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `itens`
+--
+
+INSERT INTO `itens` (`id_item`, `lv`, `valor`) VALUES
+(1, '1', '10'),
+(2, '1', '10');
+
 -- --------------------------------------------------------
 
 --
@@ -135,6 +145,14 @@ CREATE TABLE IF NOT EXISTS `iventarios` (
   KEY `fk_iventarios_personagens1_idx` (`id_personagem`),
   KEY `fk_iventarios_Itens1_idx` (`id_item`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `iventarios`
+--
+
+INSERT INTO `iventarios` (`id_iventario`, `slot`, `refino`, `id_personagem`, `id_item`) VALUES
+(1, NULL, 0, 1, 1),
+(2, NULL, 10, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -159,7 +177,7 @@ CREATE TABLE IF NOT EXISTS `personagens` (
 --
 
 INSERT INTO `personagens` (`id_personagem`, `nick`, `xp`, `xp_max`, `lv`, `id_classe`) VALUES
-(1, 'Apolo', 90, 100, 1, 1);
+(1, 'Apolo', 0, 250, 2, 1);
 
 -- --------------------------------------------------------
 

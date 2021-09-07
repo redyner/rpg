@@ -15,8 +15,8 @@
 
         $id = $_GET['id'];
         $sql = "SELECT nick FROM inimigos WHERE id_inimigo = '{$id}'";
-        $nick_inimigo = mysqli_fetch_array(mysqli_query($conexao,$sql));
-        $nick_inimigo = $nick_inimigo['0'];
+        $nick_inimigo = mysqli_fetch_assoc(mysqli_query($conexao,$sql));
+        $nick_inimigo = $nick_inimigo['nick'];
 
     ?>
     
@@ -41,11 +41,11 @@
 
     $id = $_GET['id'];
     $sql = "SELECT sta, atk, def, spd FROM rpg.atributos a JOIN rpg.inimigos i ON i.id_inimigo = a.id_inimigo WHERE i.id_inimigo = '{$id}'";
-    $atributos_inimigo = mysqli_fetch_array(mysqli_query($conexao,$sql));
-    $sta_inimigo = $atributos_inimigo['0'];
-    $atk_inimigo = $atributos_inimigo['1'];
-    $def_inimigo  = $atributos_inimigo['2'];
-    $spd_inimigo  = $atributos_inimigo['3'];
+    $atributos_inimigo = mysqli_fetch_assoc(mysqli_query($conexao,$sql));
+    $sta_inimigo = $atributos_inimigo['sta'];
+    $atk_inimigo = $atributos_inimigo['atk'];
+    $def_inimigo  = $atributos_inimigo['def'];
+    $spd_inimigo  = $atributos_inimigo['spd'];
     $crit_inimigo = $atributos_inimigo['atk']*2;
 
 
@@ -151,15 +151,18 @@ if(isset($_POST['atacar']))
             $xp_max = $xp_max * 50 / 100 + $xp_max +100;             
             $sql = "UPDATE `personagens` SET `lv` = {$lv}, `xp_max` = {$xp_max}, `xp` = {$xp}  WHERE id_personagem = '{$id_player}'";
             mysqli_query($conexao,$sql);
-            $sql = "SELECT `lv`, `xp`, `xp_max` FROM `personagens` WHERE id_personagem = '{$id_player}'";
-            $level_up = mysqli_fetch_array(mysqli_query($conexao,$sql));
-            $_SESSION['lv'] = $level_up['0'];
-            $_SESSION['xp'] = $level_up['1'];
-            $_SESSION['xp_max'] = $level_up['2'];
-            $_SESSION['sta'] = $_SESSION['sta']*$_SESSION['lv']*10;
-            $_SESSION['atk'] = $_SESSION['sta']*$_SESSION['lv']+5;
-            $_SESSION['def']  = $_SESSION['sta']*$_SESSION['lv']+5;
-            $_SESSION['spd']  = $_SESSION['sta']*$_SESSION['lv']+5;
+            $sql = "SELECT `lv`, `xp`, `xp_max`, `sta` , `atk`, `def` ,`spd`  
+            FROM rpg.personagens p
+            JOIN rpg.atributos a ON a.id_classe = p.id_classe
+            WHERE p.id_personagem = '{$id_player}'";
+            $level_up = mysqli_fetch_assoc(mysqli_query($conexao,$sql));
+            $_SESSION['lv'] = $level_up['lv'];
+            $_SESSION['xp'] = $level_up['xp'];
+            $_SESSION['xp_max'] = $level_up['xp_max'];
+            $_SESSION['sta'] += $level_up['sta'];
+            $_SESSION['atk'] += $level_up['atk'];
+            $_SESSION['def'] += $level_up['def'];
+            $_SESSION['spd'] += $level_up['spd'];
             $_SESSION['crit'] = $_SESSION['atk']*2;
             echo "<br><br>Parabéns, você subiu de nivel";
         }
