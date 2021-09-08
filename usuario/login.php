@@ -18,18 +18,20 @@
            if(empty($login)||empty($senha)) echo "Todos os campos devem ser preenchidos!";
            else{
             $senha = md5($senha);
-            $sql = "SELECT id_player FROM player WHERE login = '{$login}' AND senha = '{$senha}'";
+            $sql = "SELECT * FROM player WHERE login = '{$login}' AND senha = '{$senha}'";
             $valida_login = mysqli_num_rows(mysqli_query($conexao,$sql));
             $id_player = mysqli_fetch_assoc(mysqli_query($conexao,$sql));
             if($valida_login == 1)
             {
+                $_SESSION['id_personagem'] = $id_player['id_personagem'];
                 $_SESSION['usuario'] = $id_player['id_player'];
                 $id_player = $_SESSION['usuario'];
+                $id_personagem = $_SESSION['id_personagem'];
                 $sql = "SELECT nick, lv, xp, xp_max, c.nome, sta, atk, def, spd 
                 FROM rpg.personagens p 
                 JOIN rpg.classes c ON c.id_classe = p.id_classe
                 JOIN rpg.atributos a ON c.id_classe = a.id_classe 
-                WHERE p.id_personagem = '{$id_player}'";
+                WHERE p.id_personagem = '{$id_personagem}'";
                 $info_player = mysqli_fetch_assoc(mysqli_query($conexao,$sql));
 
 //lista equipamentos

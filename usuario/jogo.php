@@ -1,6 +1,7 @@
-    <?php
+<?php
         include "conexao.php";
         $id_player = $_SESSION['usuario'];
+        $id_personagem = $_SESSION['id_personagem'];
         $nick = $_SESSION['nick'];
         $level = $_SESSION['lv'];
         $xp = $_SESSION['xp'];
@@ -12,6 +13,7 @@
         $spd = $_SESSION['spd'];
         $porcentagem_xp = $xp*100/$xp_max;
         if ($porcentagem_xp<0) $porcentagem_xp = 0;
+
     ?>
     
     <div id="painel_principal">
@@ -47,4 +49,4 @@
         <a href="?pagina=batalha&id=4" ><div class="avatar_inimigo_selecao" id="Lobo"></div></a>
         <a href="?pagina=batalha&id=3" ><div class="avatar_inimigo_selecao" id="Drag"></div></a>
         </div>
-    </div>
+         </div>
