@@ -3,8 +3,8 @@
 <div id="logo"></div>
 <nav>
     <ul>
-        <li><a href = "http://localhost/rpgbrowser"> Página Inicial</a></li>
-        <li><a href = "http://localhost/rpgbrowser/index.php?pagina=cadastrar">Cadastrar</a></li>
+        <li><a href = "http://localhost/rpg"> Página Inicial</a></li>
+        <li><a href = "http://localhost/rpg/index.php?pagina=cadastrar">Cadastrar</a></li>
     </ul>
 </nav>
 
