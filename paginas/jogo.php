@@ -8,9 +8,9 @@
         $xp_max = $_SESSION['xp_max'];
         $classe = $_SESSION['classe'];
         $sta = $_SESSION['sta'];
-        $atk = $_SESSION['atk'];
-        $def = $_SESSION['def'];
-        $spd = $_SESSION['spd'];
+        $str = $_SESSION['str'];
+        $int = $_SESSION['int'];
+        $dex = $_SESSION['dex'];
         $porcentagem_xp = $xp*100/$xp_max;
         if ($porcentagem_xp<0) $porcentagem_xp = 0;
 
@@ -34,11 +34,11 @@
                 <div  id="xp_atual" style="width: <?php echo $porcentagem_xp?>%" > <?php echo "{$xp}/{$xp_max}" ?></div>
         </div>
         <br><br><br><p id="lista_atributos">NICK - <?php echo $nick?></p>
-        <br><p id="lista_atributos">Level - <?php echo $level?></p>
+        <br><p id="lista_atributos">LEVEL - <?php echo $level?></p>
         <br><p id="lista_atributos">STA - <?php echo $sta?></p>
-        <br><p id="lista_atributos">ATK - <?php echo $atk?></p>
-        <br><p id="lista_atributos">DEF - <?php echo $def?></p>
-        <br><p id="lista_atributos">SPD - <?php echo $spd?></p>
+        <br><p id="lista_atributos">STR - <?php echo $str?></p>
+        <br><p id="lista_atributos">INT - <?php echo $int?></p>
+        <br><p id="lista_atributos">DEX - <?php echo $dex?></p>
 
         </div>
 

@@ -24,30 +24,30 @@ if(isset($_GET['pagina']))
         
         if(isset($_SESSION['usuario'])) 
         {
-            if($pagina == "jogo") include "usuario/jogo.php";
-            elseif($pagina == "login") include "usuario/jogo.php";
-            elseif($pagina == "cadastrar") include "usuario/cadastrar.php";
-            elseif($pagina == "sair") include "usuario/sair.php";
-            elseif($pagina == "batalha") include "usuario/batalha.php";
-            else include "usuario/jogo.php";
+            if($pagina == "jogo") include "paginas/jogo.php";
+            elseif($pagina == "login") include "paginas/jogo.php";
+            elseif($pagina == "cadastrar") include "paginas/cadastrar.php";
+            elseif($pagina == "sair") include "paginas/sair.php";
+            elseif($pagina == "batalha") include "paginas/batalha.php";
+            else include "paginas/jogo.php";
 
         }
         else{
-            if($pagina == "jogo") include "usuario/login.php";
-            elseif($pagina == "login") include "usuario/login.php";
-            elseif($pagina == "cadastrar") include "usuario/cadastrar.php";
-            elseif($pagina == "sair") include "usuario/login.php";
-            else include "usuario/login.php";
+            if($pagina == "jogo") include "paginas/login.php";
+            elseif($pagina == "login") include "paginas/login.php";
+            elseif($pagina == "cadastrar") include "paginas/cadastrar.php";
+            elseif($pagina == "sair") include "paginas/login.php";
+            else include "paginas/login.php";
         }
     }
     else {
-        if(isset($_SESSION['usuario'])) include "usuario/jogo.php";
-        else include "usuario/login.php";
+        if(isset($_SESSION['usuario'])) include "paginas/jogo.php";
+        else include "paginas/login.php";
         }
 }
 else {
-    if(isset($_SESSION['usuario'])) include "usuario/jogo.php";
-    else include "usuario/login.php";
+    if(isset($_SESSION['usuario'])) include "paginas/jogo.php";
+    else include "paginas/login.php";
     }
 ?>
 

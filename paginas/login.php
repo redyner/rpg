@@ -27,7 +27,7 @@
                 $_SESSION['usuario'] = $id_player['id_player'];
                 $id_player = $_SESSION['usuario'];
                 $id_personagem = $_SESSION['id_personagem'];
-                $sql = "SELECT nick, lv, xp, xp_max, c.nome, sta, atk, def, spd 
+                $sql = "SELECT nick, lv, xp, xp_max, c.nm_classe, sta, str, int, dex 
                 FROM rpg.personagens p 
                 JOIN rpg.classes c ON c.id_classe = p.id_classe
                 JOIN rpg.atributos a ON c.id_classe = a.id_classe 
@@ -35,7 +35,7 @@
                 $info_player = mysqli_fetch_assoc(mysqli_query($conexao,$sql));
 
 //lista equipamentos
-                // $sql = "SELECT sta,atk,def,spd,refino
+                // $sql = "SELECT sta,str,int,dex,refino
                 // FROM rpg.iventarios i
                 // JOIN rpg.personagens p ON p.id_personagem = i.id_personagem
                 // JOIN rpg.atributos a ON i.id_item = a.id_item
@@ -49,7 +49,7 @@
                 // }
                 // $item_slot1 = $equipamentos['slot1']['sta'];
 
-                $sql = "SELECT sum(sta*(refino+1)) sta, sum(atk*(refino+1)) atk, sum(def*(refino+1)) def, sum(spd*(refino+1)) spd, refino
+                $sql = "SELECT sum(sta*(refino+1)) sta, sum(str*(refino+1)) str, sum(int*(refino+1)) int, sum(dex*(refino+1)) dex, refino
                 FROM rpg.iventarios i
                 JOIN rpg.personagens p ON p.id_personagem = i.id_personagem
                 JOIN rpg.atributos a ON i.id_item = a.id_item
@@ -58,19 +58,19 @@
 
 
                 $_SESSION['sta_itens_equipados']=$equipamento['sta'];
-                $_SESSION['atk_itens_equipados']=$equipamento['atk'];
-                $_SESSION['def_itens_equipados']=$equipamento['def'];
-                $_SESSION['spd_itens_equipados']=$equipamento['spd'];
+                $_SESSION['str_itens_equipados']=$equipamento['str'];
+                $_SESSION['int_itens_equipados']=$equipamento['int'];
+                $_SESSION['dex_itens_equipados']=$equipamento['dex'];
                 $_SESSION['nick'] = $info_player['nick'];
                 $_SESSION['lv'] = $info_player['lv'];
                 $_SESSION['xp'] = $info_player['xp'];
                 $_SESSION['xp_max'] = $info_player['xp_max'];
                 $_SESSION['classe']  = $info_player['nome'];
                 $_SESSION['sta'] = (($info_player['sta']*10)+($info_player['lv']*$info_player['sta']))+$equipamento['sta'];
-                $_SESSION['atk'] = ($info_player['atk']+($info_player['lv']*$info_player['atk']))+$equipamento['sta'];
-                $_SESSION['def']  = ($info_player['def']+($info_player['lv']*$info_player['def']))+$equipamento['sta'];
-                $_SESSION['spd']  = ($info_player['spd']+($info_player['lv']*$info_player['spd']))+$equipamento['sta'];
-                $_SESSION['crit'] = $_SESSION['atk']*2;
+                $_SESSION['str'] = ($info_player['str']+($info_player['lv']*$info_player['str']))+$equipamento['sta'];
+                $_SESSION['int']  = ($info_player['int']+($info_player['lv']*$info_player['int']))+$equipamento['sta'];
+                $_SESSION['dex']  = ($info_player['dex']+($info_player['lv']*$info_player['dex']))+$equipamento['sta'];
+                $_SESSION['crit'] = $_SESSION['str']*2;
 
                 header("location: http://localhost/rpg/index.php?pagina=jogo");
             }else echo "Login ou senha incorretos!";

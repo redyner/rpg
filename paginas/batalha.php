@@ -6,9 +6,9 @@
         $xp = $_SESSION['xp'];
         $xp_max = $_SESSION['xp_max'];
         $sta_personagem = $_SESSION['sta'];
-        $atk_personagem = $_SESSION['atk'];
-        $def_personagem  = $_SESSION['def'];
-        $spd_personagem  = $_SESSION['spd'];
+        $str_personagem = $_SESSION['str'];
+        $int_personagem  = $_SESSION['int'];
+        $dex_personagem  = $_SESSION['dex'];
         $crit_personagem = $_SESSION['crit'];
         $porcentagem_xp = $xp*100/$xp_max;
         if ($porcentagem_xp<0) $porcentagem_xp = 0;
@@ -40,13 +40,13 @@
 <?php
 
     $id = $_GET['id'];
-    $sql = "SELECT sta, atk, def, spd FROM rpg.atributos a JOIN rpg.inimigos i ON i.id_inimigo = a.id_inimigo WHERE i.id_inimigo = '{$id}'";
+    $sql = "SELECT sta, str, int, dex FROM rpg.atributos a JOIN rpg.inimigos i ON i.id_inimigo = a.id_inimigo WHERE i.id_inimigo = '{$id}'";
     $atributos_inimigo = mysqli_fetch_assoc(mysqli_query($conexao,$sql));
     $sta_inimigo = $atributos_inimigo['sta'];
-    $atk_inimigo = $atributos_inimigo['atk'];
-    $def_inimigo  = $atributos_inimigo['def'];
-    $spd_inimigo  = $atributos_inimigo['spd'];
-    $crit_inimigo = $atributos_inimigo['atk']*2;
+    $str_inimigo = $atributos_inimigo['str'];
+    $int_inimigo  = $atributos_inimigo['int'];
+    $dex_inimigo  = $atributos_inimigo['dex'];
+    $crit_inimigo = $atributos_inimigo['str']*2;
 
 
 if(isset($_POST['atacar']))
@@ -61,10 +61,10 @@ if(isset($_POST['atacar']))
         $taxa_crit_personagem = rand(1,100);
         $taxa_crit_inimigo = rand(1,100);
 
-        if($spd_personagem>$spd_inimigo)
+        if($dex_personagem>$dex_inimigo)
         {
-            if($taxa_crit_personagem<=$spd_personagem){
-            $taxa_bloqueio_inimigo = rand(0,$atributos_inimigo['def']); 
+            if($taxa_crit_personagem<=$dex_personagem){
+            $taxa_bloqueio_inimigo = rand(0,$atributos_inimigo['int']); 
             $dano_final = $crit_personagem - $taxa_bloqueio_inimigo;
             if ($dano_final <0) $dano_final = 0;
             echo "<br><br>você causou {$dano_final} de dano crítico!<br>";
@@ -76,8 +76,8 @@ if(isset($_POST['atacar']))
             </div><br>";
             }else
             {
-                $taxa_bloqueio_inimigo = rand(0,$atributos_inimigo['def']); 
-                $dano_final = $atk_personagem - $taxa_bloqueio_inimigo;
+                $taxa_bloqueio_inimigo = rand(0,$atributos_inimigo['int']); 
+                $dano_final = $str_personagem - $taxa_bloqueio_inimigo;
                 if ($dano_final <0) $dano_final = 0;
                 echo "<br><br>você causou {$dano_final} de dano<br>";
                 $sta_batalha_inimigo -= $dano_final;
@@ -87,8 +87,8 @@ if(isset($_POST['atacar']))
                 <div  id='hp_atual' style='width: {$porcentagem_sta_inimigo}%' > {$sta_batalha_inimigo}/{$sta_inimigo} </div>
                 </div><br>";
             }
-            if($taxa_crit_inimigo<=$spd_inimigo&&$sta_batalha_inimigo>0){
-                $taxa_bloqueio_personagem = rand(0,$_SESSION['def']); 
+            if($taxa_crit_inimigo<=$dex_inimigo&&$sta_batalha_inimigo>0){
+                $taxa_bloqueio_personagem = rand(0,$_SESSION['int']); 
                 $dano_final = $crit_inimigo - $taxa_bloqueio_personagem;
                 if ($dano_final <0) $dano_final = 0;
                 echo "<br><br>você recebeu {$dano_final} de dano crítico!<br>";
@@ -100,8 +100,8 @@ if(isset($_POST['atacar']))
             </div><br>";
             }elseif($sta_batalha_inimigo>0)
             {
-                $taxa_bloqueio_personagem = rand(0,$_SESSION['def']); 
-                $dano_final = $atributos_inimigo['atk'] - $taxa_bloqueio_personagem;
+                $taxa_bloqueio_personagem = rand(0,$_SESSION['int']); 
+                $dano_final = $atributos_inimigo['str'] - $taxa_bloqueio_personagem;
                 if ($dano_final <0) $dano_final = 0;
                 echo "<br><br>você recebeu {$dano_final} de dano<br>";
                 $sta_batalha_personagem -= $dano_final;
@@ -113,8 +113,8 @@ if(isset($_POST['atacar']))
             }
         }else
         {
-            if($taxa_crit_inimigo<=$spd_inimigo&&$sta_batalha_inimigo>0){
-                $taxa_bloqueio_personagem = rand(0,$_SESSION['def']); 
+            if($taxa_crit_inimigo<=$dex_inimigo&&$sta_batalha_inimigo>0){
+                $taxa_bloqueio_personagem = rand(0,$_SESSION['int']); 
                 $dano_final = $crit_inimigo - $taxa_bloqueio_personagem;
                 if ($dano_final <0) $dano_final = 0;
                 echo "<br><br>você recebeu {$dano_final} de dano crítico!<br>";
@@ -126,8 +126,8 @@ if(isset($_POST['atacar']))
                 </div><br>";
                 }else
                 {
-                    $taxa_bloqueio_personagem = rand(0,$_SESSION['def']); 
-                    $dano_final = $atributos_inimigo['atk'] - $taxa_bloqueio_personagem;
+                    $taxa_bloqueio_personagem = rand(0,$_SESSION['int']); 
+                    $dano_final = $atributos_inimigo['str'] - $taxa_bloqueio_personagem;
                     if ($dano_final <0) $dano_final = 0;
                     echo "<br><br>você recebeu {$dano_final} de dano<br>";
                     $sta_batalha_personagem -= $dano_final;
@@ -137,8 +137,8 @@ if(isset($_POST['atacar']))
                     <div  id='hp_atual' style='width: {$porcentagem_sta_personagem}%' > {$sta_batalha_personagem}/{$sta_personagem} </div>
                     </div><br>";
                 }
-            if($taxa_crit_personagem<=$spd_personagem&&$sta_batalha_personagem>0){
-                $taxa_bloqueio_inimigo = rand(0,$atributos_inimigo['def']); 
+            if($taxa_crit_personagem<=$dex_personagem&&$sta_batalha_personagem>0){
+                $taxa_bloqueio_inimigo = rand(0,$atributos_inimigo['int']); 
                 $dano_final = $crit_personagem - $taxa_bloqueio_inimigo;
                 if ($dano_final <0) $dano_final = 0;
                 echo "<br><br>você causou {$dano_final} de dano crítico!<br>";
@@ -150,8 +150,8 @@ if(isset($_POST['atacar']))
                 </div><br>";
                 }elseif($sta_batalha_personagem>0)
                 {
-                    $taxa_bloqueio_inimigo = rand(0,$atributos_inimigo['def']); 
-                    $dano_final = $atk_personagem - $taxa_bloqueio_inimigo;
+                    $taxa_bloqueio_inimigo = rand(0,$atributos_inimigo['int']); 
+                    $dano_final = $str_personagem - $taxa_bloqueio_inimigo;
                     if ($dano_final <0) $dano_final = 0;
                     echo "<br><br>você causou {$dano_final} de dano<br>";
                     $sta_batalha_inimigo -= $dano_final;
@@ -176,7 +176,7 @@ if(isset($_POST['atacar']))
             $xp_max = $xp_max + 50*$_SESSION['lv'];      
             $sql = "UPDATE `personagens` SET `lv` = {$lv}, `xp_max` = {$xp_max}, `xp` = {$xp}  WHERE id_personagem = '{$id_player}'";
             mysqli_query($conexao,$sql);
-            $sql = "SELECT `lv`, `xp`, `xp_max`, `sta` , `atk`, `def` ,`spd`  
+            $sql = "SELECT `lv`, `xp`, `xp_max`, `sta` , `str`, `int` ,`dex`  
             FROM rpg.personagens p
             JOIN rpg.atributos a ON a.id_classe = p.id_classe
             WHERE p.id_personagem = '{$id_player}'";
@@ -185,10 +185,10 @@ if(isset($_POST['atacar']))
             $_SESSION['xp'] = $level_up['xp'];
             $_SESSION['xp_max'] = $level_up['xp_max'];
             $_SESSION['sta'] += $level_up['sta'];
-            $_SESSION['atk'] += $level_up['atk'];
-            $_SESSION['def'] += $level_up['def'];
-            $_SESSION['spd'] += $level_up['spd'];
-            $_SESSION['crit'] = $_SESSION['atk']*2;
+            $_SESSION['str'] += $level_up['str'];
+            $_SESSION['int'] += $level_up['int'];
+            $_SESSION['dex'] += $level_up['dex'];
+            $_SESSION['crit'] = $_SESSION['str']*2;
             echo "<br><br>Parabéns, você subiu de nivel";
         }
         else{
