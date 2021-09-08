@@ -70,7 +70,7 @@
                 $_SESSION['spd']  = ($info_player['spd']+($info_player['lv']*$info_player['spd']))+$equipamento['sta'];
                 $_SESSION['crit'] = $_SESSION['atk']*2;
 
-                header("location: http://localhost/rpgbrowser/index.php?pagina=jogo");
+                header("location: http://localhost/rpg/index.php?pagina=jogo");
             }else echo "Login ou senha incorretos!";
            }
         }

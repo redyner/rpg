@@ -177,6 +177,11 @@ background-image: url(../imagens/barras/barra_roxa.jpg);
     background-image: url(../imagens/inimigos/drag.jpg);
 }
 
+#Lobo{
+    background-size:contain;
+    background-image: url(../imagens/inimigos/lobo.jpg);
+}
+
 #warrior{
     background-size: 250px 300px;
     background-image: url(../imagens/classes/warrior.jpg);

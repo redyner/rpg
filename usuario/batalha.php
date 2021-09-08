@@ -173,7 +173,7 @@ if(isset($_POST['atacar']))
             $lv += 1;
             $xp_atual = $xp - $xp_max;  
             $xp = $xp_atual;
-            $xp_max = $xp_max * 50 / 100 + $xp_max +100;             
+            $xp_max = $xp_max + 50*$_SESSION['lv'];      
             $sql = "UPDATE `personagens` SET `lv` = {$lv}, `xp_max` = {$xp_max}, `xp` = {$xp}  WHERE id_personagem = '{$id_player}'";
             mysqli_query($conexao,$sql);
             $sql = "SELECT `lv`, `xp`, `xp_max`, `sta` , `atk`, `def` ,`spd`  
