@@ -40,7 +40,7 @@
 <?php
 
     $id = $_GET['id'];
-    $sql = "SELECT sta, str, int, dex FROM rpg.atributos a JOIN rpg.inimigos i ON i.id_inimigo = a.id_inimigo WHERE i.id_inimigo = '{$id}'";
+    $sql = "SELECT sta, `str`, `int`, dex FROM rpg.atributos a JOIN rpg.inimigos i ON i.id_inimigo = a.id_inimigo WHERE i.id_inimigo = '{$id}'";
     $atributos_inimigo = mysqli_fetch_assoc(mysqli_query($conexao,$sql));
     $sta_inimigo = $atributos_inimigo['sta'];
     $str_inimigo = $atributos_inimigo['str'];
