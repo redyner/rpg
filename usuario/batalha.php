@@ -64,8 +64,11 @@ if(isset($_POST['atacar']))
         if($spd_personagem>$spd_inimigo)
         {
             if($taxa_crit_personagem<=$spd_personagem){
-            echo "<br><br>você causou {$crit_personagem} de dano crítico!<br>";
-            $sta_batalha_inimigo -= $crit_personagem;
+            $taxa_bloqueio_inimigo = rand(0,$atributos_inimigo['def']); 
+            $dano_final = $crit_personagem - $taxa_bloqueio_inimigo;
+            if ($dano_final <0) $dano_final = 0;
+            echo "<br><br>você causou {$dano_final} de dano crítico!<br>";
+            $sta_batalha_inimigo -= $dano_final;
             $porcentagem_sta_inimigo = $sta_batalha_inimigo*100/$sta_inimigo;
             if ($porcentagem_sta_inimigo<0) $porcentagem_sta_inimigo = 0;
             echo "<div class='barra' id='hp'>
@@ -73,8 +76,11 @@ if(isset($_POST['atacar']))
             </div><br>";
             }else
             {
-                echo "<br><br>você causou {$atk_personagem} de dano<br>";
-                $sta_batalha_inimigo -= $atk_personagem;
+                $taxa_bloqueio_inimigo = rand(0,$atributos_inimigo['def']); 
+                $dano_final = $atk_personagem - $taxa_bloqueio_inimigo;
+                if ($dano_final <0) $dano_final = 0;
+                echo "<br><br>você causou {$dano_final} de dano<br>";
+                $sta_batalha_inimigo -= $dano_final;
                 $porcentagem_sta_inimigo = $sta_batalha_inimigo*100/$sta_inimigo;
                 if ($porcentagem_sta_inimigo<0) $porcentagem_sta_inimigo = 0;
                 echo "<div class='barra' id='hp'>
@@ -82,8 +88,11 @@ if(isset($_POST['atacar']))
                 </div><br>";
             }
             if($taxa_crit_inimigo<=$spd_inimigo&&$sta_batalha_inimigo>0){
-            echo "<br><br>você recebeu {$crit_inimigo} de dano crítico!<br>";
-            $sta_batalha_personagem -= $crit_inimigo;
+                $taxa_bloqueio_personagem = rand(0,$_SESSION['def']); 
+                $dano_final = $crit_inimigo - $taxa_bloqueio_personagem;
+                if ($dano_final <0) $dano_final = 0;
+                echo "<br><br>você recebeu {$dano_final} de dano crítico!<br>";
+            $sta_batalha_personagem -= $dano_final;
             $porcentagem_sta_personagem = $sta_batalha_personagem*100/$sta_personagem;
             if ($porcentagem_sta_personagem<0) $porcentagem_sta_personagem = 0;
             echo "<div class='barra' id='hp'>
@@ -91,8 +100,11 @@ if(isset($_POST['atacar']))
             </div><br>";
             }elseif($sta_batalha_inimigo>0)
             {
-                echo "<br><br>você recebeu {$atk_inimigo} de dano<br>";
-                $sta_batalha_personagem -= $atk_inimigo;
+                $taxa_bloqueio_personagem = rand(0,$_SESSION['def']); 
+                $dano_final = $atributos_inimigo['atk'] - $taxa_bloqueio_personagem;
+                if ($dano_final <0) $dano_final = 0;
+                echo "<br><br>você recebeu {$dano_final} de dano<br>";
+                $sta_batalha_personagem -= $dano_final;
                 $porcentagem_sta_personagem = $sta_batalha_personagem*100/$sta_personagem;
                 if ($porcentagem_sta_personagem<0) $porcentagem_sta_personagem = 0;
                 echo "<div class='barra' id='hp'>
@@ -102,8 +114,11 @@ if(isset($_POST['atacar']))
         }else
         {
             if($taxa_crit_inimigo<=$spd_inimigo&&$sta_batalha_inimigo>0){
-                echo "<br><br>você recebeu {$crit_inimigo} de dano crítico!<br>";
-                $sta_batalha_personagem -= $crit_inimigo;
+                $taxa_bloqueio_personagem = rand(0,$_SESSION['def']); 
+                $dano_final = $crit_inimigo - $taxa_bloqueio_personagem;
+                if ($dano_final <0) $dano_final = 0;
+                echo "<br><br>você recebeu {$dano_final} de dano crítico!<br>";
+                $sta_batalha_personagem -= $dano_final;
                 $porcentagem_sta_personagem = $sta_batalha_personagem*100/$sta_personagem;
                 if ($porcentagem_sta_personagem<0) $porcentagem_sta_personagem = 0;
                 echo "<div class='barra' id='hp'>
@@ -111,8 +126,11 @@ if(isset($_POST['atacar']))
                 </div><br>";
                 }else
                 {
-                    echo "<br><br>você recebeu {$atk_inimigo} de dano<br>";
-                    $sta_batalha_personagem -= $atk_inimigo;
+                    $taxa_bloqueio_personagem = rand(0,$_SESSION['def']); 
+                    $dano_final = $atributos_inimigo['atk'] - $taxa_bloqueio_personagem;
+                    if ($dano_final <0) $dano_final = 0;
+                    echo "<br><br>você recebeu {$dano_final} de dano<br>";
+                    $sta_batalha_personagem -= $dano_final;
                     $porcentagem_sta_personagem = $sta_batalha_personagem*100/$sta_personagem;
                     if ($porcentagem_sta_personagem<0) $porcentagem_sta_personagem = 0;
                     echo "<div class='barra' id='hp'>
@@ -120,8 +138,11 @@ if(isset($_POST['atacar']))
                     </div><br>";
                 }
             if($taxa_crit_personagem<=$spd_personagem&&$sta_batalha_personagem>0){
-                echo "<br><br>você causou {$crit_personagem} de dano crítico!<br>";
-                $sta_batalha_inimigo -= $crit_personagem;
+                $taxa_bloqueio_inimigo = rand(0,$atributos_inimigo['def']); 
+                $dano_final = $crit_personagem - $taxa_bloqueio_inimigo;
+                if ($dano_final <0) $dano_final = 0;
+                echo "<br><br>você causou {$dano_final} de dano crítico!<br>";
+                $sta_batalha_inimigo -= $dano_final;
                 $porcentagem_sta_inimigo = $sta_batalha_inimigo*100/$sta_inimigo;
                 if ($porcentagem_sta_inimigo<0) $porcentagem_sta_inimigo = 0;
                 echo "<div class='barra' id='hp'>
@@ -129,8 +150,11 @@ if(isset($_POST['atacar']))
                 </div><br>";
                 }elseif($sta_batalha_personagem>0)
                 {
-                    echo "<br><br>você causou {$atk_personagem} de dano<br>";
-                    $sta_batalha_inimigo -= $atk_personagem;
+                    $taxa_bloqueio_inimigo = rand(0,$atributos_inimigo['def']); 
+                    $dano_final = $atk_personagem - $taxa_bloqueio_inimigo;
+                    if ($dano_final <0) $dano_final = 0;
+                    echo "<br><br>você causou {$dano_final} de dano<br>";
+                    $sta_batalha_inimigo -= $dano_final;
                     $porcentagem_sta_inimigo = $sta_batalha_inimigo*100/$sta_inimigo;
                     if ($porcentagem_sta_inimigo<0) $porcentagem_sta_inimigo = 0;
                     echo "<div class='barra' id='hp'>
