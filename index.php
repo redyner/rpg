@@ -22,7 +22,7 @@ if(isset($_GET['pagina']))
 
     if (!empty($pagina)){
         
-        if(isset($_SESSION['usuario'])) 
+        if(isset($_SESSION['id_player'])) 
         {
             if($pagina == "jogo") include "paginas/jogo.php";
             elseif($pagina == "login") include "paginas/jogo.php";
@@ -41,12 +41,12 @@ if(isset($_GET['pagina']))
         }
     }
     else {
-        if(isset($_SESSION['usuario'])) include "paginas/jogo.php";
+        if(isset($_SESSION['id_player'])) include "paginas/jogo.php";
         else include "paginas/login.php";
         }
 }
 else {
-    if(isset($_SESSION['usuario'])) include "paginas/jogo.php";
+    if(isset($_SESSION['id_player'])) include "paginas/jogo.php";
     else include "paginas/login.php";
     }
 ?>

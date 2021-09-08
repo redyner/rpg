@@ -1,6 +1,6 @@
 <?php
         include "conexao.php";
-        $id_player = $_SESSION['usuario'];
+        $id_player = $_SESSION['id_player'];
         $classe = $_SESSION['classe'];
         $lv = $_SESSION['lv'];
         $xp = $_SESSION['xp'];
@@ -14,9 +14,9 @@
         if ($porcentagem_xp<0) $porcentagem_xp = 0;
 
         $id = $_GET['id'];
-        $sql = "SELECT nick FROM inimigos WHERE id_inimigo = '{$id}'";
+        $sql = "SELECT nm_inimigo FROM inimigos WHERE id_inimigo = '{$id}'";
         $nick_inimigo = mysqli_fetch_assoc(mysqli_query($conexao,$sql));
-        $nick_inimigo = $nick_inimigo['nick'];
+        $nick_inimigo = $nick_inimigo['nm_inimigo'];
 
     ?>
     

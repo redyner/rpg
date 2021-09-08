@@ -1,17 +1,6 @@
 <?php
         include "conexao.php";
-        $id_player = $_SESSION['usuario'];
-        $id_personagem = $_SESSION['id_personagem'];
-        $nick = $_SESSION['nick'];
-        $level = $_SESSION['lv'];
-        $xp = $_SESSION['xp'];
-        $xp_max = $_SESSION['xp_max'];
-        $classe = $_SESSION['classe'];
-        $sta = $_SESSION['sta'];
-        $str = $_SESSION['str'];
-        $int = $_SESSION['int'];
-        $dex = $_SESSION['dex'];
-        $porcentagem_xp = $xp*100/$xp_max;
+        $porcentagem_xp = $_SESSION['xp']*100/$_SESSION['xp_max'];
         if ($porcentagem_xp<0) $porcentagem_xp = 0;
 
     ?>
@@ -27,18 +16,18 @@
 
         <div id="painel_personagem">
         
-        <a href="" ><div class="avatar_personagem_selecao" id = "<?php echo $classe ?>"></div></a>
+        <a href="" ><div class="avatar_personagem_selecao" id = "<?php echo $_SESSION['classe'] ?>"></div></a>
         <div id="atributos_personagem">
         <br><p id="atributo_xp">EXP</p>
         <div class="barra" id="barra_xp">
-                <div  id="xp_atual" style="width: <?php echo $porcentagem_xp?>%" > <?php echo "{$xp}/{$xp_max}" ?></div>
+                <div  id="xp_atual" style="width: <?php echo $porcentagem_xp?>%" > <?php echo "{$_SESSION['xp']}/{$_SESSION['xp_max']}" ?></div>
         </div>
-        <br><br><br><p id="lista_atributos">NICK - <?php echo $nick?></p>
-        <br><p id="lista_atributos">LEVEL - <?php echo $level?></p>
-        <br><p id="lista_atributos">STA - <?php echo $sta?></p>
-        <br><p id="lista_atributos">STR - <?php echo $str?></p>
-        <br><p id="lista_atributos">INT - <?php echo $int?></p>
-        <br><p id="lista_atributos">DEX - <?php echo $dex?></p>
+        <br><br><br><p id="lista_atributos">NICK - <?php echo $_SESSION['nick']?></p>
+        <br><p id="lista_atributos">LEVEL - <?php echo $_SESSION['lv']?></p>
+        <br><p id="lista_atributos">STA - <?php echo $_SESSION['sta']?></p>
+        <br><p id="lista_atributos">STR - <?php echo $_SESSION['str']?></p>
+        <br><p id="lista_atributos">INT - <?php echo $_SESSION['int']?></p>
+        <br><p id="lista_atributos">DEX - <?php echo $_SESSION['dex']?></p>
 
         </div>
 
@@ -46,7 +35,7 @@
         <div id="selecao_inimigo">
         <a href="?pagina=batalha&id=1" ><span class="avatar_inimigo_selecao" id="Javali"></span></a>
         <a href="?pagina=batalha&id=2" ><div class="avatar_inimigo_selecao" id="Urso"></div></a>
-        <a href="?pagina=batalha&id=4" ><div class="avatar_inimigo_selecao" id="Lobo"></div></a>
-        <a href="?pagina=batalha&id=3" ><div class="avatar_inimigo_selecao" id="Drag"></div></a>
+        <a href="?pagina=batalha&id=3" ><div class="avatar_inimigo_selecao" id="Lobo"></div></a>
+        <a href="?pagina=batalha&id=4" ><div class="avatar_inimigo_selecao" id="Drag"></div></a>
         </div>
          </div>
