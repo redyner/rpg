@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 07-Set-2021 às 21:56
+-- Tempo de geração: 08-Set-2021 às 01:26
 -- Versão do servidor: 5.7.31
 -- versão do PHP: 7.4.9
 
@@ -177,7 +177,7 @@ CREATE TABLE IF NOT EXISTS `personagens` (
 --
 
 INSERT INTO `personagens` (`id_personagem`, `nick`, `xp`, `xp_max`, `lv`, `id_classe`) VALUES
-(1, 'Apolo', 0, 250, 2, 1);
+(1, 'Apolo', 0, 25773, 12, 1);
 
 -- --------------------------------------------------------
 

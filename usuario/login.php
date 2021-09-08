@@ -39,12 +39,13 @@
                 // JOIN rpg.atributos a ON i.id_item = a.id_item
                 // WHERE i.id_personagem = '{$id_player}' AND slot IS NULL";
                 // $equipamento = mysqli_query($conexao,$sql);
-                // $i=0;
-                // $equipamentos[] = '';
-                // while($i<($equipamento->num_rows)){
-                // $equipamentos[$i] = mysqli_fetch_assoc($equipamento);
+                // $i=1;
+                // $equipamentos['slot1'] = '';
+                // while($i<=($equipamento->num_rows)){
+                // $equipamentos["slot".$i] = mysqli_fetch_assoc($equipamento);
                 // $i = $i+1;
                 // }
+                // $item_slot1 = $equipamentos['slot1']['sta'];
 
                 $sql = "SELECT sum(sta*(refino+1)) sta, sum(atk*(refino+1)) atk, sum(def*(refino+1)) def, sum(spd*(refino+1)) spd, refino
                 FROM rpg.iventarios i
