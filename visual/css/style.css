@@ -238,7 +238,7 @@ text-align: center;
 
 }
 #floresta{
-    margin: 10px 15px 10px;
+    margin: 50px 15px 10px;
     width: 225px;
     height: 200px;
     float: left;
@@ -246,7 +246,7 @@ text-align: center;
     background-size: cover;
 }
 #gruta{
-    margin: 10px 15px 10px;
+    margin: 50px 15px 10px;
     width: 225x;
     height: 200px;
     float: left;
@@ -254,7 +254,7 @@ text-align: center;
     background-size: cover;
 }
 #planice{
-    margin: 10px 10px 10px;
+    margin: 50px 10px 10px;
     width: 225px;
     height: 200px;
     float: left;
