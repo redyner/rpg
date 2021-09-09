@@ -18,8 +18,8 @@
         <div id="painel_personagem">
         
         <div class="dungeon" id = "floresta"></div>
-        <div class="dungeon" id = "gruta"></div>
         <div class="dungeon" id = "planice"></div>
+        <div class="dungeon" id = "gruta"></div>
 
         </div>
         <div id="selecao_inimigo">
