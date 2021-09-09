@@ -3,7 +3,7 @@
     <div id="logo"></div>
 <nav>
     <ul>
-        <li><a href = "http://localhost/rpg"> Página Inicial</a></li>
+        <li><a href = "http://localhost/rpg"> Pagina Inicial</a></li>
     </ul>
 </nav>
         

@@ -25,7 +25,7 @@
     <div id="logo"></div>
         <nav>
             <ul>
-                <li><a href="http://localhost/rpg"> Página Inicial</a></li>
+                <li><a href="http://localhost/rpg"> Pagina Inicial</a></li>
                 <li><a href="http://localhost/rpg/index.php?pagina=sair">Sair</a></li>
             </ul>
         </nav>
