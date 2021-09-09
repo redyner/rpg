@@ -11,6 +11,7 @@
             <ul>
                 <li><a href="http://localhost/rpg"> Página Inicial</a></li>
                 <li><a href="http://localhost/rpg/index.php?pagina=sair">Sair</a></li>
+                <li id="gold" style="float: right;">GOLD - <?php echo $_SESSION['gold']?></li>
             </ul>
         </nav>
 
@@ -27,7 +28,7 @@
         <br><p id="lista_atributos">STA - <?php echo $_SESSION['sta']?></p>
         <br><p id="lista_atributos">STR - <?php echo $_SESSION['str']?></p>
         <br><p id="lista_atributos">INT - <?php echo $_SESSION['int']?></p>
-        <br><p id="lista_atributos">DEX - <?php echo $_SESSION['dex']?></p>
+        <br><p id="lista_atributos">DEX - <?php echo $_SESSION['dex']?></p> 
 
         </div>
 
