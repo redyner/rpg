@@ -228,6 +228,21 @@ background-image: url(../imagens/barras/barra_roxa.jpg);
     background-image: url(../imagens/inimigos/lobo.jpg);
 }
 
+#Goblin{
+    background-size:contain;
+    background-image: url(../imagens/inimigos/goblin.jpg);
+}
+
+#Orc{
+    background-size:contain;
+    background-image: url(../imagens/inimigos/orc.jpg);
+}
+
+#Boss{
+    background-size:contain;
+    background-image: url(../imagens/inimigos/boss.jpg);
+}
+
 #warrior{
     background-size: 250px 300px;
     background-image: url(../imagens/classes/warrior.jpg);
