@@ -28,6 +28,7 @@
             {
                 $_SESSION['id_personagem'] = $info_player['id_personagem'];
                 $_SESSION['id_player'] = $info_player['id_player'];
+                $_SESSION['gold'] = $info_player['gold'];
                 $info_player = $_SESSION['id_player'];
                 $id_personagem = $_SESSION['id_personagem'];
                 $sql = "SELECT nick, lv, xp, xp_max, c.nm_classe, sta, `str`, `int`, dex 
