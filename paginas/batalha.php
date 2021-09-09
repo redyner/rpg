@@ -67,7 +67,7 @@ if(isset($_POST['atacar']))
             $taxa_bloqueio_inimigo = rand(0,$atributos_inimigo['int']); 
             $dano_final = $crit_personagem - $taxa_bloqueio_inimigo;
             if ($dano_final <0) $dano_final = 0;
-            echo "<br><br>você causou {$dano_final} de dano crítico!<br>";
+            echo "<br><br><p id='fonte_combate'>Voce causou {$dano_final} de dano crítico!</p><br>";
             $sta_batalha_inimigo -= $dano_final;
             $porcentagem_sta_inimigo = $sta_batalha_inimigo*100/$sta_inimigo;
             if ($porcentagem_sta_inimigo<0) $porcentagem_sta_inimigo = 0;
@@ -79,7 +79,7 @@ if(isset($_POST['atacar']))
                 $taxa_bloqueio_inimigo = rand(0,$atributos_inimigo['int']); 
                 $dano_final = $str_personagem - $taxa_bloqueio_inimigo;
                 if ($dano_final <0) $dano_final = 0;
-                echo "<br><br>você causou {$dano_final} de dano<br>";
+                echo "<br><br><p id='fonte_combate'>Voce causou {$dano_final} de dano</p><br>";
                 $sta_batalha_inimigo -= $dano_final;
                 $porcentagem_sta_inimigo = $sta_batalha_inimigo*100/$sta_inimigo;
                 if ($porcentagem_sta_inimigo<0) $porcentagem_sta_inimigo = 0;
@@ -91,7 +91,7 @@ if(isset($_POST['atacar']))
                 $taxa_bloqueio_personagem = rand(0,$_SESSION['int']); 
                 $dano_final = $crit_inimigo - $taxa_bloqueio_personagem;
                 if ($dano_final <0) $dano_final = 0;
-                echo "<br><br>você recebeu {$dano_final} de dano crítico!<br>";
+                echo "<br><br><p id='fonte_combate'>Voce recebeu {$dano_final} de dano crítico!</p><br>";
             $sta_batalha_personagem -= $dano_final;
             $porcentagem_sta_personagem = $sta_batalha_personagem*100/$sta_personagem;
             if ($porcentagem_sta_personagem<0) $porcentagem_sta_personagem = 0;
@@ -103,7 +103,7 @@ if(isset($_POST['atacar']))
                 $taxa_bloqueio_personagem = rand(0,$_SESSION['int']); 
                 $dano_final = $atributos_inimigo['str'] - $taxa_bloqueio_personagem;
                 if ($dano_final <0) $dano_final = 0;
-                echo "<br><br>você recebeu {$dano_final} de dano<br>";
+                echo "<br><br><p id='fonte_combate'>Voce recebeu {$dano_final} de dano</p><br>";
                 $sta_batalha_personagem -= $dano_final;
                 $porcentagem_sta_personagem = $sta_batalha_personagem*100/$sta_personagem;
                 if ($porcentagem_sta_personagem<0) $porcentagem_sta_personagem = 0;
@@ -117,7 +117,7 @@ if(isset($_POST['atacar']))
                 $taxa_bloqueio_personagem = rand(0,$_SESSION['int']); 
                 $dano_final = $crit_inimigo - $taxa_bloqueio_personagem;
                 if ($dano_final <0) $dano_final = 0;
-                echo "<br><br>você recebeu {$dano_final} de dano crítico!<br>";
+                echo "<br><br><p id='fonte_combate'>Voce recebeu {$dano_final} de dano crítico!</p><br>";
                 $sta_batalha_personagem -= $dano_final;
                 $porcentagem_sta_personagem = $sta_batalha_personagem*100/$sta_personagem;
                 if ($porcentagem_sta_personagem<0) $porcentagem_sta_personagem = 0;
@@ -129,7 +129,7 @@ if(isset($_POST['atacar']))
                     $taxa_bloqueio_personagem = rand(0,$_SESSION['int']); 
                     $dano_final = $atributos_inimigo['str'] - $taxa_bloqueio_personagem;
                     if ($dano_final <0) $dano_final = 0;
-                    echo "<br><br>você recebeu {$dano_final} de dano<br>";
+                    echo "<br><br><p id='fonte_combate'>Voce recebeu {$dano_final} de dano</p><br>";
                     $sta_batalha_personagem -= $dano_final;
                     $porcentagem_sta_personagem = $sta_batalha_personagem*100/$sta_personagem;
                     if ($porcentagem_sta_personagem<0) $porcentagem_sta_personagem = 0;
@@ -141,7 +141,7 @@ if(isset($_POST['atacar']))
                 $taxa_bloqueio_inimigo = rand(0,$atributos_inimigo['int']); 
                 $dano_final = $crit_personagem - $taxa_bloqueio_inimigo;
                 if ($dano_final <0) $dano_final = 0;
-                echo "<br><br>você causou {$dano_final} de dano crítico!<br>";
+                echo "<br><br><p id='fonte_combate'>Voce causou {$dano_final} de dano crítico!</p><br>";
                 $sta_batalha_inimigo -= $dano_final;
                 $porcentagem_sta_inimigo = $sta_batalha_inimigo*100/$sta_inimigo;
                 if ($porcentagem_sta_inimigo<0) $porcentagem_sta_inimigo = 0;
@@ -153,7 +153,7 @@ if(isset($_POST['atacar']))
                     $taxa_bloqueio_inimigo = rand(0,$atributos_inimigo['int']); 
                     $dano_final = $str_personagem - $taxa_bloqueio_inimigo;
                     if ($dano_final <0) $dano_final = 0;
-                    echo "<br><br>você causou {$dano_final} de dano<br>";
+                    echo "<br><br><p id='fonte_combate'>Voce causou {$dano_final} de dano</p><br>";
                     $sta_batalha_inimigo -= $dano_final;
                     $porcentagem_sta_inimigo = $sta_batalha_inimigo*100/$sta_inimigo;
                     if ($porcentagem_sta_inimigo<0) $porcentagem_sta_inimigo = 0;
@@ -189,7 +189,7 @@ if(isset($_POST['atacar']))
             $_SESSION['int'] += $level_up['int'];
             $_SESSION['dex'] += $level_up['dex'];
             $_SESSION['crit'] = $_SESSION['str']*2;
-            echo "<br><br>Parabéns, você subiu de nivel";
+            echo "<br><br><p id='fonte_combate'>Parabens, Voce subiu de nivel</p>";
         }
         else{
             $sql = "UPDATE `personagens` SET `xp` = {$xp} WHERE id_personagem = '{$id_player}'";
@@ -197,11 +197,11 @@ if(isset($_POST['atacar']))
             $sql = "SELECT `xp` FROM `personagens` WHERE id_personagem = '{$id_player}'";
             $xp = mysqli_fetch_array(mysqli_query($conexao,$sql));
             $_SESSION['xp'] = $xp['0'];
-            echo "<br><br>Você derrotou seu inimigo e ganhou ". $xp_inimigo. " de experiência";
+            echo "<br><br><p id='fonte_combate'>Voce derrotou seu inimigo e ganhou ". $xp_inimigo. " de experiência</p>";
         }            
     }
     else {
-        echo "<br><br>Você foi derrotado!";
+        echo "<br><br><p id='fonte_combate'>Voce foi derrotado!</p>";
     }
 
 }

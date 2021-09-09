@@ -21,6 +21,11 @@ body {
     color: white;
 }
 
+#fonte_combate{
+    font: normal 10pt "gb";
+    color: white;
+}
+
 #gold{
     font: normal 7pt "gb";
     margin-top: 5px;
@@ -61,10 +66,12 @@ nav ul li a{
     margin: auto;
     width: 200px;
     padding: 10px;
+    color: white;
+    font: normal 7pt "gb";
 }
 
 #login, #senha input{
-    width: 194px;
+    width: 235px;
 }
 
 #sub_login {
@@ -73,6 +80,7 @@ nav ul li a{
     width: 97px;
     background-image: url(../imagens/barras/barra_cinza.jpg); 
     color: white;
+    font: normal 7pt "gb";
 }
 
 #sub_cadastrar {
@@ -81,6 +89,7 @@ nav ul li a{
     width: 97px;
     background-image: url(../imagens/barras/barra_cinza.jpg);
     color: white;
+    font: normal 7pt "gb";
 }
 
 #sub_atacar{
@@ -89,6 +98,7 @@ nav ul li a{
     width: 97px;
     background-image: url(../imagens/barras/barra_cinza.jpg); 
     color: white;
+    font: normal 7pt "gb";
 }
 
 /*Painel Personagem*/
@@ -151,6 +161,8 @@ text-align: center;
     width: 250px;
     height: 20px;
     background-image: url(../imagens/barras/barra_vermelha.jpg);
+    font: normal 7pt "gb";
+    color: white;
 
     }
 
