@@ -35,9 +35,12 @@
 
         </div>
         <div id="selecao_inimigo">
-        <a href="?pagina=batalha&id=1" ><span class="avatar_inimigo_selecao" id="Javali"></span></a>
-        <a href="?pagina=batalha&id=2" ><div class="avatar_inimigo_selecao" id="Urso"></div></a>
-        <a href="?pagina=batalha&id=3" ><div class="avatar_inimigo_selecao" id="Lobo"></div></a>
-        <a href="?pagina=batalha&id=4" ><div class="avatar_inimigo_selecao" id="Drag"></div></a>
+
+        <?php
+        echo "<div id='texto_inventario'>Inventário</div>'";
+        for($i=1;$i<19;$i++){
+        echo "<a href='' ><span class='slot' ></span></a>";
+        }
+        ?>
         </div>
          </div>
