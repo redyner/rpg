@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 08-Set-2021 às 23:46
+-- Tempo de geração: 09-Set-2021 às 21:38
 -- Versão do servidor: 5.7.31
 -- versão do PHP: 7.4.9
 
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `atributos` (
   KEY `fk_atributos_classes1_idx` (`id_classe`),
   KEY `fk_atributos_inimigos1_idx` (`id_inimigo`),
   KEY `fk_atributos_Itens1_idx` (`id_item`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `atributos`
@@ -55,7 +55,10 @@ INSERT INTO `atributos` (`id_atributo`, `sta`, `str`, `int`, `dex`, `id_classe`,
 (5, 100, 10, 10, 10, NULL, 2, NULL),
 (6, 150, 15, 15, 15, NULL, 3, NULL),
 (7, 300, 30, 30, 30, NULL, 4, NULL),
-(8, 1, 1, 1, 1, NULL, NULL, 1);
+(8, 1, 1, 1, 1, NULL, NULL, 1),
+(9, 20, 5, 5, 5, NULL, 5, NULL),
+(10, 150, 15, 15, 15, NULL, 6, NULL),
+(11, 1000, 50, 50, 50, NULL, 7, NULL);
 
 -- --------------------------------------------------------
 
@@ -95,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `inimigos` (
   `raridade` int(11) DEFAULT NULL,
   `drop` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_inimigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `inimigos`
@@ -105,7 +108,10 @@ INSERT INTO `inimigos` (`id_inimigo`, `nm_inimigo`, `classe`, `xp`, `lv`, `rarid
 (1, 'Javali', NULL, 100, NULL, NULL, NULL),
 (2, 'Urso', NULL, 200, NULL, NULL, NULL),
 (3, 'Lobo', NULL, 400, NULL, NULL, NULL),
-(4, 'Drag', NULL, 800, NULL, NULL, NULL);
+(4, 'Drag', NULL, 800, NULL, NULL, NULL),
+(5, 'Goblin', NULL, 100, NULL, NULL, NULL),
+(6, 'Orc', NULL, 400, NULL, NULL, NULL),
+(7, 'Boss', NULL, 1600, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -179,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `personagens` (
 --
 
 INSERT INTO `personagens` (`id_personagem`, `nick`, `xp`, `xp_max`, `lv`, `id_classe`, `id_player`) VALUES
-(1, 'Apolo', 0, 100, 1, 1, 1);
+(1, 'Apolo', 2200, 4650, 14, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -201,7 +207,7 @@ CREATE TABLE IF NOT EXISTS `player` (
 --
 
 INSERT INTO `player` (`id_player`, `login`, `senha`, `gold`) VALUES
-(1, 'rediner', 'df819af6bdcb198c22040c26d9f3bd98', NULL);
+(1, 'rediner', 'df819af6bdcb198c22040c26d9f3bd98', 100);
 
 -- --------------------------------------------------------
 
