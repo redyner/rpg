@@ -37,9 +37,9 @@
         <div id="selecao_inimigo">
 
         <?php
-        echo "<div id='texto_inventario'>Inventário</div>'";
+        echo "<div id='texto_inventario'>Inventario</div>'";
         for($i=1;$i<19;$i++){
-        echo "<a href='' ><span class='slot' ></span></a>";
+        echo "<span class='slot' ></span>";
         }
         ?>
         </div>
