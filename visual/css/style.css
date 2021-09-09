@@ -14,7 +14,11 @@ body {
     background-image: url(../imagens/papeis/final_logo_jogo.jpg); 
     background-size: 800px 100px;
 }
-
+.avatar_npc{
+    width: 250px;
+    height: 300px;
+    float: left;
+}
 
 #atributos_personagem{
     font: normal 10pt "gb";
@@ -237,6 +241,11 @@ background-image: url(../imagens/barras/barra_roxa.jpg);
 #wizard{
     background-size: 250px 300px;
     background-image: url(../imagens/classes/wizard.jpg);
+}
+
+#mercador{
+    background-size: 250px 300px;
+    background-image: url(../imagens/npcs/mercador.jpg);
 }
 
 #atributos_personagem

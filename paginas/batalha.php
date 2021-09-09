@@ -26,6 +26,8 @@
         <nav>
             <ul>
                 <li><a href="http://localhost/rpg"> Pagina Inicial</a></li>
+                <li><a href="http://localhost/rpg/index.php?pagina=dungeon">Dungeons</a></li>
+                <li><a href="http://localhost/rpg/index.php?pagina=market">Market</a></li>
                 <li><a href="http://localhost/rpg/index.php?pagina=sair">Sair</a></li>
             </ul>
         </nav>

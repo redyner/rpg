@@ -11,7 +11,6 @@
             <ul>
                 <li><a href="http://localhost/rpg"> Pagina Inicial</a></li>      
                 <li><a href="http://localhost/rpg/index.php?pagina=dungeon">Dungeons</a></li>
-                <li><a href="http://localhost/rpg/index.php?pagina=market">Market</a></li>
                 <li><a href="http://localhost/rpg/index.php?pagina=sair">Sair</a></li>
                 <li id="gold" style="float: right;">GOLD - <?php echo $_SESSION['gold']?></li>
             </ul>
@@ -19,7 +18,7 @@
 
         <div id="painel_personagem">
         
-        <a href="" ><div class="avatar_personagem_selecao" id = "<?php echo $_SESSION['classe'] ?>"></div></a>
+        <a href="" ><div class="avatar_npc" id = "mercador"></div></a>
         <div id="atributos_personagem">
         <br><p id="atributo_xp">EXP</p>
         <div class="barra" id="barra_xp">
@@ -38,7 +37,7 @@
         <div id="selecao_inimigo">
 
         <?php
-        echo "<div id='texto_inventario'>Inventario</div>'";
+        echo "<div id='texto_inventario'>Market</div>'";
         for($i=1;$i<19;$i++){
         echo "<span class='slot' ></span>";
         }

@@ -27,6 +27,7 @@ if(isset($_GET['pagina']))
             if($pagina == "jogo") include "paginas/jogo.php";
             elseif($pagina == "login") include "paginas/jogo.php";
             elseif($pagina == "dungeon") include "paginas/dungeon.php";
+            elseif($pagina == "market") include "paginas/market.php";
             elseif($pagina == "cadastrar") include "paginas/cadastrar.php";
             elseif($pagina == "sair") include "paginas/sair.php";
             elseif($pagina == "batalha") include "paginas/batalha.php";
@@ -37,9 +38,10 @@ if(isset($_GET['pagina']))
             if($pagina == "jogo") include "paginas/login.php";
             elseif($pagina == "login") include "paginas/login.php";
             elseif($pagina == "dungeon") include "paginas/login.php";
-            elseif($pagina == "dungeon") include "paginas/login.php";
+            elseif($pagina == "market") include "paginas/login.php";
             elseif($pagina == "cadastrar") include "paginas/cadastrar.php";
             elseif($pagina == "sair") include "paginas/login.php";
+            elseif($pagina == "batalha") include "paginas/login.php";
             else include "paginas/login.php";
         }
     }
