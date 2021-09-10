@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 10-Set-2021 às 03:13
+-- Tempo de geração: 10-Set-2021 às 03:54
 -- Versão do servidor: 5.7.31
 -- versão do PHP: 7.4.9
 
@@ -48,9 +48,9 @@ CREATE TABLE IF NOT EXISTS `atributos` (
 --
 
 INSERT INTO `atributos` (`id_atributo`, `sta`, `str`, `int`, `dex`, `id_classe`, `id_inimigo`, `id_item`) VALUES
-(1, 10, 10, 10, 10, 1, NULL, NULL),
-(2, 10, 10, 10, 10, 2, NULL, NULL),
-(3, 10, 10, 10, 10, 3, NULL, NULL),
+(1, 3, 4, 1, 2, 1, NULL, NULL),
+(2, 2, 2, 2, 4, 2, NULL, NULL),
+(3, 2, 1, 4, 3, 3, NULL, NULL),
 (4, 20, 5, 5, 5, NULL, 1, NULL),
 (5, 100, 10, 10, 10, NULL, 2, NULL),
 (6, 150, 15, 15, 15, NULL, 3, NULL),
