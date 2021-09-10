@@ -220,7 +220,7 @@ background-image: url(../imagens/barras/barra_roxa.jpg);
 
 #Drag{
     background-size: contain;
-    background-image: url(../imagens/inimigos/drag.jpg);
+    background-image: url(../imagens/inimigos/red_drag.jpg);
 }
 
 #Lobo{
@@ -241,6 +241,16 @@ background-image: url(../imagens/barras/barra_roxa.jpg);
 #Boss{
     background-size:contain;
     background-image: url(../imagens/inimigos/boss.jpg);
+}
+
+#Blue_Drag{
+    background-size:contain;
+    background-image: url(../imagens/inimigos/blue_drag.jpg);
+}
+
+#Cerberus{
+    background-size:contain;
+    background-image: url(../imagens/inimigos/cerberus.jpg);
 }
 
 #warrior{

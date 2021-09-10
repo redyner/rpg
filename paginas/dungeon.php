@@ -30,6 +30,8 @@
         <a href="?pagina=batalha&id=6" ><div class="avatar_inimigo_selecao" id="Orc"></div></a>
         <a href="?pagina=batalha&id=3" ><div class="avatar_inimigo_selecao" id="Lobo"></div></a>
         <a href="?pagina=batalha&id=4" ><div class="avatar_inimigo_selecao" id="Drag"></div></a>
+        <a href="?pagina=batalha&id=9" ><div class="avatar_inimigo_selecao" id="Cerberus"></div></a>
+        <a href="?pagina=batalha&id=8" ><div class="avatar_inimigo_selecao" id="Blue_Drag"></div></a>
         <a href="?pagina=batalha&id=7" ><div class="avatar_inimigo_selecao" id="Boss"></div></a>
         </div>
          </div>
