@@ -74,7 +74,7 @@
                 $_SESSION['str'] = ($info_player['str']+($info_player['lv']*$info_player['str']))+$equipamento['sta'];
                 $_SESSION['int']  = ($info_player['int']+($info_player['lv']*$info_player['int']))+$equipamento['sta'];
                 $_SESSION['dex']  = ($info_player['dex']+($info_player['lv']*$info_player['dex']))+$equipamento['sta'];
-                $_SESSION['crit'] = $_SESSION['str']*2;
+                $_SESSION['crit'] = $_SESSION['str']+$info_player['dex']*2;
 
                 header("location: http://localhost/rpg/index.php?pagina=jogo");
             }else echo "Login ou senha incorretos!";

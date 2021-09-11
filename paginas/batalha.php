@@ -48,7 +48,7 @@
     $str_inimigo = $atributos_inimigo['str'];
     $int_inimigo  = $atributos_inimigo['int'];
     $dex_inimigo  = $atributos_inimigo['dex'];
-    $crit_inimigo = $atributos_inimigo['str']*2;
+    $crit_inimigo = $atributos_inimigo['str']+$atributos_inimigo['dex']*2;
 
 
 if(isset($_POST['atacar']))
