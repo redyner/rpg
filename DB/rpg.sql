@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 10-Set-2021 às 03:57
+-- Tempo de geração: 11-Set-2021 às 00:08
 -- Versão do servidor: 5.7.31
 -- versão do PHP: 7.4.9
 
@@ -41,16 +41,16 @@ CREATE TABLE IF NOT EXISTS `atributos` (
   KEY `fk_atributos_classes1_idx` (`id_classe`),
   KEY `fk_atributos_inimigos1_idx` (`id_inimigo`),
   KEY `fk_atributos_Itens1_idx` (`id_item`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `atributos`
 --
 
 INSERT INTO `atributos` (`id_atributo`, `sta`, `str`, `int`, `dex`, `id_classe`, `id_inimigo`, `id_item`) VALUES
-(1, 3, 4, 1, 2, 1, NULL, NULL),
-(2, 2, 2, 2, 4, 2, NULL, NULL),
-(3, 2, 1, 4, 3, 3, NULL, NULL),
+(1, 10, 10, 10, 10, 1, NULL, NULL),
+(2, 10, 10, 10, 10, 2, NULL, NULL),
+(3, 10, 10, 10, 10, 3, NULL, NULL),
 (4, 20, 5, 5, 5, NULL, 1, NULL),
 (5, 100, 10, 10, 10, NULL, 2, NULL),
 (6, 150, 15, 15, 15, NULL, 3, NULL),
@@ -58,9 +58,7 @@ INSERT INTO `atributos` (`id_atributo`, `sta`, `str`, `int`, `dex`, `id_classe`,
 (8, 1, 1, 1, 1, NULL, NULL, 1),
 (9, 20, 5, 5, 5, NULL, 5, NULL),
 (10, 150, 15, 15, 15, NULL, 6, NULL),
-(11, 2000, 100, 100, 100, NULL, 7, NULL),
-(12, 1000, 50, 50, 50, NULL, 8, NULL),
-(13, 300, 30, 30, 30, NULL, 9, NULL);
+(11, 1000, 50, 50, 50, NULL, 7, NULL);
 
 -- --------------------------------------------------------
 
@@ -100,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `inimigos` (
   `raridade` int(11) DEFAULT NULL,
   `drop` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_inimigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `inimigos`
@@ -113,9 +111,7 @@ INSERT INTO `inimigos` (`id_inimigo`, `nm_inimigo`, `classe`, `xp`, `lv`, `rarid
 (4, 'Drag', NULL, 800, NULL, NULL, NULL),
 (5, 'Goblin', NULL, 100, NULL, NULL, NULL),
 (6, 'Orc', NULL, 400, NULL, NULL, NULL),
-(7, 'Boss', NULL, 3200, NULL, NULL, NULL),
-(8, 'Blue_Drag', NULL, 1600, NULL, NULL, NULL),
-(9, 'Cerberus', NULL, 800, NULL, NULL, NULL);
+(7, 'Boss', NULL, 1600, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -182,14 +178,15 @@ CREATE TABLE IF NOT EXISTS `personagens` (
   PRIMARY KEY (`id_personagem`),
   KEY `fk_personagens_classes1_idx` (`id_classe`),
   KEY `fk_personagens_player1_idx` (`id_player`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `personagens`
 --
 
 INSERT INTO `personagens` (`id_personagem`, `nick`, `xp`, `xp_max`, `lv`, `id_classe`, `id_player`) VALUES
-(1, 'Apolo', 350, 5350, 15, 1, 1);
+(1, 'Apolo', 2200, 4650, 14, 1, 1),
+(2, 'Samuel', 0, 100, 1, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -204,14 +201,15 @@ CREATE TABLE IF NOT EXISTS `player` (
   `senha` varchar(45) DEFAULT NULL,
   `gold` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_player`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `player`
 --
 
 INSERT INTO `player` (`id_player`, `login`, `senha`, `gold`) VALUES
-(1, 'rediner', 'df819af6bdcb198c22040c26d9f3bd98', 100);
+(1, 'rediner', 'df819af6bdcb198c22040c26d9f3bd98', 100),
+(2, 'Samuel', '81dc9bdb52d04dc20036dbd8313ed055', NULL);
 
 -- --------------------------------------------------------
 
