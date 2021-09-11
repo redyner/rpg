@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 10-Set-2021 às 03:57
+-- Tempo de geração: 11-Set-2021 às 00:29
 -- Versão do servidor: 5.7.31
 -- versão do PHP: 7.4.9
 
@@ -182,14 +182,15 @@ CREATE TABLE IF NOT EXISTS `personagens` (
   PRIMARY KEY (`id_personagem`),
   KEY `fk_personagens_classes1_idx` (`id_classe`),
   KEY `fk_personagens_player1_idx` (`id_player`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `personagens`
 --
 
 INSERT INTO `personagens` (`id_personagem`, `nick`, `xp`, `xp_max`, `lv`, `id_classe`, `id_player`) VALUES
-(1, 'Apolo', 350, 5350, 15, 1, 1);
+(1, 'Apolo', 350, 5350, 15, 1, 1),
+(2, 'Samuel', 0, 100, 1, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -204,14 +205,15 @@ CREATE TABLE IF NOT EXISTS `player` (
   `senha` varchar(45) DEFAULT NULL,
   `gold` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_player`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `player`
 --
 
 INSERT INTO `player` (`id_player`, `login`, `senha`, `gold`) VALUES
-(1, 'rediner', 'df819af6bdcb198c22040c26d9f3bd98', 100);
+(1, 'rediner', 'df819af6bdcb198c22040c26d9f3bd98', 100),
+(2, 'Samuel', '81dc9bdb52d04dc20036dbd8313ed055', NULL);
 
 -- --------------------------------------------------------
 
