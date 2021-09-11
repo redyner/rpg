@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -22,24 +23,39 @@ if(isset($_GET['pagina']))
 
     if (!empty($pagina)){
         
-        if(isset($_SESSION['id_player'])) 
+        if(isset($_SESSION['id_player']) && isset($_SESSION['id_personagem'])) 
         {
             if($pagina == "jogo") include "paginas/jogo.php";
             elseif($pagina == "login") include "paginas/jogo.php";
             elseif($pagina == "dungeon") include "paginas/dungeon.php";
             elseif($pagina == "market") include "paginas/market.php";
-            elseif($pagina == "cadastrar") include "paginas/cadastrar.php";
+            elseif($pagina == "cadastrar") include "paginas/cadastrar.php"; 
+            elseif($pagina == "criarpersonagem") include "paginas/jogo.php";          
             elseif($pagina == "sair") include "paginas/sair.php";
             elseif($pagina == "batalha") include "paginas/batalha.php";
             else include "paginas/jogo.php";
 
-        }
-        else{
+        }      
+        elseif(!isset($_SESSION['id_personagem']))
+        {
+            if($pagina == "jogo") include "paginas/criarpersonagem.php";
+            elseif($pagina == "login") include "paginas/criarpersonagem.php";
+            elseif($pagina == "dungeon") include "paginas/criarpersonagem.php";
+            elseif($pagina == "market") include "paginas/criarpersonagem.php";
+            elseif($pagina == "cadastrar") include "paginas/criarpersonagem.php"; 
+            elseif($pagina == "criarpersonagem") include "paginas/criarpersonagem.php";          
+            elseif($pagina == "sair") include "paginas/sair.php";
+            elseif($pagina == "batalha") include "paginas/criarpersonagem.php";
+            else include "paginas/criarpersonagem.php";
+        }  
+        else
+        {
             if($pagina == "jogo") include "paginas/login.php";
             elseif($pagina == "login") include "paginas/login.php";
             elseif($pagina == "dungeon") include "paginas/login.php";
             elseif($pagina == "market") include "paginas/login.php";
             elseif($pagina == "cadastrar") include "paginas/cadastrar.php";
+            elseif($pagina == "criarpersonagem") include "paginas/login.php";
             elseif($pagina == "sair") include "paginas/login.php";
             elseif($pagina == "batalha") include "paginas/login.php";
             else include "paginas/login.php";
