@@ -117,7 +117,7 @@ nav ul li a{
 #selecao_inimigo{
  
     width: 100%;
-    height: 400px;
+    height: 300px;
     border-top: solid 1px; 
     background-image: url(../imagens/papeis/papel.jpg); 
 }

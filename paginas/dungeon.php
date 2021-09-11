@@ -37,8 +37,8 @@
         </div>
         </div>
         
-        <script>
+        <!-- <script>
             document.getElementById("selecao_inimigo").style.display="none"
-        </script>
+        </script> -->
 
         
