@@ -34,7 +34,7 @@
         </div>
 
         </div>
-        <div id="selecao_inimigo">
+        <div id="selecao_item">
 
         <?php
         echo "<div id='texto_inventario'>Market</div>'";

@@ -1,3 +1,5 @@
+//Nota <hr> cria uma linha na página (comando html)
+
 //tipos de variável
 
 var variavel //variável em js
@@ -121,9 +123,9 @@ console.log("ERRO")
     console.log("Fim do tratamento")
 }
 
-//throw new Error("Erro manual")
+throw new Error("Erro manual")
 
-
+//selecionando itens do documento
 document.getElementById('id').style.color="#f00" //muda cor do texto
 
 document.getElementById('id').style.fontSize="50px" //altera tamanho do texto
@@ -135,6 +137,52 @@ document.getElementById('id').style.fontSize="50px" //altera tamanho do texto
 document.getElementById('id').value // pega o valor de um elemento html pelo id
 
 document.getElementById('id').innerHTML // pega todo o conteúdo dentro da tag html
+
+document.getElementsByTagName('p') // pega o valor de todas as tags do tipo informado em forma de vetor
+
+document.getElementsByTagName('*') // pega o valor de todas as tags do documento em forma de vetor
+
+document.querySelectorAll('p') // pega o valor de todas as tags do tipo informado em forma de vetor
+
+document.querySelectorAll('p,h1,h2') // pega o valor de todas as multiplas tags do tipo informado em forma de vetor
+
+document.querySelectorAll('.classe') // pega o valor de todas as classes do tipo informado em forma de vetor
+
+document.querySelectorAll('p.classe') // pega o valor de todas as classes contidas na tag do tipo informado em forma de vetor
+
+document.querySelectorAll('div > *') // pega o valor de todos os itens dentro da tag informada em forma de vetor
+
+document.querySelectorAll('div > p') // pega o valor de todos os itens com o tipo da tag dentro da tag informada em forma de vetor
+
+document.querySelectorAll('div.classe > p') // pega o valor de todos os itens com o tipo da tag dentro da tag com a classe informada em forma de vetor
+
+document.querySelectorAll('div.classe > *') // pega o valor de todos os itens dentro da tag com a classe informada em forma de vetor
+
+//formulários
+
+document.forms // manipulação de formulários
+
+document.forms[0] // selecionando um formulário
+//ou
+document.forms.item(0)
+
+document.forms.namedItem("name") // seleciona pelo nome
+
+//É possível manipular vários elementos como:
+document.forms[0].id
+document.forms[0].value
+document.forms[0].innerHTML // conteúdo do formulário
+document.forms["id"].innerHTML // conteúdo do formulário
+
+document.forms.elements // elementos do formulário
+
+document.forms.getElementById("id").elements[0].value //exemplo de busca de valor de um elemento específico do formulário
+
+
+
+
+
+
 
 
 
