@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 11-Set-2021 às 00:29
+-- Tempo de geração: 11-Set-2021 às 13:09
 -- Versão do servidor: 5.7.31
 -- versão do PHP: 7.4.9
 
@@ -176,7 +176,8 @@ CREATE TABLE IF NOT EXISTS `personagens` (
   `nick` varchar(45) DEFAULT NULL,
   `xp` int(11) DEFAULT '0',
   `xp_max` int(11) DEFAULT '100',
-  `lv` int(11) DEFAULT NULL,
+  `lv` int(11) DEFAULT '1',
+  `gold` varchar(45) DEFAULT '0',
   `id_classe` int(11) NOT NULL,
   `id_player` int(11) NOT NULL,
   PRIMARY KEY (`id_personagem`),
@@ -188,9 +189,9 @@ CREATE TABLE IF NOT EXISTS `personagens` (
 -- Extraindo dados da tabela `personagens`
 --
 
-INSERT INTO `personagens` (`id_personagem`, `nick`, `xp`, `xp_max`, `lv`, `id_classe`, `id_player`) VALUES
-(1, 'Apolo', 350, 5350, 15, 1, 1),
-(2, 'Samuel', 0, 100, 1, 1, 2);
+INSERT INTO `personagens` (`id_personagem`, `nick`, `xp`, `xp_max`, `lv`, `gold`, `id_classe`, `id_player`) VALUES
+(1, 'Apolo', 350, 5350, 15, '0', 1, 1),
+(2, 'Samuel', 0, 100, 1, '0', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -203,7 +204,6 @@ CREATE TABLE IF NOT EXISTS `player` (
   `id_player` int(11) NOT NULL AUTO_INCREMENT,
   `login` varchar(45) DEFAULT NULL,
   `senha` varchar(45) DEFAULT NULL,
-  `gold` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_player`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
@@ -211,9 +211,9 @@ CREATE TABLE IF NOT EXISTS `player` (
 -- Extraindo dados da tabela `player`
 --
 
-INSERT INTO `player` (`id_player`, `login`, `senha`, `gold`) VALUES
-(1, 'rediner', 'df819af6bdcb198c22040c26d9f3bd98', 100),
-(2, 'Samuel', '81dc9bdb52d04dc20036dbd8313ed055', NULL);
+INSERT INTO `player` (`id_player`, `login`, `senha`) VALUES
+(1, 'rediner', 'df819af6bdcb198c22040c26d9f3bd98'),
+(2, 'Samuel', '81dc9bdb52d04dc20036dbd8313ed055');
 
 -- --------------------------------------------------------
 
