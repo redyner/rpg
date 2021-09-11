@@ -14,11 +14,7 @@ var variavel = prompt("Insira seu nome: ") // recebe um valor
 
 var variavel = confirm("Seu nome é " + variavel + " ?") //box com opção ok e cancelar retorna true e false
 
-document.write("Printa um texto na tela")
-
-document.getElementById('id').value // pega o valor de um elemento html pelo id
-
-document.getElementById('id').innerHTML // pega todo o conteúdo dentro da tag html
+document.write("Printa um texto na tela") //printa texto no documento
 
 //estrutura if
 if(variavel>0){ 
@@ -114,4 +110,32 @@ i=0
 do{
     i++
 }while(i<2)
+
+//tratamento de erro
+try{
+docuent.wrie("ERRO")
+}catch(variavel){
+document.write("ERRO")
+console.log("ERRO")
+}finally{
+    console.log("Fim do tratamento")
+}
+
+//throw new Error("Erro manual")
+
+
+document.getElementById('id').style.color="#f00" //muda cor do texto
+
+document.getElementById('id').style.fontSize="50px" //altera tamanho do texto
+
+document.getElementById('id').style.display="none" //oculta elemento
+
+document.getElementById('id').style.fontSize="50px" //altera tamanho do texto
+
+document.getElementById('id').value // pega o valor de um elemento html pelo id
+
+document.getElementById('id').innerHTML // pega todo o conteúdo dentro da tag html
+
+
+
 

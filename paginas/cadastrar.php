@@ -28,7 +28,6 @@
            }
         }
         ?>
-
         <!-- formulário de login-->
         <form action="" method="POST" id="painel_login">
             <label for="login">Login</label>
@@ -37,5 +36,4 @@
             <input type="password" name="senha" id="senha">
             <input type="submit" value="Cadastrar" id="sub_cadastrar" name="cadastrar">
         </form>
-
     </div>

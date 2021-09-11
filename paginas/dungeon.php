@@ -23,6 +23,7 @@
         <div class="dungeon" id = "gruta"></div>
 
         </div>
+
         <div id="selecao_inimigo">
         <a href="?pagina=batalha&id=1" ><span class="avatar_inimigo_selecao" id="Javali"></span></a>
         <a href="?pagina=batalha&id=5" ><div class="avatar_inimigo_selecao" id="Goblin"></div></a>
@@ -34,4 +35,10 @@
         <a href="?pagina=batalha&id=8" ><div class="avatar_inimigo_selecao" id="Blue_Drag"></div></a>
         <a href="?pagina=batalha&id=7" ><div class="avatar_inimigo_selecao" id="Boss"></div></a>
         </div>
-         </div>
+        </div>
+        
+        <script>
+            document.getElementById("selecao_inimigo").style.display="none"
+        </script>
+
+        
