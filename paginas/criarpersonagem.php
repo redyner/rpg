@@ -26,22 +26,19 @@
             $nick = $_POST['nick'];
             $classe = $_POST['classe'];
             $id_player = $_SESSION['id_player'];
-            $xp = 0;
-            $xp_max = 100;
-            $lv = 1;
 
             if (empty($nick)) echo "Insira um nome!";
             else {
                 $sql = "SELECT nick FROM personagens WHERE nick = '{$nick}'";
                 $novo_usuario = mysqli_num_rows(mysqli_query($conexao, $sql));
-                if (!$novo_usuario == 0) {
+                if (!empty($novo_usuario)) {
                     echo "Este nome já esta sendo utilizado!";
                 } else {
-                    $sql = "INSERT INTO `personagens`(`nick`, `xp`, `xp_max`, `lv`, `id_classe`, `id_player`) 
-                     VALUES ( '$nick','$xp', '$xp_max', '$lv', '$classe', '$id_player' )";
+                    $sql = "INSERT INTO `personagens`(`nick`, `id_classe`, `id_player`) 
+                     VALUES ( '$nick', '$classe', '$id_player' )";
                     $sql = mysqli_query($conexao, $sql);
-                    session_unset($_SESSION['id_player']);
-                    session_destroy();                    
+                    session_unset();
+                    session_destroy();                   
                     echo "<script type=\"text/javascript\">
                     alert ('Personagem Criado com Sucesso!');   
                     location.href = 'http://localhost/rpg';                 

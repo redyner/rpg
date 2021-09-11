@@ -18,7 +18,7 @@
            if(empty($login)||empty($senha)) echo "Todos os campos devem ser preenchidos!";
            else{
             $senha = md5($senha);
-            $sql = "SELECT p.id_player, p.login, p.senha, p.gold, ps.id_personagem FROM rpg.player p
+            $sql = "SELECT p.id_player, p.login, p.senha, ps.id_personagem FROM rpg.player p
             LEFT JOIN rpg.personagens ps ON ps.id_player = p.id_player
             WHERE login = '{$login}' 
             AND senha = '{$senha}'";
@@ -28,7 +28,6 @@
             {
                 $_SESSION['id_personagem'] = $info_player['id_personagem'];
                 $_SESSION['id_player'] = $info_player['id_player'];
-                $_SESSION['gold'] = $info_player['gold'];
                 $info_player = $_SESSION['id_player'];
                 $id_personagem = $_SESSION['id_personagem'];     
                 $id_player = $_SESSION['id_player'];
@@ -36,7 +35,7 @@
                     header("location: http://localhost/rpg/index.php?pagina=criarpersonagem");
                 }
                 
-                $sql = "SELECT nick, lv, xp, xp_max, c.nm_classe, sta, `str`, `int`, dex 
+                $sql = "SELECT nick, lv, xp, xp_max, c.nm_classe, sta, `str`, `int`, dex, gold 
                 FROM rpg.personagens p 
                 JOIN rpg.classes c ON c.id_classe = p.id_classe
                 JOIN rpg.atributos a ON c.id_classe = a.id_classe 
@@ -80,6 +79,8 @@
                 $_SESSION['int']  = ($info_player['int']+($info_player['lv']*$info_player['int']))+$equipamento['sta'];
                 $_SESSION['dex']  = ($info_player['dex']+($info_player['lv']*$info_player['dex']))+$equipamento['sta'];
                 $_SESSION['crit'] = $_SESSION['str']+$info_player['dex']*2;
+                $_SESSION['gold'] = $info_player['gold'];
+
 
                 header("location: http://localhost/rpg/index.php?pagina=jogo");
             }else echo "Login ou senha incorretos!";
