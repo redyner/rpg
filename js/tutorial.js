@@ -1,5 +1,9 @@
 //Nota <hr> cria uma linha na página (comando html)
 
+//display = "none" remove elemento da página
+
+//vizibility = "hidden" oculta elemento da página
+
 //tipos de variável
 
 var variavel //variável em js
@@ -178,9 +182,56 @@ document.forms.elements // elementos do formulário
 
 document.forms.getElementById("id").elements[0].value //exemplo de busca de valor de um elemento específico do formulário
 
+document.write(Date()) // Imprime data completa
+
+//classe Math
+document.write(Math.PI) // Pi
+
+document.write(Math.abs(valor)) // módulo
+
+document.write(Math.ceil(valor)) // arredonda para cima
+
+document.write(Math.floor(valor)) // arredonda para baixo
+
+document.write(Math.round(valor)) // arredondamento padrão
+
+document.write(Math.pow(valor,potencia)) // eleva o número a potência
+
+document.write(Math.sqtr(valor)) // retorna raíz do número
+
+document.write(Math.random()) // valor aleatório entre 0 e 1
+
+document.write(Math.random()*valor) // valor aleatório entre 0 e o valor
+
+document.write(Math.round(Math.random()*valor)) // utilizando a função round para valores inteiros
+
+//funções
+
+function nome_da_função(parametro1,parametro2){
+    var soma = parametro1+parametro2
+    return soma
+}
+
+nome_da_função() // chamada da função
+
+var numeros = [1,2,3,4,5,6,7,8,9,10]
+
+function media (numeros){
+    var tamanho = num.length
+    var soma = 0
+    for(var i = 0;i<tamanho;i++){
+        soma += numeros[i];
+    }
+    return soma/tamanho
+}
 
 
+this.variavel // variável declarada
 
+//Eventos
+
+<button onclick = "function()" > Botão </button>
+<div onmouseover = "function()"></div>
 
 
 
