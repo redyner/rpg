@@ -13,6 +13,7 @@
                 <li><a href="http://localhost/rpg/index.php?pagina=dungeon">Dungeons</a></li>
                 <li><a href="http://localhost/rpg/index.php?pagina=market">Market</a></li>
                 <li><a href="http://localhost/rpg/index.php?pagina=sair">Sair</a></li>
+                <li><a href="http://localhost/rpg/teste/teste.php">Teste Eventos</a></li>
                 <li id="gold" style="float: right;">GOLD - <?php echo $_SESSION['gold']?></li>
             </ul>
         </nav>
@@ -40,7 +41,7 @@
         <?php
         echo "<div id='texto_inventario'>Inventario</div>'";
         for($i=1;$i<19;$i++){
-        echo "<span class='slot' ></span>";
+        echo "<div id = 'slot' class='slot' ></div>";
         }
         ?>
         </div>
