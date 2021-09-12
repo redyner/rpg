@@ -9,7 +9,7 @@
 
     <script>
         function cor(div,cor){
-            div[1].style.backgroundColor = cor;
+            div.style.backgroundColor = cor;
         }
 
         function alerta(){
@@ -18,15 +18,15 @@
 
         function add_eventos(){
 
-        var teste = document.getElementsByID("teste")
+        var teste = document.getElementById("teste")
 
-        teste[1].addEventListener("click",alerta)
+        teste.addEventListener("click",alerta)
 
-        teste[1].addEventListener("mouseover",function(event){
+        teste.addEventListener("mouseover",function(event){
             cor(teste,'red')
         })
 
-        teste[1].addEventListener("mouseout",function(event){
+        teste.addEventListener("mouseout",function(event){
             cor(teste,'white')
         })
 
@@ -39,9 +39,7 @@
 <body>
 
     <div id="container">
-    <div class='teste'></div>
-    <div class='teste'></div>
-    <div class='teste'></div>
+    <div id='teste'></div>
     <a href="http://localhost/rpg"><div id="sair"> Sair</div>  </a>  
     </div>
     
