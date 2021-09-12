@@ -245,6 +245,9 @@ teste.addEventListener("mouseover",function(event){
     cor(teste,'red')
 })
 
+// removendo evento
+document.removeEventListener("tipoevento",função) // remove evento.
+
 
 
 
