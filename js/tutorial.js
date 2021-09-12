@@ -230,8 +230,9 @@ this.variavel // variável declarada
 
 //Eventos
 
-<button onclick = "function()" > Botão </button>
-<div onmouseover = "function()"></div>
+<button onclick = "function()" > Botão </button> // clique
+<div onmouseover = "function()"></div> // seta em cima
+<div onmouseout = "function()"></div> // seta fora
 
 
 
