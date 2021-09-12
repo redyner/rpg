@@ -16,7 +16,7 @@
             </ul>
         </nav>
 
-        <div id="painel_personagem">
+        <div id="painel_dungeons">
         
         <div class="dungeon" id = "floresta"></div>
         <div class="dungeon" id = "planice"></div>
