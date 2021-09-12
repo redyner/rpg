@@ -246,8 +246,13 @@ teste.addEventListener("mouseover",function(event){
 })
 
 // removendo evento
-document.removeEventListener("tipoevento",função) // remove evento.
+document.removeEventListener("tipoevento",função) // remove evento
 
+setTimeout(função,intervalo) // Executa a função após o intervalo
+
+setInterval(função,intervalo) // Executa a função em loop após o intervalo
+
+clearInterval(setInterval(função,intervalo)) // Para a execução do intervalo
 
 
 
