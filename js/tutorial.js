@@ -234,6 +234,17 @@ this.variavel // variável declarada
 <div onmouseover = "function()"></div> // seta em cima
 <div onmouseout = "function()"></div> // seta fora
 
+window.addEventListener("load",add_eventos) // chama função após carregamento da janela
+
+document.addEventListener("load",add_eventos) // chama função após carregamento do documento
+
+teste.addEventListener("click",alerta) // chama evento de função sem parâmetros
+
+// chama evento de função com parâmetros
+teste.addEventListener("mouseover",function(event){ 
+    cor(teste,'red')
+})
+
 
 
 

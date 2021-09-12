@@ -6,15 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teste</title>
     <link rel = "stylesheet" href = "style.css">
-</head>
-<body>
-    <div id="container">
-    <div id="teste" onmouseover="mudacor(this,'red')" onmouseout="mudacor(this,'white')" onclick="alerta()"></div>
-    <a href="http://localhost/rpg"><div id="sair"> Sair</div>  </a>  
-    </div>
-    
+
     <script>
-        function mudacor(div,cor){
+        function cor(div,cor){
             div.style.backgroundColor = cor;
         }
 
@@ -22,6 +16,33 @@
             alert("teste")
         }
 
+        function add_eventos(){
+
+        var teste = document.getElementById("teste")
+
+        teste.addEventListener("click",alerta)
+
+        teste.addEventListener("mouseover",function(event){
+            cor(teste,'red')
+        })
+
+        teste.addEventListener("mouseout",function(event){
+            cor(teste,'white')
+        })
+
+        }
+
+        window.addEventListener("load",add_eventos)
     </script>
+
+</head>
+<body>
+
+    <div id="container">
+    <script>document.write("<div id='teste'></div>") </script>
+    <a href="http://localhost/rpg"><div id="sair"> Sair</div>  </a>  
+    </div>
+    
+
 </body>
 </html>
