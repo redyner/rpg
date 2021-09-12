@@ -41,4 +41,8 @@
             document.getElementById("selecao_inimigo").style.display="none"
         </script> -->
 
+        <!-- <script>
+            document.getElementById("selecao_inimigo").style.visibility = "hidden"
+        </script> -->
+
         
