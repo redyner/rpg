@@ -8,4 +8,6 @@ Incluir Arena
 Batalha amistosa contra amigos
 Ajustar eventos das dungeons
 Ajustar criação de personagem
+Ao cadastrar redirecionar para página inicial
+Configuração de cadastro
 
