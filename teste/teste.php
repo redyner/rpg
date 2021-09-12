@@ -8,9 +8,11 @@
     <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-
-    <div id="teste" onmouseover="mudacor(this,'red')" onmouseout="mudacor(this,'black')" onclick="alerta()"></div>
-    <a href="http://localhost/rpg"> Sair</a>
+    <div id="container">
+    <div id="teste" onmouseover="mudacor(this,'red')" onmouseout="mudacor(this,'white')" onclick="alerta()"></div>
+    <a href="http://localhost/rpg"><div id="sair"> Sair</div>  </a>  
+    </div>
+    
     <script>
         function mudacor(div,cor){
             div.style.backgroundColor = cor;
