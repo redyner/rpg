@@ -38,11 +38,11 @@
         </div>
         <div id="selecao_item">
 
-        <?php
-        echo "<div id='texto_inventario'>Inventario</div>'";
-        for($i=1;$i<19;$i++){
-        echo "<div id = 'slot' class='slot' ></div>";
-        }
-        ?>
+
+        <div id='texto_inventario'>Inventario</div>
+        <script>
+        for (var i = 1; i <= 18 ; i++)
+        document.write("<div id = 'slot"+i+"' class='slot' ></div>")
+        </script>
         </div>
          </div>

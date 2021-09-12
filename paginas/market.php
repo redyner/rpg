@@ -36,11 +36,9 @@
         </div>
         <div id="selecao_item">
 
-        <?php
-        echo "<div id='texto_inventario'>Market</div>'";
-        for($i=1;$i<19;$i++){
-        echo "<span class='slot' ></span>";
-        }
-        ?>
+        <script>
+        for (var i = 1; i <= 18 ; i++)
+        document.write("<div id = 'slot"+i+"' class='slot' ></div>")
+        </script>
         </div>
          </div>

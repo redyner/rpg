@@ -4,6 +4,12 @@
     height: 250px;
 }
 
+.teste{
+    border: solid;
+    width: 250px;
+    height: 250px;
+}
+
 #container{
     border: solid;
     width: 500px;
