@@ -74,7 +74,7 @@ document.getElementById("atacar").addEventListener("click",function(event){
     var dex = <?php echo $_SESSION['dex'] ?>;
     var hp_1 = document.getElementById('hp_atual_1');
     var hp_2 = document.getElementById("hp_atual_2");
-    var teste = Math.floor(Math.random()*100);
+    var teste = Math.floor(Math.random()*100+1);
     combate(sta,str,int,dex,hp_1,hp_2,teste)
 },)
 
