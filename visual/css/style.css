@@ -96,7 +96,16 @@ nav ul li a{
     font: normal 7pt "gb";
 }
 
-#sub_atacar{
+#atacar{
+   
+    margin-left: 43%;
+    width: 97px;
+    background-image: url(../imagens/barras/barra_cinza.jpg); 
+    color: white;
+    font: normal 7pt "gb";
+}
+
+#parar{
    
     margin-left: 43%;
     width: 97px;
@@ -160,7 +169,6 @@ nav ul li a{
 
 
 .barra{
-margin-top: 20px;
 width: 250px;
 height: 20px;
 border: solid 1px;
@@ -178,8 +186,47 @@ text-align: center;
     text-align: center;
     }
 
+#div_de_barras{
+width: 800px;
+height: 40px;
+float: top;
+text-align: center;
+}
 
-#hp_atual{
+#barra_hp_1{
+    margin-top: 10px;
+    margin-left: 70px;
+    margin-right: 20px;
+width: 250px;
+height: 20px;
+border: solid 1px;
+float: left;
+text-align: center;
+}
+
+
+#hp_atual_1{
+    width: 250px;
+    height: 20px;
+    background-image: url(../imagens/barras/barra_vermelha.jpg);
+    font: normal 7pt "gb";
+    color: white;
+
+    }
+
+    #barra_hp_2{
+    margin-top: 10px;
+    margin-left: 70px;
+    margin-right: 20px;
+width: 250px;
+height: 20px;
+border: solid 1px;
+float: left;
+text-align: center;
+}
+
+
+#hp_atual_2{
     width: 250px;
     height: 20px;
     background-image: url(../imagens/barras/barra_vermelha.jpg);
