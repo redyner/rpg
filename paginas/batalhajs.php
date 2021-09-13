@@ -66,34 +66,42 @@
 ?>
 
 <script>
-
+var tmp;
 var sta_inimigo = <?php echo $atributos_inimigo['sta'] ?>;
 var sta_batalha_inimigo = sta_inimigo
 var sta_batalha_personagem = <?php echo $_SESSION['sta'] ?>;
+var str_inimigo = <?php echo $atributos_inimigo['str'] ?>;
 
 
-document.getElementById("atacar").addEventListener("click",setInterval(function(event){
-    var sta = <?php echo $_SESSION['sta'] ?>;
-    var str = <?php echo $_SESSION['str'] ?>;
-    var int = <?php echo $_SESSION['int'] ?>;
-    var dex = <?php echo $_SESSION['dex'] ?>;
-    var hp_1 = document.getElementById('hp_atual_1');
-    var hp_2 = document.getElementById("hp_atual_2");
-    var teste = Math.floor(Math.random()*100+1);
-    combate(sta,str,int,dex,hp_1,hp_2,teste)
-},3000))
+function iniciar (){
+    tmp = setInterval(function(event){
+        var sta = <?php echo $_SESSION['sta'] ?>;
+        var str = <?php echo $_SESSION['str'] ?>;
+        var int = <?php echo $_SESSION['int'] ?>;
+        var dex = <?php echo $_SESSION['dex'] ?>;
+        var hp_1 = document.getElementById('hp_atual_1');
+        var hp_2 = document.getElementById("hp_atual_2");
+        combate(sta,str,int,dex,hp_1,hp_2);
+    },2000);
+}
 
-function combate(sta,str,int,dex,hp_1,hp_2,teste){
+function parar(){
+    clearInterval(tmp)
+}
+
+document.getElementById("atacar").addEventListener("click",iniciar);
+
+function combate(sta,str,int,dex,hp_1,hp_2){
  
     sta_batalha_inimigo -= str
+    sta_batalha_personagem -= str_inimigo
     var porcentagem_sta_inimigo = sta_batalha_inimigo*100/sta_inimigo;
     var porcentagem_sta_personagem = sta_batalha_personagem*100/sta;
     if (porcentagem_sta_inimigo<0) porcentagem_sta_inimigo = 0;
+    if (porcentagem_sta_personagem<0) porcentagem_sta_personagem = 0;
     hp_1.style.width = porcentagem_sta_personagem+"%";
     hp_2.style.width = porcentagem_sta_inimigo+"%";
-    if (porcentagem_sta_inimigo==0) clearInterval(combate)
-
-
+    if(porcentagem_sta_personagem==0||porcentagem_sta_inimigo==0) parar();
 }
 
 </script>
