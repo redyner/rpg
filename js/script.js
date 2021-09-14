@@ -245,8 +245,13 @@ document.getElementById("atacar").addEventListener("click",iniciar);
 
 var intervalo;
 
+function reiniciar(){
+    location.reload();
+}
+
 function iniciar (){
     document.getElementById("atacar").disabled = true;
+    document.getElementById("atacar").innerHTML = "Atacando"
     intervalo = setInterval(function(event){
         sta;
         str;
@@ -276,13 +281,10 @@ function combate(sta,str,int,dex,hp_1,hp_2){
     if(porcentagem_sta_personagem==0||porcentagem_sta_inimigo==0) {
     if(porcentagem_sta_personagem>porcentagem_sta_inimigo) document.getElementById("relatorio").innerHTML += "Parabens! Voce derrotou seu inimigo!<br>";
     else document.getElementById("relatorio").innerHTML += "Voce foi derrotado!<br>";  
+    document.getElementById("atacar").innerHTML = "Reiniciar"
+    document.getElementById("atacar").disabled = false;
+    document.getElementById("atacar").id = "reiniciar"
+    document.getElementById("reiniciar").addEventListener("click",reiniciar);
     parar();
-    setTimeout(function(event){
-        resetar_combate()
-        },5000);
-    }
-
-    function resetar_combate(){
-        location.reload();
     }
 }

@@ -105,6 +105,15 @@ nav ul li a{
     font: normal 7pt "gb";
 }
 
+#reiniciar{
+    margin-top: 20px;
+     margin-left: 351.5px;
+     width: 97px;
+     background-image: url(../imagens/barras/barra_cinza.jpg); 
+     color: white;
+     font: normal 7pt "gb";
+ }
+
 #div_batalha{
     width: 800px;
     float:inline-end;
