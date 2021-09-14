@@ -146,14 +146,6 @@ function slot18_out(){
     document.getElementById("slot18").style.backgroundColor = 'white'
 }
 
-function add_eventos(){
-
-var slot = document.querySelectorAll("div.slot")
-
-for(var i=0;i<slot.length;i++){
-slot[i].addEventListener("click",alerta)
-}
-
 document.getElementById("slot1").addEventListener("mouseover",slot1_over)
 document.getElementById("slot1").addEventListener("mouseout",slot1_out)
 
@@ -211,6 +203,7 @@ document.getElementById("slot18").addEventListener("mouseout",slot18_out)
 }
 */
 
+window.addEventListener("load",informacoes_item)
 
 function informacoes_item(){
     div = document.getElementById('informacoes_item');
@@ -224,5 +217,72 @@ function informacoes_item(){
     //Event.preventDefault();
 }
 
+// function add_eventos(){
 
-window.addEventListener("load",add_eventos)
+//     var slot = document.querySelectorAll("div.slot")
+    
+//     for(var i=0;i<slot.length;i++){
+//     slot[i].addEventListener("click",alerta)
+//     }
+// }
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+
+                              //////////////////////
+                             //SCRIPTS DE BATALHA//
+                            //////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+
+
+window.addEventListener("load",eventos_batalha);
+
+function eventos_batalha(){
+document.getElementById("atacar").addEventListener("click",iniciar);
+}
+
+var intervalo;
+
+function iniciar (){
+    document.getElementById("atacar").disabled = true;
+    intervalo = setInterval(function(event){
+        sta;
+        str;
+        int;
+        dex;
+        var hp_1 = document.getElementById('hp_atual_1');
+        var hp_2 = document.getElementById("hp_atual_2");
+        combate(sta,str,int,dex,hp_1,hp_2);
+    },3000);
+}
+
+function parar(){
+    clearInterval(intervalo)
+}
+
+function combate(sta,str,int,dex,hp_1,hp_2){
+ 
+    sta_batalha_inimigo -= str
+    sta_batalha_personagem -= str_inimigo
+    var porcentagem_sta_inimigo = sta_batalha_inimigo*100/sta_inimigo;
+    var porcentagem_sta_personagem = sta_batalha_personagem*100/sta;
+    if (porcentagem_sta_inimigo<0) porcentagem_sta_inimigo = 0;
+    if (porcentagem_sta_personagem<0) porcentagem_sta_personagem = 0;
+    hp_1.style.width = porcentagem_sta_personagem+"%";
+    hp_2.style.width = porcentagem_sta_inimigo+"%";
+    document.getElementById("relatorio").innerHTML += "Voce causou "+str+" de dano --------------- Voce recebeu "+str_inimigo+" de dano <br><hr>";
+    if(porcentagem_sta_personagem==0||porcentagem_sta_inimigo==0) {
+    if(porcentagem_sta_personagem>porcentagem_sta_inimigo) document.getElementById("relatorio").innerHTML += "Parabens! Voce derrotou seu inimigo!<br>";
+    else document.getElementById("relatorio").innerHTML += "Voce foi derrotado!<br>";  
+    parar();
+    setTimeout(function(event){
+        resetar_combate()
+        },5000);
+    }
+
+    function resetar_combate(){
+        location.reload();
+    }
+}

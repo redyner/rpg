@@ -63,57 +63,13 @@
     $crit_inimigo = $atributos_inimigo['str']+$atributos_inimigo['dex']*2;
 ?>
 
-
-<script>
-var tmp;
-var sta_inimigo = <?php echo $atributos_inimigo['sta'] ?>;
-var sta_batalha_inimigo = sta_inimigo
-var sta_batalha_personagem = <?php echo $_SESSION['sta'] ?>;
-var str_inimigo = <?php echo $atributos_inimigo['str'] ?>;
-
-
-function iniciar (){
-    document.getElementById("atacar").disabled = true;
-    tmp = setInterval(function(event){
+    <script>
+        var sta_inimigo = <?php echo $atributos_inimigo['sta'] ?>;
+        var sta_batalha_inimigo = sta_inimigo
+        var sta_batalha_personagem = <?php echo $_SESSION['sta'] ?>;
+        var str_inimigo = <?php echo $atributos_inimigo['str'] ?>;
         var sta = <?php echo $_SESSION['sta'] ?>;
         var str = <?php echo $_SESSION['str'] ?>;
         var int = <?php echo $_SESSION['int'] ?>;
         var dex = <?php echo $_SESSION['dex'] ?>;
-        var hp_1 = document.getElementById('hp_atual_1');
-        var hp_2 = document.getElementById("hp_atual_2");
-        combate(sta,str,int,dex,hp_1,hp_2);
-    },3000);
-}
-
-function parar(){
-    clearInterval(tmp)
-}
-
-document.getElementById("atacar").addEventListener("click",iniciar);
-
-function combate(sta,str,int,dex,hp_1,hp_2){
- 
-    sta_batalha_inimigo -= str
-    sta_batalha_personagem -= str_inimigo
-    var porcentagem_sta_inimigo = sta_batalha_inimigo*100/sta_inimigo;
-    var porcentagem_sta_personagem = sta_batalha_personagem*100/sta;
-    if (porcentagem_sta_inimigo<0) porcentagem_sta_inimigo = 0;
-    if (porcentagem_sta_personagem<0) porcentagem_sta_personagem = 0;
-    hp_1.style.width = porcentagem_sta_personagem+"%";
-    hp_2.style.width = porcentagem_sta_inimigo+"%";
-    document.getElementById("relatorio").innerHTML += "Voce causou "+str+" de dano --------------- Voce recebeu "+str_inimigo+" de dano <br><hr>";
-    if(porcentagem_sta_personagem==0||porcentagem_sta_inimigo==0) {
-    if(porcentagem_sta_personagem>porcentagem_sta_inimigo) document.getElementById("relatorio").innerHTML += "Parabens! Voce derrotou seu inimigo!<br>";
-    else document.getElementById("relatorio").innerHTML += "Voce foi derrotado!<br>";  
-    parar();
-    setTimeout(function(event){
-        resetar_combate()
-        },5000);
-    }
-
-    function resetar_combate(){
-        location.reload();
-    }
-}
-
-</script>
+    </script>
