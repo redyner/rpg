@@ -97,8 +97,8 @@ nav ul li a{
 }
 
 #atacar{
-   
-    margin-left: 40%;
+   margin-top: 20px;
+    margin-left: 351.5px;
     width: 97px;
     background-image: url(../imagens/barras/barra_cinza.jpg); 
     color: white;
@@ -109,7 +109,7 @@ nav ul li a{
     width: 800px;
     float:inline-end;
     text-align: center;
-    background-image: url(../imagens/papeis/papel.jpg); 
+    background-image: url(../imagens/papeis/fundo1.jpg); 
     color: white;
     font: normal 7pt "gb";
 }
@@ -160,7 +160,7 @@ nav ul li a{
 }
 
 .avatar_personagem_batalha{
-    margin: 10px 75px 10px;
+    margin: 10px 95px 10px;
     width: 250px;
     height: 250px;
     border: solid 1px;
@@ -195,7 +195,7 @@ text-align: center;
 
 #barra_hp_1{
     margin-top: 10px;
-    margin-left: 70px;
+    margin-left: 95px;
     margin-right: 20px;
 width: 250px;
 height: 20px;
@@ -216,7 +216,7 @@ text-align: center;
 
     #barra_hp_2{
     margin-top: 10px;
-    margin-left: 70px;
+    margin-left: 85px;
     margin-right: 20px;
 width: 250px;
 height: 20px;

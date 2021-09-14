@@ -100,11 +100,10 @@ function combate(sta,str,int,dex,hp_1,hp_2){
     if (porcentagem_sta_personagem<0) porcentagem_sta_personagem = 0;
     hp_1.style.width = porcentagem_sta_personagem+"%";
     hp_2.style.width = porcentagem_sta_inimigo+"%";
-    document.getElementById("relatorio").innerHTML += "Voce causou "+str+" de dano <br>";
-    document.getElementById("relatorio").innerHTML += "Voce recebeu "+str_inimigo+" de dano <br>";
+    document.getElementById("relatorio").innerHTML += "Voce causou "+str+" de dano --------------- Voce recebeu "+str_inimigo+" de dano <br><hr>";
     if(porcentagem_sta_personagem==0||porcentagem_sta_inimigo==0) {
     if(porcentagem_sta_personagem>porcentagem_sta_inimigo) document.getElementById("relatorio").innerHTML += "Parabens! Voce derrotou seu inimigo!<br>";
-    else document.getElementById("relatorio").innerHTML += "Parabens! Voce foi derrotado!<br>";    
+    else document.getElementById("relatorio").innerHTML += "Voce foi derrotado!<br>";    
     parar();
     }
 }
