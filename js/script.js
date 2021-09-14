@@ -1,7 +1,7 @@
 function alerta(){
     alert("Alerta Geral")
 }
-
+/*
 function slot1_over(){
     document.getElementById("slot1").style.backgroundColor = 'red'
 }
@@ -209,5 +209,20 @@ document.getElementById("slot18").addEventListener("mouseover",slot18_over)
 document.getElementById("slot18").addEventListener("mouseout",slot18_out)
 
 }
+*/
+
+
+function informacoes_item(){
+    div = document.getElementById('informacoes_item');
+
+    if(div.style.display == "none"){
+        div.style.display = "block";
+    } else {
+        div.style.display = "none";
+    }
+
+    //Event.preventDefault();
+}
+
 
 window.addEventListener("load",add_eventos)
