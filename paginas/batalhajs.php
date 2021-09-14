@@ -42,15 +42,13 @@
             </div>
         </div>
 
-        <a href="" ><div class="avatar_personagem_batalha" id = "<?php echo $classe ?>">
- 
-    </div></a>
-
-        <a href="?pagina=batalha&id=1" ><span class="avatar_inimigo_batalha" id="<?php echo $nick_inimigo?>"></span></a>
+        <div class="avatar_personagem_batalha" id = "<?php echo $classe ?>"></div>
+        <div class="avatar_inimigo_batalha" id="<?php echo $nick_inimigo?>"></div>
         
-
-        </div>
         <button id="atacar"> Atacar </button>
+        </div>
+        
+        <div id="div_batalha"><p id="relatorio"></p></div>
 
 
 <?php
@@ -64,6 +62,7 @@
     $dex_inimigo  = $atributos_inimigo['dex'];
     $crit_inimigo = $atributos_inimigo['str']+$atributos_inimigo['dex']*2;
 ?>
+
 
 <script>
 var tmp;
@@ -101,7 +100,13 @@ function combate(sta,str,int,dex,hp_1,hp_2){
     if (porcentagem_sta_personagem<0) porcentagem_sta_personagem = 0;
     hp_1.style.width = porcentagem_sta_personagem+"%";
     hp_2.style.width = porcentagem_sta_inimigo+"%";
-    if(porcentagem_sta_personagem==0||porcentagem_sta_inimigo==0) parar();
+    document.getElementById("relatorio").innerHTML += "Voce causou "+str+" de dano <br>";
+    document.getElementById("relatorio").innerHTML += "Voce recebeu "+str_inimigo+" de dano <br>";
+    if(porcentagem_sta_personagem==0||porcentagem_sta_inimigo==0) {
+    if(porcentagem_sta_personagem>porcentagem_sta_inimigo) document.getElementById("relatorio").innerHTML += "Parabens! Voce derrotou seu inimigo!<br>";
+    else document.getElementById("relatorio").innerHTML += "Parabens! Voce foi derrotado!<br>";    
+    parar();
+    }
 }
 
 </script>
