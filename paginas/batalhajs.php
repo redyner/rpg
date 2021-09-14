@@ -73,6 +73,7 @@ var str_inimigo = <?php echo $atributos_inimigo['str'] ?>;
 
 
 function iniciar (){
+    document.getElementById("atacar").disabled = true;
     tmp = setInterval(function(event){
         var sta = <?php echo $_SESSION['sta'] ?>;
         var str = <?php echo $_SESSION['str'] ?>;
@@ -81,7 +82,7 @@ function iniciar (){
         var hp_1 = document.getElementById('hp_atual_1');
         var hp_2 = document.getElementById("hp_atual_2");
         combate(sta,str,int,dex,hp_1,hp_2);
-    },2000);
+    },3000);
 }
 
 function parar(){
@@ -103,8 +104,15 @@ function combate(sta,str,int,dex,hp_1,hp_2){
     document.getElementById("relatorio").innerHTML += "Voce causou "+str+" de dano --------------- Voce recebeu "+str_inimigo+" de dano <br><hr>";
     if(porcentagem_sta_personagem==0||porcentagem_sta_inimigo==0) {
     if(porcentagem_sta_personagem>porcentagem_sta_inimigo) document.getElementById("relatorio").innerHTML += "Parabens! Voce derrotou seu inimigo!<br>";
-    else document.getElementById("relatorio").innerHTML += "Voce foi derrotado!<br>";    
+    else document.getElementById("relatorio").innerHTML += "Voce foi derrotado!<br>";  
     parar();
+    setTimeout(function(event){
+        resetar_combate()
+        },5000);
+    }
+
+    function resetar_combate(){
+        location.reload();
     }
 }
 
