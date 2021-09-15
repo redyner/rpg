@@ -253,33 +253,41 @@ function iniciar (){
     document.getElementById("atacar").disabled = true;
     document.getElementById("atacar").innerHTML = "Atacando"
     intervalo = setInterval(function(event){
-        sta;
-        str;
-        int;
-        dex;
         var hp_1 = document.getElementById('hp_atual_1');
         var hp_2 = document.getElementById("hp_atual_2");
-        combate(sta,str,int,dex,hp_1,hp_2);
-    },3000);
+        combate(hp_1,hp_2);
+    },2000);
 }
 
 function parar(){
     clearInterval(intervalo)
 }
 
-function combate(sta,str,int,dex,hp_1,hp_2){
- 
-    hp_batalha_inimigo -= str
-    hp_batalha_personagem -= str_inimigo
-    var porcentagem_sta_inimigo = hp_batalha_inimigo*100/hp_inimigo;
-    var porcentagem_sta_personagem = hp_batalha_personagem*100/hp;
-    if (porcentagem_sta_inimigo<0) porcentagem_sta_inimigo = 0;
-    if (porcentagem_sta_personagem<0) porcentagem_sta_personagem = 0;
-    hp_1.style.width = porcentagem_sta_personagem+"%";
-    hp_2.style.width = porcentagem_sta_inimigo+"%";
-    document.getElementById("relatorio").innerHTML += "Voce causou "+str+" de dano --------------- Voce recebeu "+str_inimigo+" de dano <br><hr>";
-    if(porcentagem_sta_personagem==0||porcentagem_sta_inimigo==0) {
-    if(porcentagem_sta_personagem>porcentagem_sta_inimigo) document.getElementById("relatorio").innerHTML += "Parabens! Voce derrotou seu inimigo!<br>";
+function combate(hp_1,hp_2){
+    var valida_crit_personagem = (str_personagem>=int_personagem) ? str_personagem : int_personagem*2;
+    var valida_crit_inimigo = (str_inimigo>=int_inimigo) ? str_inimigo : int_inimigo*2;
+    var power = [];
+    var dano = [];
+    speed();
+    calculo_dano();
+    hp_batalha_inimigo -= dano['personagem'];
+    hp_batalha_personagem -= dano['inimigo'];
+    var porcentagem_hp_inimigo = hp_batalha_inimigo*100/hp_inimigo;
+    var porcentagem_hp_personagem = hp_batalha_personagem*100/hp_personagem;
+    if (porcentagem_hp_inimigo<0) porcentagem_hp_inimigo = 0;
+    if (porcentagem_hp_personagem<0) porcentagem_hp_personagem = 0;
+    hp_1.style.width = porcentagem_hp_personagem+"%";
+    hp_2.style.width = porcentagem_hp_inimigo+"%";
+    if (power['personagem']>power['inimigo']) {
+        (dano['personagem']>valida_crit_personagem) ? (document.getElementById("relatorio").innerHTML += "Voce causou "+dano['personagem']+" de dano critico!<br><hr>") : document.getElementById("relatorio").innerHTML += "Voce causou "+dano['personagem']+" de dano.<br><hr>";
+        if (porcentagem_hp_inimigo>0) (dano['inimigo']>valida_crit_inimigo) ? (document.getElementById("relatorio").innerHTML += "Voce recebeu "+dano['inimigo']+" de dano critico!<br><hr>") : (document.getElementById("relatorio").innerHTML += "Voce recebeu "+dano['inimigo']+" de dano.<br><hr>");
+    }else{
+        (dano['inimigo']>valida_crit_inimigo) ? (document.getElementById("relatorio").innerHTML += "Voce recebeu "+dano['inimigo']+" de dano critico!<br><hr>") : (document.getElementById("relatorio").innerHTML += "Voce recebeu "+dano['inimigo']+" de dano.<br><hr>");
+        if (porcentagem_hp_personagem>0) (dano['personagem']>valida_crit_personagem) ? (document.getElementById("relatorio").innerHTML += "Voce causou "+dano['personagem']+" de dano critico!<br><hr>") : document.getElementById("relatorio").innerHTML += "Voce causou "+dano['personagem']+" de dano.<br><hr>";
+    }
+
+    if(porcentagem_hp_personagem==0||porcentagem_hp_inimigo==0) {
+    if(porcentagem_hp_personagem>porcentagem_hp_inimigo) document.getElementById("relatorio").innerHTML += "Parabens! Voce derrotou seu inimigo!<br>";
     else document.getElementById("relatorio").innerHTML += "Voce foi derrotado!<br>";  
     document.getElementById("atacar").innerHTML = "Reiniciar"
     document.getElementById("atacar").disabled = false;
@@ -287,4 +295,33 @@ function combate(sta,str,int,dex,hp_1,hp_2){
     document.getElementById("reiniciar").addEventListener("click",reiniciar);
     parar();
     }
+
+    function calculo_dano(){
+
+        var taxa = 100;
+        var chance_crit_inimigo = Math.round(Math.random()*(taxa-1)+1);
+        var chance_crit_personagem = Math.round(Math.random()*(taxa-1)+1);
+        var taxa_crit_inimigo = dex_inimigo/2;
+        var taxa_crit_personagem = dex_personagem/2;
+        
+        
+        if(chance_crit_personagem<=taxa_crit_personagem) dano['personagem'] = (str_personagem>int_personagem) ? (str_personagem + dex_personagem * 2) : (int_personagem * 2 + dex_personagem);
+        else (str_personagem>=int_personagem) ? (dano['personagem'] = str_personagem) : (dano['personagem'] = int_personagem * 2);
+    
+        if(chance_crit_inimigo<=taxa_crit_inimigo) dano['inimigo'] = (str_inimigo>int_inimigo) ? ( str_inimigo + dex_inimigo * 2) : (int_inimigo * 2 + dex_inimigo);
+        else (str_inimigo>=int_inimigo) ? (dano['inimigo'] = str_inimigo) : (dano['inimigo'] = int_inimigo * 2);
+    
+        return dano;
+    
+    }
+
+    function speed(){
+
+       power['personagem'] = sta_personagem+str_personagem+int_personagem+dex_personagem;
+       power['inimigo'] = sta_inimigo+str_inimigo+int_inimigo+dex_inimigo;
+       return power;
+    
+    }
+
 }
+

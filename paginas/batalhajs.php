@@ -62,11 +62,13 @@
         var hp_inimigo = sta_inimigo*10;
         var hp_batalha_inimigo = hp_inimigo;
         var str_inimigo = <?php echo $atributos_inimigo['str'] ?>;
+        var int_inimigo = <?php echo $atributos_inimigo['int'] ?>;
+        var dex_inimigo = <?php echo $atributos_inimigo['dex'] ?>;
 
-        var sta = <?php echo $_SESSION['sta'] ?>;
-        var hp = sta*3;
-        var hp_batalha_personagem = hp;
-        var str = <?php echo $_SESSION['str'] ?>;
-        var int = <?php echo $_SESSION['int'] ?>;
-        var dex = <?php echo $_SESSION['dex'] ?>;
+        var sta_personagem = <?php echo $_SESSION['sta'] ?>;
+        var hp_personagem = sta_personagem*3;
+        var hp_batalha_personagem = hp_personagem;
+        var str_personagem = <?php echo $_SESSION['str'] ?>;
+        var int_personagem = <?php echo $_SESSION['int'] ?>;
+        var dex_personagem = <?php echo $_SESSION['dex'] ?>;
     </script>
