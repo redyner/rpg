@@ -276,14 +276,20 @@ function combate(hp_1,hp_2){
     var porcentagem_hp_personagem = hp_batalha_personagem*100/hp_personagem;
     if (porcentagem_hp_inimigo<0) porcentagem_hp_inimigo = 0;
     if (porcentagem_hp_personagem<0) porcentagem_hp_personagem = 0;
-    hp_1.style.width = porcentagem_hp_personagem+"%";
-    hp_2.style.width = porcentagem_hp_inimigo+"%";
     if (power['personagem']>power['inimigo']) {
         (dano['personagem']>valida_crit_personagem) ? (document.getElementById("relatorio").innerHTML += "Voce causou "+dano['personagem']+" de dano critico!<br><hr>") : document.getElementById("relatorio").innerHTML += "Voce causou "+dano['personagem']+" de dano.<br><hr>";
-        if (porcentagem_hp_inimigo>0) (dano['inimigo']>valida_crit_inimigo) ? (document.getElementById("relatorio").innerHTML += "Voce recebeu "+dano['inimigo']+" de dano critico!<br><hr>") : (document.getElementById("relatorio").innerHTML += "Voce recebeu "+dano['inimigo']+" de dano.<br><hr>");
+        hp_2.style.width = porcentagem_hp_inimigo+"%";
+        if (porcentagem_hp_inimigo>0) {
+        (dano['inimigo']>valida_crit_inimigo) ? (document.getElementById("relatorio").innerHTML += "Voce recebeu "+dano['inimigo']+" de dano critico!<br><hr>") : (document.getElementById("relatorio").innerHTML += "Voce recebeu "+dano['inimigo']+" de dano.<br><hr>");
+        hp_1.style.width = porcentagem_hp_personagem+"%";
+        }
     }else{
         (dano['inimigo']>valida_crit_inimigo) ? (document.getElementById("relatorio").innerHTML += "Voce recebeu "+dano['inimigo']+" de dano critico!<br><hr>") : (document.getElementById("relatorio").innerHTML += "Voce recebeu "+dano['inimigo']+" de dano.<br><hr>");
-        if (porcentagem_hp_personagem>0) (dano['personagem']>valida_crit_personagem) ? (document.getElementById("relatorio").innerHTML += "Voce causou "+dano['personagem']+" de dano critico!<br><hr>") : document.getElementById("relatorio").innerHTML += "Voce causou "+dano['personagem']+" de dano.<br><hr>";
+        hp_1.style.width = porcentagem_hp_personagem+"%";
+        if (porcentagem_hp_personagem>0) {
+        (dano['personagem']>valida_crit_personagem) ? (document.getElementById("relatorio").innerHTML += "Voce causou "+dano['personagem']+" de dano critico!<br><hr>") : document.getElementById("relatorio").innerHTML += "Voce causou "+dano['personagem']+" de dano.<br><hr>";
+        hp_2.style.width = porcentagem_hp_inimigo+"%";
+        }
     }
 
     if(porcentagem_hp_personagem==0||porcentagem_hp_inimigo==0) {
