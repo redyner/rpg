@@ -269,10 +269,10 @@ function parar(){
 
 function combate(sta,str,int,dex,hp_1,hp_2){
  
-    sta_batalha_inimigo -= str
-    sta_batalha_personagem -= str_inimigo
-    var porcentagem_sta_inimigo = sta_batalha_inimigo*100/sta_inimigo;
-    var porcentagem_sta_personagem = sta_batalha_personagem*100/sta;
+    hp_batalha_inimigo -= str
+    hp_batalha_personagem -= str_inimigo
+    var porcentagem_sta_inimigo = hp_batalha_inimigo*100/hp_inimigo;
+    var porcentagem_sta_personagem = hp_batalha_personagem*100/hp;
     if (porcentagem_sta_inimigo<0) porcentagem_sta_inimigo = 0;
     if (porcentagem_sta_personagem<0) porcentagem_sta_personagem = 0;
     hp_1.style.width = porcentagem_sta_personagem+"%";

@@ -56,19 +56,17 @@
     $id = $_GET['id'];
     $sql = "SELECT sta, `str`, `int`, dex FROM rpg.atributos a JOIN rpg.inimigos i ON i.id_inimigo = a.id_inimigo WHERE i.id_inimigo = '{$id}'";
     $atributos_inimigo = mysqli_fetch_assoc(mysqli_query($conexao,$sql));
-    $sta_inimigo = $atributos_inimigo['sta'];
-    $str_inimigo = $atributos_inimigo['str'];
-    $int_inimigo  = $atributos_inimigo['int'];
-    $dex_inimigo  = $atributos_inimigo['dex'];
-    $crit_inimigo = $atributos_inimigo['str']+$atributos_inimigo['dex']*2;
 ?>
 
     <script>
         var sta_inimigo = <?php echo $atributos_inimigo['sta'] ?>;
-        var sta_batalha_inimigo = sta_inimigo
-        var sta_batalha_personagem = <?php echo $_SESSION['sta'] ?>;
+        var hp_inimigo = sta_inimigo*10;
+        var hp_batalha_inimigo = hp_inimigo;
         var str_inimigo = <?php echo $atributos_inimigo['str'] ?>;
+
         var sta = <?php echo $_SESSION['sta'] ?>;
+        var hp = sta*3;
+        var hp_batalha_personagem = hp;
         var str = <?php echo $_SESSION['str'] ?>;
         var int = <?php echo $_SESSION['int'] ?>;
         var dex = <?php echo $_SESSION['dex'] ?>;

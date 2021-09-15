@@ -74,11 +74,10 @@
                 $_SESSION['xp'] = $info_player['xp'];
                 $_SESSION['xp_max'] = $info_player['xp_max'];
                 $_SESSION['classe']  = $info_player['nm_classe'];
-                $_SESSION['sta'] = (($info_player['sta']*10)+($info_player['lv']*$info_player['sta']))+$equipamento['sta'];
+                $_SESSION['sta'] = ($info_player['sta']+($info_player['lv']*$info_player['sta']))+$equipamento['sta'];
                 $_SESSION['str'] = ($info_player['str']+($info_player['lv']*$info_player['str']))+$equipamento['sta'];
-                $_SESSION['int']  = ($info_player['int']+($info_player['lv']*$info_player['int']))+$equipamento['sta'];
-                $_SESSION['dex']  = ($info_player['dex']+($info_player['lv']*$info_player['dex']))+$equipamento['sta'];
-                $_SESSION['crit'] = $_SESSION['str']+$_SESSION['dex']*2;
+                $_SESSION['int'] = ($info_player['int']+($info_player['lv']*$info_player['int']))+$equipamento['sta'];
+                $_SESSION['dex'] = ($info_player['dex']+($info_player['lv']*$info_player['dex']))+$equipamento['sta'];
                 $_SESSION['gold'] = $info_player['gold'];
 
 
