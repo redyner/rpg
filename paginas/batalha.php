@@ -9,7 +9,6 @@
         $str_personagem = $_SESSION['str'];
         $int_personagem  = $_SESSION['int'];
         $dex_personagem  = $_SESSION['dex'];
-        $crit_personagem = $_SESSION['crit'];
         $porcentagem_xp = $xp*100/$xp_max;
         if ($porcentagem_xp<0) $porcentagem_xp = 0;
 
