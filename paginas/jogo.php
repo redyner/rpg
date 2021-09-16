@@ -87,7 +87,7 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
         <p>STA - <?php echo $sta ?></p>
         <p>STR - <?php echo $str ?></p>
         <p>INT - <?php echo $int ?></p>
-        <p> DEX - <?php echo $dex ?></p>   
+        <p>DEX - <?php echo $dex ?></p>   
     </div>
         <script>
            // for (var i = 1; i <= 18; i++)

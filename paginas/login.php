@@ -65,10 +65,10 @@
                 $equipamento = mysqli_fetch_assoc(mysqli_query($conexao,$sql));
 
                 
-                $_SESSION['sta_itens_equipados']=$equipamento['sta'];
-                $_SESSION['str_itens_equipados']=$equipamento['str'];
-                $_SESSION['int_itens_equipados']=$equipamento['int'];
-                $_SESSION['dex_itens_equipados']=$equipamento['dex'];
+                $_SESSION['sta_itens_equipados'] = $equipamento['sta'];
+                $_SESSION['str_itens_equipados'] = $equipamento['str'];
+                $_SESSION['int_itens_equipados'] = $equipamento['int'];
+                $_SESSION['dex_itens_equipados'] = $equipamento['dex'];
                 $_SESSION['nick'] = $info_player['nick'];
                 $_SESSION['lv'] = $info_player['lv'];
                 $_SESSION['xp'] = $info_player['xp'];
