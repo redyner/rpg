@@ -293,7 +293,20 @@ function combate(hp_1,hp_2){
     }
 
     if(porcentagem_hp_personagem==0||porcentagem_hp_inimigo==0) {
-    if(porcentagem_hp_personagem>porcentagem_hp_inimigo) document.getElementById("relatorio").innerHTML += "Parabens! Voce derrotou seu inimigo!<br>";
+    if(porcentagem_hp_personagem>porcentagem_hp_inimigo) {
+        document.getElementById("relatorio").innerHTML += "Parabens! Voce derrotou seu inimigo!<br>";
+        xp += xp_inimigo;  
+        if (xp >= xp_max){
+            lv += 1;
+            xp_atual = xp - xp_max;  
+            xp = xp_atual;
+            $xp_max = $xp_max + 50*parseInt(localStorage.getItem('xp'));  
+            str_personagem += str_lv;
+            sta_personagem += str_lv;
+            int_personagem += str_lv;
+            dex_personagem += str_lv;
+        }
+    }
     else document.getElementById("relatorio").innerHTML += "Voce foi derrotado!<br>";  
     document.getElementById("atacar").innerHTML = "Reiniciar"
     document.getElementById("atacar").disabled = false;
