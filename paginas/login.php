@@ -110,33 +110,18 @@
         <script>
         localStorage.setItem('nick','<?php echo $_SESSION['nick'] ?>');
         localStorage.setItem('lv',<?php echo $_SESSION['lv'] ?>);
-        var lv = parseInt(localStorage.getItem('lv'));
         localStorage.setItem('xp',<?php echo $_SESSION['xp'] ?>);
-        var xp = parseInt(localStorage.getItem('xp'));
         localStorage.setItem('xp_max',<?php echo $_SESSION['xp_max'] ?>);
-        var xp_max = parseInt(localStorage.getItem('xp_max'));
         localStorage.setItem('classe','<?php echo $_SESSION['classe'] ?>');
         localStorage.setItem('sta_personagem',<?php echo $_SESSION['sta'] ?>);
-        var sta_personagem = parseInt(localStorage.getItem('sta_personagem'));
-        var hp_personagem = sta_personagem*3;
-        var hp_batalha_personagem = hp_personagem;
         localStorage.setItem('str_personagem',<?php echo $_SESSION['str'] ?>);
-        var str_personagem = parseInt(localStorage.getItem('str_personagem'));
         localStorage.setItem('int_personagem',<?php echo $_SESSION['int'] ?>);
-        var int_personagem = parseInt(localStorage.getItem('int_personagem'));
         localStorage.setItem('dex_personagem',<?php echo $_SESSION['dex'] ?>); 
-        var dex_personagem = parseInt(localStorage.getItem('dex_personagem'));
         localStorage.setItem('gold',<?php echo $_SESSION['gold'] ?>);
-        var gold = parseInt(localStorage.getItem('gold')); 
-        
         localStorage.setItem('sta_lv',<?php echo $_SESSION['sta_lv'] ?>);
-        var sta_lv = parseInt(localStorage.getItem('sta_lv'));
         localStorage.setItem('str_lv',<?php echo $_SESSION['str_lv'] ?>);
-        var str_lv = parseInt(localStorage.getItem('str_lv'));
         localStorage.setItem('int_lv',<?php echo $_SESSION['int_lv'] ?>);
-        var int_lv = parseInt(localStorage.getItem('int_lv'));
         localStorage.setItem('dex_lv',<?php echo $_SESSION['dex_lv'] ?>);
-        var dex_lv = parseInt(localStorage.getItem('dex_lv'));
 
         location.reload();
 

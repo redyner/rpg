@@ -244,6 +244,20 @@ document.getElementById("atacar").addEventListener("click",iniciar);
 }
 
 var intervalo;
+var lv = parseInt(localStorage.getItem('lv'));
+var xp = parseInt(localStorage.getItem('xp'));
+var xp_max = parseInt(localStorage.getItem('xp_max'));
+var sta_personagem = parseInt(localStorage.getItem('sta_personagem'));
+var str_personagem = parseInt(localStorage.getItem('str_personagem'));
+var int_personagem = parseInt(localStorage.getItem('int_personagem'));
+var dex_personagem = parseInt(localStorage.getItem('dex_personagem'));
+var gold = parseInt(localStorage.getItem('gold'));
+var sta_lv = parseInt(localStorage.getItem('sta_lv'));
+var str_lv = parseInt(localStorage.getItem('str_lv'));
+var int_lv = parseInt(localStorage.getItem('int_lv'));
+var dex_lv = parseInt(localStorage.getItem('dex_lv'));
+var hp_personagem = sta_personagem*3;
+var hp_batalha_personagem = hp_personagem;
 
 function reiniciar(){
     location.reload();
@@ -300,11 +314,20 @@ function combate(hp_1,hp_2){
             lv += 1;
             xp_atual = xp - xp_max;  
             xp = xp_atual;
-            $xp_max = $xp_max + 50*parseInt(localStorage.getItem('xp'));  
+            xp_max = xp_max + 50 * lv;  
+            sta_personagem += sta_lv;
             str_personagem += str_lv;
-            sta_personagem += str_lv;
-            int_personagem += str_lv;
-            dex_personagem += str_lv;
+            int_personagem += int_lv;
+            dex_personagem += dex_lv;
+            localStorage.setItem('xp',xp)
+            localStorage.setItem('xp_max',xp_max)
+            localStorage.setItem('sta_personagem',sta_personagem);
+            localStorage.setItem('str_personagem',str_personagem);
+            localStorage.setItem('int_personagem',int_personagem);
+            localStorage.setItem('dex_personagem',dex_personagem);
+        }else{
+            xp += xp_inimigo;
+            localStorage.setItem('xp',xp)
         }
     }
     else document.getElementById("relatorio").innerHTML += "Voce foi derrotado!<br>";  
