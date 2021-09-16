@@ -67,12 +67,3 @@
         var xp_inimigo = <?php echo $atributos_inimigo['xp'] ?>;
 
     </script>
-
-<script>
-           <?php  $_SESSION['xp'] ?> = localStorage.getItem('xp');
-           <?php  $_SESSION['xp_max'] ?> = localStorage.getItem('xp_max');
-           <?php  $_SESSION['sta_personagem'] ?> = localStorage.getItem('sta_personagem');
-           <?php  $_SESSION['str_personagem'] ?> = localStorage.getItem('str_personagem');
-           <?php  $_SESSION['int_personagem'] ?> = localStorage.getItem('int_personagem');
-           <?php  $_SESSION['dex_personagem'] ?> = localStorage.getItem('dex_personagem');
-</script>
