@@ -101,7 +101,7 @@
     </div>
 
     <script>
-        localStorage.setItem('nick',<?php echo $_SESSION['nick'] ?>);
+        localStorage.setItem('nick','<?php echo $_SESSION['nick'] ?>');
         localStorage.setItem('lv',<?php echo $_SESSION['lv'] ?>);
         var lv = parseInt(localStorage.getItem('lv'));
         localStorage.setItem('xp',<?php echo $_SESSION['xp'] ?>);
@@ -120,6 +120,5 @@
         localStorage.setItem('dex_personagem',<?php echo $_SESSION['dex'] ?>); 
         var dex_personagem = parseInt(localStorage.getItem('dex_personagem'));
         localStorage.setItem('gold',<?php echo $_SESSION['gold'] ?>);
-        var gold = parseInt(localStorage.getItem('gold'));
-        
+        var gold = parseInt(localStorage.getItem('gold'));   
     </script>
