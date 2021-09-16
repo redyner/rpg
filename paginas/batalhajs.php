@@ -65,10 +65,4 @@
         var int_inimigo = <?php echo $atributos_inimigo['int'] ?>;
         var dex_inimigo = <?php echo $atributos_inimigo['dex'] ?>;
 
-        var sta_personagem = <?php echo $_SESSION['sta'] ?>;
-        var hp_personagem = sta_personagem*3;
-        var hp_batalha_personagem = hp_personagem;
-        var str_personagem = <?php echo $_SESSION['str'] ?>;
-        var int_personagem = <?php echo $_SESSION['int'] ?>;
-        var dex_personagem = <?php echo $_SESSION['dex'] ?>;
     </script>
