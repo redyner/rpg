@@ -80,16 +80,8 @@
                 $_SESSION['dex'] = ($info_player['dex']+($info_player['lv']*$info_player['dex']))+$equipamento['sta'];
                 $_SESSION['gold'] = $info_player['gold'];
 
-                $sql = "SELECT `sta` , `str`, `int` ,`dex`  
-                        FROM rpg.personagens p
-                        JOIN rpg.atributos a ON a.id_classe = p.id_classe
-                        WHERE p.id_personagem = '{$id_player}'";
-                $level_up = mysqli_fetch_assoc(mysqli_query($conexao,$sql));
-                $_SESSION['sta_lv'] = $level_up['sta'];
-                $_SESSION['str_lv'] = $level_up['str'];
-                $_SESSION['int_lv'] = $level_up['int'];
-                $_SESSION['dex_lv'] = $level_up['dex'];
 
+                header("location: http://localhost/rpg/index.php?pagina=jogo");
             }else echo "Login ou senha incorretos!";
         }
            }
@@ -106,24 +98,3 @@
         </form>
         
     </div>
-
-        <script>
-        localStorage.setItem('nick','<?php echo $_SESSION['nick'] ?>');
-        localStorage.setItem('lv',<?php echo $_SESSION['lv'] ?>);
-        localStorage.setItem('xp',<?php echo $_SESSION['xp'] ?>);
-        localStorage.setItem('xp_max',<?php echo $_SESSION['xp_max'] ?>);
-        localStorage.setItem('classe','<?php echo $_SESSION['classe'] ?>');
-        localStorage.setItem('sta_personagem',<?php echo $_SESSION['sta'] ?>);
-        localStorage.setItem('str_personagem',<?php echo $_SESSION['str'] ?>);
-        localStorage.setItem('int_personagem',<?php echo $_SESSION['int'] ?>);
-        localStorage.setItem('dex_personagem',<?php echo $_SESSION['dex'] ?>); 
-        localStorage.setItem('gold',<?php echo $_SESSION['gold'] ?>);
-        localStorage.setItem('sta_lv',<?php echo $_SESSION['sta_lv'] ?>);
-        localStorage.setItem('str_lv',<?php echo $_SESSION['str_lv'] ?>);
-        localStorage.setItem('int_lv',<?php echo $_SESSION['int_lv'] ?>);
-        localStorage.setItem('dex_lv',<?php echo $_SESSION['dex_lv'] ?>);
-
-        location.reload();
-
-    </script>
-

@@ -2,7 +2,6 @@
 include "conexao.php";
 $porcentagem_xp = $_SESSION['xp'] * 100 / $_SESSION['xp_max'];
 if ($porcentagem_xp < 0) $porcentagem_xp = 0;
-
 ?>
 
 <div id="painel_principal">
@@ -28,20 +27,20 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
             <br>
             <p id="atributo_xp">EXP</p>
             <div class="barra" id="barra_xp">
-                <div id="xp_atual" style="width: <?php echo "<script>porcentagem_xp</script>" ?>%"> <script>document.write(localStorage.getItem('xp'))</script>/<script>document.write(localStorage.getItem('xp_max'))</script></div>
+                <div id="xp_atual" style="width: <?php echo $porcentagem_xp ?>%"> <?php echo "{$_SESSION['xp']}/{$_SESSION['xp_max']}" ?></div>
             </div>
             <br><br><br>
             <p id="lista_atributos">NICK - <?php echo $_SESSION['nick'] ?></p>
             <br>
-            <p id="lista_atributos">LEVEL - <script>document.write(localStorage.getItem('lv'))</script></p>
+            <p id="lista_atributos">LEVEL - <?php echo $_SESSION['lv'] ?></p>
             <br>
-            <p id="lista_atributos">STA - <script>document.write(localStorage.getItem('sta_personagem'))</script></p>
+            <p id="lista_atributos">STA - <?php echo $_SESSION['sta'] ?></p>
             <br>
-            <p id="lista_atributos">STR - <script>document.write(localStorage.getItem('str_personagem'))</script></p>
+            <p id="lista_atributos">STR - <?php echo $_SESSION['str'] ?></p>
             <br>
-            <p id="lista_atributos">INT - <script>document.write(localStorage.getItem('int_personagem'))</script></p>
+            <p id="lista_atributos">INT - <?php echo $_SESSION['int'] ?></p>
             <br>
-            <p id="lista_atributos">DEX - <script>document.write(localStorage.getItem('dex_personagem'))</script></p>
+            <p id="lista_atributos">DEX - <?php echo $_SESSION['dex'] ?></p>
 
         </div>
 

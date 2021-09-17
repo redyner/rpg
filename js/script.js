@@ -244,20 +244,6 @@ document.getElementById("atacar").addEventListener("click",iniciar);
 }
 
 var intervalo;
-var lv = parseInt(localStorage.getItem('lv'));
-var xp = parseInt(localStorage.getItem('xp'));
-var xp_max = parseInt(localStorage.getItem('xp_max'));
-var sta_personagem = parseInt(localStorage.getItem('sta_personagem'));
-var str_personagem = parseInt(localStorage.getItem('str_personagem'));
-var int_personagem = parseInt(localStorage.getItem('int_personagem'));
-var dex_personagem = parseInt(localStorage.getItem('dex_personagem'));
-var gold = parseInt(localStorage.getItem('gold'));
-var sta_lv = parseInt(localStorage.getItem('sta_lv'));
-var str_lv = parseInt(localStorage.getItem('str_lv'));
-var int_lv = parseInt(localStorage.getItem('int_lv'));
-var dex_lv = parseInt(localStorage.getItem('dex_lv'));
-var hp_personagem = sta_personagem*3;
-var hp_batalha_personagem = hp_personagem;
 
 function reiniciar(){
     location.reload();
@@ -319,17 +305,15 @@ function combate(hp_1,hp_2){
             str_personagem += str_lv;
             int_personagem += int_lv;
             dex_personagem += dex_lv;
-            localStorage.setItem('lv',lv)
-            localStorage.setItem('xp',xp)
-            localStorage.setItem('xp_max',xp_max)
-            localStorage.setItem('sta_personagem',sta_personagem);
-            localStorage.setItem('str_personagem',str_personagem);
-            localStorage.setItem('int_personagem',int_personagem);
-            localStorage.setItem('dex_personagem',dex_personagem);
+////////////////////////////////////////////////////////////////////////////////////////////
+//Aqui eu preciso atualizar as informações do banco de dados e atualizá-los na sessão php//
+//////////////////////////////////////////////////////////////////////////////////////////
             document.getElementById("relatorio").innerHTML += "Parabens! voce subiu para o nivel "+lv+"<br>";
         }else{
             xp += xp_inimigo;
-            localStorage.setItem('xp',xp)
+////////////////////////////////////////////////////////////////////////////////////////////
+//Aqui eu preciso atualizar as informações do banco de dados e atualizá-los na sessão php//
+//////////////////////////////////////////////////////////////////////////////////////////
         }
     }
     else document.getElementById("relatorio").innerHTML += "Voce foi derrotado!<br>";  
@@ -367,21 +351,4 @@ function combate(hp_1,hp_2){
     
     }
 
-}
-
-
-///////////////////////////////////////////////////////////////////////////////
-
-                              //////////////////////
-                             //Painel  Personagem//
-                            //////////////////////
-
-//////////////////////////////////////////////////////////////////////////////
-
-window.addEventListener("load",animacao_xp);
-
-function animacao_xp(){
-var porcentagem_xp = localStorage.getItem('xp') * 100 / localStorage.getItem('xp_max');
-if (porcentagem_xp < 0) porcentagem_xp = 0;
-document.getElementById('xp_atual').style.width = porcentagem_xp+"%";
 }

@@ -66,4 +66,13 @@
         var dex_inimigo = <?php echo $atributos_inimigo['dex'] ?>;
         var xp_inimigo = <?php echo $atributos_inimigo['xp'] ?>;
 
+        var sta_personagem = <?php echo $_SESSION['sta'] ?>;
+        var hp_personagem = sta_personagem*3;
+        var hp_batalha_personagem = hp_personagem;
+        var str_personagem = <?php echo $_SESSION['str'] ?>;
+        var int_personagem = <?php echo $_SESSION['int'] ?>;
+        var dex_personagem = <?php echo $_SESSION['dex'] ?>;
+        var xp = <?php echo $_SESSION['xp'] ?>;
+        var xp_max = <?php echo $_SESSION['xp_max'] ?>;
+
     </script>
