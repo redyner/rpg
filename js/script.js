@@ -308,7 +308,7 @@ function combate(hp_1,hp_2){
 
     if(porcentagem_hp_personagem==0||porcentagem_hp_inimigo==0) {
     if(porcentagem_hp_personagem>porcentagem_hp_inimigo) {
-        document.getElementById("relatorio").innerHTML += "Parabens! Voce derrotou seu inimigo!<br>";
+        document.getElementById("relatorio").innerHTML += "Voce derrotou seu inimigo <br>E ganhou "+xp_inimigo+" pontos de experiencia!<br>";
         xp += xp_inimigo;  
         if (xp >= xp_max){
             lv += 1;
@@ -319,12 +319,14 @@ function combate(hp_1,hp_2){
             str_personagem += str_lv;
             int_personagem += int_lv;
             dex_personagem += dex_lv;
+            localStorage.setItem('lv',lv)
             localStorage.setItem('xp',xp)
             localStorage.setItem('xp_max',xp_max)
             localStorage.setItem('sta_personagem',sta_personagem);
             localStorage.setItem('str_personagem',str_personagem);
             localStorage.setItem('int_personagem',int_personagem);
             localStorage.setItem('dex_personagem',dex_personagem);
+            document.getElementById("relatorio").innerHTML += "Parabens! voce subiu para o nivel "+lv+"<br>";
         }else{
             xp += xp_inimigo;
             localStorage.setItem('xp',xp)
@@ -367,3 +369,19 @@ function combate(hp_1,hp_2){
 
 }
 
+
+///////////////////////////////////////////////////////////////////////////////
+
+                              //////////////////////
+                             //Painel  Personagem//
+                            //////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+
+window.addEventListener("load",animacao_xp);
+
+function animacao_xp(){
+var porcentagem_xp = localStorage.getItem('xp') * 100 / localStorage.getItem('xp_max');
+if (porcentagem_xp < 0) porcentagem_xp = 0;
+document.getElementById('xp_atual').style.width = porcentagem_xp+"%";
+}
