@@ -13,7 +13,6 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
             <li><a href="http://localhost/rpg/index.php?pagina=market">Market</a></li>
             <li><a href="http://localhost/rpg/index.php?pagina=sair">Sair</a></li>
             <li><a href="http://localhost/rpg/teste/teste.php">Teste Eventos</a></li>
-            <li><a href="http://localhost/rpg/index.php?pagina=batalhajs&id=3">Batalha JS</a></li>
             <li id="gold" style="float: right;">GOLD - <?php echo $_SESSION['gold'] ?></li>
         </ul>
     </nav>

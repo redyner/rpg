@@ -2,8 +2,6 @@ Inclusão de itens do inventário
 Ajustes de eventos do inventário
 Inclusão de itens do Market
 Ajustes de eventos do Market
-Sistema de batalha
-Ajustar animação da batalha
 Incluir Arena
 Batalha amistosa contra amigos
 Ajustar eventos das dungeons
