@@ -9,7 +9,7 @@ $('#formulario_levelup').submit(function(e){
 
     //console.log(u_name, u_comment);
     $.ajax({
-        url: 'http://localhost/RPG/paginas/levelup.php',
+        url: 'http://localhost/RPG/paginas/testeajax.php',
         method: 'POST',
         data: {set_xp: xp_setada, set_ta:sta_setada, set_str: str_setada, set_int: int_setada, set_dex: dex_setada},
         dataType: 'json'

@@ -11,6 +11,7 @@ session_start();
     <title>RPG</title>
     <link rel = "stylesheet" href = "visual/css/reset.css">
     <link rel = "stylesheet" href = "visual/css/style.css">
+    <script src = "js/jquery.js"></script>
     <script src="js/script.js"></script>
 
 </head>

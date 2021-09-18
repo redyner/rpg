@@ -305,15 +305,53 @@ function combate(hp_1,hp_2){
             str_personagem += str_lv;
             int_personagem += int_lv;
             dex_personagem += dex_lv;
+            document.getElementById("relatorio").innerHTML += "Parabens! voce subiu para o nivel "+lv+"<br>";
 ////////////////////////////////////////////////////////////////////////////////////////////
 //Aqui eu preciso atualizar as informações do banco de dados e atualizá-los na sessão php//
 //////////////////////////////////////////////////////////////////////////////////////////
-            document.getElementById("relatorio").innerHTML += "Parabens! voce subiu para o nivel "+lv+"<br>";
+            var personagem = {
+            'lv': lv,
+            'xp': xp,
+            'xp_max': xp_max,
+            'sta_personagem': sta_personagem,
+            'str_personagem': str_personagem,
+            'int_personagem': int_personagem,
+            'dex_personagem': dex_personagem,
+            'xp_inimigo': xp_inimigo,
+            'gold': gold
+            }
+
+            var dados = JSON.stringify(personagem);
+
+            $.ajax({
+            url: 'http://localhost/RPG/paginas/levelup.php',
+            type: 'POST',
+            data: {data: dados},
+            success: function(result){
+            console.log(result)
+            }
+            });
         }else{
             xp += xp_inimigo;
 ////////////////////////////////////////////////////////////////////////////////////////////
 //Aqui eu preciso atualizar as informações do banco de dados e atualizá-los na sessão php//
 //////////////////////////////////////////////////////////////////////////////////////////
+var personagem = {
+    'xp': xp,
+    'gold': gold
+  }
+
+  var dados = JSON.stringify(personagem);
+
+  $.ajax({
+    url: 'http://localhost/RPG/paginas/levelup.php',
+    type: 'POST',
+    data: {data: dados},
+    success: function(result){
+      console.log(result)
+    }
+  });
+
         }
     }
     else document.getElementById("relatorio").innerHTML += "Voce foi derrotado!<br>";  

@@ -75,10 +75,14 @@
                 $_SESSION['xp_max'] = $info_player['xp_max'];
                 $_SESSION['classe']  = $info_player['nm_classe'];
                 $_SESSION['sta'] = ($info_player['sta']+($info_player['lv']*$info_player['sta']))+$equipamento['sta'];
-                $_SESSION['str'] = ($info_player['str']+($info_player['lv']*$info_player['str']))+$equipamento['sta'];
-                $_SESSION['int'] = ($info_player['int']+($info_player['lv']*$info_player['int']))+$equipamento['sta'];
-                $_SESSION['dex'] = ($info_player['dex']+($info_player['lv']*$info_player['dex']))+$equipamento['sta'];
+                $_SESSION['str'] = ($info_player['str']+($info_player['lv']*$info_player['str']))+$equipamento['str'];
+                $_SESSION['int'] = ($info_player['int']+($info_player['lv']*$info_player['int']))+$equipamento['int'];
+                $_SESSION['dex'] = ($info_player['dex']+($info_player['lv']*$info_player['dex']))+$equipamento['dex'];
                 $_SESSION['gold'] = $info_player['gold'];
+                $_SESSION['sta_lv'] = $info_player['sta'];
+                $_SESSION['str_lv'] = $info_player['str'];
+                $_SESSION['int_lv'] = $info_player['int'];
+                $_SESSION['dex_lv'] = $info_player['dex'];
 
 
                 header("location: http://localhost/rpg/index.php?pagina=jogo");
