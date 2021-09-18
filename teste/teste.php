@@ -43,6 +43,22 @@
     <a href="http://localhost/rpg"><div id="sair"> Sair</div>  </a>  
     </div>
     
+    <form id="formulario_levelup">
+XP
+<input type="number" name="set_xp" id="set_xp">
+STA
+<input type="number" name="set_sta" id="set_sta">
+STR
+<input type="number" name="set_str" id="set_str">
+INT
+<input type="number" name="set_int" id="set_int">
+DEX
+<input type="number" name="set_dex" id="set_dex">
+<button id="trocar" name="trocar">Trocar</button>
+</form>
+
+    <script src = "../js/jquery.js"></script>
+    <script src = "../js/ajax.js"></script>
 
 </body>
 </html>
