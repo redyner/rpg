@@ -134,14 +134,14 @@ nav ul li a{
 
 #painel_dungeons{
     width: 100%;
-    height: 400px;
+    height: 350px;
     background-image: url(../imagens/papeis/papel.jpg); 
 }
 
 #selecao_inimigo{
  
     width: 100%;
-    height: 300px;
+    height: 200px;
     border-top: solid 1px; 
     background-image: url(../imagens/papeis/papel.jpg); 
 }
@@ -252,9 +252,9 @@ background-image: url(../imagens/barras/barra_roxa.jpg);
 }
 
 .avatar_inimigo_selecao{
-    margin: 10px 10px 10px;
-    width: 100px;
-    height: 100px;
+    margin: 25px 25px 10px;
+    width: 150px;
+    height: 150px;
     border: solid 1px;
     float: left;
 }
@@ -396,7 +396,7 @@ text-align: center;
 
 }
 #floresta{
-    margin: 50px 10px 10px;
+    margin: 25px 15px 10px;
     width: 175px;
     height: 125px;
     float: left;
@@ -405,7 +405,7 @@ text-align: center;
 }
 
 #planice{
-    margin: 50px 10px 10px;
+    margin: 25px 10px 10px;
     width: 175px;
     height: 125px;
     float: left;
@@ -414,7 +414,7 @@ text-align: center;
 }
 
 #ice{
-    margin: 50px 10px 10px;
+    margin: 25px 10px 10px;
     width: 175px;
     height: 125px;
     float: left;
@@ -423,7 +423,7 @@ text-align: center;
 }
 
 #lava{
-    margin: 50px 10px 10px;
+    margin: 25px 10px 10px;
     width: 175px;
     height: 125px;
     float: left;
@@ -432,7 +432,7 @@ text-align: center;
 }
 
 #gruta{
-    margin: 50px 10px 10px;
+    margin: 25px 15px 10px;
     width: 175px;
     height: 125px;
     float: left;
