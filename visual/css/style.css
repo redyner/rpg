@@ -291,6 +291,11 @@ background-image: url(../imagens/barras/barra_roxa.jpg);
     background-image: url(../imagens/inimigos/urso.jpg);
 }
 
+#Snake{
+    background-size:contain;
+    background-image: url(../imagens/inimigos/snake.jpg);
+}
+
 #Drag{
     background-size: contain;
     background-image: url(../imagens/inimigos/red_drag.jpg);
@@ -299,6 +304,11 @@ background-image: url(../imagens/barras/barra_roxa.jpg);
 #Ice_Warrior{
     background-size: contain;
     background-image: url(../imagens/inimigos/ice_warrior.jpg);
+}
+
+#Ice_King{
+    background-size: contain;
+    background-image: url(../imagens/inimigos/ice_king.jpg);
 }
 
 #Lobo{

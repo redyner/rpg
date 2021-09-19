@@ -53,7 +53,7 @@
 <?php
 
     $id = $_GET['id'];
-    $sql = "SELECT `sta`, `str`, `int`, `dex`, `xp` FROM rpg.atributos a JOIN rpg.inimigos i ON i.id_inimigo = a.id_inimigo WHERE i.id_inimigo = '{$id}'";
+    $sql = "SELECT `sta`, `str`, `int`, `dex`, `xp`, `lv` FROM rpg.atributos a JOIN rpg.inimigos i ON i.id_inimigo = a.id_inimigo WHERE i.id_inimigo = '{$id}'";
     $atributos_inimigo = mysqli_fetch_assoc(mysqli_query($conexao,$sql));
 ?>
 
@@ -65,6 +65,8 @@
         var int_inimigo = <?php echo $atributos_inimigo['int'] ?>;
         var dex_inimigo = <?php echo $atributos_inimigo['dex'] ?>;
         var xp_inimigo = <?php echo $atributos_inimigo['xp'] ?>;
+        var lv_inimigo = <?php echo $atributos_inimigo['lv'] ?>;
+
 
         var lv = <?php echo $_SESSION['lv'] ?>;
         var xp = <?php echo $_SESSION['xp'] ?>;
