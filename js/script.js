@@ -292,8 +292,10 @@ function combate(hp_1,hp_2){
         }
     }
 
+    $winner = (power['personagem']>power['inimigo']) ? porcentagem_hp_personagem>=porcentagem_hp_inimigo : porcentagem_hp_personagem>porcentagem_hp_inimigo;
+
     if(porcentagem_hp_personagem==0||porcentagem_hp_inimigo==0) {
-    if(porcentagem_hp_personagem>porcentagem_hp_inimigo) {
+    if($winner) {
         document.getElementById("relatorio").innerHTML += "Voce derrotou seu inimigo <br>E ganhou "+xp_inimigo+" pontos de experiencia!<br>";
         xp += xp_inimigo;  
         if (xp >= xp_max){
@@ -390,3 +392,82 @@ var personagem = {
     }
 
 }
+
+///////////////////////////////////////////////////////////////////////////////
+
+                              //////////////////////
+                             //SCRIPTS   DUNGEONS//
+                            //////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+
+window.addEventListener("load",eventos_dungeons);
+
+function eventos_dungeons(){
+// document.getElementsByClassName("dungeon").addEventListener("click",exibir_dungeons);
+document.getElementById("floresta").addEventListener("click",inimigos_floresta);
+document.getElementById("planice").addEventListener("click",inimigos_planice);
+document.getElementById("lava").addEventListener("click",inimigos_lava);
+document.getElementById("gruta").addEventListener("click",inimigos_gruta);
+}
+
+function exibir_dungeons(){
+document.getElementById("selecao_inimigo").style.display="block"
+}
+
+function inimigos_floresta(){
+
+    document.getElementById("selecao_inimigo").style.display="block"
+    document.getElementById("Javali").style.display="block"
+    document.getElementById("Goblin").style.display="none"
+    document.getElementById("Urso").style.display="block"
+    document.getElementById("Orc").style.display="none"
+    document.getElementById("Lobo").style.display="block"
+    document.getElementById("Drag").style.display="none"
+    document.getElementById("Cerberus").style.display="none"
+    document.getElementById("Blue_Drag").style.display="none"
+    document.getElementById("Boss").style.display="none"
+}
+
+function inimigos_planice(){
+
+    document.getElementById("selecao_inimigo").style.display="block"
+    document.getElementById("Javali").style.display="none"
+    document.getElementById("Goblin").style.display="block"
+    document.getElementById("Urso").style.display="none"
+    document.getElementById("Orc").style.display="block"
+    document.getElementById("Lobo").style.display="none"
+    document.getElementById("Drag").style.display="none"
+    document.getElementById("Cerberus").style.display="none"
+    document.getElementById("Blue_Drag").style.display="none"
+    document.getElementById("Boss").style.display="none"
+}
+
+function inimigos_lava(){
+
+    document.getElementById("selecao_inimigo").style.display="block"
+    document.getElementById("Javali").style.display="none"
+    document.getElementById("Goblin").style.display="none"
+    document.getElementById("Urso").style.display="none"
+    document.getElementById("Orc").style.display="none"
+    document.getElementById("Lobo").style.display="none"
+    document.getElementById("Drag").style.display="block"
+    document.getElementById("Cerberus").style.display="block"
+    document.getElementById("Blue_Drag").style.display="none"
+    document.getElementById("Boss").style.display="none"
+}
+
+function inimigos_gruta(){
+
+    document.getElementById("selecao_inimigo").style.display="block"
+    document.getElementById("Javali").style.display="none"
+    document.getElementById("Goblin").style.display="none"
+    document.getElementById("Urso").style.display="none"
+    document.getElementById("Orc").style.display="none"
+    document.getElementById("Lobo").style.display="none"
+    document.getElementById("Drag").style.display="none"
+    document.getElementById("Cerberus").style.display="none"
+    document.getElementById("Blue_Drag").style.display="block"
+    document.getElementById("Boss").style.display="block"
+}
+    

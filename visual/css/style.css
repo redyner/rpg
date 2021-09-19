@@ -136,7 +136,6 @@ nav ul li a{
     width: 100%;
     height: 300px;
     background-image: url(../imagens/papeis/papel.jpg); 
-
 }
 
 #selecao_inimigo{
@@ -367,7 +366,7 @@ background-image: url(../imagens/barras/barra_roxa.jpg);
 
 #registro_atributos
 {
-    margin-top: 20px;
+margin-top: 20px;
 width: 250px;
 height: 20px;
 border: solid 1px;
@@ -376,35 +375,47 @@ text-align: center;
 }
 
 .dungeon{
-    width: 250px;
-    height: 300px;
+    width: 175px;
+    height: 125px;
     float: left;
 
 }
 #floresta{
-    margin: 50px 20px 10px;
-    width: 225px;
-    height: 200px;
+    margin: 50px 10px 10px;
+    width: 175px;
+    height: 125px;
     float: left;
     background-image: url(../imagens/dungeons/floresta.jpg);
     background-size: cover;
 }
-#gruta{
-    margin: 50px 15px 10px;
-    width: 225x;
-    height: 200px;
-    float: left;
-    background-image: url(../imagens/dungeons/gruta.jpg);
-    background-size: cover;
-}
+
 #planice{
     margin: 50px 10px 10px;
-    width: 225px;
-    height: 200px;
+    width: 175px;
+    height: 125px;
     float: left;
     background-image: url(../imagens/dungeons/planice.jpg);
     background-size: cover;
 }
+
+#lava{
+    margin: 50px 10px 10px;
+    width: 175px;
+    height: 125px;
+    float: left;
+    background-image: url(../imagens/dungeons/lava.jpg);
+    background-size: cover;
+}
+
+#gruta{
+    margin: 50px 10px 10px;
+    width: 175px;
+    height: 125px;
+    float: left;
+    background-image: url(../imagens/dungeons/gruta.jpg);
+    background-size: cover;
+}
+
 #informacoes_item{
     position: absolute;    
  	top: 0; bottom: 0; 

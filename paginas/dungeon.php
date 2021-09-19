@@ -20,6 +20,7 @@
         
         <div class="dungeon" id = "floresta"></div>
         <div class="dungeon" id = "planice"></div>
+        <div class="dungeon" id = "lava"></div>
         <div class="dungeon" id = "gruta"></div>
 
         </div>
@@ -37,9 +38,18 @@
         </div>
         </div>
         
-        <!-- <script>
+        <script>
             document.getElementById("selecao_inimigo").style.display="none"
-        </script> -->
+            document.getElementById("Javali").style.display="none"
+            document.getElementById("Goblin").style.display="none"
+            document.getElementById("Urso").style.display="none"
+            document.getElementById("Orc").style.display="none"
+            document.getElementById("Lobo").style.display="none"
+            document.getElementById("Drag").style.display="none"
+            document.getElementById("Cerberus").style.display="none"
+            document.getElementById("Blue_Drag").style.display="none"
+            document.getElementById("Boss").style.display="none"
+        </script>
 
         <!-- <script>
             document.getElementById("selecao_inimigo").style.visibility = "hidden"
