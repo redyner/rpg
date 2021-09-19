@@ -134,7 +134,7 @@ nav ul li a{
 
 #painel_dungeons{
     width: 100%;
-    height: 300px;
+    height: 400px;
     background-image: url(../imagens/papeis/papel.jpg); 
 }
 
@@ -296,6 +296,11 @@ background-image: url(../imagens/barras/barra_roxa.jpg);
     background-image: url(../imagens/inimigos/red_drag.jpg);
 }
 
+#Ice_Warrior{
+    background-size: contain;
+    background-image: url(../imagens/inimigos/ice_warrior.jpg);
+}
+
 #Lobo{
     background-size:contain;
     background-image: url(../imagens/inimigos/lobo.jpg);
@@ -311,6 +316,11 @@ background-image: url(../imagens/barras/barra_roxa.jpg);
     background-image: url(../imagens/inimigos/orc.jpg);
 }
 
+#Ogro{
+    background-size:contain;
+    background-image: url(../imagens/inimigos/ogro.jpg);
+}
+
 #Boss{
     background-size:contain;
     background-image: url(../imagens/inimigos/boss.jpg);
@@ -324,6 +334,11 @@ background-image: url(../imagens/barras/barra_roxa.jpg);
 #Cerberus{
     background-size:contain;
     background-image: url(../imagens/inimigos/cerberus.jpg);
+}
+
+#Demon{
+    background-size:contain;
+    background-image: url(../imagens/inimigos/demon.jpg);
 }
 
 #warrior{
@@ -395,6 +410,15 @@ text-align: center;
     height: 125px;
     float: left;
     background-image: url(../imagens/dungeons/planice.jpg);
+    background-size: cover;
+}
+
+#ice{
+    margin: 50px 10px 10px;
+    width: 175px;
+    height: 125px;
+    float: left;
+    background-image: url(../imagens/dungeons/ice.jpg);
     background-size: cover;
 }
 

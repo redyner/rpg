@@ -407,6 +407,7 @@ function eventos_dungeons(){
 // document.getElementsByClassName("dungeon").addEventListener("click",exibir_dungeons);
 document.getElementById("floresta").addEventListener("click",inimigos_floresta);
 document.getElementById("planice").addEventListener("click",inimigos_planice);
+document.getElementById("ice").addEventListener("click",inimigos_ice);
 document.getElementById("lava").addEventListener("click",inimigos_lava);
 document.getElementById("gruta").addEventListener("click",inimigos_gruta);
 }
@@ -422,9 +423,12 @@ function inimigos_floresta(){
     document.getElementById("Goblin").style.display="none"
     document.getElementById("Urso").style.display="block"
     document.getElementById("Orc").style.display="none"
-    document.getElementById("Lobo").style.display="block"
+    document.getElementById("Ogro").style.display="none"
+    document.getElementById("Lobo").style.display="none"
+    document.getElementById("Ice_Warrior").style.display="none"
     document.getElementById("Drag").style.display="none"
     document.getElementById("Cerberus").style.display="none"
+    document.getElementById("Demon").style.display="none"
     document.getElementById("Blue_Drag").style.display="none"
     document.getElementById("Boss").style.display="none"
 }
@@ -436,9 +440,29 @@ function inimigos_planice(){
     document.getElementById("Goblin").style.display="block"
     document.getElementById("Urso").style.display="none"
     document.getElementById("Orc").style.display="block"
+    document.getElementById("Ogro").style.display="block"
     document.getElementById("Lobo").style.display="none"
+    document.getElementById("Ice_Warrior").style.display="none"
     document.getElementById("Drag").style.display="none"
     document.getElementById("Cerberus").style.display="none"
+    document.getElementById("Demon").style.display="none"
+    document.getElementById("Blue_Drag").style.display="none"
+    document.getElementById("Boss").style.display="none"
+}
+
+function inimigos_ice(){
+
+    document.getElementById("selecao_inimigo").style.display="block"
+    document.getElementById("Javali").style.display="none"
+    document.getElementById("Goblin").style.display="none"
+    document.getElementById("Urso").style.display="none"
+    document.getElementById("Orc").style.display="none"
+    document.getElementById("Ogro").style.display="none"
+    document.getElementById("Lobo").style.display="block"
+    document.getElementById("Ice_Warrior").style.display="block"
+    document.getElementById("Drag").style.display="none"
+    document.getElementById("Cerberus").style.display="none"
+    document.getElementById("Demon").style.display="none"
     document.getElementById("Blue_Drag").style.display="none"
     document.getElementById("Boss").style.display="none"
 }
@@ -450,9 +474,12 @@ function inimigos_lava(){
     document.getElementById("Goblin").style.display="none"
     document.getElementById("Urso").style.display="none"
     document.getElementById("Orc").style.display="none"
+    document.getElementById("Ogro").style.display="none"
     document.getElementById("Lobo").style.display="none"
+    document.getElementById("Ice_Warrior").style.display="none"
     document.getElementById("Drag").style.display="block"
     document.getElementById("Cerberus").style.display="block"
+    document.getElementById("Demon").style.display="block"
     document.getElementById("Blue_Drag").style.display="none"
     document.getElementById("Boss").style.display="none"
 }
@@ -464,9 +491,12 @@ function inimigos_gruta(){
     document.getElementById("Goblin").style.display="none"
     document.getElementById("Urso").style.display="none"
     document.getElementById("Orc").style.display="none"
+    document.getElementById("Ogro").style.display="none"
     document.getElementById("Lobo").style.display="none"
+    document.getElementById("Ice_Warrior").style.display="none"
     document.getElementById("Drag").style.display="none"
     document.getElementById("Cerberus").style.display="none"
+    document.getElementById("Demon").style.display="none"
     document.getElementById("Blue_Drag").style.display="block"
     document.getElementById("Boss").style.display="block"
 }
