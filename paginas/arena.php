@@ -73,7 +73,7 @@ Nick
     <script>
         var classe_inimigo = <?php echo $_SESSION['classe'] ?>;
         var sta_inimigo = <?php echo $_SESSION['sta'] ?>;
-        var hp_inimigo = sta_inimigo*3;
+        var hp_inimigo = sta_inimigo*10;
         var hp_batalha_inimigo = hp_inimigo;
         var str_inimigo = <?php echo $_SESSION['str'] ?>;
         var int_inimigo = <?php echo $_SESSION['int'] ?>;
@@ -88,7 +88,7 @@ Nick
         var gold = <?php echo $_SESSION['gold'] ?>;
 
         var sta_personagem = <?php echo $_SESSION['sta'] ?>;
-        var hp_personagem = sta_personagem*3;
+        var hp_personagem = sta_personagem*10;
         var hp_batalha_personagem = hp_personagem;
         var str_personagem = <?php echo $_SESSION['str'] ?>;
         var int_personagem = <?php echo $_SESSION['int'] ?>;
