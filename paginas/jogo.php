@@ -91,4 +91,4 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
         <script>
            // for (var i = 1; i <= 18; i++)
                // document.write("<div onClick='informacoes_item();' id = 'slot"+i+"' class='slot' ></div>")
-        </script> -->
+        </script>
