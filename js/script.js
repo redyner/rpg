@@ -256,7 +256,7 @@ function iniciar (){
         var hp_1 = document.getElementById('hp_atual_1');
         var hp_2 = document.getElementById("hp_atual_2");
         combate(hp_1,hp_2);
-    },2000);
+    },1000);
 }
 
 function parar(){
@@ -292,10 +292,10 @@ function combate(hp_1,hp_2){
         }
     }
 
-    $winner = (power['personagem']>=power['inimigo']) ? porcentagem_hp_personagem+">="+porcentagem_hp_inimigo : porcentagem_hp_personagem+">"+porcentagem_hp_inimigo;
+    $winner = (power['personagem']>=power['inimigo']) ? porcentagem_hp_personagem>=porcentagem_hp_inimigo : porcentagem_hp_personagem>porcentagem_hp_inimigo;
 
     if(porcentagem_hp_personagem==0||porcentagem_hp_inimigo==0) {
-    if($winner) {
+    if($winner==true) {
         document.getElementById("relatorio").innerHTML += "Voce derrotou seu inimigo <br>E ganhou "+xp_inimigo+" pontos de experiencia!<br>";
         xp += xp_inimigo;  
         if (xp >= xp_max){
@@ -335,7 +335,6 @@ function combate(hp_1,hp_2){
             }
             });
         }else{
-            xp += xp_inimigo;
             gold += lv_inimigo*10;
 ////////////////////////////////////////////////////////////////////////////////////////////
 //Aqui eu preciso atualizar as informações do banco de dados e atualizá-los na sessão php//
