@@ -9,3 +9,5 @@ Configuração de cadastro
 Organização css
 Página de Skills
 Página de Ferreiro
+Criação de item?
+Itens de acesso Boss
