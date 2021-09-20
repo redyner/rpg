@@ -276,7 +276,7 @@ function combate(hp_1,hp_2){
     var porcentagem_hp_personagem = hp_batalha_personagem*100/hp_personagem;
     if (porcentagem_hp_inimigo<0) porcentagem_hp_inimigo = 0;
     if (porcentagem_hp_personagem<0) porcentagem_hp_personagem = 0;
-    if (power['personagem']>power['inimigo']) {
+    if (power['personagem']>=power['inimigo']) {
         (dano['personagem']>valida_crit_personagem) ? (document.getElementById("relatorio").innerHTML += "Voce causou "+dano['personagem']+" de dano critico!<br><hr>") : document.getElementById("relatorio").innerHTML += "Voce causou "+dano['personagem']+" de dano.<br><hr>";
         hp_2.style.width = porcentagem_hp_inimigo+"%";
         if (porcentagem_hp_inimigo>0) {
@@ -292,7 +292,7 @@ function combate(hp_1,hp_2){
         }
     }
 
-    $winner = (power['personagem']>power['inimigo']) ? porcentagem_hp_personagem>=porcentagem_hp_inimigo : porcentagem_hp_personagem>porcentagem_hp_inimigo;
+    $winner = (power['personagem']>=power['inimigo']) ? porcentagem_hp_personagem+">="+porcentagem_hp_inimigo : porcentagem_hp_personagem+">"+porcentagem_hp_inimigo;
 
     if(porcentagem_hp_personagem==0||porcentagem_hp_inimigo==0) {
     if($winner) {
@@ -513,3 +513,32 @@ function inimigos_gruta(){
     document.getElementById("Boss").style.display="block"
 }
     
+///////////////////////////////////////////////////////////////////////////////
+
+                              //////////////////////
+                             //SCRIPTS      ARENA//
+                            //////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+
+window.addEventListener("load",eventos_arena);
+
+function eventos_arena(){
+$('#buscar_arena').submit(function(e){
+    e.preventDefault();
+
+    var nick_buscado = $('#busca_nick').val();
+
+    $.ajax({
+        url: 'http://localhost/RPG/paginas/buscaarena.php',
+        method: 'POST',
+        data: {busca_nick: nick_buscado},
+        dataType: 'json'
+    }).done(function(result){
+        $('#busca_nick').val('');
+        var inimigo = JSON.stringify(result);
+        document.getElementById("relatorio").innerHTML += inimigo; 
+    });
+});
+}
+
