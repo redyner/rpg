@@ -6,3 +6,4 @@ Batalha amistosa contra amigos
 Ajustar criação de personagem
 Ao cadastrar redirecionar para página inicial
 Configuração de cadastro
+Organização css
