@@ -54,7 +54,7 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
         $sql = "SELECT i.slot, i.refino, i.id_item, i.id_personagem, it.id_item, it.nm_item, 
             it.lv, a.sta, a.str, a.int, a.dex, a.id_item
             FROM rpg.inventarios i 
-            JOIN rpg.itens it ON it.id_item = i.id_item
+            JOIN rpg.itens it ON i.id_item = it.id_item
             JOIN rpg.atributos a ON a.id_item = i.id_item
             WHERE i.id_personagem = $id_personagem";
         $quantidade_item = mysqli_num_rows(mysqli_query($conexao, $sql));
@@ -74,7 +74,8 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
         <?php
         for ($i = 0; $i < $quantidade_item; $i++) { ?>
 
-            <div id="slot" onclick="informacoes_item()" value="<?php echo $nm_item ?>" class='slot'></div>
+            <div id="slot" onclick="informacoes_item()" value="<?php echo $id_item ?>" class='slot'>
+            <button><?php echo $nm_item ?></button></div>
         <?php } ?>
 
     </div>
