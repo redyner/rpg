@@ -75,7 +75,6 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
         for ($i = 0; $i < $quantidade_item; $i++) { ?>
 
             <div id="slot" onclick="informacoes_item()" value="<?php echo $id_item ?>" class='slot'>
-            <button><?php echo $nm_item ?></button></div>
         <?php } ?>
 
     </div>
