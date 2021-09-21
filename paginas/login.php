@@ -64,20 +64,28 @@
                 WHERE i.id_personagem = '{$id_player}' AND slot IS NULL";
                 $equipamento = mysqli_fetch_assoc(mysqli_query($conexao,$sql));
 
+                if(!empty($equipamento)){
+                    $_SESSION['sta_itens_equipados'] = $equipamento['sta'];
+                    $_SESSION['str_itens_equipados'] = $equipamento['str'];
+                    $_SESSION['int_itens_equipados'] = $equipamento['int'];
+                    $_SESSION['dex_itens_equipados'] = $equipamento['dex'];
+
+                }else{
+                    $_SESSION['sta_itens_equipados'] = 0;
+                    $_SESSION['str_itens_equipados'] = 0;
+                    $_SESSION['int_itens_equipados'] = 0;
+                    $_SESSION['dex_itens_equipados'] = 0;
+                }
                 
-                $_SESSION['sta_itens_equipados'] = $equipamento['sta'];
-                $_SESSION['str_itens_equipados'] = $equipamento['str'];
-                $_SESSION['int_itens_equipados'] = $equipamento['int'];
-                $_SESSION['dex_itens_equipados'] = $equipamento['dex'];
                 $_SESSION['nick'] = $info_player['nick'];
                 $_SESSION['lv'] = $info_player['lv'];
                 $_SESSION['xp'] = $info_player['xp'];
                 $_SESSION['xp_max'] = $info_player['xp_max'];
                 $_SESSION['classe']  = $info_player['nm_classe'];
-                $_SESSION['sta'] = ($info_player['sta']+($info_player['lv']*$info_player['sta']))+$equipamento['sta'];
-                $_SESSION['str'] = ($info_player['str']+($info_player['lv']*$info_player['str']))+$equipamento['str'];
-                $_SESSION['int'] = ($info_player['int']+($info_player['lv']*$info_player['int']))+$equipamento['int'];
-                $_SESSION['dex'] = ($info_player['dex']+($info_player['lv']*$info_player['dex']))+$equipamento['dex'];
+                $_SESSION['sta'] = ($info_player['sta']+($info_player['lv']*$info_player['sta']))+$_SESSION['sta_itens_equipados'];
+                $_SESSION['str'] = ($info_player['str']+($info_player['lv']*$info_player['str']))+$_SESSION['str_itens_equipados'];
+                $_SESSION['int'] = ($info_player['int']+($info_player['lv']*$info_player['int']))+$_SESSION['int_itens_equipados'];
+                $_SESSION['dex'] = ($info_player['dex']+($info_player['lv']*$info_player['dex']))+$_SESSION['dex_itens_equipados'];
                 $_SESSION['gold'] = $info_player['gold'];
                 $_SESSION['sta_lv'] = $info_player['sta'];
                 $_SESSION['str_lv'] = $info_player['str'];
