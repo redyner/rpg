@@ -11,10 +11,8 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
             <li><a href="http://localhost/rpg"> Pagina Inicial</a></li>
             <li><a href="http://localhost/rpg/index.php?pagina=dungeon">Dungeons</a></li>
             <li><a href="http://localhost/rpg/index.php?pagina=market">Market</a></li>
-            <li><a href="http://localhost/rpg/index.php?pagina=forja">Forja</a></li>
             <li><a href="http://localhost/rpg/index.php?pagina=arena">Arena</a></li>
             <li><a href="http://localhost/rpg/index.php?pagina=sair">Sair</a></li>
-            <li><a href="http://localhost/rpg/teste/teste.php">Teste Eventos</a></li>
             <li id="gold" style="float: right;">GOLD - <?php echo $_SESSION['gold'] ?></li>
         </ul>
     </nav>
@@ -22,7 +20,7 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
     <div id="painel_personagem">
 
         <a href="">
-            <div class="avatar_personagem_selecao" id="<?php echo $_SESSION['classe'] ?>"></div>
+            <div class="avatar_npc" id="ferreiro"></div>
         </a>
         <div id="atributos_personagem">
             <br>

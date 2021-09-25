@@ -281,6 +281,36 @@ background-image: url(../imagens/barras/barra_roxa.jpg);
     color: white;
 }
 
+#espada1{
+    background-size:contain;
+    background-image: url(../imagens/itens/espada.png);
+}
+
+#arco1{
+    background-size:contain;
+    background-image: url(../imagens/itens/arco.png);
+}
+
+#cajado1{
+    background-size:contain;
+    background-image: url(../imagens/itens/cajado.jpg);
+}
+
+#espada2{
+    background-size:contain;
+    background-image: url(../imagens/itens/espada2.png);
+}
+
+#arco2{
+    background-size:contain;
+    background-image: url(../imagens/itens/arco2.png);
+}
+
+#cajado2{
+    background-size:contain;
+    background-image: url(../imagens/itens/cajado2.jpg);
+}
+
 #Javali{
     background-size:contain;
     background-image: url(../imagens/inimigos/jav.jpg);
@@ -369,6 +399,11 @@ background-image: url(../imagens/barras/barra_roxa.jpg);
 #mercador{
     background-size: 250px 300px;
     background-image: url(../imagens/npcs/mercador.jpg);
+}
+
+#ferreiro{
+    background-size: 250px 300px;
+    background-image: url(../imagens/npcs/ferreiro.jpg);
 }
 
 #atributos_personagem
