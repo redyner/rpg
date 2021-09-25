@@ -75,24 +75,24 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
         
         ?>
 
-        <div id = '<?php if (isset($slot[1])) echo $slot[1]['nm_item'] ?>' class='slot' onclick="informacoes_item()"></div>
-        <div id = '<?php if (isset($slot[2])) echo $slot[2]['nm_item'] ?>' class='slot' ></div>
-        <div id = '<?php if (isset($slot[3])) echo $slot[3]['nm_item'] ?>' class='slot' ></div>
-        <div id = '<?php if (isset($slot[4])) echo $slot[4]['nm_item'] ?>' class='slot' ></div>
-        <div id = '<?php if (isset($slot[5])) echo $slot[5]['nm_item'] ?>' class='slot' ></div>
-        <div id = '<?php if (isset($slot[6])) echo $slot[6]['nm_item'] ?>' class='slot' ></div>
-        <div id = '<?php if (isset($slot[7])) echo $slot[7]['nm_item'] ?>' class='slot' ></div>
-        <div id = '<?php if (isset($slot[8])) echo $slot[8]['nm_item'] ?>' class='slot' ></div>
-        <div id = '<?php if (isset($slot[9])) echo $slot[9]['nm_item'] ?>' class='slot' ></div>
-        <div id = '<?php if (isset($slot[10])) echo $slot[10]['nm_item'] ?>' class='slot' ></div>
-        <div id = '<?php if (isset($slot[11])) echo $slot[11]['nm_item'] ?>' class='slot' ></div>
-        <div id = '<?php if (isset($slot[12])) echo $slot[12]['nm_item'] ?>' class='slot' ></div>
-        <div id = '<?php if (isset($slot[13])) echo $slot[13]['nm_item'] ?>' class='slot' ></div>
-        <div id = '<?php if (isset($slot[14])) echo $slot[14]['nm_item'] ?>' class='slot' ></div>
-        <div id = '<?php if (isset($slot[15])) echo $slot[15]['nm_item'] ?>' class='slot' ></div>
-        <div id = '<?php if (isset($slot[16])) echo $slot[16]['nm_item'] ?>' class='slot' ></div>
-        <div id = '<?php if (isset($slot[17])) echo $slot[17]['nm_item'] ?>' class='slot' ></div>
-        <div id = '<?php if (isset($slot[18])) echo $slot[18]['nm_item'] ?>' class='slot' ></div>
+        <div id = '<?php if (isset($slot[1])) echo $slot[1]['nm_item'] ?>' name = 'slot1' class='slot' onclick="informacoes_item()"></div>
+        <div id = '<?php if (isset($slot[2])) echo $slot[2]['nm_item'] ?>' name = 'slot2' class='slot' ></div>
+        <div id = '<?php if (isset($slot[3])) echo $slot[3]['nm_item'] ?>' name = 'slot3' class='slot' ></div>
+        <div id = '<?php if (isset($slot[4])) echo $slot[4]['nm_item'] ?>' name = 'slot4' class='slot' ></div>
+        <div id = '<?php if (isset($slot[5])) echo $slot[5]['nm_item'] ?>' name = 'slot5' class='slot' ></div>
+        <div id = '<?php if (isset($slot[6])) echo $slot[6]['nm_item'] ?>' name = 'slot6' class='slot' ></div>
+        <div id = '<?php if (isset($slot[7])) echo $slot[7]['nm_item'] ?>' name = 'slot7' class='slot' ></div>
+        <div id = '<?php if (isset($slot[8])) echo $slot[8]['nm_item'] ?>' name = 'slot8' class='slot' ></div>
+        <div id = '<?php if (isset($slot[9])) echo $slot[9]['nm_item'] ?>' name = 'slot9' class='slot' ></div>
+        <div id = '<?php if (isset($slot[10])) echo $slot[10]['nm_item'] ?>' name = 'slot10' class='slot' ></div>
+        <div id = '<?php if (isset($slot[11])) echo $slot[11]['nm_item'] ?>' name = 'slot11' class='slot' ></div>
+        <div id = '<?php if (isset($slot[12])) echo $slot[12]['nm_item'] ?>' name = 'slot12' class='slot' ></div>
+        <div id = '<?php if (isset($slot[13])) echo $slot[13]['nm_item'] ?>' name = 'slot13' class='slot' ></div>
+        <div id = '<?php if (isset($slot[14])) echo $slot[14]['nm_item'] ?>' name = 'slot14' class='slot' ></div>
+        <div id = '<?php if (isset($slot[15])) echo $slot[15]['nm_item'] ?>' name = 'slot15' class='slot' ></div>
+        <div id = '<?php if (isset($slot[16])) echo $slot[16]['nm_item'] ?>' name = 'slot16' class='slot' ></div>
+        <div id = '<?php if (isset($slot[17])) echo $slot[17]['nm_item'] ?>' name = 'slot17' class='slot' ></div>
+        <div id = '<?php if (isset($slot[18])) echo $slot[18]['nm_item'] ?>' name = 'slot18' class='slot' ></div>
 
 
     </div>
@@ -100,15 +100,16 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
 
     ?>
     <div id="informacoes_item">
-        <p><?php echo $slot[1]['nm_item'] ?></p>
-        <p>LEVEL - <?php echo $slot[1]['lv'] ?></p>
-        <p>STA - <?php echo $slot[1]['sta'] ?></p>
-        <p>STR - <?php echo $slot[1]['str'] ?></p>
-        <p>INT - <?php echo $slot[1]['int'] ?></p>
-        <p>DEX - <?php echo $slot[1]['dex'] ?></p>   
+        <p><?php if (isset($slot[1])) echo $slot[1]['nm_item'] ?></p>
+        <p>LEVEL - <?php if (isset($slot[1])) echo $slot[1]['lv'] ?></p>
+        <p>STA - <?php if (isset($slot[1])) echo $slot[1]['sta'] ?></p>
+        <p>STR - <?php if (isset($slot[1])) echo $slot[1]['str'] ?></p>
+        <p>INT - <?php if (isset($slot[1])) echo $slot[1]['int'] ?></p>
+        <p>DEX - <?php if (isset($slot[1])) echo $slot[1]['dex'] ?></p>   
+        <input type="submit" value="Equipar">
     </div>
-        <script>
-           // for (var i = 1; i <= 18; i++)
-               // document.write("<div onClick='informacoes_item();' id = 'slot"+i+"' class='slot' ></div>")
-        </script>
+
+        <script src = "../js/jquery.js"></script>
+        <script src = "../js/ajax.js"></script>
+    
 
