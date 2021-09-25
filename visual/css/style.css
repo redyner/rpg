@@ -246,6 +246,7 @@ text-align: center;
 
 #xp_atual{
     width: 250px;
+    max-width: 100%;
     height: 20px;
 background-image: url(../imagens/barras/barra_roxa.jpg);
 

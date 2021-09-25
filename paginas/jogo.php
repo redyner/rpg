@@ -94,9 +94,11 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
         <div id = '<?php if (isset($slot[17])) echo $slot[17]['nm_item'] ?>' class='slot' ></div>
         <div id = '<?php if (isset($slot[18])) echo $slot[18]['nm_item'] ?>' class='slot' ></div>
 
-    </div>
-</div>
 
+    </div>
+    <?php
+
+    ?>
     <div id="informacoes_item">
         <p><?php echo $slot[1]['nm_item'] ?></p>
         <p>LEVEL - <?php echo $slot[1]['lv'] ?></p>
