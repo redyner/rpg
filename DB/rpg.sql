@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql-51231-db.mysql-51231:19464
--- Tempo de geração: 26/09/2021 às 15:16
+-- Tempo de geração: 26/09/2021 às 19:18
 -- Versão do servidor: 8.0.26
 -- Versão do PHP: 7.2.34
 
@@ -134,6 +134,7 @@ CREATE TABLE `inventarios` (
   `id_inventario` int NOT NULL,
   `slot` varchar(45) DEFAULT NULL,
   `refino` int DEFAULT NULL,
+  `equipado` char(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `id_personagem` int NOT NULL,
   `id_item` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
@@ -142,10 +143,10 @@ CREATE TABLE `inventarios` (
 -- Despejando dados para a tabela `inventarios`
 --
 
-INSERT INTO `inventarios` (`id_inventario`, `slot`, `refino`, `id_personagem`, `id_item`) VALUES
-(1, '1', 0, 1, 1),
-(2, '1', 0, 2, 2),
-(3, '1', 0, 3, 3);
+INSERT INTO `inventarios` (`id_inventario`, `slot`, `refino`, `equipado`, `id_personagem`, `id_item`) VALUES
+(1, '1', 0, 'N', 1, 2),
+(2, '1', 0, 'N', 2, 1),
+(3, '1', 0, 'N', 3, 3);
 
 -- --------------------------------------------------------
 
