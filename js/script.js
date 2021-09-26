@@ -340,12 +340,12 @@ function eventos_inventario(){
     $( ".slot" ).on( "click", function( event ) {
       if (equipado == false) {
         equipado = confirm("Deseja equipar este item?")
-        if (equipado == true) $('div[name="slot1"]').css('border','1px solid red');
+        if (equipado == true) $('div[name="slot1"]').css('border','5px solid red');
       }
       else {
         equipado = confirm("Deseja desequipar este item?")
         if (equipado == true) {
-            $('div[name="slot1"]').css('border','1px solid black');
+            $('div[name="slot1"]').css('border','5px solid black');
             equipado = false;
         }else equipado = true;
       }

@@ -90,9 +90,6 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
         <div id = '<?php if (isset($slot[13])) echo $slot[13]['nm_item'] ?>' name = 'slot13' class='slot' ></div>
         <div id = '<?php if (isset($slot[14])) echo $slot[14]['nm_item'] ?>' name = 'slot14' class='slot' ></div>
         <div id = '<?php if (isset($slot[15])) echo $slot[15]['nm_item'] ?>' name = 'slot15' class='slot' ></div>
-        <div id = '<?php if (isset($slot[16])) echo $slot[16]['nm_item'] ?>' name = 'slot16' class='slot' ></div>
-        <div id = '<?php if (isset($slot[17])) echo $slot[17]['nm_item'] ?>' name = 'slot17' class='slot' ></div>
-        <div id = '<?php if (isset($slot[18])) echo $slot[18]['nm_item'] ?>' name = 'slot18' class='slot' ></div>
 
 
     </div>
