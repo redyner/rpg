@@ -75,7 +75,7 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
         
         ?>
 
-        <div id = '<?php if (isset($slot[1])) echo $slot[1]['nm_item'] ?>' name = 'slot1' class='slot' onclick="informacoes_item()"></div>
+        <div id = '<?php if (isset($slot[1])) echo $slot[1]['nm_item'] ?>' name = 'slot1' class='slot' ></div>
         <div id = '<?php if (isset($slot[2])) echo $slot[2]['nm_item'] ?>' name = 'slot2' class='slot' ></div>
         <div id = '<?php if (isset($slot[3])) echo $slot[3]['nm_item'] ?>' name = 'slot3' class='slot' ></div>
         <div id = '<?php if (isset($slot[4])) echo $slot[4]['nm_item'] ?>' name = 'slot4' class='slot' ></div>
@@ -106,7 +106,6 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
         <p>STR - <?php if (isset($slot[1])) echo $slot[1]['str'] ?></p>
         <p>INT - <?php if (isset($slot[1])) echo $slot[1]['int'] ?></p>
         <p>DEX - <?php if (isset($slot[1])) echo $slot[1]['dex'] ?></p>   
-        <input type="submit" value="Equipar">
     </div>
 
         <script src = "../js/jquery.js"></script>
