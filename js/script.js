@@ -323,6 +323,8 @@ window.addEventListener("load",eventos_inventario)
 
 function eventos_inventario(){
 
+    var equipado = false;
+
     var slot = $( "#informacoes_item" );
     $( ".slot" ).on( "mouseover", function( event ) {
       slot.show();
@@ -332,7 +334,23 @@ function eventos_inventario(){
     $( ".slot" ).on( "mouseout", function( event ) {
       slot.hide();
     });
-    
+
+    var slot = $( "#informacoes_item" );
+
+    $( ".slot" ).on( "click", function( event ) {
+      if (equipado == false) {
+        equipado = confirm("Deseja equipar este item?")
+        if (equipado == true) $('div[name="slot1"]').css('border','1px solid red');
+      }
+      else {
+        equipado = confirm("Deseja desequipar este item?")
+        if (equipado == true) {
+            $('div[name="slot1"]').css('border','1px solid black');
+            equipado = false;
+        }else equipado = true;
+      }
+    });
+
 }
 
 
