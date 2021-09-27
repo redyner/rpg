@@ -483,7 +483,7 @@ function eventos_inventario(){
         $.ajax({
             url: 'http://localhost/RPG/paginas/itens.php',
             method: 'POST',
-            data: {id: slot[0][0], equipado: slot[0][1]},
+            data: {id_inventario: slot[0][0], equipado: slot[0][1]},
             dataType: 'json'
         })
         }else slot[0][1] = "N"
@@ -496,7 +496,7 @@ function eventos_inventario(){
             $.ajax({
                 url: 'http://localhost/RPG/paginas/itens.php',
                 method: 'POST',
-                data: {id: slot[0][0], equipado: slot[0][1]},
+                data: {id_inventario: slot[0][0], equipado: slot[0][1]},
                 dataType: 'json'
             })     
         }else slot[0][1] = "S";
@@ -513,7 +513,7 @@ function eventos_inventario(){
           $.ajax({
             url: 'http://localhost/RPG/paginas/itens.php',
             method: 'POST',
-            data: {id: slot[1][0], equipado: slot[1][1]},
+            data: {id_inventario: slot[1][0], equipado: slot[1][1]},
             dataType: 'json'
         })
           }else slot[1][1] = "N"
@@ -526,7 +526,7 @@ function eventos_inventario(){
               $.ajax({
                 url: 'http://localhost/RPG/paginas/itens.php',
                 method: 'POST',
-                data: {id: slot[1][0], equipado: slot[1][1]},
+                data: {id_inventario: slot[1][0], equipado: slot[1][1]},
                 dataType: 'json'
             })
           }else slot[1][1] = "S";
@@ -543,7 +543,7 @@ function eventos_inventario(){
           $.ajax({
             url: 'http://localhost/RPG/paginas/itens.php',
             method: 'POST',
-            data: {id: slot[2][0], equipado: slot[2][1]},
+            data: {id_inventario: slot[2][0], equipado: slot[2][1]},
             dataType: 'json'
         })
           }else slot[2][1] = "N"
@@ -556,7 +556,7 @@ function eventos_inventario(){
               $.ajax({
                 url: 'http://localhost/RPG/paginas/itens.php',
                 method: 'POST',
-                data: {id: slot[2][0], equipado: slot[2][1]},
+                data: {id_inventario: slot[2][0], equipado: slot[2][1]},
                 dataType: 'json'
             })
           }else slot[2][1] = "S";
