@@ -20,6 +20,5 @@ $('#formulario_levelup').submit(function(e){
         $('#set_int').val('');
         $('#set_dex').val('');
         console.log(result);
-       
     });
 });
