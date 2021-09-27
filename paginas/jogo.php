@@ -31,17 +31,17 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
                 <div id="xp_atual" style="width: <?php echo $porcentagem_xp ?>%"> <?php echo "{$_SESSION['xp']}/{$_SESSION['xp_max']}" ?></div>
             </div>
             <br><br><br>
-            <p id="lista_atributos">NICK - <?php echo $_SESSION['nick'] ?></p>
+            <p id="nick_personagem" class="lista_atributos">NICK - <?php echo $_SESSION['nick'] ?></p>
             <br>
-            <p id="lista_atributos">LEVEL - <?php echo $_SESSION['lv'] ?></p>
+            <p id="lv_personagem" class="lista_atributos">LEVEL - <?php echo $_SESSION['lv'] ?></p>
             <br>
-            <p id="lista_atributos">STA - <?php echo $_SESSION['sta'] ?></p>
+            <p id="sta_personagem" class="lista_atributos">STA - <?php echo $_SESSION['sta'] ?></p>
             <br>
-            <p id="lista_atributos">STR - <?php echo $_SESSION['str'] ?></p>
+            <p id="str_personagem" class="lista_atributos">STR - <?php echo $_SESSION['str'] ?></p>
             <br>
-            <p id="lista_atributos">INT - <?php echo $_SESSION['int'] ?></p>
+            <p id="int_personagem" class="lista_atributos">INT - <?php echo $_SESSION['int'] ?></p>
             <br>
-            <p id="lista_atributos">DEX - <?php echo $_SESSION['dex'] ?></p>
+            <p id="dex_personagem" class="lista_atributos">DEX - <?php echo $_SESSION['dex'] ?></p>
 
         </div>
 
@@ -80,7 +80,7 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
         for($i=0;$i<=14;$i++){
     ?>
 
-        <div id = '<?php echo isset($slot[$i]) ? $slot[$i]['nm_item'] : 0 ?>' name = 'slot<?php echo $i ?>' class='slot' ></div>
+        <div id = 'slot<?php if (isset($slot[$i])) echo $i ?>' name = '<?php if (isset($slot[$i])) echo $slot[$i]['nm_item'] ?>'  class='slot'  <?php if (isset($slot[$i]['equipado']) && $slot[$i]['equipado'] == 'S') echo "style='border: 5px solid red'" ?> ></div>
     
     <?php
         }

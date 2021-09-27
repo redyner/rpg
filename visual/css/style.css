@@ -282,32 +282,32 @@ background-image: url(../imagens/barras/barra_roxa.jpg);
     color: white;
 }
 
-#espada1{
+div[name="espada1"]{
     background-size:contain;
     background-image: url(../imagens/itens/espada.png);
 }
 
-#arco1{
+div[name="arco1"]{
     background-size:contain;
     background-image: url(../imagens/itens/arco.png);
 }
 
-#cajado1{
+div[name="cajado1"]{
     background-size:contain;
     background-image: url(../imagens/itens/cajado.jpg);
 }
 
-#espada2{
+div[name="espada2"]{
     background-size:contain;
     background-image: url(../imagens/itens/espada2.png);
 }
 
-#arco2{
+div[name="arco2"]{
     background-size:contain;
     background-image: url(../imagens/itens/arco2.png);
 }
 
-#cajado2{
+div[name="cajado2"]{
     background-size:contain;
     background-image: url(../imagens/itens/cajado2.jpg);
 }
@@ -420,7 +420,7 @@ background-image: url(../imagens/barras/barra_roxa.jpg);
     text-align-last: center;
 }
 
-#lista_atributos
+.lista_atributos
 {
     margin-left: 150px;
 }
@@ -488,7 +488,7 @@ text-align: center;
 
 .informacoes_item{
     position: absolute;    
- 	top: 0; bottom: 0; 
+ 	top:550px; bottom: 0; 
 	left: -1000px; right:0;
     margin: auto;
 	width: 100px;

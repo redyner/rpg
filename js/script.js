@@ -324,172 +324,460 @@ window.addEventListener("load",eventos_inventario)
 function eventos_inventario(){
 
     var slot0 = $( "#info_slot0" );
-    $( 'div[name="slot0"]' ).on( "mouseover", function( event ) {
+    $( '#slot0').on( "mouseover", function( event ) {
       slot0.show();
     });
 
     var slot0 = $( "#info_slot0" );
-    $( 'div[name="slot0"]').on( "mouseout", function( event ) {
+    $( '#slot0').on( "mouseout", function( event ) {
       slot0.hide();
     });
 
     var slot1 = $( "#info_slot1" );
-    $( 'div[name="slot1"]' ).on( "mouseover", function( event ) {
+    $( '#slot1' ).on( "mouseover", function( event ) {
       slot1.show();
     });
 
     var slot1 = $( "#info_slot1" );
-    $( 'div[name="slot1"]').on( "mouseout", function( event ) {
+    $( '#slot1').on( "mouseout", function( event ) {
       slot1.hide();
     });
 
     var slot2 = $( "#info_slot2" );
-    $( 'div[name="slot2"]' ).on( "mouseover", function( event ) {
+    $( '#slot2' ).on( "mouseover", function( event ) {
       slot2.show();
     });
 
     var slot2 = $( "#info_slot2" );
-    $( 'div[name="slot2"]').on( "mouseout", function( event ) {
+    $( '#slot2').on( "mouseout", function( event ) {
       slot2.hide();
     });
 
     var slot3 = $( "#info_slot3" );
-    $( 'div[name="slot3"]' ).on( "mouseover", function( event ) {
+    $( '#slot3' ).on( "mouseover", function( event ) {
       slot3.show();
     });
 
     var slot3 = $( "#info_slot3" );
-    $( 'div[name="slot3"]').on( "mouseout", function( event ) {
+    $( '#slot3').on( "mouseout", function( event ) {
       slot3.hide();
     });
 
     var slot4 = $( "#info_slot4" );
-    $( 'div[name="slot4"]' ).on( "mouseover", function( event ) {
+    $( '#slot4' ).on( "mouseover", function( event ) {
       slot4.show();
     });
 
     var slot4 = $( "#info_slot4" );
-    $( 'div[name="slot4"]').on( "mouseout", function( event ) {
+    $( '#slot4').on( "mouseout", function( event ) {
       slot4.hide();
     });
 
     var slot5 = $( "#info_slot5" );
-    $( 'div[name="slot5"]' ).on( "mouseover", function( event ) {
+    $( '#slot5' ).on( "mouseover", function( event ) {
       slot5.show();
     });
 
     var slot5 = $( "#info_slot5" );
-    $( 'div[name="slot5"]').on( "mouseout", function( event ) {
+    $( '#slot5').on( "mouseout", function( event ) {
       slot5.hide();
     });
 
     var slot6 = $( "#info_slot6" );
-    $( 'div[name="slot6"]' ).on( "mouseover", function( event ) {
+    $( '#slot6' ).on( "mouseover", function( event ) {
       slot6.show();
     });
 
     var slot6 = $( "#info_slot6" );
-    $( 'div[name="slot6"]').on( "mouseout", function( event ) {
+    $( '#slot6').on( "mouseout", function( event ) {
       slot6.hide();
     });
 
     var slot7 = $( "#info_slot7" );
-    $( 'div[name="slot7"]' ).on( "mouseover", function( event ) {
+    $( '#slot7' ).on( "mouseover", function( event ) {
       slot7.show();
     });
 
     var slot7 = $( "#info_slot7" );
-    $( 'div[name="slot7"]').on( "mouseout", function( event ) {
+    $( '#slot7').on( "mouseout", function( event ) {
       slot7.hide();
     });
 
     var slot8 = $( "#info_slot8" );
-    $( 'div[name="slot8"]' ).on( "mouseover", function( event ) {
+    $( '#slot8' ).on( "mouseover", function( event ) {
       slot8.show();
     });
 
     var slot8 = $( "#info_slot8" );
-    $( 'div[name="slot8"]').on( "mouseout", function( event ) {
+    $( '#slot8').on( "mouseout", function( event ) {
       slot8.hide();
     });
 
     var slot9 = $( "#info_slot9" );
-    $( 'div[name="slot9"]' ).on( "mouseover", function( event ) {
+    $( '#slot9' ).on( "mouseover", function( event ) {
       slot9.show();
     });
 
     var slot9 = $( "#info_slot9" );
-    $( 'div[name="slot9"]').on( "mouseout", function( event ) {
+    $( '#slot9').on( "mouseout", function( event ) {
       slot9.hide();
     });
 
     var slot10 = $( "#info_slot10" );
-    $( 'div[name="slot10"]' ).on( "mouseover", function( event ) {
+    $( '#slot10' ).on( "mouseover", function( event ) {
       slot10.show();
     });
 
     var slot10 = $( "#info_slot10" );
-    $( 'div[name="slot10"]').on( "mouseout", function( event ) {
+    $( '#slot10').on( "mouseout", function( event ) {
       slot10.hide();
     });
 
     var slot11 = $( "#info_slot11" );
-    $( 'div[name="slot11"]' ).on( "mouseover", function( event ) {
+    $( '#slot11' ).on( "mouseover", function( event ) {
       slot11.show();
     });
 
     var slot11 = $( "#info_slot11" );
-    $( 'div[name="slot11"]').on( "mouseout", function( event ) {
+    $( '#slot11').on( "mouseout", function( event ) {
       slot11.hide();
     });
 
     var slot12 = $( "#info_slot12" );
-    $( 'div[name="slot12"]' ).on( "mouseover", function( event ) {
+    $( '#slot12' ).on( "mouseover", function( event ) {
       slot12.show();
     });
 
     var slot12 = $( "#info_slot12" );
-    $( 'div[name="slot12"]').on( "mouseout", function( event ) {
+    $( '#slot12').on( "mouseout", function( event ) {
       slot12.hide();
     });
 
     var slot13 = $( "#info_slot13" );
-    $( 'div[name="slot13"]' ).on( "mouseover", function( event ) {
+    $( '#slot13' ).on( "mouseover", function( event ) {
       slot13.show();
     });
 
     var slot13 = $( "#info_slot13" );
-    $( 'div[name="slot13"]').on( "mouseout", function( event ) {
+    $( '#slot13').on( "mouseout", function( event ) {
       slot13.hide();
     });
 
     var slot14 = $( "#info_slot14" );
-    $( 'div[name="slot14"]' ).on( "mouseover", function( event ) {
+    $( '#slot14' ).on( "mouseover", function( event ) {
       slot14.show();
     });
 
     var slot14 = $( "#info_slot14" );
-    $( 'div[name="slot14"]').on( "mouseout", function( event ) {
+    $( '#slot14').on( "mouseout", function( event ) {
       slot14.hide();
     });
 
-    $( 'div[name="slot0"]' ).on( "click", function( event ) {
+    $( '#slot0' ).on( "click", function( event ) {
       if (slot[0][1] == "N") slot[0][1] = false
       if (slot[0][1] == false) {
         slot[0][1]  = confirm("Deseja equipar este item?")
         if (slot[0][1] == true) {
-        $('div[name="slot0"]').css('border','5px solid red');
-        slot[0][1] == "S"
+        $('#slot0').css('border','5px solid red');
+        slot[0][1] = "S"
+        $.ajax({
+            url: 'http://localhost/RPG/paginas/itens.php',
+            method: 'POST',
+            data: {id: slot[0][0], equipado: slot[0][1]},
+            dataType: 'json'
+        })
         }else slot[0][1] = "N"
       }
       else {
         slot[0][1] = confirm("Deseja desequipar este item?")
         if (slot[0][1] == true) {
-            $('div[name="slot0"]').css('border','5px solid black');
+            $('#slot0').css('border','5px solid black');
             slot[0][1] = "N";
+            $.ajax({
+                url: 'http://localhost/RPG/paginas/itens.php',
+                method: 'POST',
+                data: {id: slot[0][0], equipado: slot[0][1]},
+                dataType: 'json'
+            })     
         }else slot[0][1] = "S";
       }
     });
+
+    $( '#slot1' ).on( "click", function( event ) {
+        if (slot[1][1] == "N") slot[1][1] = false
+        if (slot[1][1] == false) {
+          slot[1][1]  = confirm("Deseja equipar este item?")
+          if (slot[1][1] == true) {
+          $('#slot1').css('border','5px solid red');
+          slot[1][1] = "S"
+          $.ajax({
+            url: 'http://localhost/RPG/paginas/itens.php',
+            method: 'POST',
+            data: {id: slot[1][0], equipado: slot[1][1]},
+            dataType: 'json'
+        })
+          }else slot[1][1] = "N"
+        }
+        else {
+          slot[1][1] = confirm("Deseja desequipar este item?")
+          if (slot[1][1] == true) {
+              $('#slot1').css('border','5px solid black');
+              slot[1][1] = "N";
+              $.ajax({
+                url: 'http://localhost/RPG/paginas/itens.php',
+                method: 'POST',
+                data: {id: slot[1][0], equipado: slot[1][1]},
+                dataType: 'json'
+            })
+          }else slot[1][1] = "S";
+        }
+      });
+
+      $( '#slot2' ).on( "click", function( event ) {
+        if (slot[2][1] == "N") slot[2][1] = false
+        if (slot[2][1] == false) {
+          slot[2][1]  = confirm("Deseja equipar este item?")
+          if (slot[2][1] == true) {
+          $('#slot2').css('border','5px solid red');
+          slot[2][1] = "S"
+          $.ajax({
+            url: 'http://localhost/RPG/paginas/itens.php',
+            method: 'POST',
+            data: {id: slot[2][0], equipado: slot[2][1]},
+            dataType: 'json'
+        })
+          }else slot[2][1] = "N"
+        }
+        else {
+          slot[2][1] = confirm("Deseja desequipar este item?")
+          if (slot[2][1] == true) {
+              $('#slot2').css('border','5px solid black');
+              slot[2][1] = "N";
+              $.ajax({
+                url: 'http://localhost/RPG/paginas/itens.php',
+                method: 'POST',
+                data: {id: slot[2][0], equipado: slot[2][1]},
+                dataType: 'json'
+            })
+          }else slot[2][1] = "S";
+        }
+      });
+
+      $( '#slot3' ).on( "click", function( event ) {
+        if (slot[3][1] == "N") slot[3][1] = false
+        if (slot[3][1] == false) {
+          slot[3][1]  = confirm("Deseja equipar este item?")
+          if (slot[3][1] == true) {
+          $('#slot3').css('border','5px solid red');
+          slot[3][1] = "S"
+          }else slot[3][1] = "N"
+        }
+        else {
+          slot[3][1] = confirm("Deseja desequipar este item?")
+          if (slot[3][1] == true) {
+              $('#slot3').css('border','5px solid black');
+              slot[3][1] = "N";
+          }else slot[3][1] = "S";
+        }
+      });
+
+      $( '#slot4' ).on( "click", function( event ) {
+        if (slot[4][1] == "N") slot[4][1] = false
+        if (slot[4][1] == false) {
+          slot[4][1]  = confirm("Deseja equipar este item?")
+          if (slot[4][1] == true) {
+          $('#slot4').css('border','5px solid red');
+          slot[4][1] = "S"
+          }else slot[4][1] = "N"
+        }
+        else {
+          slot[4][1] = confirm("Deseja desequipar este item?")
+          if (slot[4][1] == true) {
+              $('#slot4').css('border','5px solid black');
+              slot[4][1] = "N";
+          }else slot[4][1] = "S";
+        }
+      });
+
+      $( '#slot5' ).on( "click", function( event ) {
+        if (slot[5][1] == "N") slot[5][1] = false
+        if (slot[5][1] == false) {
+          slot[5][1]  = confirm("Deseja equipar este item?")
+          if (slot[5][1] == true) {
+          $('#slot5').css('border','5px solid red');
+          slot[5][1] = "S"
+          }else slot[5][1] = "N"
+        }
+        else {
+          slot[5][1] = confirm("Deseja desequipar este item?")
+          if (slot[5][1] == true) {
+              $('#slot5').css('border','5px solid black');
+              slot[5][1] = "N";
+          }else slot[5][1] = "S";
+        }
+      });
+
+      $( '#slot6' ).on( "click", function( event ) {
+        if (slot[6][1] == "N") slot[6][1] = false
+        if (slot[6][1] == false) {
+          slot[6][1]  = confirm("Deseja equipar este item?")
+          if (slot[6][1] == true) {
+          $('#slot6').css('border','5px solid red');
+          slot[6][1] = "S"
+          }else slot[6][1] = "N"
+        }
+        else {
+          slot[6][1] = confirm("Deseja desequipar este item?")
+          if (slot[6][1] == true) {
+              $('#slot6').css('border','5px solid black');
+              slot[6][1] = "N";
+          }else slot[6][1] = "S";
+        }
+      });
+
+      $( '#slot7' ).on( "click", function( event ) {
+        if (slot[7][1] == "N") slot[7][1] = false
+        if (slot[7][1] == false) {
+          slot[7][1]  = confirm("Deseja equipar este item?")
+          if (slot[7][1] == true) {
+          $('#slot7').css('border','5px solid red');
+          slot[7][1] = "S"
+          }else slot[7][1] = "N"
+        }
+        else {
+          slot[7][1] = confirm("Deseja desequipar este item?")
+          if (slot[7][1] == true) {
+              $('#slot7').css('border','5px solid black');
+              slot[7][1] = "N";
+          }else slot[7][1] = "S";
+        }
+      });
+
+      $( '#slot8' ).on( "click", function( event ) {
+        if (slot[8][1] == "N") slot[8][1] = false
+        if (slot[8][1] == false) {
+          slot[8][1]  = confirm("Deseja equipar este item?")
+          if (slot[8][1] == true) {
+          $('#slot8').css('border','5px solid red');
+          slot[8][1] = "S"
+          }else slot[8][1] = "N"
+        }
+        else {
+          slot[8][1] = confirm("Deseja desequipar este item?")
+          if (slot[8][1] == true) {
+              $('#slot8').css('border','5px solid black');
+              slot[8][1] = "N";
+          }else slot[8][1] = "S";
+        }
+      });
+
+      $( '#slot9' ).on( "click", function( event ) {
+        if (slot[9][1] == "N") slot[9][1] = false
+        if (slot[9][1] == false) {
+          slot[9][1]  = confirm("Deseja equipar este item?")
+          if (slot[9][1] == true) {
+          $('#slot9').css('border','5px solid red');
+          slot[9][1] = "S"
+          }else slot[9][1] = "N"
+        }
+        else {
+          slot[9][1] = confirm("Deseja desequipar este item?")
+          if (slot[9][1] == true) {
+              $('#slot9').css('border','5px solid black');
+              slot[9][1] = "N";
+          }else slot[9][1] = "S";
+        }
+      });
+
+      $( '#slot10' ).on( "click", function( event ) {
+        if (slot[10][1] == "N") slot[10][1] = false
+        if (slot[10][1] == false) {
+          slot[10][1]  = confirm("Deseja equipar este item?")
+          if (slot[10][1] == true) {
+          $('#slot10').css('border','5px solid red');
+          slot[10][1] = "S"
+          }else slot[10][1] = "N"
+        }
+        else {
+          slot[10][1] = confirm("Deseja desequipar este item?")
+          if (slot[10][1] == true) {
+              $('#slot10').css('border','5px solid black');
+              slot[10][1] = "N";
+          }else slot[10][1] = "S";
+        }
+      });
+
+      $( '#slot11' ).on( "click", function( event ) {
+        if (slot[11][1] == "N") slot[11][1] = false
+        if (slot[11][1] == false) {
+          slot[11][1]  = confirm("Deseja equipar este item?")
+          if (slot[11][1] == true) {
+          $('#slot11').css('border','5px solid red');
+          slot[11][1] = "S"
+          }else slot[11][1] = "N"
+        }
+        else {
+          slot[11][1] = confirm("Deseja desequipar este item?")
+          if (slot[11][1] == true) {
+              $('#slot11').css('border','5px solid black');
+              slot[11][1] = "N";
+          }else slot[11][1] = "S";
+        }
+      });
+
+      $( '#slot12' ).on( "click", function( event ) {
+        if (slot[12][1] == "N") slot[12][1] = false
+        if (slot[12][1] == false) {
+          slot[12][1]  = confirm("Deseja equipar este item?")
+          if (slot[12][1] == true) {
+          $('#slot12').css('border','5px solid red');
+          slot[12][1] = "S"
+          }else slot[12][1] = "N"
+        }
+        else {
+          slot[12][1] = confirm("Deseja desequipar este item?")
+          if (slot[12][1] == true) {
+              $('#slot12').css('border','5px solid black');
+              slot[12][1] = "N";
+          }else slot[12][1] = "S";
+        }
+      });
+
+      $( '#slot13' ).on( "click", function( event ) {
+        if (slot[13][1] == "N") slot[13][1] = false
+        if (slot[13][1] == false) {
+          slot[13][1]  = confirm("Deseja equipar este item?")
+          if (slot[13][1] == true) {
+          $('#slot13').css('border','5px solid red');
+          slot[13][1] = "S"
+          }else slot[13][1] = "N"
+        }
+        else {
+          slot[13][1] = confirm("Deseja desequipar este item?")
+          if (slot[13][1] == true) {
+              $('#slot13').css('border','5px solid black');
+              slot[13][1] = "N";
+          }else slot[13][1] = "S";
+        }
+      });
+
+      $( '#slot14' ).on( "click", function( event ) {
+        if (slot[14][1] == "N") slot[14][1] = false
+        if (slot[14][1] == false) {
+          slot[14][1]  = confirm("Deseja equipar este item?")
+          if (slot[14][1] == true) {
+          $('#slot14').css('border','5px solid red');
+          slot[14][1] = "S"
+          }else slot[14][1] = "N"
+        }
+        else {
+          slot[14][1] = confirm("Deseja desequipar este item?")
+          if (slot[14][1] == true) {
+              $('#slot14').css('border','5px solid black');
+              slot[14][1] = "N";
+          }else slot[14][1] = "S";
+        }
+      });
 
 }
 

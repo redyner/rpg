@@ -61,7 +61,7 @@
                 FROM rpg.inventarios i
                 JOIN rpg.personagens p ON p.id_personagem = i.id_personagem
                 JOIN rpg.atributos a ON i.id_item = a.id_item
-                WHERE i.id_personagem = '{$id_player}' AND i.equipado IN ('S','s')";
+                WHERE i.id_personagem = '{$id_personagem}' AND i.equipado IN ('S','s')";
                 $equipamento = mysqli_fetch_assoc(mysqli_query($conexao,$sql));
 
                 if(!empty($equipamento)){
