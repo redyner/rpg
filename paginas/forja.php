@@ -22,40 +22,22 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
         <a href="">
             <div class="avatar_npc" id="ferreiro"></div>
         </a>
-        <div id="atributos_personagem">
-            <br>
-            <p id="atributo_xp">EXP</p>
-            <div class="barra" id="barra_xp">
-                <div id="xp_atual" style="width: <?php echo $porcentagem_xp ?>%"> <?php echo "{$_SESSION['xp']}/{$_SESSION['xp_max']}" ?></div>
-            </div>
-            <br><br><br>
-            <p id="lista_atributos">NICK - <?php echo $_SESSION['nick'] ?></p>
-            <br>
-            <p id="lista_atributos">LEVEL - <?php echo $_SESSION['lv'] ?></p>
-            <br>
-            <p id="lista_atributos">STA - <?php echo $_SESSION['sta'] ?></p>
-            <br>
-            <p id="lista_atributos">STR - <?php echo $_SESSION['str'] ?></p>
-            <br>
-            <p id="lista_atributos">INT - <?php echo $_SESSION['int'] ?></p>
-            <br>
-            <p id="lista_atributos">DEX - <?php echo $_SESSION['dex'] ?></p>
-
-        </div>
+        <a href="" ><div class="avatar_item" ></div></a>
 
     </div>
     <div id="selecao_item">
     <div id='texto_inventario'>Forja</div>
     <?php 
-        $i=1;
-        $sql = "SELECT i.id_item, i.nm_item, i.lv, i.valor, i.id_classe, `sta`, `str`, `int`, `dex` 
+        $i=0;
+        $sql = "SELECT i.id_item, i.nm_item, i.lv, i.valor, i.id_classe, `sta`, `str`, `int`, `dex`, iv.equipado, iv.id_inventario
                 FROM rpg.inventarios iv
                     JOIN rpg.itens i ON i.id_item = iv.id_item 
                     JOIN rpg.atributos a ON i.id_item = a.id_item
                     JOIN rpg.classes c ON c.id_classe = i.id_classe
                     JOIN rpg.personagens p ON p.id_classe = c.id_classe
                 WHERE p.id_personagem = '{$_SESSION['id_personagem']}'
-                    AND iv.slot IS NOT NULL";
+                    AND iv.slot IS NOT NULL
+                    ORDER BY iv.slot";
         $resultado = mysqli_query($conexao,$sql);
         while ($info_item = mysqli_fetch_assoc($resultado))
         {
@@ -68,40 +50,56 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
             $slot[$i]['str'] = $info_item['str'];
             $slot[$i]['int'] = $info_item['int'];
             $slot[$i]['dex'] = $info_item['dex'];
+            $slot[$i]['equipado'] = $info_item['equipado'];
+            $slot[$i]['id_inventario'] = $info_item['id_inventario'];
             $i++;
         }
         
         ?>
+    <?php
+        for($i=0;$i<=14;$i++){
+    ?>
 
-        <div id = '<?php if (isset($slot[1])) echo $slot[1]['nm_item'] ?>' class='slot' onclick="informacoes_item()"></div>
-        <div id = '<?php if (isset($slot[2])) echo $slot[2]['nm_item'] ?>' class='slot' ></div>
-        <div id = '<?php if (isset($slot[3])) echo $slot[3]['nm_item'] ?>' class='slot' ></div>
-        <div id = '<?php if (isset($slot[4])) echo $slot[4]['nm_item'] ?>' class='slot' ></div>
-        <div id = '<?php if (isset($slot[5])) echo $slot[5]['nm_item'] ?>' class='slot' ></div>
-        <div id = '<?php if (isset($slot[6])) echo $slot[6]['nm_item'] ?>' class='slot' ></div>
-        <div id = '<?php if (isset($slot[7])) echo $slot[7]['nm_item'] ?>' class='slot' ></div>
-        <div id = '<?php if (isset($slot[8])) echo $slot[8]['nm_item'] ?>' class='slot' ></div>
-        <div id = '<?php if (isset($slot[9])) echo $slot[9]['nm_item'] ?>' class='slot' ></div>
-        <div id = '<?php if (isset($slot[10])) echo $slot[10]['nm_item'] ?>' class='slot' ></div>
-        <div id = '<?php if (isset($slot[11])) echo $slot[11]['nm_item'] ?>' class='slot' ></div>
-        <div id = '<?php if (isset($slot[12])) echo $slot[12]['nm_item'] ?>' class='slot' ></div>
-        <div id = '<?php if (isset($slot[13])) echo $slot[13]['nm_item'] ?>' class='slot' ></div>
-        <div id = '<?php if (isset($slot[14])) echo $slot[14]['nm_item'] ?>' class='slot' ></div>
-        <div id = '<?php if (isset($slot[15])) echo $slot[15]['nm_item'] ?>' class='slot' ></div>
+        <div id = 'slotf<?php if (isset($slot[$i])) echo $i ?>' name = '<?php if (isset($slot[$i])) echo $slot[$i]['nm_item'] ?>'  class='slot' ></div>
+    
+    <?php
+        }
+    ?>
 
     </div>
-</div>
-
-    <div id="informacoes_item">
-        <p><?php echo $slot[1]['nm_item'] ?></p>
-        <p>LEVEL - <?php echo $slot[1]['lv'] ?></p>
-        <p>STA - <?php echo $slot[1]['sta'] ?></p>
-        <p>STR - <?php echo $slot[1]['str'] ?></p>
-        <p>INT - <?php echo $slot[1]['int'] ?></p>
-        <p>DEX - <?php echo $slot[1]['dex'] ?></p>   
+  
+    <?php
+        for($i=0;$i<=14;$i++){
+    ?>
+    
+    <div id="info_slotf<?php echo $i ?>" class="informacoes_item">
+        <p><?php echo isset($slot[$i]) ? $slot[$i]['nm_item'] : 0?></p>
+        <p>LEVEL - <?php echo isset($slot[$i]) ? $slot[$i]['lv'] : 0 ?></p>
+        <p>STA - <?php echo isset($slot[$i]) ? $slot[$i]['sta'] : 0 ?></p>
+        <p>STR - <?php echo isset($slot[$i]) ? $slot[$i]['str'] : 0 ?></p>
+        <p>INT - <?php echo isset($slot[$i]) ? $slot[$i]['int'] : 0 ?></p>
+        <p>DEX - <?php echo isset($slot[$i]) ? $slot[$i]['dex'] : 0 ?></p>   
     </div>
-        <script>
-           // for (var i = 1; i <= 18; i++)
-               // document.write("<div onClick='informacoes_item();' id = 'slot"+i+"' class='slot' ></div>")
-        </script>
 
+    <?php
+        }
+    ?>
+
+
+
+
+    <script>
+
+        var slot = [
+            <?php
+            for($i=0;$i<=13;$i++){
+            ?>
+            [<?php echo isset($slot[$i]) ? $slot[$i]['id_inventario'] : 0 ?>, "<?php echo isset($slot[$i]) ? $slot[$i]['equipado'] : 0 ?>"],
+            <?php
+            }
+            ?>   
+            [<?php echo isset($slot[15]) ? $slot[15]['id_inventario'] : 0 ?>,"<?php echo isset($slot[15]) ? $slot[15]['equipado'] : 0 ?>"]
+        ]
+
+
+    </script>
