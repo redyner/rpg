@@ -45,7 +45,7 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
 
     </div>
     <div id="selecao_item">
-    <div id='texto_inventario'>Inventario</div>
+    <div id='texto_inventario'>Forja</div>
     <?php 
         $i=1;
         $sql = "SELECT i.id_item, i.nm_item, i.lv, i.valor, i.id_classe, `sta`, `str`, `int`, `dex` 

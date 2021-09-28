@@ -272,7 +272,8 @@ background-image: url(../imagens/barras/barra_roxa.jpg);
     margin: 5px 20px 10px 30px;
     width: 100px;
     height: 100px;
-    border: solid 5px;
+    border-radius: 10px;
+    background:rgb(116, 84, 42); 
     float: left;
 }
 

@@ -37,6 +37,7 @@
 
         </div>
         <div id="selecao_item">
+        <div id='texto_inventario'>Market</div>
 
         <?php 
         $i=1;
