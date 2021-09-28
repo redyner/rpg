@@ -40,7 +40,12 @@ if ($equipado == "S"){
     $_SESSION['dex'] -= $equipamento['dex'];
 }
 
+$atributos['sta'] = $_SESSION['sta'];
+$atributos['str'] = $_SESSION['str'];
+$atributos['int'] = $_SESSION['int'];
+$atributos['dex'] = $_SESSION['dex'];
 
-
+$atributos_json = json_encode($atributos);
+echo json_encode($atributos);
 
 ?>

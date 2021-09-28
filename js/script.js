@@ -479,14 +479,25 @@ function eventos_inventario(){
         slot[0][1]  = confirm("Deseja equipar este item?")
         if (slot[0][1] == true) {
         $('#slot0').css('border','5px solid red');
-        slot[0][1] = "S"
+        slot[0][1] = "S";
         $.ajax({
             url: 'http://localhost/RPG/paginas/itens.php',
             method: 'POST',
             data: {id_inventario: slot[0][0], equipado: slot[0][1]},
-            dataType: 'json'
+            dataType: 'json',
+            success: function (result){
+              console.log(result)
+              sta = result['sta']
+              str = result['str']
+              int = result['int']
+              dex = result['dex']
+              $("#sta_personagem").html("STA - "+sta)
+              $("#str_personagem").html("STR - "+str)
+              $("#int_personagem").html("INT - "+int)
+              $("#dex_personagem").html("DEX - "+dex)
+          }
         })
-        }else slot[0][1] = "N"
+        }else slot[0][1] = "N";
       }
       else {
         slot[0][1] = confirm("Deseja desequipar este item?")
@@ -494,11 +505,22 @@ function eventos_inventario(){
             $('#slot0').css('border','5px solid black');
             slot[0][1] = "N";
             $.ajax({
-                url: 'http://localhost/RPG/paginas/itens.php',
-                method: 'POST',
-                data: {id_inventario: slot[0][0], equipado: slot[0][1]},
-                dataType: 'json'
-            })     
+              url: 'http://localhost/RPG/paginas/itens.php',
+              method: 'POST',
+              data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+              dataType: 'json',
+              success: function (result){
+                console.log(result)
+                sta = result['sta']
+                str = result['str']
+                int = result['int']
+                dex = result['dex']
+                $("#sta_personagem").html("STA - "+sta)
+                $("#str_personagem").html("STR - "+str)
+                $("#int_personagem").html("INT - "+int)
+                $("#dex_personagem").html("DEX - "+dex)
+            }
+          })     
         }else slot[0][1] = "S";
       }
     });
@@ -509,14 +531,25 @@ function eventos_inventario(){
           slot[1][1]  = confirm("Deseja equipar este item?")
           if (slot[1][1] == true) {
           $('#slot1').css('border','5px solid red');
-          slot[1][1] = "S"
+          slot[1][1] = "S";
           $.ajax({
             url: 'http://localhost/RPG/paginas/itens.php',
             method: 'POST',
-            data: {id_inventario: slot[1][0], equipado: slot[1][1]},
-            dataType: 'json'
+            data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+            dataType: 'json',
+            success: function (result){
+              console.log(result)
+              sta = result['sta']
+              str = result['str']
+              int = result['int']
+              dex = result['dex']
+              $("#sta_personagem").html("STA - "+sta)
+              $("#str_personagem").html("STR - "+str)
+              $("#int_personagem").html("INT - "+int)
+              $("#dex_personagem").html("DEX - "+dex)
+          }
         })
-          }else slot[1][1] = "N"
+          }else slot[1][1] = "N";
         }
         else {
           slot[1][1] = confirm("Deseja desequipar este item?")
@@ -526,8 +559,19 @@ function eventos_inventario(){
               $.ajax({
                 url: 'http://localhost/RPG/paginas/itens.php',
                 method: 'POST',
-                data: {id_inventario: slot[1][0], equipado: slot[1][1]},
-                dataType: 'json'
+                data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+                dataType: 'json',
+                success: function (result){
+                  console.log(result)
+                  sta = result['sta']
+                  str = result['str']
+                  int = result['int']
+                  dex = result['dex']
+                  $("#sta_personagem").html("STA - "+sta)
+                  $("#str_personagem").html("STR - "+str)
+                  $("#int_personagem").html("INT - "+int)
+                  $("#dex_personagem").html("DEX - "+dex)
+              }
             })
           }else slot[1][1] = "S";
         }
@@ -539,14 +583,25 @@ function eventos_inventario(){
           slot[2][1]  = confirm("Deseja equipar este item?")
           if (slot[2][1] == true) {
           $('#slot2').css('border','5px solid red');
-          slot[2][1] = "S"
+          slot[2][1] = "S";
           $.ajax({
             url: 'http://localhost/RPG/paginas/itens.php',
             method: 'POST',
-            data: {id_inventario: slot[2][0], equipado: slot[2][1]},
-            dataType: 'json'
+            data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+            dataType: 'json',
+            success: function (result){
+              console.log(result)
+              sta = result['sta']
+              str = result['str']
+              int = result['int']
+              dex = result['dex']
+              $("#sta_personagem").html("STA - "+sta)
+              $("#str_personagem").html("STR - "+str)
+              $("#int_personagem").html("INT - "+int)
+              $("#dex_personagem").html("DEX - "+dex)
+          }
         })
-          }else slot[2][1] = "N"
+          }else slot[2][1] = "N";
         }
         else {
           slot[2][1] = confirm("Deseja desequipar este item?")
@@ -556,8 +611,19 @@ function eventos_inventario(){
               $.ajax({
                 url: 'http://localhost/RPG/paginas/itens.php',
                 method: 'POST',
-                data: {id_inventario: slot[2][0], equipado: slot[2][1]},
-                dataType: 'json'
+                data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+                dataType: 'json',
+                success: function (result){
+                  console.log(result)
+                  sta = result['sta']
+                  str = result['str']
+                  int = result['int']
+                  dex = result['dex']
+                  $("#sta_personagem").html("STA - "+sta)
+                  $("#str_personagem").html("STR - "+str)
+                  $("#int_personagem").html("INT - "+int)
+                  $("#dex_personagem").html("DEX - "+dex)
+              }
             })
           }else slot[2][1] = "S";
         }
@@ -569,14 +635,48 @@ function eventos_inventario(){
           slot[3][1]  = confirm("Deseja equipar este item?")
           if (slot[3][1] == true) {
           $('#slot3').css('border','5px solid red');
-          slot[3][1] = "S"
-          }else slot[3][1] = "N"
+          slot[3][1] = "S";
+          $.ajax({
+            url: 'http://localhost/RPG/paginas/itens.php',
+            method: 'POST',
+            data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+            dataType: 'json',
+            success: function (result){
+              console.log(result)
+              sta = result['sta']
+              str = result['str']
+              int = result['int']
+              dex = result['dex']
+              $("#sta_personagem").html("STA - "+sta)
+              $("#str_personagem").html("STR - "+str)
+              $("#int_personagem").html("INT - "+int)
+              $("#dex_personagem").html("DEX - "+dex)
+          }
+        })
+          }else slot[3][1] = "N";
         }
         else {
           slot[3][1] = confirm("Deseja desequipar este item?")
           if (slot[3][1] == true) {
               $('#slot3').css('border','5px solid black');
               slot[3][1] = "N";
+              $.ajax({
+                url: 'http://localhost/RPG/paginas/itens.php',
+                method: 'POST',
+                data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+                dataType: 'json',
+                success: function (result){
+                  console.log(result)
+                  sta = result['sta']
+                  str = result['str']
+                  int = result['int']
+                  dex = result['dex']
+                  $("#sta_personagem").html("STA - "+sta)
+                  $("#str_personagem").html("STR - "+str)
+                  $("#int_personagem").html("INT - "+int)
+                  $("#dex_personagem").html("DEX - "+dex)
+              }
+            })
           }else slot[3][1] = "S";
         }
       });
@@ -587,14 +687,48 @@ function eventos_inventario(){
           slot[4][1]  = confirm("Deseja equipar este item?")
           if (slot[4][1] == true) {
           $('#slot4').css('border','5px solid red');
-          slot[4][1] = "S"
-          }else slot[4][1] = "N"
+          slot[4][1] = "S";
+          $.ajax({
+            url: 'http://localhost/RPG/paginas/itens.php',
+            method: 'POST',
+            data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+            dataType: 'json',
+            success: function (result){
+              console.log(result)
+              sta = result['sta']
+              str = result['str']
+              int = result['int']
+              dex = result['dex']
+              $("#sta_personagem").html("STA - "+sta)
+              $("#str_personagem").html("STR - "+str)
+              $("#int_personagem").html("INT - "+int)
+              $("#dex_personagem").html("DEX - "+dex)
+          }
+        })
+          }else slot[4][1] = "N";
         }
         else {
           slot[4][1] = confirm("Deseja desequipar este item?")
           if (slot[4][1] == true) {
               $('#slot4').css('border','5px solid black');
               slot[4][1] = "N";
+              $.ajax({
+                url: 'http://localhost/RPG/paginas/itens.php',
+                method: 'POST',
+                data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+                dataType: 'json',
+                success: function (result){
+                  console.log(result)
+                  sta = result['sta']
+                  str = result['str']
+                  int = result['int']
+                  dex = result['dex']
+                  $("#sta_personagem").html("STA - "+sta)
+                  $("#str_personagem").html("STR - "+str)
+                  $("#int_personagem").html("INT - "+int)
+                  $("#dex_personagem").html("DEX - "+dex)
+              }
+            })
           }else slot[4][1] = "S";
         }
       });
@@ -605,14 +739,48 @@ function eventos_inventario(){
           slot[5][1]  = confirm("Deseja equipar este item?")
           if (slot[5][1] == true) {
           $('#slot5').css('border','5px solid red');
-          slot[5][1] = "S"
-          }else slot[5][1] = "N"
+          slot[5][1] = "S";
+          $.ajax({
+            url: 'http://localhost/RPG/paginas/itens.php',
+            method: 'POST',
+            data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+            dataType: 'json',
+            success: function (result){
+              console.log(result)
+              sta = result['sta']
+              str = result['str']
+              int = result['int']
+              dex = result['dex']
+              $("#sta_personagem").html("STA - "+sta)
+              $("#str_personagem").html("STR - "+str)
+              $("#int_personagem").html("INT - "+int)
+              $("#dex_personagem").html("DEX - "+dex)
+          }
+        })
+          }else slot[5][1] = "N";
         }
         else {
           slot[5][1] = confirm("Deseja desequipar este item?")
           if (slot[5][1] == true) {
               $('#slot5').css('border','5px solid black');
               slot[5][1] = "N";
+              $.ajax({
+                url: 'http://localhost/RPG/paginas/itens.php',
+                method: 'POST',
+                data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+                dataType: 'json',
+                success: function (result){
+                  console.log(result)
+                  sta = result['sta']
+                  str = result['str']
+                  int = result['int']
+                  dex = result['dex']
+                  $("#sta_personagem").html("STA - "+sta)
+                  $("#str_personagem").html("STR - "+str)
+                  $("#int_personagem").html("INT - "+int)
+                  $("#dex_personagem").html("DEX - "+dex)
+              }
+            })
           }else slot[5][1] = "S";
         }
       });
@@ -623,14 +791,48 @@ function eventos_inventario(){
           slot[6][1]  = confirm("Deseja equipar este item?")
           if (slot[6][1] == true) {
           $('#slot6').css('border','5px solid red');
-          slot[6][1] = "S"
-          }else slot[6][1] = "N"
+          slot[6][1] = "S";
+          $.ajax({
+            url: 'http://localhost/RPG/paginas/itens.php',
+            method: 'POST',
+            data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+            dataType: 'json',
+            success: function (result){
+              console.log(result)
+              sta = result['sta']
+              str = result['str']
+              int = result['int']
+              dex = result['dex']
+              $("#sta_personagem").html("STA - "+sta)
+              $("#str_personagem").html("STR - "+str)
+              $("#int_personagem").html("INT - "+int)
+              $("#dex_personagem").html("DEX - "+dex)
+          }
+        })
+          }else slot[6][1] = "N";
         }
         else {
           slot[6][1] = confirm("Deseja desequipar este item?")
           if (slot[6][1] == true) {
               $('#slot6').css('border','5px solid black');
               slot[6][1] = "N";
+              $.ajax({
+                url: 'http://localhost/RPG/paginas/itens.php',
+                method: 'POST',
+                data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+                dataType: 'json',
+                success: function (result){
+                  console.log(result)
+                  sta = result['sta']
+                  str = result['str']
+                  int = result['int']
+                  dex = result['dex']
+                  $("#sta_personagem").html("STA - "+sta)
+                  $("#str_personagem").html("STR - "+str)
+                  $("#int_personagem").html("INT - "+int)
+                  $("#dex_personagem").html("DEX - "+dex)
+              }
+            })
           }else slot[6][1] = "S";
         }
       });
@@ -641,14 +843,48 @@ function eventos_inventario(){
           slot[7][1]  = confirm("Deseja equipar este item?")
           if (slot[7][1] == true) {
           $('#slot7').css('border','5px solid red');
-          slot[7][1] = "S"
-          }else slot[7][1] = "N"
+          slot[7][1] = "S";
+          $.ajax({
+            url: 'http://localhost/RPG/paginas/itens.php',
+            method: 'POST',
+            data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+            dataType: 'json',
+            success: function (result){
+              console.log(result)
+              sta = result['sta']
+              str = result['str']
+              int = result['int']
+              dex = result['dex']
+              $("#sta_personagem").html("STA - "+sta)
+              $("#str_personagem").html("STR - "+str)
+              $("#int_personagem").html("INT - "+int)
+              $("#dex_personagem").html("DEX - "+dex)
+          }
+        })
+          }else slot[7][1] = "N";
         }
         else {
           slot[7][1] = confirm("Deseja desequipar este item?")
           if (slot[7][1] == true) {
               $('#slot7').css('border','5px solid black');
               slot[7][1] = "N";
+              $.ajax({
+                url: 'http://localhost/RPG/paginas/itens.php',
+                method: 'POST',
+                data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+                dataType: 'json',
+                success: function (result){
+                  console.log(result)
+                  sta = result['sta']
+                  str = result['str']
+                  int = result['int']
+                  dex = result['dex']
+                  $("#sta_personagem").html("STA - "+sta)
+                  $("#str_personagem").html("STR - "+str)
+                  $("#int_personagem").html("INT - "+int)
+                  $("#dex_personagem").html("DEX - "+dex)
+              }
+            })
           }else slot[7][1] = "S";
         }
       });
@@ -659,14 +895,48 @@ function eventos_inventario(){
           slot[8][1]  = confirm("Deseja equipar este item?")
           if (slot[8][1] == true) {
           $('#slot8').css('border','5px solid red');
-          slot[8][1] = "S"
-          }else slot[8][1] = "N"
+          slot[8][1] = "S";
+          $.ajax({
+            url: 'http://localhost/RPG/paginas/itens.php',
+            method: 'POST',
+            data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+            dataType: 'json',
+            success: function (result){
+              console.log(result)
+              sta = result['sta']
+              str = result['str']
+              int = result['int']
+              dex = result['dex']
+              $("#sta_personagem").html("STA - "+sta)
+              $("#str_personagem").html("STR - "+str)
+              $("#int_personagem").html("INT - "+int)
+              $("#dex_personagem").html("DEX - "+dex)
+          }
+        })
+          }else slot[8][1] = "N";
         }
         else {
           slot[8][1] = confirm("Deseja desequipar este item?")
           if (slot[8][1] == true) {
               $('#slot8').css('border','5px solid black');
               slot[8][1] = "N";
+              $.ajax({
+                url: 'http://localhost/RPG/paginas/itens.php',
+                method: 'POST',
+                data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+                dataType: 'json',
+                success: function (result){
+                  console.log(result)
+                  sta = result['sta']
+                  str = result['str']
+                  int = result['int']
+                  dex = result['dex']
+                  $("#sta_personagem").html("STA - "+sta)
+                  $("#str_personagem").html("STR - "+str)
+                  $("#int_personagem").html("INT - "+int)
+                  $("#dex_personagem").html("DEX - "+dex)
+              }
+            })
           }else slot[8][1] = "S";
         }
       });
@@ -677,14 +947,48 @@ function eventos_inventario(){
           slot[9][1]  = confirm("Deseja equipar este item?")
           if (slot[9][1] == true) {
           $('#slot9').css('border','5px solid red');
-          slot[9][1] = "S"
-          }else slot[9][1] = "N"
+          slot[9][1] = "S";
+          $.ajax({
+            url: 'http://localhost/RPG/paginas/itens.php',
+            method: 'POST',
+            data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+            dataType: 'json',
+            success: function (result){
+              console.log(result)
+              sta = result['sta']
+              str = result['str']
+              int = result['int']
+              dex = result['dex']
+              $("#sta_personagem").html("STA - "+sta)
+              $("#str_personagem").html("STR - "+str)
+              $("#int_personagem").html("INT - "+int)
+              $("#dex_personagem").html("DEX - "+dex)
+          }
+        })
+          }else slot[9][1] = "N";
         }
         else {
           slot[9][1] = confirm("Deseja desequipar este item?")
           if (slot[9][1] == true) {
               $('#slot9').css('border','5px solid black');
               slot[9][1] = "N";
+              $.ajax({
+                url: 'http://localhost/RPG/paginas/itens.php',
+                method: 'POST',
+                data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+                dataType: 'json',
+                success: function (result){
+                  console.log(result)
+                  sta = result['sta']
+                  str = result['str']
+                  int = result['int']
+                  dex = result['dex']
+                  $("#sta_personagem").html("STA - "+sta)
+                  $("#str_personagem").html("STR - "+str)
+                  $("#int_personagem").html("INT - "+int)
+                  $("#dex_personagem").html("DEX - "+dex)
+              }
+            })
           }else slot[9][1] = "S";
         }
       });
@@ -695,14 +999,48 @@ function eventos_inventario(){
           slot[10][1]  = confirm("Deseja equipar este item?")
           if (slot[10][1] == true) {
           $('#slot10').css('border','5px solid red');
-          slot[10][1] = "S"
-          }else slot[10][1] = "N"
+          slot[10][1] = "S";
+          $.ajax({
+            url: 'http://localhost/RPG/paginas/itens.php',
+            method: 'POST',
+            data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+            dataType: 'json',
+            success: function (result){
+              console.log(result)
+              sta = result['sta']
+              str = result['str']
+              int = result['int']
+              dex = result['dex']
+              $("#sta_personagem").html("STA - "+sta)
+              $("#str_personagem").html("STR - "+str)
+              $("#int_personagem").html("INT - "+int)
+              $("#dex_personagem").html("DEX - "+dex)
+          }
+        })
+          }else slot[10][1] = "N";
         }
         else {
           slot[10][1] = confirm("Deseja desequipar este item?")
           if (slot[10][1] == true) {
               $('#slot10').css('border','5px solid black');
               slot[10][1] = "N";
+              $.ajax({
+                url: 'http://localhost/RPG/paginas/itens.php',
+                method: 'POST',
+                data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+                dataType: 'json',
+                success: function (result){
+                  console.log(result)
+                  sta = result['sta']
+                  str = result['str']
+                  int = result['int']
+                  dex = result['dex']
+                  $("#sta_personagem").html("STA - "+sta)
+                  $("#str_personagem").html("STR - "+str)
+                  $("#int_personagem").html("INT - "+int)
+                  $("#dex_personagem").html("DEX - "+dex)
+              }
+            })
           }else slot[10][1] = "S";
         }
       });
@@ -713,14 +1051,48 @@ function eventos_inventario(){
           slot[11][1]  = confirm("Deseja equipar este item?")
           if (slot[11][1] == true) {
           $('#slot11').css('border','5px solid red');
-          slot[11][1] = "S"
-          }else slot[11][1] = "N"
+          slot[11][1] = "S";
+          $.ajax({
+            url: 'http://localhost/RPG/paginas/itens.php',
+            method: 'POST',
+            data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+            dataType: 'json',
+            success: function (result){
+              console.log(result)
+              sta = result['sta']
+              str = result['str']
+              int = result['int']
+              dex = result['dex']
+              $("#sta_personagem").html("STA - "+sta)
+              $("#str_personagem").html("STR - "+str)
+              $("#int_personagem").html("INT - "+int)
+              $("#dex_personagem").html("DEX - "+dex)
+          }
+        })
+          }else slot[11][1] = "N";
         }
         else {
           slot[11][1] = confirm("Deseja desequipar este item?")
           if (slot[11][1] == true) {
               $('#slot11').css('border','5px solid black');
               slot[11][1] = "N";
+              $.ajax({
+                url: 'http://localhost/RPG/paginas/itens.php',
+                method: 'POST',
+                data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+                dataType: 'json',
+                success: function (result){
+                  console.log(result)
+                  sta = result['sta']
+                  str = result['str']
+                  int = result['int']
+                  dex = result['dex']
+                  $("#sta_personagem").html("STA - "+sta)
+                  $("#str_personagem").html("STR - "+str)
+                  $("#int_personagem").html("INT - "+int)
+                  $("#dex_personagem").html("DEX - "+dex)
+              }
+            })
           }else slot[11][1] = "S";
         }
       });
@@ -731,14 +1103,48 @@ function eventos_inventario(){
           slot[12][1]  = confirm("Deseja equipar este item?")
           if (slot[12][1] == true) {
           $('#slot12').css('border','5px solid red');
-          slot[12][1] = "S"
-          }else slot[12][1] = "N"
+          slot[12][1] = "S";
+          $.ajax({
+            url: 'http://localhost/RPG/paginas/itens.php',
+            method: 'POST',
+            data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+            dataType: 'json',
+            success: function (result){
+              console.log(result)
+              sta = result['sta']
+              str = result['str']
+              int = result['int']
+              dex = result['dex']
+              $("#sta_personagem").html("STA - "+sta)
+              $("#str_personagem").html("STR - "+str)
+              $("#int_personagem").html("INT - "+int)
+              $("#dex_personagem").html("DEX - "+dex)
+          }
+        })
+          }else slot[12][1] = "N";
         }
         else {
           slot[12][1] = confirm("Deseja desequipar este item?")
           if (slot[12][1] == true) {
               $('#slot12').css('border','5px solid black');
               slot[12][1] = "N";
+              $.ajax({
+                url: 'http://localhost/RPG/paginas/itens.php',
+                method: 'POST',
+                data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+                dataType: 'json',
+                success: function (result){
+                  console.log(result)
+                  sta = result['sta']
+                  str = result['str']
+                  int = result['int']
+                  dex = result['dex']
+                  $("#sta_personagem").html("STA - "+sta)
+                  $("#str_personagem").html("STR - "+str)
+                  $("#int_personagem").html("INT - "+int)
+                  $("#dex_personagem").html("DEX - "+dex)
+              }
+            })
           }else slot[12][1] = "S";
         }
       });
@@ -749,14 +1155,48 @@ function eventos_inventario(){
           slot[13][1]  = confirm("Deseja equipar este item?")
           if (slot[13][1] == true) {
           $('#slot13').css('border','5px solid red');
-          slot[13][1] = "S"
-          }else slot[13][1] = "N"
+          slot[13][1] = "S";
+          $.ajax({
+            url: 'http://localhost/RPG/paginas/itens.php',
+            method: 'POST',
+            data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+            dataType: 'json',
+            success: function (result){
+              console.log(result)
+              sta = result['sta']
+              str = result['str']
+              int = result['int']
+              dex = result['dex']
+              $("#sta_personagem").html("STA - "+sta)
+              $("#str_personagem").html("STR - "+str)
+              $("#int_personagem").html("INT - "+int)
+              $("#dex_personagem").html("DEX - "+dex)
+          }
+        })
+          }else slot[13][1] = "N";
         }
         else {
           slot[13][1] = confirm("Deseja desequipar este item?")
           if (slot[13][1] == true) {
               $('#slot13').css('border','5px solid black');
               slot[13][1] = "N";
+              $.ajax({
+                url: 'http://localhost/RPG/paginas/itens.php',
+                method: 'POST',
+                data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+                dataType: 'json',
+                success: function (result){
+                  console.log(result)
+                  sta = result['sta']
+                  str = result['str']
+                  int = result['int']
+                  dex = result['dex']
+                  $("#sta_personagem").html("STA - "+sta)
+                  $("#str_personagem").html("STR - "+str)
+                  $("#int_personagem").html("INT - "+int)
+                  $("#dex_personagem").html("DEX - "+dex)
+              }
+            })
           }else slot[13][1] = "S";
         }
       });
@@ -767,14 +1207,48 @@ function eventos_inventario(){
           slot[14][1]  = confirm("Deseja equipar este item?")
           if (slot[14][1] == true) {
           $('#slot14').css('border','5px solid red');
-          slot[14][1] = "S"
-          }else slot[14][1] = "N"
+          slot[14][1] = "S";
+                      $.ajax({
+              url: 'http://localhost/RPG/paginas/itens.php',
+              method: 'POST',
+              data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+              dataType: 'json',
+              success: function (result){
+                console.log(result)
+                sta = result['sta']
+                str = result['str']
+                int = result['int']
+                dex = result['dex']
+                $("#sta_personagem").html("STA - "+sta)
+                $("#str_personagem").html("STR - "+str)
+                $("#int_personagem").html("INT - "+int)
+                $("#dex_personagem").html("DEX - "+dex)
+            }
+          })
+          }else slot[14][1] = "N";
         }
         else {
           slot[14][1] = confirm("Deseja desequipar este item?")
           if (slot[14][1] == true) {
               $('#slot14').css('border','5px solid black');
               slot[14][1] = "N";
+              $.ajax({
+                url: 'http://localhost/RPG/paginas/itens.php',
+                method: 'POST',
+                data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+                dataType: 'json',
+                success: function (result){
+                  console.log(result)
+                  sta = result['sta']
+                  str = result['str']
+                  int = result['int']
+                  dex = result['dex']
+                  $("#sta_personagem").html("STA - "+sta)
+                  $("#str_personagem").html("STR - "+str)
+                  $("#int_personagem").html("INT - "+int)
+                  $("#dex_personagem").html("DEX - "+dex)
+              }
+            })
           }else slot[14][1] = "S";
         }
       });
