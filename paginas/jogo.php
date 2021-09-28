@@ -21,9 +21,7 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
 
     <div id="painel_personagem">
 
-        <a href="">
             <div class="avatar_personagem_selecao" id="<?php echo $_SESSION['classe'] ?>"></div>
-        </a>
         <div id="atributos_personagem">
             <br>
             <p id="atributo_xp">EXP</p>

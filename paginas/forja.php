@@ -19,10 +19,8 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
 
     <div id="painel_personagem">
 
-        <a href="">
             <div class="avatar_npc" id="ferreiro"></div>
-        </a>
-        <a href="" ><div class="avatar_item" ></div></a>
+        <div class="avatar_item" ></div>
 
     </div>
     <div id="selecao_item">

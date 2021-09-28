@@ -20,8 +20,8 @@
 
         <div id="painel_personagem">
         
-        <a href="" ><div class="avatar_npc" id = "mercador"></div></a>
-        <a href="" ><div class="avatar_item" id = ""></div></a>
+        <div class="avatar_npc" id = "mercador"></div>
+        <div class="avatar_item" id = ""></div>
  
 
         </div>
