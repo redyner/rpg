@@ -304,9 +304,13 @@ $('#buscar_arena').submit(function(e){
         data: {busca_nick: nick_buscado},
         dataType: 'json'
     }).done(function(result){
-        $('#busca_nick').val('');
-        var inimigo = JSON.stringify(result);
-        document.getElementById("relatorio").innerHTML += inimigo; 
+        $('.avatar_inimigo_batalha').attr("name",result['classe_inimigo'])
+        var nick_inimigo = result['nick_inimigo']
+        var sta_inimigo = result['sta_inimigo']
+        var str_inimigo = result['str_inimigo']
+        var int_inimigo = result['int_inimigo']
+        var dex_inimigo = result['dex_inimigo']
+        var lv_inimigo = result['lv_inimigo']
     });
 });
 }
