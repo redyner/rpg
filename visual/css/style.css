@@ -131,6 +131,13 @@ nav ul li a{
      font: normal 7pt "gb";
  }
 
+ #buscar{
+    width: 97px;
+    background-image: url(../imagens/barras/barra_cinza.jpg); 
+    color: white;
+    font: normal 7pt "gb";
+}
+
 #div_batalha{
     width: 800px;
     float:inline-end;
