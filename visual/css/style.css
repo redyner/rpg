@@ -22,7 +22,8 @@ body {
 
 .avatar_item{
     width: 250px;
-    height: 300px;
+    height: 250px;
+    margin: 25px 25px 10px;
     border: solid 1px;
     float: right;
 }
@@ -115,6 +116,15 @@ nav ul li a{
 #reiniciar{
     margin-top: 20px;
      margin-left: 351.5px;
+     width: 97px;
+     background-image: url(../imagens/barras/barra_cinza.jpg); 
+     color: white;
+     font: normal 7pt "gb";
+ }
+
+ #refinar{
+     margin-top: 150px;
+     margin-left: 100px;
      width: 97px;
      background-image: url(../imagens/barras/barra_cinza.jpg); 
      color: white;
