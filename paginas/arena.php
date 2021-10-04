@@ -44,9 +44,9 @@
             </div>
         </div>
 
-        <div class="avatar_personagem_batalha" id = "<?php echo $classe ?>"></div>
+        <div class="avatar_personagem_batalha" name = "<?php echo $classe ?>"></div>
         
-        <div class="avatar_inimigo_batalha" id="<?php echo $classe ?>"></div>
+        <div class="avatar_inimigo_batalha" name = "<?php echo $classe ?>"></div>
         
         <button id="atacar"> Atacar </button>
         </div>

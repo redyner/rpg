@@ -401,17 +401,17 @@ div[name="cajado2"]{
     background-image: url(../imagens/inimigos/demon.jpg);
 }
 
-#warrior{
+div[name="warrior"]{
     background-size: 250px 300px;
     background-image: url(../imagens/classes/warrior.jpg);
 }
 
-#archer{
+div[name="archer"]{
     background-size: 250px 300px;
     background-image: url(../imagens/classes/archer.jpg);
 }
 
-#wizard{
+div[name="wizard"]{
     background-size: 250px 300px;
     background-image: url(../imagens/classes/wizard.jpg);
 }
