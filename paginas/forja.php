@@ -28,7 +28,7 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
     <div id='texto_inventario'>Forja</div>
     <?php 
         $i=0;
-        $sql = "SELECT i.id_item, i.nm_item, i.lv, i.valor, i.id_classe, `sta`, `str`, `int`, `dex`, iv.equipado, iv.id_inventario
+        $sql = "SELECT i.id_item, i.nm_item, i.lv, i.valor, i.id_classe, `sta`, `str`, `int`, `dex`, iv.equipado, iv.id_inventario, refino
                 FROM rpg.inventarios iv
                     JOIN rpg.itens i ON i.id_item = iv.id_item 
                     JOIN rpg.atributos a ON i.id_item = a.id_item
@@ -49,6 +49,7 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
             $slot[$i]['str'] = $info_item['str'];
             $slot[$i]['int'] = $info_item['int'];
             $slot[$i]['dex'] = $info_item['dex'];
+            $slot[$i]['ref'] = $info_item['refino'];
             $slot[$i]['equipado'] = $info_item['equipado'];
             $slot[$i]['id_inventario'] = $info_item['id_inventario'];
             $i++;
@@ -77,7 +78,8 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
         <p>STA - <?php echo isset($slot[$i]) ? $slot[$i]['sta'] : 0 ?></p>
         <p>STR - <?php echo isset($slot[$i]) ? $slot[$i]['str'] : 0 ?></p>
         <p>INT - <?php echo isset($slot[$i]) ? $slot[$i]['int'] : 0 ?></p>
-        <p>DEX - <?php echo isset($slot[$i]) ? $slot[$i]['dex'] : 0 ?></p>   
+        <p>DEX - <?php echo isset($slot[$i]) ? $slot[$i]['dex'] : 0 ?></p> 
+        <p>REF - <?php echo isset($slot[$i]) ? $slot[$i]['ref'] : 0 ?></p>     
     </div>
 
     <?php

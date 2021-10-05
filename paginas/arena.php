@@ -46,7 +46,7 @@
 
         <div class="avatar_personagem_batalha" name = "<?php echo $classe ?>"></div>
         
-        <div class="avatar_inimigo_batalha" name = "<?php echo $classe ?>"></div>
+        <div class="avatar_inimigo_batalha" ></div>
         
         <button id="atacar"> Atacar </button>
         </div>
@@ -72,7 +72,7 @@ Nick
 ?>
 
     <script>
-        var classe_inimigo = <?php echo $_SESSION['classe'] ?>;
+        var classe_inimigo = "<?php echo $_SESSION['classe'] ?>";
         var sta_inimigo = <?php echo $_SESSION['sta'] ?>;
         var hp_inimigo = sta_inimigo*10;
         var hp_batalha_inimigo = hp_inimigo;

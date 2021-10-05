@@ -305,12 +305,14 @@ $('#buscar_arena').submit(function(e){
         dataType: 'json'
     }).done(function(result){
         $('.avatar_inimigo_batalha').attr("name",result['classe_inimigo'])
-        var nick_inimigo = result['nick_inimigo']
-        var sta_inimigo = result['sta_inimigo']
-        var str_inimigo = result['str_inimigo']
-        var int_inimigo = result['int_inimigo']
-        var dex_inimigo = result['dex_inimigo']
-        var lv_inimigo = result['lv_inimigo']
+        nick_inimigo = result['nick_inimigo']
+        sta_inimigo = result['sta_inimigo']
+        str_inimigo = result['str_inimigo']
+        int_inimigo = result['int_inimigo']
+        dex_inimigo = result['dex_inimigo']
+        lv_inimigo = result['lv_inimigo']
+        hp_inimigo = sta_inimigo*10;
+        hp_batalha_inimigo = hp_inimigo;
     });
 });
 }
@@ -1424,34 +1426,45 @@ function eventos_forja(){
     $( '#slotf0' ).on( "click", function( event ) {
       if (slot[0][1] == "N") slot[0][1] = false
       if (slot[0][1] == false) {
-        slot[0][1]  = confirm("Deseja equipar este item?")
+        slot[0][1]  = confirm("Deseja selecionar este item?")
         if (slot[0][1] == true) {
         $('#slotf0').css('border','5px solid red');
         slot[0][1] = "S";
         $.ajax({
-            url: 'http://localhost/RPG/paginas/itens.php',
+            url: 'http://localhost/RPG/paginas/itensm.php',
             method: 'POST',
             data: {id_inventario: slot[0][0], equipado: slot[0][1]},
             dataType: 'json',
             success: function (result){
               console.log(result)
+              sta = result['sta']
+              str = result['str']
+              int = result['int']
+              dex = result['dex']
+              ref = result['ref']
               $('.avatar_item').attr("name",result['nome'])
           }
         })
         }else slot[0][1] = "N";
       }
       else {
-        slot[0][1] = confirm("Deseja desequipar este item?")
+        slot[0][1] = confirm("Deseja remover este item?")
         if (slot[0][1] == true) {
             $('#slotf0').css('border','5px solid black');
             slot[0][1] = "N";
             $.ajax({
-              url: 'http://localhost/RPG/paginas/itens.php',
+              url: 'http://localhost/RPG/paginas/itensm.php',
               method: 'POST',
               data: {id_inventario: slot[0][0], equipado: slot[0][1]},
               dataType: 'json',
               success: function (result){
                 console.log(result)
+                nome = result['nome']
+                sta = result['sta']
+                str = result['str']
+                int = result['int']
+                dex = result['dex']
+                ref = result['ref']
                 $('.avatar_item').attr("name","")
             }
           })     
@@ -1462,7 +1475,7 @@ function eventos_forja(){
     $( '#slotf1' ).on( "click", function( event ) {
         if (slot[1][1] == "N") slot[1][1] = false
         if (slot[1][1] == false) {
-          slot[1][1]  = confirm("Deseja equipar este item?")
+          slot[1][1]  = confirm("Deseja selecionar este item?")
           if (slot[1][1] == true) {
           $('#slotf1').css('border','5px solid red');
           slot[1][1] = "S";
@@ -1473,6 +1486,7 @@ function eventos_forja(){
             dataType: 'json',
             success: function (result){
               console.log(result)
+              nome = result['nome']
               sta = result['sta']
               str = result['str']
               int = result['int']
@@ -1486,7 +1500,7 @@ function eventos_forja(){
           }else slot[1][1] = "N";
         }
         else {
-          slot[1][1] = confirm("Deseja desequipar este item?")
+          slot[1][1] = confirm("Deseja remover este item?")
           if (slot[1][1] == true) {
               $('#slotf1').css('border','5px solid black');
               slot[1][1] = "N";
@@ -1514,7 +1528,7 @@ function eventos_forja(){
       $( '#slotf2' ).on( "click", function( event ) {
         if (slot[2][1] == "N") slot[2][1] = false
         if (slot[2][1] == false) {
-          slot[2][1]  = confirm("Deseja equipar este item?")
+          slot[2][1]  = confirm("Deseja selecionar este item?")
           if (slot[2][1] == true) {
           $('#slotf2').css('border','5px solid red');
           slot[2][1] = "S";
@@ -1538,7 +1552,7 @@ function eventos_forja(){
           }else slot[2][1] = "N";
         }
         else {
-          slot[2][1] = confirm("Deseja desequipar este item?")
+          slot[2][1] = confirm("Deseja remover este item?")
           if (slot[2][1] == true) {
               $('#slotf2').css('border','5px solid black');
               slot[2][1] = "N";
@@ -1566,7 +1580,7 @@ function eventos_forja(){
       $( '#slotf3' ).on( "click", function( event ) {
         if (slot[3][1] == "N") slot[3][1] = false
         if (slot[3][1] == false) {
-          slot[3][1]  = confirm("Deseja equipar este item?")
+          slot[3][1]  = confirm("Deseja selecionar este item?")
           if (slot[3][1] == true) {
           $('#slotf3').css('border','5px solid red');
           slot[3][1] = "S";
@@ -1590,7 +1604,7 @@ function eventos_forja(){
           }else slot[3][1] = "N";
         }
         else {
-          slot[3][1] = confirm("Deseja desequipar este item?")
+          slot[3][1] = confirm("Deseja remover este item?")
           if (slot[3][1] == true) {
               $('#slotf3').css('border','5px solid black');
               slot[3][1] = "N";
@@ -1618,7 +1632,7 @@ function eventos_forja(){
       $( '#slotf4' ).on( "click", function( event ) {
         if (slot[4][1] == "N") slot[4][1] = false
         if (slot[4][1] == false) {
-          slot[4][1]  = confirm("Deseja equipar este item?")
+          slot[4][1]  = confirm("Deseja selecionar este item?")
           if (slot[4][1] == true) {
           $('#slotf4').css('border','5px solid red');
           slot[4][1] = "S";
@@ -1642,7 +1656,7 @@ function eventos_forja(){
           }else slot[4][1] = "N";
         }
         else {
-          slot[4][1] = confirm("Deseja desequipar este item?")
+          slot[4][1] = confirm("Deseja remover este item?")
           if (slot[4][1] == true) {
               $('#slotf4').css('border','5px solid black');
               slot[4][1] = "N";
@@ -1670,7 +1684,7 @@ function eventos_forja(){
       $( '#slotf5' ).on( "click", function( event ) {
         if (slot[5][1] == "N") slot[5][1] = false
         if (slot[5][1] == false) {
-          slot[5][1]  = confirm("Deseja equipar este item?")
+          slot[5][1]  = confirm("Deseja selecionar este item?")
           if (slot[5][1] == true) {
           $('#slotf5').css('border','5px solid red');
           slot[5][1] = "S";
@@ -1694,7 +1708,7 @@ function eventos_forja(){
           }else slot[5][1] = "N";
         }
         else {
-          slot[5][1] = confirm("Deseja desequipar este item?")
+          slot[5][1] = confirm("Deseja remover este item?")
           if (slot[5][1] == true) {
               $('#slotf5').css('border','5px solid black');
               slot[5][1] = "N";
@@ -1722,7 +1736,7 @@ function eventos_forja(){
       $( '#slotf6' ).on( "click", function( event ) {
         if (slot[6][1] == "N") slot[6][1] = false
         if (slot[6][1] == false) {
-          slot[6][1]  = confirm("Deseja equipar este item?")
+          slot[6][1]  = confirm("Deseja selecionar este item?")
           if (slot[6][1] == true) {
           $('#slotf6').css('border','5px solid red');
           slot[6][1] = "S";
@@ -1746,7 +1760,7 @@ function eventos_forja(){
           }else slot[6][1] = "N";
         }
         else {
-          slot[6][1] = confirm("Deseja desequipar este item?")
+          slot[6][1] = confirm("Deseja remover este item?")
           if (slot[6][1] == true) {
               $('#slotf6').css('border','5px solid black');
               slot[6][1] = "N";
@@ -1774,7 +1788,7 @@ function eventos_forja(){
       $( '#slotf7' ).on( "click", function( event ) {
         if (slot[7][1] == "N") slot[7][1] = false
         if (slot[7][1] == false) {
-          slot[7][1]  = confirm("Deseja equipar este item?")
+          slot[7][1]  = confirm("Deseja selecionar este item?")
           if (slot[7][1] == true) {
           $('#slotf7').css('border','5px solid red');
           slot[7][1] = "S";
@@ -1798,7 +1812,7 @@ function eventos_forja(){
           }else slot[7][1] = "N";
         }
         else {
-          slot[7][1] = confirm("Deseja desequipar este item?")
+          slot[7][1] = confirm("Deseja remover este item?")
           if (slot[7][1] == true) {
               $('#slotf7').css('border','5px solid black');
               slot[7][1] = "N";
@@ -1826,7 +1840,7 @@ function eventos_forja(){
       $( '#slotf8' ).on( "click", function( event ) {
         if (slot[8][1] == "N") slot[8][1] = false
         if (slot[8][1] == false) {
-          slot[8][1]  = confirm("Deseja equipar este item?")
+          slot[8][1]  = confirm("Deseja selecionar este item?")
           if (slot[8][1] == true) {
           $('#slotf8').css('border','5px solid red');
           slot[8][1] = "S";
@@ -1850,7 +1864,7 @@ function eventos_forja(){
           }else slot[8][1] = "N";
         }
         else {
-          slot[8][1] = confirm("Deseja desequipar este item?")
+          slot[8][1] = confirm("Deseja remover este item?")
           if (slot[8][1] == true) {
               $('#slotf8').css('border','5px solid black');
               slot[8][1] = "N";
@@ -1878,7 +1892,7 @@ function eventos_forja(){
       $( '#slotf9' ).on( "click", function( event ) {
         if (slot[9][1] == "N") slot[9][1] = false
         if (slot[9][1] == false) {
-          slot[9][1]  = confirm("Deseja equipar este item?")
+          slot[9][1]  = confirm("Deseja selecionar este item?")
           if (slot[9][1] == true) {
           $('#slotf9').css('border','5px solid red');
           slot[9][1] = "S";
@@ -1902,7 +1916,7 @@ function eventos_forja(){
           }else slot[9][1] = "N";
         }
         else {
-          slot[9][1] = confirm("Deseja desequipar este item?")
+          slot[9][1] = confirm("Deseja remover este item?")
           if (slot[9][1] == true) {
               $('#slotf9').css('border','5px solid black');
               slot[9][1] = "N";
@@ -1930,7 +1944,7 @@ function eventos_forja(){
       $( '#slotf10' ).on( "click", function( event ) {
         if (slot[10][1] == "N") slot[10][1] = false
         if (slot[10][1] == false) {
-          slot[10][1]  = confirm("Deseja equipar este item?")
+          slot[10][1]  = confirm("Deseja selecionar este item?")
           if (slot[10][1] == true) {
           $('#slotf10').css('border','5px solid red');
           slot[10][1] = "S";
@@ -1954,7 +1968,7 @@ function eventos_forja(){
           }else slot[10][1] = "N";
         }
         else {
-          slot[10][1] = confirm("Deseja desequipar este item?")
+          slot[10][1] = confirm("Deseja remover este item?")
           if (slot[10][1] == true) {
               $('#slotf10').css('border','5px solid black');
               slot[10][1] = "N";
@@ -1982,7 +1996,7 @@ function eventos_forja(){
       $( '#slotf11' ).on( "click", function( event ) {
         if (slot[11][1] == "N") slot[11][1] = false
         if (slot[11][1] == false) {
-          slot[11][1]  = confirm("Deseja equipar este item?")
+          slot[11][1]  = confirm("Deseja selecionar este item?")
           if (slot[11][1] == true) {
           $('#slotf11').css('border','5px solid red');
           slot[11][1] = "S";
@@ -2006,7 +2020,7 @@ function eventos_forja(){
           }else slot[11][1] = "N";
         }
         else {
-          slot[11][1] = confirm("Deseja desequipar este item?")
+          slot[11][1] = confirm("Deseja remover este item?")
           if (slot[11][1] == true) {
               $('#slotf11').css('border','5px solid black');
               slot[11][1] = "N";
@@ -2034,7 +2048,7 @@ function eventos_forja(){
       $( '#slotf12' ).on( "click", function( event ) {
         if (slot[12][1] == "N") slot[12][1] = false
         if (slot[12][1] == false) {
-          slot[12][1]  = confirm("Deseja equipar este item?")
+          slot[12][1]  = confirm("Deseja selecionar este item?")
           if (slot[12][1] == true) {
           $('#slotf12').css('border','5px solid red');
           slot[12][1] = "S";
@@ -2058,7 +2072,7 @@ function eventos_forja(){
           }else slot[12][1] = "N";
         }
         else {
-          slot[12][1] = confirm("Deseja desequipar este item?")
+          slot[12][1] = confirm("Deseja remover este item?")
           if (slot[12][1] == true) {
               $('#slotf12').css('border','5px solid black');
               slot[12][1] = "N";
@@ -2086,7 +2100,7 @@ function eventos_forja(){
       $( '#slotf13' ).on( "click", function( event ) {
         if (slot[13][1] == "N") slot[13][1] = false
         if (slot[13][1] == false) {
-          slot[13][1]  = confirm("Deseja equipar este item?")
+          slot[13][1]  = confirm("Deseja selecionar este item?")
           if (slot[13][1] == true) {
           $('#slotf13').css('border','5px solid red');
           slot[13][1] = "S";
@@ -2110,7 +2124,7 @@ function eventos_forja(){
           }else slot[13][1] = "N";
         }
         else {
-          slot[13][1] = confirm("Deseja desequipar este item?")
+          slot[13][1] = confirm("Deseja remover este item?")
           if (slot[13][1] == true) {
               $('#slotf13').css('border','5px solid black');
               slot[13][1] = "N";
@@ -2138,7 +2152,7 @@ function eventos_forja(){
       $( '#slotf14' ).on( "click", function( event ) {
         if (slot[14][1] == "N") slot[14][1] = false
         if (slot[14][1] == false) {
-          slot[14][1]  = confirm("Deseja equipar este item?")
+          slot[14][1]  = confirm("Deseja selecionar este item?")
           if (slot[14][1] == true) {
           $('#slotf14').css('border','5px solid red');
           slot[14][1] = "S";
@@ -2162,7 +2176,7 @@ function eventos_forja(){
           }else slot[14][1] = "N";
         }
         else {
-          slot[14][1] = confirm("Deseja desequipar este item?")
+          slot[14][1] = confirm("Deseja remover este item?")
           if (slot[14][1] == true) {
               $('#slotf14').css('border','5px solid black');
               slot[14][1] = "N";
