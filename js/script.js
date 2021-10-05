@@ -2368,12 +2368,12 @@ function eventos_market(){
     $( '#slotm0' ).on( "click", function( event ) {
       if (slot[0][1] == "N") slot[0][1] = false
       if (slot[0][1] == false) {
-        slot[0][1]  = confirm("Deseja equipar este item?")
+        slot[0][1]  = confirm("Deseja comprar este item?")
         if (slot[0][1] == true) {
         $('#slotm0').css('border','5px solid red');
         slot[0][1] = "S";
         $.ajax({
-            url: 'http://localhost/RPG/paginas/itens.php',
+            url: 'http://localhost/RPG/paginas/itenm.php',
             method: 'POST',
             data: {id_inventario: slot[0][0], equipado: slot[0][1]},
             dataType: 'json',
@@ -2392,12 +2392,12 @@ function eventos_market(){
         }else slot[0][1] = "N";
       }
       else {
-        slot[0][1] = confirm("Deseja desequipar este item?")
+        slot[0][1] = confirm("Deseja vender este item?")
         if (slot[0][1] == true) {
             $('#slotm0').css('border','5px solid black');
             slot[0][1] = "N";
             $.ajax({
-              url: 'http://localhost/RPG/paginas/itens.php',
+              url: 'http://localhost/RPG/paginas/itenm.php',
               method: 'POST',
               data: {id_inventario: slot[0][0], equipado: slot[0][1]},
               dataType: 'json',

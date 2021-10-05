@@ -30,15 +30,10 @@
 
         <?php 
         $i=0;
-        $sql = "SELECT i.id_item, i.nm_item, i.lv, i.valor, i.id_classe, `sta`, `str`, `int`, `dex`, iv.equipado, iv.id_inventario, refino
-                FROM rpg.inventarios iv
-                    JOIN rpg.itens i ON i.id_item = iv.id_item 
+        $sql = "SELECT i.id_item, i.nm_item, i.lv, i.valor, i.id_classe, `sta`, `str`, `int`, `dex`
+                FROM rpg.itens i
                     JOIN rpg.atributos a ON i.id_item = a.id_item
-                    JOIN rpg.classes c ON c.id_classe = i.id_classe
-                    JOIN rpg.personagens p ON p.id_classe = c.id_classe
-                WHERE p.id_personagem = '{$_SESSION['id_personagem']}'
-                    AND iv.slot IS NOT NULL
-                    ORDER BY iv.slot";
+                    JOIN rpg.classes c ON c.id_classe = i.id_classe";
         $resultado = mysqli_query($conexao,$sql);
         while ($info_item = mysqli_fetch_assoc($resultado))
         {
@@ -51,9 +46,7 @@
             $slot[$i]['str'] = $info_item['str'];
             $slot[$i]['int'] = $info_item['int'];
             $slot[$i]['dex'] = $info_item['dex'];
-            $slot[$i]['ref'] = $info_item['refino'];
-            $slot[$i]['equipado'] = $info_item['equipado'];
-            $slot[$i]['id_inventario'] = $info_item['id_inventario'];
+            $slot[$i]['ref'] = 0;
             $i++;
         }
         
@@ -81,7 +74,9 @@
         <p>STR - <?php echo isset($slot[$i]) ? $slot[$i]['str'] : 0 ?></p>
         <p>INT - <?php echo isset($slot[$i]) ? $slot[$i]['int'] : 0 ?></p>
         <p>DEX - <?php echo isset($slot[$i]) ? $slot[$i]['dex'] : 0 ?></p>   
-        <p>REF - <?php echo isset($slot[$i]) ? $slot[$i]['ref'] : 0 ?></p>    
+        <p>REF - <?php echo isset($slot[$i]) ? $slot[$i]['ref'] : 0 ?></p>  
+        <p>VALOR - <?php echo isset($slot[$i]) ? $slot[$i]['valor'] : 0 ?></p>   
+         
     </div>
 
     <?php
@@ -97,11 +92,11 @@
             <?php
             for($i=0;$i<=13;$i++){
             ?>
-            [<?php echo isset($slot[$i]) ? $slot[$i]['id_inventario'] : 0 ?>, "<?php echo isset($slot[$i]) ? $slot[$i]['equipado'] : 0 ?>"],
+            [<?php echo isset($slot[$i]) ? $slot[$i]['id_item'] : 0 ?>, "<?php echo isset($slot[$i]) ? $slot[$i]['equipado'] : 0 ?>"],
             <?php
             }
             ?>   
-            [<?php echo isset($slot[15]) ? $slot[15]['id_inventario'] : 0 ?>,"<?php echo isset($slot[15]) ? $slot[15]['equipado'] : 0 ?>"]
+            [<?php echo isset($slot[15]) ? $slot[15]['id_item'] : 0 ?>,"<?php echo isset($slot[15]) ? $slot[15]['equipado'] : 0 ?>"]
         ]
 
 

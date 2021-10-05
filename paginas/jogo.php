@@ -52,10 +52,9 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
                 FROM rpg.inventarios iv
                     JOIN rpg.itens i ON i.id_item = iv.id_item 
                     JOIN rpg.atributos a ON i.id_item = a.id_item
-                    JOIN rpg.classes c ON c.id_classe = i.id_classe
-                    JOIN rpg.personagens p ON p.id_classe = c.id_classe
+                    JOIN rpg.personagens p ON p.id_personagem = iv.id_personagem
                 WHERE p.id_personagem = '{$_SESSION['id_personagem']}'
-                    AND iv.slot IS NOT NULL
+                    AND iv.equipado = 'N'
                     ORDER BY iv.slot";
         $resultado = mysqli_query($conexao,$sql);
         while ($info_item = mysqli_fetch_assoc($resultado))
@@ -100,6 +99,7 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
         <p>INT - <?php echo isset($slot[$i]) ? $slot[$i]['int'] : 0 ?></p>
         <p>DEX - <?php echo isset($slot[$i]) ? $slot[$i]['dex'] : 0 ?></p>   
         <p>REF - <?php echo isset($slot[$i]) ? $slot[$i]['ref'] : 0 ?></p>    
+        <p>VALOR - <?php echo isset($slot[$i]) ? $slot[$i]['valor'] : 0 ?></p>  
     </div>
 
     <?php
