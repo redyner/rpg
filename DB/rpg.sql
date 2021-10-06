@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: mysql-51231-db.mysql-51231:19464
--- Tempo de geração: 26/09/2021 às 19:18
--- Versão do servidor: 8.0.26
--- Versão do PHP: 7.2.34
+-- Host: 127.0.0.1:3306
+-- Tempo de geração: 06-Out-2021 às 04:03
+-- Versão do servidor: 5.7.31
+-- versão do PHP: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,22 +24,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `atributos`
+-- Estrutura da tabela `atributos`
 --
 
-CREATE TABLE `atributos` (
-  `id_atributo` int NOT NULL,
-  `sta` int DEFAULT NULL,
-  `str` int DEFAULT NULL,
-  `int` int DEFAULT NULL,
-  `dex` int DEFAULT NULL,
-  `id_classe` int DEFAULT NULL,
-  `id_inimigo` int DEFAULT NULL,
-  `id_item` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+DROP TABLE IF EXISTS `atributos`;
+CREATE TABLE IF NOT EXISTS `atributos` (
+  `id_atributo` int(11) NOT NULL AUTO_INCREMENT,
+  `sta` int(11) DEFAULT NULL,
+  `str` int(11) DEFAULT NULL,
+  `int` int(11) DEFAULT NULL,
+  `dex` int(11) DEFAULT NULL,
+  `id_classe` int(11) DEFAULT NULL,
+  `id_inimigo` int(11) DEFAULT NULL,
+  `id_item` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_atributo`),
+  KEY `fk_atributos_classes1_idx` (`id_classe`),
+  KEY `fk_atributos_inimigos1_idx` (`id_inimigo`),
+  KEY `fk_atributos_Itens1_idx` (`id_item`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 --
--- Despejando dados para a tabela `atributos`
+-- Extraindo dados da tabela `atributos`
 --
 
 INSERT INTO `atributos` (`id_atributo`, `sta`, `str`, `int`, `dex`, `id_classe`, `id_inimigo`, `id_item`) VALUES
@@ -64,23 +68,25 @@ INSERT INTO `atributos` (`id_atributo`, `sta`, `str`, `int`, `dex`, `id_classe`,
 (18, 75, 50, 50, 50, NULL, 14, NULL),
 (19, 2, 2, 2, 4, NULL, NULL, 2),
 (20, 2, 1, 4, 3, NULL, NULL, 3),
-(21, 4, 2, 8, 6, NULL, NULL, 4),
+(21, 6, 8, 2, 4, NULL, NULL, 4),
 (22, 4, 4, 4, 8, NULL, NULL, 5),
-(23, 4, 5, 8, 6, NULL, NULL, 6);
+(23, 4, 2, 8, 6, NULL, NULL, 6);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `classes`
+-- Estrutura da tabela `classes`
 --
 
-CREATE TABLE `classes` (
-  `id_classe` int NOT NULL,
-  `nm_classe` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+DROP TABLE IF EXISTS `classes`;
+CREATE TABLE IF NOT EXISTS `classes` (
+  `id_classe` int(11) NOT NULL AUTO_INCREMENT,
+  `nm_classe` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id_classe`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
--- Despejando dados para a tabela `classes`
+-- Extraindo dados da tabela `classes`
 --
 
 INSERT INTO `classes` (`id_classe`, `nm_classe`) VALUES
@@ -91,21 +97,23 @@ INSERT INTO `classes` (`id_classe`, `nm_classe`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `inimigos`
+-- Estrutura da tabela `inimigos`
 --
 
-CREATE TABLE `inimigos` (
-  `id_inimigo` int NOT NULL,
+DROP TABLE IF EXISTS `inimigos`;
+CREATE TABLE IF NOT EXISTS `inimigos` (
+  `id_inimigo` int(11) NOT NULL AUTO_INCREMENT,
   `nm_inimigo` varchar(45) DEFAULT NULL,
-  `classe` int DEFAULT NULL,
-  `xp` int DEFAULT NULL,
-  `lv` int DEFAULT NULL,
-  `raridade` int DEFAULT NULL,
-  `drop` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `classe` int(11) DEFAULT NULL,
+  `xp` int(11) DEFAULT NULL,
+  `lv` int(11) DEFAULT NULL,
+  `raridade` int(11) DEFAULT NULL,
+  `drop` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_inimigo`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 --
--- Despejando dados para a tabela `inimigos`
+-- Extraindo dados da tabela `inimigos`
 --
 
 INSERT INTO `inimigos` (`id_inimigo`, `nm_inimigo`, `classe`, `xp`, `lv`, `raridade`, `drop`) VALUES
@@ -127,94 +135,120 @@ INSERT INTO `inimigos` (`id_inimigo`, `nm_inimigo`, `classe`, `xp`, `lv`, `rarid
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `inventarios`
+-- Estrutura da tabela `inventarios`
 --
 
-CREATE TABLE `inventarios` (
-  `id_inventario` int NOT NULL,
+DROP TABLE IF EXISTS `inventarios`;
+CREATE TABLE IF NOT EXISTS `inventarios` (
+  `id_inventario` int(11) NOT NULL AUTO_INCREMENT,
   `slot` varchar(45) DEFAULT NULL,
-  `refino` int DEFAULT NULL,
-  `equipado` char(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `id_personagem` int NOT NULL,
-  `id_item` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `refino` int(11) DEFAULT NULL,
+  `equipado` char(1) DEFAULT 'N',
+  `id_personagem` int(11) NOT NULL,
+  `id_item` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_inventario`),
+  KEY `fk_iventarios_personagens1_idx` (`id_personagem`),
+  KEY `fk_iventarios_Itens1_idx` (`id_item`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 --
--- Despejando dados para a tabela `inventarios`
+-- Extraindo dados da tabela `inventarios`
 --
 
 INSERT INTO `inventarios` (`id_inventario`, `slot`, `refino`, `equipado`, `id_personagem`, `id_item`) VALUES
 (1, '1', 0, 'N', 1, 2),
 (2, '1', 0, 'N', 2, 1),
-(3, '1', 0, 'N', 3, 3);
+(3, '1', 0, 'N', 3, 3),
+(4, '2', 0, 'N', 1, NULL),
+(5, '3', 0, 'N', 1, NULL),
+(6, '4', 0, 'N', 1, NULL),
+(7, '5', 0, 'N', 1, NULL),
+(8, '6', 0, 'N', 1, NULL),
+(9, '7', 0, 'N', 1, NULL),
+(10, '8', 0, 'N', 1, NULL),
+(11, '9', 0, 'N', 1, NULL),
+(12, '10', 0, 'N', 1, NULL),
+(13, '11', 0, 'N', 1, NULL),
+(14, '12', NULL, 'N', 1, NULL),
+(15, '13', NULL, 'N', 1, NULL),
+(16, '14', NULL, 'N', 1, NULL),
+(17, '15', NULL, 'N', 1, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `itens`
+-- Estrutura da tabela `itens`
 --
 
-CREATE TABLE `itens` (
-  `id_item` int NOT NULL,
+DROP TABLE IF EXISTS `itens`;
+CREATE TABLE IF NOT EXISTS `itens` (
+  `id_item` int(11) NOT NULL,
   `nm_item` varchar(45) DEFAULT NULL,
   `lv` varchar(45) DEFAULT NULL,
   `valor` varchar(45) DEFAULT NULL,
-  `tipo` int DEFAULT NULL,
-  `id_classe` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `id_classe` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_item`),
+  KEY `id_classe_idx` (`id_classe`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Despejando dados para a tabela `itens`
+-- Extraindo dados da tabela `itens`
 --
 
-INSERT INTO `itens` (`id_item`, `nm_item`, `lv`, `valor`, `tipo`, `id_classe`) VALUES
-(1, 'espada1', '1', '100', 0, 1),
-(2, 'arco1', '1', '100', 0, 2),
-(3, 'cajado1', '1', '100', 0, 3),
-(4, 'espada2', '10', '1000', 0, 1),
-(5, 'arco2', '10', '1000', 0, 2),
-(6, 'cajado2', '10', '1000', 0, 3);
+INSERT INTO `itens` (`id_item`, `nm_item`, `lv`, `valor`, `id_classe`) VALUES
+(1, 'espada1', '1', '100', 1),
+(2, 'arco1', '1', '100', 2),
+(3, 'cajado1', '1', '100', 3),
+(4, 'espada2', '10', '1000', 1),
+(5, 'arco2', '10', '1000', 2),
+(6, 'cajado2', '10', '1000', 3);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `personagens`
+-- Estrutura da tabela `personagens`
 --
 
-CREATE TABLE `personagens` (
-  `id_personagem` int NOT NULL,
+DROP TABLE IF EXISTS `personagens`;
+CREATE TABLE IF NOT EXISTS `personagens` (
+  `id_personagem` int(11) NOT NULL AUTO_INCREMENT,
   `nick` varchar(45) DEFAULT NULL,
-  `xp` int DEFAULT '0',
-  `xp_max` int DEFAULT '100',
-  `lv` int DEFAULT '1',
-  `gold` int DEFAULT '0',
-  `id_classe` int NOT NULL,
-  `id_player` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `xp` int(11) DEFAULT '0',
+  `xp_max` int(11) DEFAULT '100',
+  `lv` int(11) DEFAULT '1',
+  `gold` int(11) DEFAULT '0',
+  `id_classe` int(11) NOT NULL,
+  `id_player` int(11) NOT NULL,
+  PRIMARY KEY (`id_personagem`),
+  KEY `fk_personagens_classes1_idx` (`id_classe`),
+  KEY `fk_personagens_player1_idx` (`id_player`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
--- Despejando dados para a tabela `personagens`
+-- Extraindo dados da tabela `personagens`
 --
 
 INSERT INTO `personagens` (`id_personagem`, `nick`, `xp`, `xp_max`, `lv`, `gold`, `id_classe`, `id_player`) VALUES
-(1, 'Apolo', 1000, 1850, 8, 760, 2, 1),
-(2, 'Samuel', 3600, 6050, 15, 3240, 1, 2),
+(1, 'Apolo', 4350, 9550, 19, 7400, 2, 1),
+(2, 'Samuel', 0, 100, 1, 0, 1, 2),
 (3, 'Artemis', 0, 100, 1, 0, 3, 3);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `player`
+-- Estrutura da tabela `player`
 --
 
-CREATE TABLE `player` (
-  `id_player` int NOT NULL,
+DROP TABLE IF EXISTS `player`;
+CREATE TABLE IF NOT EXISTS `player` (
+  `id_player` int(11) NOT NULL AUTO_INCREMENT,
   `login` varchar(45) DEFAULT NULL,
-  `senha` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `senha` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id_player`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
--- Despejando dados para a tabela `player`
+-- Extraindo dados da tabela `player`
 --
 
 INSERT INTO `player` (`id_player`, `login`, `senha`) VALUES
@@ -225,172 +259,76 @@ INSERT INTO `player` (`id_player`, `login`, `senha`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `raridades`
+-- Estrutura da tabela `raridades`
 --
 
-CREATE TABLE `raridades` (
-  `id_raridade` int NOT NULL,
+DROP TABLE IF EXISTS `raridades`;
+CREATE TABLE IF NOT EXISTS `raridades` (
+  `id_raridade` int(11) NOT NULL,
   `tipo` varchar(45) DEFAULT NULL,
-  `drop` int DEFAULT NULL,
-  `id_item` int DEFAULT NULL,
-  `id_inimigo` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `drop` int(11) DEFAULT NULL,
+  `id_item` int(11) DEFAULT NULL,
+  `id_inimigo` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_raridade`),
+  KEY `fk_raridades_Itens1_idx` (`id_item`),
+  KEY `fk_raridades_inimigos1_idx` (`id_inimigo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `skills`
+-- Estrutura da tabela `skills`
 --
 
-CREATE TABLE `skills` (
-  `id_skill` int NOT NULL,
+DROP TABLE IF EXISTS `skills`;
+CREATE TABLE IF NOT EXISTS `skills` (
+  `id_skill` int(11) NOT NULL,
   `nm_skill` varchar(45) DEFAULT NULL,
-  `lv` int DEFAULT NULL,
-  `mutiplicador` int DEFAULT NULL,
-  `id_classe` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `lv` int(11) DEFAULT NULL,
+  `mutiplicador` int(11) DEFAULT NULL,
+  `id_classe` int(11) NOT NULL,
+  PRIMARY KEY (`id_skill`),
+  KEY `fk_skills_classes1_idx` (`id_classe`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Índices de tabelas apagadas
+-- Restrições para despejos de tabelas
 --
 
 --
--- Índices de tabela `atributos`
+-- Limitadores para a tabela `atributos`
 --
 ALTER TABLE `atributos`
-  ADD PRIMARY KEY (`id_atributo`),
-  ADD KEY `id_classe` (`id_classe`) USING BTREE,
-  ADD KEY `id_item` (`id_item`) USING BTREE,
-  ADD KEY `id_inimigo` (`id_inimigo`) USING BTREE;
+  ADD CONSTRAINT `fk_atributos_Itens1` FOREIGN KEY (`id_item`) REFERENCES `itens` (`id_item`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_atributos_classes1` FOREIGN KEY (`id_classe`) REFERENCES `classes` (`id_classe`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_atributos_inimigos1` FOREIGN KEY (`id_inimigo`) REFERENCES `inimigos` (`id_inimigo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Índices de tabela `classes`
---
-ALTER TABLE `classes`
-  ADD PRIMARY KEY (`id_classe`);
-
---
--- Índices de tabela `inimigos`
---
-ALTER TABLE `inimigos`
-  ADD PRIMARY KEY (`id_inimigo`);
-
---
--- Índices de tabela `inventarios`
+-- Limitadores para a tabela `inventarios`
 --
 ALTER TABLE `inventarios`
-  ADD PRIMARY KEY (`id_inventario`),
-  ADD KEY `id_personagem` (`id_personagem`) USING BTREE,
-  ADD KEY `id_item` (`id_item`) USING BTREE;
+  ADD CONSTRAINT `fk_iventarios_Itens1` FOREIGN KEY (`id_item`) REFERENCES `itens` (`id_item`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_iventarios_personagens1` FOREIGN KEY (`id_personagem`) REFERENCES `personagens` (`id_personagem`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Índices de tabela `itens`
---
-ALTER TABLE `itens`
-  ADD PRIMARY KEY (`id_item`),
-  ADD KEY `id_classe` (`id_classe`) USING BTREE;
-
---
--- Índices de tabela `personagens`
+-- Limitadores para a tabela `personagens`
 --
 ALTER TABLE `personagens`
-  ADD PRIMARY KEY (`id_personagem`),
-  ADD KEY `id_classe` (`id_classe`) USING BTREE,
-  ADD KEY `id_player` (`id_player`) USING BTREE;
+  ADD CONSTRAINT `id_classe` FOREIGN KEY (`id_classe`) REFERENCES `classes` (`id_classe`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `id_player` FOREIGN KEY (`id_player`) REFERENCES `player` (`id_player`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Índices de tabela `player`
---
-ALTER TABLE `player`
-  ADD PRIMARY KEY (`id_player`);
-
---
--- Índices de tabela `raridades`
+-- Limitadores para a tabela `raridades`
 --
 ALTER TABLE `raridades`
-  ADD PRIMARY KEY (`id_raridade`),
-  ADD KEY `id_item` (`id_item`) USING BTREE,
-  ADD KEY `id_inimigo` (`id_inimigo`) USING BTREE;
+  ADD CONSTRAINT `fk_raridades_Itens1` FOREIGN KEY (`id_item`) REFERENCES `itens` (`id_item`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_raridades_inimigos1` FOREIGN KEY (`id_inimigo`) REFERENCES `inimigos` (`id_inimigo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Índices de tabela `skills`
+-- Limitadores para a tabela `skills`
 --
 ALTER TABLE `skills`
-  ADD PRIMARY KEY (`id_skill`),
-  ADD KEY `id_classe` (`id_classe`) USING BTREE;
-
---
--- AUTO_INCREMENT de tabelas apagadas
---
-
---
--- AUTO_INCREMENT de tabela `atributos`
---
-ALTER TABLE `atributos`
-  MODIFY `id_atributo` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-
---
--- AUTO_INCREMENT de tabela `classes`
---
-ALTER TABLE `classes`
-  MODIFY `id_classe` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT de tabela `inimigos`
---
-ALTER TABLE `inimigos`
-  MODIFY `id_inimigo` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
--- AUTO_INCREMENT de tabela `personagens`
---
-ALTER TABLE `personagens`
-  MODIFY `id_personagem` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT de tabela `player`
---
-ALTER TABLE `player`
-  MODIFY `id_player` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- Restrições para dumps de tabelas
---
-
---
--- Restrições para tabelas `atributos`
---
-ALTER TABLE `atributos`
-  ADD CONSTRAINT `fk_atributos_classes1` FOREIGN KEY (`id_classe`) REFERENCES `classes` (`id_classe`),
-  ADD CONSTRAINT `fk_atributos_inimigos1` FOREIGN KEY (`id_inimigo`) REFERENCES `inimigos` (`id_inimigo`),
-  ADD CONSTRAINT `fk_atributos_Itens1` FOREIGN KEY (`id_item`) REFERENCES `itens` (`id_item`);
-
---
--- Restrições para tabelas `inventarios`
---
-ALTER TABLE `inventarios`
-  ADD CONSTRAINT `fk_iventarios_Itens1` FOREIGN KEY (`id_item`) REFERENCES `itens` (`id_item`),
-  ADD CONSTRAINT `fk_iventarios_personagens1` FOREIGN KEY (`id_personagem`) REFERENCES `personagens` (`id_personagem`);
-
---
--- Restrições para tabelas `personagens`
---
-ALTER TABLE `personagens`
-  ADD CONSTRAINT `id_classe` FOREIGN KEY (`id_classe`) REFERENCES `classes` (`id_classe`),
-  ADD CONSTRAINT `id_player` FOREIGN KEY (`id_player`) REFERENCES `player` (`id_player`);
-
---
--- Restrições para tabelas `raridades`
---
-ALTER TABLE `raridades`
-  ADD CONSTRAINT `fk_raridades_inimigos1` FOREIGN KEY (`id_inimigo`) REFERENCES `inimigos` (`id_inimigo`),
-  ADD CONSTRAINT `fk_raridades_Itens1` FOREIGN KEY (`id_item`) REFERENCES `itens` (`id_item`);
-
---
--- Restrições para tabelas `skills`
---
-ALTER TABLE `skills`
-  ADD CONSTRAINT `fk_skills_classes1` FOREIGN KEY (`id_classe`) REFERENCES `classes` (`id_classe`);
+  ADD CONSTRAINT `fk_skills_classes1` FOREIGN KEY (`id_classe`) REFERENCES `classes` (`id_classe`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

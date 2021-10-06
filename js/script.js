@@ -2373,9 +2373,9 @@ function eventos_market(){
         $('#slotm0').css('border','5px solid red');
         slot[0][1] = "S";
         $.ajax({
-            url: 'http://localhost/RPG/paginas/itenm.php',
+            url: 'http://localhost/RPG/paginas/itensm.php',
             method: 'POST',
-            data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+            data: {id_item: slot[0][0], equipado: slot[0][1]},
             dataType: 'json',
             success: function (result){
               console.log(result)
@@ -2397,9 +2397,9 @@ function eventos_market(){
             $('#slotm0').css('border','5px solid black');
             slot[0][1] = "N";
             $.ajax({
-              url: 'http://localhost/RPG/paginas/itenm.php',
+              url: 'http://localhost/RPG/paginas/itensm.php',
               method: 'POST',
-              data: {id_inventario: slot[0][0], equipado: slot[0][1]},
+              data: {id_item: slot[0][0], equipado: slot[0][1]},
               dataType: 'json',
               success: function (result){
                 console.log(result)
