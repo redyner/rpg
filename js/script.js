@@ -2217,11 +2217,13 @@ function eventos_market(){
 
     var slot0 = $( "#info_slotm0" );
     $( '#slotm0').on( "mouseover", function( event ) {
+      $('#slotm0').css('border','5px solid red');
       slot0.show();
     });
 
     var slot0 = $( "#info_slotm0" );
     $( '#slotm0').on( "mouseout", function( event ) {
+      $('#slotm0').css('border','5px solid black');
       slot0.hide();
     });
 
@@ -2365,19 +2367,18 @@ function eventos_market(){
       slot14.hide();
     });
 
-    $( '#slotm0' ).on( "click", function( event ) {
-      if (slot[0][1] == "N") slot[0][1] = false
-      if (slot[0][1] == false) {
-        slot[0][1]  = confirm("Deseja comprar este item?")
-        if (slot[0][1] == true) {
-        $('#slotm0').css('border','5px solid red');
-        slot[0][1] = "S";
+    $( '#slotm0' ).on( "click", function( event ) 
+    {
+        var compra  = confirm("Deseja comprar este item?")
+        if (compra == true) 
+        {
         $.ajax({
             url: 'http://localhost/RPG/paginas/itensm.php',
             method: 'POST',
-            data: {id_item: slot[0][0], equipado: slot[0][1]},
+            data: {id_item: slot[0][0], valor: slot[0][1]},
             dataType: 'json',
-            success: function (result){
+            success: function (result)
+            {
               console.log(result)
               sta = result['sta']
               str = result['str']
@@ -2387,34 +2388,9 @@ function eventos_market(){
               $("#str_personagem").html("STR - "+str)
               $("#int_personagem").html("INT - "+int)
               $("#dex_personagem").html("DEX - "+dex)
-          }
-        })
-        }else slot[0][1] = "N";
-      }
-      else {
-        slot[0][1] = confirm("Deseja vender este item?")
-        if (slot[0][1] == true) {
-            $('#slotm0').css('border','5px solid black');
-            slot[0][1] = "N";
-            $.ajax({
-              url: 'http://localhost/RPG/paginas/itensm.php',
-              method: 'POST',
-              data: {id_item: slot[0][0], equipado: slot[0][1]},
-              dataType: 'json',
-              success: function (result){
-                console.log(result)
-                sta = result['sta']
-                str = result['str']
-                int = result['int']
-                dex = result['dex']
-                $("#sta_personagem").html("STA - "+sta)
-                $("#str_personagem").html("STR - "+str)
-                $("#int_personagem").html("INT - "+int)
-                $("#dex_personagem").html("DEX - "+dex)
             }
-          })     
-        }else slot[0][1] = "S";
-      }
+            })
+        }
     });
 
     $( '#slotm1' ).on( "click", function( event ) {

@@ -8,7 +8,7 @@ $id_personagem = $_SESSION['id_personagem'];
 
 $id_item = $_POST['id_item'];
 
-$equipado = $_POST['equipado'];
+$valor = $_POST['valor'];
 
 $sql = "SELECT count(*) `count` FROM rpg.inventarios
         WHERE id_personagem = '{$id_personagem}'";
