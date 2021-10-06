@@ -92,11 +92,11 @@
             <?php
             for($i=0;$i<=13;$i++){
             ?>
-            [<?php echo isset($slot[$i]) ? $slot[$i]['id_item'] : 0 ?>, "<?php echo isset($slot[$i]) ? $slot[$i]['equipado'] : 0 ?>"],
+            [<?php echo isset($slot[$i]) ? $slot[$i]['id_item'] : 0 ?>, "<?php echo isset($slot[$i]) ? $slot[$i]['valor'] : 0 ?>"],
             <?php
             }
             ?>   
-            [<?php echo isset($slot[15]) ? $slot[15]['id_item'] : 0 ?>,"<?php echo isset($slot[15]) ? $slot[15]['equipado'] : 0 ?>"]
+            [<?php echo isset($slot[15]) ? $slot[15]['id_item'] : 0 ?>,"<?php echo isset($slot[15]) ? $slot[15]['valor'] : 0 ?>"]
         ]
 
 
