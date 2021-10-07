@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include "conexao.php";
+include 'functions.php';
 
 $id_player = $_SESSION['id_player'];
 

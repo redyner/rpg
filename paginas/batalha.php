@@ -1,5 +1,6 @@
 <?php
-        include "conexao.php";
+        include 'functions.php';
+        
         $id_player = $_SESSION['id_player'];
         $classe = $_SESSION['classe'];
         $lv = $_SESSION['lv'];

@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include "conexao.php";
+include 'functions.php';
 
 $nick = $_POST['busca_nick'];
 

@@ -20,7 +20,7 @@
         </form>
 
         <?php
-        include 'conexao.php';
+        include 'functions.php';
         if (isset($_POST['criarPersonagem'])) {
 
             $nick = $_POST['nick'];

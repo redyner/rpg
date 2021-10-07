@@ -1,5 +1,5 @@
 <?php
-        include "conexao.php";
+        include 'functions.php';
         $porcentagem_xp = $_SESSION['xp']*100/$_SESSION['xp_max'];
         if ($porcentagem_xp<0) $porcentagem_xp = 0;
 
