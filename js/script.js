@@ -2250,141 +2250,171 @@ function eventos_market(){
 
     var slot1 = $( "#info_slotm1" );
     $( '#slotm1' ).on( "mouseover", function( event ) {
+      $('#slotm1').css('border','5px solid red');
       slot1.show();
     });
 
     var slot1 = $( "#info_slotm1" );
     $( '#slotm1').on( "mouseout", function( event ) {
+      $('#slotm1').css('border','5px solid black');
       slot1.hide();
     });
 
     var slot2 = $( "#info_slotm2" );
     $( '#slotm2' ).on( "mouseover", function( event ) {
+      $('#slotm2').css('border','5px solid red');
       slot2.show();
     });
 
     var slot2 = $( "#info_slotm2" );
     $( '#slotm2').on( "mouseout", function( event ) {
+      $('#slotm2').css('border','5px solid black');
       slot2.hide();
     });
 
     var slot3 = $( "#info_slotm3" );
     $( '#slotm3' ).on( "mouseover", function( event ) {
+      $('#slotm3').css('border','5px solid red');
       slot3.show();
     });
 
     var slot3 = $( "#info_slotm3" );
     $( '#slotm3').on( "mouseout", function( event ) {
+      $('#slotm3').css('border','5px solid black');
+      
       slot3.hide();
     });
 
     var slot4 = $( "#info_slotm4" );
     $( '#slotm4' ).on( "mouseover", function( event ) {
+      $('#slotm4').css('border','5px solid red');
       slot4.show();
     });
 
     var slot4 = $( "#info_slotm4" );
     $( '#slotm4').on( "mouseout", function( event ) {
+      $('#slotm4').css('border','5px solid black');
       slot4.hide();
     });
 
     var slot5 = $( "#info_slotm5" );
     $( '#slotm5' ).on( "mouseover", function( event ) {
+      $('#slotm5').css('border','5px solid red');
       slot5.show();
     });
 
     var slot5 = $( "#info_slotm5" );
     $( '#slotm5').on( "mouseout", function( event ) {
+      $('#slotm5').css('border','5px solid black');
+      
       slot5.hide();
     });
 
     var slot6 = $( "#info_slotm6" );
     $( '#slotm6' ).on( "mouseover", function( event ) {
+      $('#slotm6').css('border','5px solid red');
       slot6.show();
     });
 
     var slot6 = $( "#info_slotm6" );
     $( '#slotm6').on( "mouseout", function( event ) {
+      $('#slotm6').css('border','5px solid black');
       slot6.hide();
     });
 
     var slot7 = $( "#info_slotm7" );
     $( '#slotm7' ).on( "mouseover", function( event ) {
+      $('#slotm7').css('border','5px solid red');
       slot7.show();
     });
 
     var slot7 = $( "#info_slotm7" );
     $( '#slotm7').on( "mouseout", function( event ) {
+      $('#slotm7').css('border','5px solid black');
       slot7.hide();
     });
 
     var slot8 = $( "#info_slotm8" );
     $( '#slotm8' ).on( "mouseover", function( event ) {
+      $('#slotm8').css('border','5px solid red');
       slot8.show();
     });
 
     var slot8 = $( "#info_slotm8" );
     $( '#slotm8').on( "mouseout", function( event ) {
+      $('#slotm8').css('border','5px solid black');
       slot8.hide();
     });
 
     var slot9 = $( "#info_slotm9" );
     $( '#slotm9' ).on( "mouseover", function( event ) {
+      $('#slotm9').css('border','5px solid red');
       slot9.show();
     });
 
     var slot9 = $( "#info_slotm9" );
     $( '#slotm9').on( "mouseout", function( event ) {
+      $('#slotm9').css('border','5px solid black');
       slot9.hide();
     });
 
     var slot10 = $( "#info_slotm10" );
     $( '#slotm10' ).on( "mouseover", function( event ) {
+      $('#slotm10').css('border','5px solid red');
       slot10.show();
     });
 
     var slot10 = $( "#info_slotm10" );
     $( '#slotm10').on( "mouseout", function( event ) {
+      $('#slotm10').css('border','5px solid black');
       slot10.hide();
     });
 
     var slot11 = $( "#info_slotm11" );
     $( '#slotm11' ).on( "mouseover", function( event ) {
+      $('#slotm11').css('border','5px solid red');
       slot11.show();
     });
 
     var slot11 = $( "#info_slotm11" );
     $( '#slotm11').on( "mouseout", function( event ) {
+      $('#slotm11').css('border','5px solid black');
       slot11.hide();
     });
 
     var slot12 = $( "#info_slotm12" );
     $( '#slotm12' ).on( "mouseover", function( event ) {
+      $('#slotm12').css('border','5px solid red');
       slot12.show();
     });
 
     var slot12 = $( "#info_slotm12" );
     $( '#slotm12').on( "mouseout", function( event ) {
+      $('#slotm12').css('border','5px solid black');
       slot12.hide();
     });
 
     var slot13 = $( "#info_slotm13" );
     $( '#slotm13' ).on( "mouseover", function( event ) {
+      $('#slotm13').css('border','5px solid red');
       slot13.show();
     });
 
     var slot13 = $( "#info_slotm13" );
     $( '#slotm13').on( "mouseout", function( event ) {
+      $('#slotm13').css('border','5px solid black');
       slot13.hide();
     });
 
     var slot14 = $( "#info_slotm14" );
     $( '#slotm14' ).on( "mouseover", function( event ) {
+      $('#slotm14').css('border','5px solid red');
       slot14.show();
     });
 
     var slot14 = $( "#info_slotm14" );
     $( '#slotm14').on( "mouseout", function( event ) {
+      $('#slotm14').css('border','5px solid black');
       slot14.hide();
     });
 
@@ -2430,7 +2460,7 @@ function eventos_market(){
       slot18.show();
     });
 
-    var slot118 = $( "#info_slotm18" );
+    var slot18 = $( "#info_slotm18" );
     $( '#slotm18').on( "mouseout", function( event ) {
       $('#slotm18').css('border','5px solid black');
       slot18.hide();
@@ -2475,7 +2505,7 @@ function eventos_market(){
     var slot22 = $( "#info_slotm22" );
     $( '#slotm22').on( "mouseover", function( event ) {
       $('#slotm22').css('border','5px solid red');
-      slot0.show();
+      slot22.show();
     });
 
     var slot22 = $( "#info_slotm22" );
