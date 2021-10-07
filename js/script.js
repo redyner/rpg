@@ -2215,6 +2215,27 @@ window.addEventListener("load",eventos_market)
 
 function eventos_market(){
 
+    var slots_venda = $( ".sloti" );
+        slots_venda.hide();
+
+    var slots_compra = $( ".slotm" );
+        slots_compra.show();
+
+    $('#vendercomprar').on( "click", function( event ) {
+    if ($('#vendercomprar').html()=='Vender'){
+      $('#vendercomprar').html("Comprar");
+      slots_venda.show();
+      slots_compra.hide();
+    } 
+    else {
+      $('#vendercomprar').html("Vender")
+      slots_venda.hide();
+      slots_compra.show();
+    }
+    });
+
+    
+
     var slot0 = $( "#info_slotm0" );
     $( '#slotm0').on( "mouseover", function( event ) {
       $('#slotm0').css('border','5px solid red');
@@ -2367,6 +2388,186 @@ function eventos_market(){
       slot14.hide();
     });
 
+    var slot15 = $( "#info_slotm15" );
+    $( '#slotm15' ).on( "mouseover", function( event ) {
+      $('#slotm15').css('border','5px solid red');
+      slot15.show();
+    });
+
+    var slot15 = $( "#info_slotm14" );
+    $( '#slotm15').on( "mouseout", function( event ) {
+      $('#slotm15').css('border','5px solid black');
+      slot15.hide();
+    });
+
+    var slot16 = $( "#info_slotm0" );
+    $( '#slotm16').on( "mouseover", function( event ) {
+      $('#slotm16').css('border','5px solid red');
+      slot16.show();
+    });
+
+    var slot16 = $( "#info_slotm0" );
+    $( '#slotm16').on( "mouseout", function( event ) {
+      $('#slotm16').css('border','5px solid black');
+      slot16.hide();
+    });
+
+    var slot17 = $( "#info_slotm0" );
+    $( '#slotm17').on( "mouseover", function( event ) {
+      $('#slotm17').css('border','5px solid red');
+      slot17.show();
+    });
+
+    var slot17 = $( "#info_slotm0" );
+    $( '#slotm17').on( "mouseout", function( event ) {
+      $('#slotm17').css('border','5px solid black');
+      slot17.hide();
+    });
+
+    var slot18 = $( "#info_slotm0" );
+    $( '#slotm18').on( "mouseover", function( event ) {
+      $('#slotm18').css('border','5px solid red');
+      slot18.show();
+    });
+
+    var slot118 = $( "#info_slotm0" );
+    $( '#slotm18').on( "mouseout", function( event ) {
+      $('#slotm18').css('border','5px solid black');
+      slot18.hide();
+    });
+
+    var slot19 = $( "#info_slotm0" );
+    $( '#slotm19').on( "mouseover", function( event ) {
+      $('#slotm19').css('border','5px solid red');
+      slot19.show();
+    });
+
+    var slot19 = $( "#info_slotm0" );
+    $( '#slotm19').on( "mouseout", function( event ) {
+      $('#slotm19').css('border','5px solid black');
+      slot19.hide();
+    });
+
+    var slot20 = $( "#info_slotm0" );
+    $( '#slotm20').on( "mouseover", function( event ) {
+      $('#slotm20').css('border','5px solid red');
+      slot20.show();
+    });
+
+    var slot20 = $( "#info_slotm0" );
+    $( '#slotm20').on( "mouseout", function( event ) {
+      $('#slotm20').css('border','5px solid black');
+      slot20.hide();
+    });
+
+    var slot21 = $( "#info_slotm0" );
+    $( '#slotm21').on( "mouseover", function( event ) {
+      $('#slotm21').css('border','5px solid red');
+      slot21.show();
+    });
+
+    var slot21 = $( "#info_slotm0" );
+    $( '#slotm21').on( "mouseout", function( event ) {
+      $('#slotm21').css('border','5px solid black');
+      slot21.hide();
+    });
+
+    var slot22 = $( "#info_slotm0" );
+    $( '#slotm22').on( "mouseover", function( event ) {
+      $('#slotm22').css('border','5px solid red');
+      slot0.show();
+    });
+
+    var slot22 = $( "#info_slotm0" );
+    $( '#slotm22').on( "mouseout", function( event ) {
+      $('#slotm22').css('border','5px solid black');
+      slot22.hide();
+    });
+
+    var slot23 = $( "#info_slotm0" );
+    $( '#slotm23').on( "mouseover", function( event ) {
+      $('#slotm23').css('border','5px solid red');
+      slot23.show();
+    });
+
+    var slot23 = $( "#info_slotm0" );
+    $( '#slotm23').on( "mouseout", function( event ) {
+      $('#slotm23').css('border','5px solid black');
+      slot23.hide();
+    });
+
+    var slot24 = $( "#info_slotm0" );
+    $( '#slotm24').on( "mouseover", function( event ) {
+      $('#slotm24').css('border','5px solid red');
+      slot24.show();
+    });
+
+    var slot24 = $( "#info_slotm0" );
+    $( '#slotm24').on( "mouseout", function( event ) {
+      $('#slotm24').css('border','5px solid black');
+      slot24.hide();
+    });
+
+    var slot25 = $( "#info_slotm0" );
+    $( '#slotm25').on( "mouseover", function( event ) {
+      $('#slotm25').css('border','5px solid red');
+      slot25.show();
+    });
+
+    var slot25 = $( "#info_slotm0" );
+    $( '#slotm25').on( "mouseout", function( event ) {
+      $('#slotm25').css('border','5px solid black');
+      slot25.hide();
+    });
+
+    var slot26 = $( "#info_slotm0" );
+    $( '#slotm26').on( "mouseover", function( event ) {
+      $('#slotm26').css('border','5px solid red');
+      slot26.show();
+    });
+
+    var slot26 = $( "#info_slotm0" );
+    $( '#slotm26').on( "mouseout", function( event ) {
+      $('#slotm26').css('border','5px solid black');
+      slot26.hide();
+    });
+
+    var slot27 = $( "#info_slotm0" );
+    $( '#slotm27').on( "mouseover", function( event ) {
+      $('#slotm27').css('border','5px solid red');
+      slot27.show();
+    });
+
+    var slot27 = $( "#info_slotm0" );
+    $( '#slotm27').on( "mouseout", function( event ) {
+      $('#slotm27').css('border','5px solid black');
+      slot27.hide();
+    });
+
+    var slot28 = $( "#info_slotm0" );
+    $( '#slotm28').on( "mouseover", function( event ) {
+      $('#slotm28').css('border','5px solid red');
+      slot28.show();
+    });
+
+    var slot28 = $( "#info_slotm0" );
+    $( '#slotm28').on( "mouseout", function( event ) {
+      $('#slotm28').css('border','5px solid black');
+      slot28.hide();
+    });
+
+    var slot29 = $( "#info_slotm0" );
+    $( '#slotm29').on( "mouseover", function( event ) {
+      $('#slotm29').css('border','5px solid red');
+      slot29.show();
+    });
+
+    var slot29 = $( "#info_slotm0" );
+    $( '#slotm29').on( "mouseout", function( event ) {
+      $('#slotm29').css('border','5px solid black');
+      slot29.hide();
+    });
+
     $( '#slotm0' ).on( "click", function( event ) 
     {
         var compra  = confirm("Deseja comprar este item?")
@@ -2380,14 +2581,6 @@ function eventos_market(){
             success: function (result)
             {
               console.log(result)
-              sta = result['sta']
-              str = result['str']
-              int = result['int']
-              dex = result['dex']
-              $("#sta_personagem").html("STA - "+sta)
-              $("#str_personagem").html("STR - "+str)
-              $("#int_personagem").html("INT - "+int)
-              $("#dex_personagem").html("DEX - "+dex)
             }
             })
         }

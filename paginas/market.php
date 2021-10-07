@@ -21,7 +21,7 @@
         <div id="painel_personagem">
         
         <div class="avatar_npc" id = "mercador"></div>
-        <div class="avatar_item" id = ""></div>
+        <button id="vendercomprar" >Vender</button>
  
 
         </div>
@@ -55,16 +55,55 @@
         for($i=0;$i<=14;$i++){
     ?>
 
-        <div id = 'slotm<?php if (isset($slot[$i])) echo $i ?>' name = '<?php if (isset($slot[$i])) echo $slot[$i]['nm_item'] ?>'  class='slot' ></div>
+        <div id = 'slotm<?php if (isset($slot[$i])) echo $i ?>' name = '<?php if (isset($slot[$i])) echo $slot[$i]['nm_item'] ?>'  class='slotm' ></div>
     
     <?php
         }
     ?>
 
+    <?php 
+        $i=15;
+        $sql = "SELECT i.id_item, i.nm_item, i.lv, i.valor, i.id_classe, `sta`, `str`, `int`, `dex`, iv.equipado, iv.id_inventario, refino
+                FROM rpg.inventarios iv
+                    JOIN rpg.itens i ON i.id_item = iv.id_item 
+                    JOIN rpg.atributos a ON i.id_item = a.id_item
+                    JOIN rpg.personagens p ON p.id_personagem = iv.id_personagem
+                WHERE p.id_personagem = '{$_SESSION['id_personagem']}'
+                    ORDER BY iv.slot";
+        $resultado = mysqli_query($conexao,$sql);
+        while ($info_item = mysqli_fetch_assoc($resultado))
+        {
+            $slot[$i]['id_item'] = $info_item['id_item'];
+            $slot[$i]['nm_item'] = $info_item['nm_item'];
+            $slot[$i]['lv'] = $info_item['lv'];
+            $slot[$i]['valor'] = $info_item['valor'];
+            $slot[$i]['id_classe'] = $info_item['id_classe'];
+            $slot[$i]['sta'] = $info_item['sta'];
+            $slot[$i]['str'] = $info_item['str'];
+            $slot[$i]['int'] = $info_item['int'];
+            $slot[$i]['dex'] = $info_item['dex'];
+            $slot[$i]['ref'] = $info_item['refino'];
+            $slot[$i]['equipado'] = $info_item['equipado'];
+            $slot[$i]['id_inventario'] = $info_item['id_inventario'];
+            $i++;
+        }
+        
+        ?>
+    <?php
+        for($i=15;$i<=29;$i++){
+    ?>
+
+        <div id = 'slotm<?php if (isset($slot[$i])) echo $i ?>' name = '<?php if (isset($slot[$i])) echo $slot[$i]['nm_item'] ?>'  class='sloti'  <?php if (isset($slot[$i]['equipado']) && $slot[$i]['equipado'] == 'S') echo "style='border: 5px solid red'" ?> ></div>
+        
+    <?php
+
+    }
+    ?>
+
     </div>
   
     <?php
-        for($i=0;$i<=14;$i++){
+        for($i=0;$i<=29;$i++){
     ?>
     
     <div id="info_slotm<?php echo $i ?>" class="informacoes_item">
@@ -84,22 +123,19 @@
     ?>
 
 
-
-
     <script>
 
         var slot = [
             <?php
-            for($i=0;$i<=13;$i++){
+            for($i=0;$i<=27;$i++){
             ?>
             [<?php echo isset($slot[$i]) ? $slot[$i]['id_item'] : 0 ?>, "<?php echo isset($slot[$i]) ? $slot[$i]['valor'] : 0 ?>"],
             <?php
             }
             ?>   
-            [<?php echo isset($slot[15]) ? $slot[15]['id_item'] : 0 ?>,"<?php echo isset($slot[15]) ? $slot[15]['valor'] : 0 ?>"]
+            [<?php echo isset($slot[29]) ? $slot[29]['id_item'] : 0 ?>,"<?php echo isset($slot[29]) ? $slot[29]['valor'] : 0 ?>"]
         ]
-
-
+  
     </script>
 
 
