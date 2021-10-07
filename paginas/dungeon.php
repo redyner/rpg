@@ -14,7 +14,7 @@
                 <li><a href="http://localhost/rpg/index.php?pagina=forja">Forja</a></li>
                 <li><a href="http://localhost/rpg/index.php?pagina=arena">Arena</a></li>
                 <li><a href="http://localhost/rpg/index.php?pagina=sair">Sair</a></li>
-                <li id="gold" style="float: right;">GOLD - <?php echo $_SESSION['gold']?></li>
+                <li class="gold" style="float: right;">GOLD - <?php echo $_SESSION['gold']?></li>
             </ul>
         </nav>
 
@@ -62,5 +62,8 @@
         <!-- <script>
             document.getElementById("selecao_inimigo").style.visibility = "hidden"
         </script> -->
+
+        <script src = "../js/jquery.js"></script>
+        <script src = "../js/ajax.js"></script>
 
         

@@ -14,7 +14,7 @@
                 <li><a href="http://localhost/rpg/index.php?pagina=forja">Forja</a></li>
                 <li><a href="http://localhost/rpg/index.php?pagina=arena">Arena</a></li>
                 <li><a href="http://localhost/rpg/index.php?pagina=sair">Sair</a></li>
-                <li id="gold" style="float: right;">GOLD - <?php echo $_SESSION['gold']?></li>
+                <li class="gold" style="float: right;">GOLD - <?php echo $_SESSION['gold']?></li>
             </ul>
         </nav>
 
@@ -129,16 +129,14 @@
             <?php
             for($i=0;$i<=27;$i++){
             ?>
-            [<?php echo isset($slot[$i]) ? $slot[$i]['id_item'] : 0 ?>, "<?php echo isset($slot[$i]) ? $slot[$i]['valor'] : 0 ?>"],
+            [<?php echo isset($slot[$i]) ? $slot[$i]['id_item'] : 0 ?>, "<?php echo isset($slot[$i]) ? $slot[$i]['valor'] : 0 ?>", "<?php echo isset($slot[$i]['id_inventario']) ? $slot[$i]['id_inventario'] : 0 ?>"],
             <?php
             }
             ?>   
-            [<?php echo isset($slot[29]) ? $slot[29]['id_item'] : 0 ?>,"<?php echo isset($slot[29]) ? $slot[29]['valor'] : 0 ?>"]
+            [<?php echo isset($slot[29]) ? $slot[29]['id_item'] : 0 ?>,"<?php echo isset($slot[29]) ? $slot[29]['valor'] : 0 ?>", "<?php echo isset($slot[$i]['id_inventario']) ? $slot[$i]['id_inventario'] : 0 ?>"]
         ]
   
     </script>
-
-
 
         <script src = "../js/jquery.js"></script>
         <script src = "../js/ajax.js"></script>

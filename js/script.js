@@ -2605,11 +2605,13 @@ function eventos_market(){
         $.ajax({
             url: 'http://localhost/RPG/paginas/itensm.php',
             method: 'POST',
-            data: {id_item: slot[0][0], valor: slot[0][1]},
+            data: {id_item: slot[0][0], valor: slot[0][1], tipo: 'c'},
             dataType: 'json',
             success: function (result)
             {
-              console.log(result)
+              console.log(result);
+              var gold = $(".gold");
+              gold.html("GOLD - "+result['gold']);
             }
             })
         }
@@ -2622,7 +2624,7 @@ function eventos_market(){
       $.ajax({
           url: 'http://localhost/RPG/paginas/itensm.php',
           method: 'POST',
-          data: {id_item: slot[1][0], valor: slot[1][1]},
+          data: {id_item: slot[1][0], valor: slot[1][1], tipo: 'c'},
           dataType: 'json',
           success: function (result)
           {
@@ -2639,7 +2641,7 @@ function eventos_market(){
         $.ajax({
             url: 'http://localhost/RPG/paginas/itensm.php',
             method: 'POST',
-            data: {id_item: slot[2][0], valor: slot[2][1]},
+            data: {id_item: slot[2][0], valor: slot[2][1], tipo: 'c'},
             dataType: 'json',
             success: function (result)
             {
@@ -2656,7 +2658,7 @@ function eventos_market(){
         $.ajax({
             url: 'http://localhost/RPG/paginas/itensm.php',
             method: 'POST',
-            data: {id_item: slot[3][0], valor: slot[3][1]},
+            data: {id_item: slot[3][0], valor: slot[3][1], tipo: 'c'},
             dataType: 'json',
             success: function (result)
             {
@@ -2673,7 +2675,7 @@ function eventos_market(){
         $.ajax({
             url: 'http://localhost/RPG/paginas/itensm.php',
             method: 'POST',
-            data: {id_item: slot[4][0], valor: slot[4][1]},
+            data: {id_item: slot[4][0], valor: slot[4][1], tipo: 'c'},
             dataType: 'json',
             success: function (result)
             {
@@ -2690,7 +2692,7 @@ function eventos_market(){
         $.ajax({
             url: 'http://localhost/RPG/paginas/itensm.php',
             method: 'POST',
-            data: {id_item: slot[5][0], valor: slot[5][1]},
+            data: {id_item: slot[5][0], valor: slot[5][1], tipo: 'c'},
             dataType: 'json',
             success: function (result)
             {
@@ -2707,7 +2709,7 @@ function eventos_market(){
         $.ajax({
             url: 'http://localhost/RPG/paginas/itensm.php',
             method: 'POST',
-            data: {id_item: slot[6][0], valor: slot[6][1]},
+            data: {id_item: slot[6][0], valor: slot[6][1], tipo: 'c'},
             dataType: 'json',
             success: function (result)
             {
@@ -2724,7 +2726,7 @@ function eventos_market(){
         $.ajax({
             url: 'http://localhost/RPG/paginas/itensm.php',
             method: 'POST',
-            data: {id_item: slot[7][0], valor: slot[7][1]},
+            data: {id_item: slot[7][0], valor: slot[7][1], tipo: 'c'},
             dataType: 'json',
             success: function (result)
             {
@@ -2741,7 +2743,7 @@ function eventos_market(){
         $.ajax({
             url: 'http://localhost/RPG/paginas/itensm.php',
             method: 'POST',
-            data: {id_item: slot[8][0], valor: slot[8][1]},
+            data: {id_item: slot[8][0], valor: slot[8][1], tipo: 'c'},
             dataType: 'json',
             success: function (result)
             {
@@ -2758,7 +2760,7 @@ function eventos_market(){
         $.ajax({
             url: 'http://localhost/RPG/paginas/itensm.php',
             method: 'POST',
-            data: {id_item: slot[9][0], valor: slot[9][1]},
+            data: {id_item: slot[9][0], valor: slot[9][1], tipo: 'c'},
             dataType: 'json',
             success: function (result)
             {
@@ -2775,7 +2777,7 @@ function eventos_market(){
         $.ajax({
             url: 'http://localhost/RPG/paginas/itensm.php',
             method: 'POST',
-            data: {id_item: slot[10][0], valor: slot[10][1]},
+            data: {id_item: slot[10][0], valor: slot[10][1], tipo: 'c'},
             dataType: 'json',
             success: function (result)
             {
@@ -2792,7 +2794,7 @@ function eventos_market(){
         $.ajax({
             url: 'http://localhost/RPG/paginas/itensm.php',
             method: 'POST',
-            data: {id_item: slot[11][0], valor: slot[11][1]},
+            data: {id_item: slot[11][0], valor: slot[11][1], tipo: 'c'},
             dataType: 'json',
             success: function (result)
             {
@@ -2809,7 +2811,7 @@ function eventos_market(){
         $.ajax({
             url: 'http://localhost/RPG/paginas/itensm.php',
             method: 'POST',
-            data: {id_item: slot[12][0], valor: slot[12][1]},
+            data: {id_item: slot[12][0], valor: slot[12][1], tipo: 'c'},
             dataType: 'json',
             success: function (result)
             {
@@ -2826,7 +2828,7 @@ function eventos_market(){
         $.ajax({
             url: 'http://localhost/RPG/paginas/itensm.php',
             method: 'POST',
-            data: {id_item: slot[13][0], valor: slot[13][1]},
+            data: {id_item: slot[13][0], valor: slot[13][1], tipo: 'c'},
             dataType: 'json',
             success: function (result)
             {
@@ -2843,7 +2845,7 @@ function eventos_market(){
         $.ajax({
             url: 'http://localhost/RPG/paginas/itensm.php',
             method: 'POST',
-            data: {id_item: slot[14][0], valor: slot[14][1]},
+            data: {id_item: slot[14][0], valor: slot[14][1], tipo: 'c'},
             dataType: 'json',
             success: function (result)
             {
@@ -2860,11 +2862,14 @@ function eventos_market(){
       $.ajax({
           url: 'http://localhost/RPG/paginas/itensm.php',
           method: 'POST',
-          data: {id_item: slot[15][0], valor: slot[15][1]},
+          data: {id_item: slot[15][0], valor: slot[15][1], id_inventario: slot[15][2], tipo: 'v'},
           dataType: 'json',
           success: function (result)
           {
             console.log(result)
+            var gold = $(".gold");
+            gold.html("GOLD - "+result['gold']);
+            $('#slotm15').removeAttr('name');
           }
           })
       }
@@ -2877,7 +2882,7 @@ function eventos_market(){
     $.ajax({
         url: 'http://localhost/RPG/paginas/itensm.php',
         method: 'POST',
-        data: {id_item: slot[16][0], valor: slot[16][1]},
+        data: {id_item: slot[16][0], valor: slot[16][1], id_inventario: slot[16][2], tipo: 'v'},
         dataType: 'json',
         success: function (result)
         {
@@ -2894,7 +2899,7 @@ $( '#slotm17' ).on( "click", function( event ) {
   $.ajax({
       url: 'http://localhost/RPG/paginas/itensm.php',
       method: 'POST',
-      data: {id_item: slot[17][0], valor: slot[17][1]},
+      data: {id_item: slot[17][0], valor: slot[17][1], id_inventario: slot[17][2], tipo: 'v'},
       dataType: 'json',
       success: function (result)
       {
@@ -2911,7 +2916,7 @@ $( '#slotm18' ).on( "click", function( event ) {
   $.ajax({
       url: 'http://localhost/RPG/paginas/itensm.php',
       method: 'POST',
-      data: {id_item: slot[18][0], valor: slot[18][1]},
+      data: {id_item: slot[18][0], valor: slot[18][1], id_inventario: slot[18][2], tipo: 'v'},
       dataType: 'json',
       success: function (result)
       {
@@ -2928,7 +2933,7 @@ $( '#slotm19' ).on( "click", function( event ) {
   $.ajax({
       url: 'http://localhost/RPG/paginas/itensm.php',
       method: 'POST',
-      data: {id_item: slot[19][0], valor: slot[19][1]},
+      data: {id_item: slot[19][0], valor: slot[19][1], id_inventario: slot[19][2], tipo: 'v'},
       dataType: 'json',
       success: function (result)
       {
@@ -2945,7 +2950,7 @@ $( '#slotm20' ).on( "click", function( event ) {
   $.ajax({
       url: 'http://localhost/RPG/paginas/itensm.php',
       method: 'POST',
-      data: {id_item: slot[20][0], valor: slot[20][1]},
+      data: {id_item: slot[20][0], valor: slot[20][1], id_inventario: slot[20][2], tipo: 'v'},
       dataType: 'json',
       success: function (result)
       {
@@ -2962,7 +2967,7 @@ $( '#slotm21' ).on( "click", function( event ) {
   $.ajax({
       url: 'http://localhost/RPG/paginas/itensm.php',
       method: 'POST',
-      data: {id_item: slot[21][0], valor: slot[21][1]},
+      data: {id_item: slot[21][0], valor: slot[21][1], id_inventario: slot[21][2], tipo: 'v'},
       dataType: 'json',
       success: function (result)
       {
@@ -2979,7 +2984,7 @@ $( '#slotm22' ).on( "click", function( event ) {
   $.ajax({
       url: 'http://localhost/RPG/paginas/itensm.php',
       method: 'POST',
-      data: {id_item: slot[22][0], valor: slot[22][1]},
+      data: {id_item: slot[22][0], valor: slot[22][1], id_inventario: slot[22][2], tipo: 'v'},
       dataType: 'json',
       success: function (result)
       {
@@ -2996,7 +3001,7 @@ $( '#slotm23' ).on( "click", function( event ) {
   $.ajax({
       url: 'http://localhost/RPG/paginas/itensm.php',
       method: 'POST',
-      data: {id_item: slot[23][0], valor: slot[23][1]},
+      data: {id_item: slot[23][0], valor: slot[23][1], id_inventario: slot[23][2], tipo: 'v'},
       dataType: 'json',
       success: function (result)
       {
@@ -3013,7 +3018,7 @@ $( '#slotm24' ).on( "click", function( event ) {
   $.ajax({
       url: 'http://localhost/RPG/paginas/itensm.php',
       method: 'POST',
-      data: {id_item: slot[24][0], valor: slot[24][1]},
+      data: {id_item: slot[24][0], valor: slot[24][1], id_inventario: slot[24][2], tipo: 'v'},
       dataType: 'json',
       success: function (result)
       {
@@ -3030,7 +3035,7 @@ $( '#slotm25' ).on( "click", function( event ) {
   $.ajax({
       url: 'http://localhost/RPG/paginas/itensm.php',
       method: 'POST',
-      data: {id_item: slot[25][0], valor: slot[25][1]},
+      data: {id_item: slot[25][0], valor: slot[25][1], id_inventario: slot[25][2], tipo: 'v'},
       dataType: 'json',
       success: function (result)
       {
@@ -3047,7 +3052,7 @@ $( '#slotm26' ).on( "click", function( event ) {
   $.ajax({
       url: 'http://localhost/RPG/paginas/itensm.php',
       method: 'POST',
-      data: {id_item: slot[26][0], valor: slot[26][1]},
+      data: {id_item: slot[26][0], valor: slot[26][1], id_inventario: slot[26][2], tipo: 'v'},
       dataType: 'json',
       success: function (result)
       {
@@ -3064,7 +3069,7 @@ $( '#slotm27' ).on( "click", function( event ) {
   $.ajax({
       url: 'http://localhost/RPG/paginas/itensm.php',
       method: 'POST',
-      data: {id_item: slot[27][0], valor: slot[27][1]},
+      data: {id_item: slot[27][0], valor: slot[27][1], id_inventario: slot[27][2], tipo: 'v'},
       dataType: 'json',
       success: function (result)
       {
@@ -3081,7 +3086,7 @@ $( '#slotm28' ).on( "click", function( event ) {
   $.ajax({
       url: 'http://localhost/RPG/paginas/itensm.php',
       method: 'POST',
-      data: {id_item: slot[28][0], valor: slot[28][1]},
+      data: {id_item: slot[28][0], valor: slot[28][1], id_inventario: slot[28][2], tipo: 'v'},
       dataType: 'json',
       success: function (result)
       {
@@ -3098,7 +3103,7 @@ $( '#slotm29' ).on( "click", function( event ) {
   $.ajax({
       url: 'http://localhost/RPG/paginas/itensm.php',
       method: 'POST',
-      data: {id_item: slot[29][0], valor: slot[29][1]},
+      data: {id_item: slot[29][0], valor: slot[29][1], id_inventario: slot[29][2], tipo: 'v'},
       dataType: 'json',
       success: function (result)
       {
