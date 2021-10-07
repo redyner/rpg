@@ -2394,175 +2394,175 @@ function eventos_market(){
       slot15.show();
     });
 
-    var slot15 = $( "#info_slotm14" );
+    var slot15 = $( "#info_slotm15" );
     $( '#slotm15').on( "mouseout", function( event ) {
       $('#slotm15').css('border','5px solid black');
       slot15.hide();
     });
 
-    var slot16 = $( "#info_slotm0" );
+    var slot16 = $( "#info_slotm16" );
     $( '#slotm16').on( "mouseover", function( event ) {
       $('#slotm16').css('border','5px solid red');
       slot16.show();
     });
 
-    var slot16 = $( "#info_slotm0" );
+    var slot16 = $( "#info_slotm16" );
     $( '#slotm16').on( "mouseout", function( event ) {
       $('#slotm16').css('border','5px solid black');
       slot16.hide();
     });
 
-    var slot17 = $( "#info_slotm0" );
+    var slot17 = $( "#info_slotm17" );
     $( '#slotm17').on( "mouseover", function( event ) {
       $('#slotm17').css('border','5px solid red');
       slot17.show();
     });
 
-    var slot17 = $( "#info_slotm0" );
+    var slot17 = $( "#info_slotm17" );
     $( '#slotm17').on( "mouseout", function( event ) {
       $('#slotm17').css('border','5px solid black');
       slot17.hide();
     });
 
-    var slot18 = $( "#info_slotm0" );
+    var slot18 = $( "#info_slotm18" );
     $( '#slotm18').on( "mouseover", function( event ) {
       $('#slotm18').css('border','5px solid red');
       slot18.show();
     });
 
-    var slot118 = $( "#info_slotm0" );
+    var slot118 = $( "#info_slotm18" );
     $( '#slotm18').on( "mouseout", function( event ) {
       $('#slotm18').css('border','5px solid black');
       slot18.hide();
     });
 
-    var slot19 = $( "#info_slotm0" );
+    var slot19 = $( "#info_slotm19" );
     $( '#slotm19').on( "mouseover", function( event ) {
       $('#slotm19').css('border','5px solid red');
       slot19.show();
     });
 
-    var slot19 = $( "#info_slotm0" );
+    var slot19 = $( "#info_slotm19" );
     $( '#slotm19').on( "mouseout", function( event ) {
       $('#slotm19').css('border','5px solid black');
       slot19.hide();
     });
 
-    var slot20 = $( "#info_slotm0" );
+    var slot20 = $( "#info_slotm20" );
     $( '#slotm20').on( "mouseover", function( event ) {
       $('#slotm20').css('border','5px solid red');
       slot20.show();
     });
 
-    var slot20 = $( "#info_slotm0" );
+    var slot20 = $( "#info_slotm20" );
     $( '#slotm20').on( "mouseout", function( event ) {
       $('#slotm20').css('border','5px solid black');
       slot20.hide();
     });
 
-    var slot21 = $( "#info_slotm0" );
+    var slot21 = $( "#info_slotm21" );
     $( '#slotm21').on( "mouseover", function( event ) {
       $('#slotm21').css('border','5px solid red');
       slot21.show();
     });
 
-    var slot21 = $( "#info_slotm0" );
+    var slot21 = $( "#info_slotm21" );
     $( '#slotm21').on( "mouseout", function( event ) {
       $('#slotm21').css('border','5px solid black');
       slot21.hide();
     });
 
-    var slot22 = $( "#info_slotm0" );
+    var slot22 = $( "#info_slotm22" );
     $( '#slotm22').on( "mouseover", function( event ) {
       $('#slotm22').css('border','5px solid red');
       slot0.show();
     });
 
-    var slot22 = $( "#info_slotm0" );
+    var slot22 = $( "#info_slotm22" );
     $( '#slotm22').on( "mouseout", function( event ) {
       $('#slotm22').css('border','5px solid black');
       slot22.hide();
     });
 
-    var slot23 = $( "#info_slotm0" );
+    var slot23 = $( "#info_slotm23" );
     $( '#slotm23').on( "mouseover", function( event ) {
       $('#slotm23').css('border','5px solid red');
       slot23.show();
     });
 
-    var slot23 = $( "#info_slotm0" );
+    var slot23 = $( "#info_slotm23" );
     $( '#slotm23').on( "mouseout", function( event ) {
       $('#slotm23').css('border','5px solid black');
       slot23.hide();
     });
 
-    var slot24 = $( "#info_slotm0" );
+    var slot24 = $( "#info_slotm24" );
     $( '#slotm24').on( "mouseover", function( event ) {
       $('#slotm24').css('border','5px solid red');
       slot24.show();
     });
 
-    var slot24 = $( "#info_slotm0" );
+    var slot24 = $( "#info_slotm24" );
     $( '#slotm24').on( "mouseout", function( event ) {
       $('#slotm24').css('border','5px solid black');
       slot24.hide();
     });
 
-    var slot25 = $( "#info_slotm0" );
+    var slot25 = $( "#info_slotm25" );
     $( '#slotm25').on( "mouseover", function( event ) {
       $('#slotm25').css('border','5px solid red');
       slot25.show();
     });
 
-    var slot25 = $( "#info_slotm0" );
+    var slot25 = $( "#info_slotm25" );
     $( '#slotm25').on( "mouseout", function( event ) {
       $('#slotm25').css('border','5px solid black');
       slot25.hide();
     });
 
-    var slot26 = $( "#info_slotm0" );
+    var slot26 = $( "#info_slotm26" );
     $( '#slotm26').on( "mouseover", function( event ) {
       $('#slotm26').css('border','5px solid red');
       slot26.show();
     });
 
-    var slot26 = $( "#info_slotm0" );
+    var slot26 = $( "#info_slotm26" );
     $( '#slotm26').on( "mouseout", function( event ) {
       $('#slotm26').css('border','5px solid black');
       slot26.hide();
     });
 
-    var slot27 = $( "#info_slotm0" );
+    var slot27 = $( "#info_slotm27" );
     $( '#slotm27').on( "mouseover", function( event ) {
       $('#slotm27').css('border','5px solid red');
       slot27.show();
     });
 
-    var slot27 = $( "#info_slotm0" );
+    var slot27 = $( "#info_slotm27" );
     $( '#slotm27').on( "mouseout", function( event ) {
       $('#slotm27').css('border','5px solid black');
       slot27.hide();
     });
 
-    var slot28 = $( "#info_slotm0" );
+    var slot28 = $( "#info_slotm28" );
     $( '#slotm28').on( "mouseover", function( event ) {
       $('#slotm28').css('border','5px solid red');
       slot28.show();
     });
 
-    var slot28 = $( "#info_slotm0" );
+    var slot28 = $( "#info_slotm28" );
     $( '#slotm28').on( "mouseout", function( event ) {
       $('#slotm28').css('border','5px solid black');
       slot28.hide();
     });
 
-    var slot29 = $( "#info_slotm0" );
+    var slot29 = $( "#info_slotm29" );
     $( '#slotm29').on( "mouseover", function( event ) {
       $('#slotm29').css('border','5px solid red');
       slot29.show();
     });
 
-    var slot29 = $( "#info_slotm0" );
+    var slot29 = $( "#info_slotm29" );
     $( '#slotm29').on( "mouseout", function( event ) {
       $('#slotm29').css('border','5px solid black');
       slot29.hide();
