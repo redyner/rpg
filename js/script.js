@@ -2238,8 +2238,15 @@ function eventos_market(){
 
     var slot0 = $( "#info_slotm0" );
     $( '#slotm0').on( "mouseover", function( event ) {
+      //$('#slotm0').removeAttr('name');
+      //$('#slotm0').hide();
+      //$('#slotm0').css('background', 'transparent');
+      var gold = $(".gold");
+      gold.html("GOLD - "+9999);
       $('#slotm0').css('border','5px solid red');
+      $('#slotm0').css('background', 'rgb(116, 84, 42)');
       slot0.show();
+      //$('#slotm0').removeAttr('id');
     });
 
     var slot0 = $( "#info_slotm0" );
@@ -2610,8 +2617,7 @@ function eventos_market(){
             success: function (result)
             {
               console.log(result);
-              var gold = $(".gold");
-              gold.html("GOLD - "+result['gold']);
+              $(".gold").html("GOLD - "+result['gold']);
             }
             })
         }
@@ -2867,9 +2873,10 @@ function eventos_market(){
           success: function (result)
           {
             console.log(result)
-            var gold = $(".gold");
-            gold.html("GOLD - "+result['gold']);
+            $(".gold").html("GOLD - "+result['gold']);
             $('#slotm15').removeAttr('name');
+            $('#slotm15').removeAttr('id');
+
           }
           })
       }
