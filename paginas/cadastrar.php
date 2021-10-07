@@ -8,7 +8,7 @@
 </nav>
         
         <?php
-        include "conexao.php";
+        include 'functions.php';
         if(isset($_POST['cadastrar']))
         {
             $login = $_POST['login'];

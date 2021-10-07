@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include "conexao.php";
+include 'functions.php';
 
 $xp = $_POST['set_xp'];
 $id_personagem = $_SESSION['id_personagem'];
