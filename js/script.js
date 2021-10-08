@@ -2852,7 +2852,6 @@ function eventos_market() {
           console.log(result)
           $(".gold").html("GOLD - " + result['gold']);
           $('#slotm15').removeAttr('name');
-          $('#slotm15').hide();
           $('#slotm15').removeAttr('id');
 
         }
