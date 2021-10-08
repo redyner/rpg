@@ -72,13 +72,14 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
             $slot[$i]['id_inventario'] = $info_item['id_inventario'];
             $i++;
         }
-        
+  
         ?>
+        
     <?php
         for($i=0;$i<=14;$i++){
     ?>
 
-        <div id = 'sloti<?php if (isset($slot[$i])) echo $i ?>' name = '<?php if (isset($slot[$i])) echo $slot[$i]['nm_item'] ?>'  class='slot'  <?php if (isset($slot[$i]['equipado']) && $slot[$i]['equipado'] == 'S') echo "style='border: 5px solid red'" ?> ></div>
+        <div id = 'sloti<?php if (isset($slot[$i])) echo $i ?>' data-identificador="<?php if (isset($slot[$i])) echo $i ?>" name = '<?php if (isset($slot[$i])) echo $slot[$i]['nm_item'] ?>'  class='slot'  <?php if (isset($slot[$i]['equipado']) && $slot[$i]['equipado'] == 'S') echo "style='border: 5px solid red'" ?> ></div>
     
     <?php
         }
