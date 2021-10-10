@@ -283,7 +283,6 @@ function eventos_inventario() {
   $('.slot').on("mouseover", function (event) {
     var box = $(this).data("slot")
     var info = $(this).data("info")
-    var indice = $(this).data("indice")
     $(box).css('border', '5px solid grey');
     $(info).show();
   });
@@ -367,7 +366,6 @@ function eventos_forja() {
   $('.slotf').on("mouseover", function (event) {
     var box = $(this).data("slot")
     var info = $(this).data("info")
-    var indice = $(this).data("indice")
     $(box).css('border', '5px solid grey');
     $(info).show();
   });
