@@ -400,6 +400,10 @@ function eventos_forja() {
             int = result['int']
             dex = result['dex']
             ref = result['ref']
+            id_inventario = result['id_inventario']
+            equipado = result['equipado']
+            $('.avatar_item').attr("data-id_inventario", id_inventario)
+            $('.avatar_item').attr("data-equipado", equipado)
             $('.avatar_item').attr("name", result['nome'])
           }
         })
@@ -423,12 +427,41 @@ function eventos_forja() {
             int = result['int']
             dex = result['dex']
             ref = result['ref']
+            id_inventario = result['id_inventario']
+            equipado = result['equipado']
+            $('.avatar_item').attr("data-id_inventario", "")
+            $('.avatar_item').attr("data-equipado", "")
             $('.avatar_item').attr("name", "")
           }
         })
       } else slot[indice][1] = "S";
     }
   });
+
+  $('#refinar').on("click", function (event) {
+    var id_inventario = $('.avatar_item').data("id_inventario")
+    var equipado = $('.avatar_item').data("equipado")
+      refinar = confirm("Deseja refinar este item?")
+      if (refinar == true) {
+        $.ajax({
+          url: 'http://localhost/RPG/paginas/refinar.php',
+          method: 'POST',
+          data: {id_inventario: id_inventario, equipado: equipado },
+          dataType: 'json',
+          success: function (result) {
+            console.log(result)
+            nome = result['nome']
+            sta = result['sta']
+            str = result['str']
+            int = result['int']
+            dex = result['dex']
+            ref = result['ref']
+            id_inventario = result['id_inventario']
+            equipado = result['equipado']
+          }
+        })
+      }
+    });
 
 }
 

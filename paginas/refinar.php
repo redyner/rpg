@@ -8,7 +8,7 @@ $id_personagem = $_SESSION['id_personagem'];
 
 $id_inventario = $_POST['id_inventario'];
 
-$equipado = $_POST['equipado'];
+$selecionado = $_POST['equipado'];
 
 $sql = "SELECT it.nm_item nome, sta*(refino+1) sta, `str`*(refino+1) `str`, `int`*(refino+1) `int`, dex*(refino+1) dex, refino
 FROM rpg.inventarios i
@@ -24,8 +24,6 @@ $atributos['str'] = $equipamento['str'];
 $atributos['int'] = $equipamento['int'];
 $atributos['dex'] = $equipamento['dex'];
 $atributos['ref'] = $equipamento['refino'];
-$atributos['equipado'] = $equipado;
-$atributos['id_inventario'] = $id_inventario;
 
 $atributos_json = json_encode($atributos);
 echo json_encode($atributos);

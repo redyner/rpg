@@ -21,7 +21,7 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
 
             <div class="avatar_npc" id="ferreiro"></div>
             <button id="refinar">Refinar</button>
-        <div class="avatar_item" ></div>
+        <div class="avatar_item" data-id_inventario="" data-equipado=""></div>
 
     </div>
     <div id="selecao_item">
