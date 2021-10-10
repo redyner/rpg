@@ -176,110 +176,61 @@ window.addEventListener("load", eventos_dungeons);
 
 function eventos_dungeons() {
   // document.getElementsByClassName("dungeon").addEventListener("click",exibir_dungeons);
-  document.getElementById("floresta").addEventListener("click", inimigos_floresta);
-  document.getElementById("planice").addEventListener("click", inimigos_planice);
-  document.getElementById("ice").addEventListener("click", inimigos_ice);
-  document.getElementById("lava").addEventListener("click", inimigos_lava);
-  document.getElementById("gruta").addEventListener("click", inimigos_gruta);
+  $("#floresta").on("click", inimigos_floresta);
+  $("#planice").on("click", inimigos_planice);
+  $("#ice").on("click", inimigos_ice);
+  $("#lava").on("click", inimigos_lava);
+  $("#gruta").on("click", inimigos_gruta);
 }
 
 function exibir_dungeons() {
-  document.getElementById("selecao_inimigo").style.display = "block"
+  $("#selecao_inimigo").show()
 }
 
 function inimigos_floresta() {
 
-  document.getElementById("selecao_inimigo").style.display = "block"
-  document.getElementById("Javali").style.display = "block"
-  document.getElementById("Goblin").style.display = "none"
-  document.getElementById("Urso").style.display = "block"
-  document.getElementById("Snake").style.display = "block"
-  document.getElementById("Orc").style.display = "none"
-  document.getElementById("Ogro").style.display = "none"
-  document.getElementById("Lobo").style.display = "none"
-  document.getElementById("Ice_Warrior").style.display = "none"
-  document.getElementById("Ice_King").style.display = "none"
-  document.getElementById("Drag").style.display = "none"
-  document.getElementById("Cerberus").style.display = "none"
-  document.getElementById("Demon").style.display = "none"
-  document.getElementById("Blue_Drag").style.display = "none"
-  document.getElementById("Boss").style.display = "none"
+  $("#selecao_inimigo").show()
+
+  $('.avatar_inimigo_selecao').hide()
+  $("#Javali").show()
+  $("#Urso").show()
+  $("#Snake").show()
+
 }
 
 function inimigos_planice() {
 
-  document.getElementById("selecao_inimigo").style.display = "block"
-  document.getElementById("Javali").style.display = "none"
-  document.getElementById("Goblin").style.display = "block"
-  document.getElementById("Urso").style.display = "none"
-  document.getElementById("Snake").style.display = "none"
-  document.getElementById("Orc").style.display = "block"
-  document.getElementById("Ogro").style.display = "block"
-  document.getElementById("Lobo").style.display = "none"
-  document.getElementById("Ice_Warrior").style.display = "none"
-  document.getElementById("Ice_King").style.display = "none"
-  document.getElementById("Drag").style.display = "none"
-  document.getElementById("Cerberus").style.display = "none"
-  document.getElementById("Demon").style.display = "none"
-  document.getElementById("Blue_Drag").style.display = "none"
-  document.getElementById("Boss").style.display = "none"
+  $("#selecao_inimigo").show()
+  $('.avatar_inimigo_selecao').hide()
+  $("#Goblin").show()
+  $("#Orc").show()
+  $("#Ogro").show()
 }
 
 function inimigos_ice() {
 
-  document.getElementById("selecao_inimigo").style.display = "block"
-  document.getElementById("Javali").style.display = "none"
-  document.getElementById("Goblin").style.display = "none"
-  document.getElementById("Urso").style.display = "none"
-  document.getElementById("Snake").style.display = "none"
-  document.getElementById("Orc").style.display = "none"
-  document.getElementById("Ogro").style.display = "none"
-  document.getElementById("Lobo").style.display = "block"
-  document.getElementById("Ice_Warrior").style.display = "block"
-  document.getElementById("Ice_King").style.display = "block"
-  document.getElementById("Drag").style.display = "none"
-  document.getElementById("Cerberus").style.display = "none"
-  document.getElementById("Demon").style.display = "none"
-  document.getElementById("Blue_Drag").style.display = "none"
-  document.getElementById("Boss").style.display = "none"
+  $("#selecao_inimigo").show()
+  $('.avatar_inimigo_selecao').hide()
+  $("#Lobo").show()
+  $("#Ice_Warrior").show()
+  $("#Ice_King").show()
 }
 
 function inimigos_lava() {
 
-  document.getElementById("selecao_inimigo").style.display = "block"
-  document.getElementById("Javali").style.display = "none"
-  document.getElementById("Goblin").style.display = "none"
-  document.getElementById("Urso").style.display = "none"
-  document.getElementById("Snake").style.display = "none"
-  document.getElementById("Orc").style.display = "none"
-  document.getElementById("Ogro").style.display = "none"
-  document.getElementById("Lobo").style.display = "none"
-  document.getElementById("Ice_Warrior").style.display = "none"
-  document.getElementById("Ice_King").style.display = "none"
-  document.getElementById("Drag").style.display = "block"
-  document.getElementById("Cerberus").style.display = "block"
-  document.getElementById("Demon").style.display = "block"
-  document.getElementById("Blue_Drag").style.display = "none"
-  document.getElementById("Boss").style.display = "none"
+  $("#selecao_inimigo").show()
+  $('.avatar_inimigo_selecao').hide()
+  $("#Drag").show()
+  $("#Cerberus").show()
+  $("#Demon").show()
 }
 
 function inimigos_gruta() {
 
-  document.getElementById("selecao_inimigo").style.display = "block"
-  document.getElementById("Javali").style.display = "none"
-  document.getElementById("Goblin").style.display = "none"
-  document.getElementById("Urso").style.display = "none"
-  document.getElementById("Snake").style.display = "none"
-  document.getElementById("Orc").style.display = "none"
-  document.getElementById("Ogro").style.display = "none"
-  document.getElementById("Lobo").style.display = "none"
-  document.getElementById("Ice_Warrior").style.display = "none"
-  document.getElementById("Ice_King").style.display = "none"
-  document.getElementById("Drag").style.display = "none"
-  document.getElementById("Cerberus").style.display = "none"
-  document.getElementById("Demon").style.display = "none"
-  document.getElementById("Blue_Drag").style.display = "block"
-  document.getElementById("Boss").style.display = "block"
+  $("#selecao_inimigo").show()
+  $('.avatar_inimigo_selecao').hide()
+  $("#Blue_Drag").show()
+  $("#Boss").show()
 }
 
 ///////////////////////////////////////////////////////////////////////////////
