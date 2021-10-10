@@ -259,6 +259,16 @@ $('td[name^="tcol"]' )   // matches those that begin with 'tcol'
 $('td[name$="tcol"]' )   // matches those that end with 'tcol'
 $('td[name*="tcol"]' )   // matches those that contain 'tcol'
 
+//Eventos Jquery
+
+    //$('#slotm0').removeAttr('name');
+    //$('#slotm0').hide();
+    //$('#slotm0').css('background', 'transparent');
+    // var gold = $(".gold");
+    // gold.html("GOLD - "+9999);
+    // $('#slotm0').css('background', 'rgb(116, 84, 42)');
+    //$('#slotm0').removeAttr('id');
+
 
 
 

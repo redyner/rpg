@@ -329,167 +329,34 @@ window.addEventListener("load", eventos_inventario)
 
 function eventos_inventario() {
 
-  $(".slot").on("click",function (){
-    var identificador = $(this).data("identificador")
-    alert(identificador);
-  })
+  // $(".slot").on("click",function (){
+  //   var slot = $(this).data("slot")
+  //   var info = $(this).data("info")
+  //   alert(slot);
+  //   alert(info);
+  // })
 
-  var slot0 = $("#info_sloti0");
-  $('#sloti0').on("mouseover", function (event) {
-    slot0.show();
+  $('.slot').on("mouseover", function (event) {
+    var slot = $(this).data("slot")
+    var info = $(this).data("info")
+    $(slot).css('border', '5px solid grey');
+    $(info).show();
   });
 
-  var slot0 = $("#info_sloti0");
-  $('#sloti0').on("mouseout", function (event) {
-    slot0.hide();
+  $('.slot').on("mouseout", function (event) {
+    var slot = $(this).data("slot")
+    var info = $(this).data("info")
+    $(slot).css('border', '5px solid black');
+    $(info).hide();
   });
 
-  var slot1 = $("#info_sloti1");
-  $('#sloti1').on("mouseover", function (event) {
-    slot1.show();
-  });
-
-  var slot1 = $("#info_sloti1");
-  $('#sloti1').on("mouseout", function (event) {
-    slot1.hide();
-  });
-
-  var slot2 = $("#info_sloti2");
-  $('#sloti2').on("mouseover", function (event) {
-    slot2.show();
-  });
-
-  var slot2 = $("#info_sloti2");
-  $('#sloti2').on("mouseout", function (event) {
-    slot2.hide();
-  });
-
-  var slot3 = $("#info_sloti3");
-  $('#sloti3').on("mouseover", function (event) {
-    slot3.show();
-  });
-
-  var slot3 = $("#info_sloti3");
-  $('#sloti3').on("mouseout", function (event) {
-    slot3.hide();
-  });
-
-  var slot4 = $("#info_sloti4");
-  $('#sloti4').on("mouseover", function (event) {
-    slot4.show();
-  });
-
-  var slot4 = $("#info_sloti4");
-  $('#sloti4').on("mouseout", function (event) {
-    slot4.hide();
-  });
-
-  var slot5 = $("#info_sloti5");
-  $('#sloti5').on("mouseover", function (event) {
-    slot5.show();
-  });
-
-  var slot5 = $("#info_sloti5");
-  $('#sloti5').on("mouseout", function (event) {
-    slot5.hide();
-  });
-
-  var slot6 = $("#info_sloti6");
-  $('#sloti6').on("mouseover", function (event) {
-    slot6.show();
-  });
-
-  var slot6 = $("#info_sloti6");
-  $('#sloti6').on("mouseout", function (event) {
-    slot6.hide();
-  });
-
-  var slot7 = $("#info_sloti7");
-  $('#sloti7').on("mouseover", function (event) {
-    slot7.show();
-  });
-
-  var slot7 = $("#info_sloti7");
-  $('#sloti7').on("mouseout", function (event) {
-    slot7.hide();
-  });
-
-  var slot8 = $("#info_sloti8");
-  $('#sloti8').on("mouseover", function (event) {
-    slot8.show();
-  });
-
-  var slot8 = $("#info_sloti8");
-  $('#sloti8').on("mouseout", function (event) {
-    slot8.hide();
-  });
-
-  var slot9 = $("#info_sloti9");
-  $('#sloti9').on("mouseover", function (event) {
-    slot9.show();
-  });
-
-  var slot9 = $("#info_sloti9");
-  $('#sloti9').on("mouseout", function (event) {
-    slot9.hide();
-  });
-
-  var slot10 = $("#info_sloti10");
-  $('#sloti10').on("mouseover", function (event) {
-    slot10.show();
-  });
-
-  var slot10 = $("#info_sloti10");
-  $('#sloti10').on("mouseout", function (event) {
-    slot10.hide();
-  });
-
-  var slot11 = $("#info_sloti11");
-  $('#sloti11').on("mouseover", function (event) {
-    slot11.show();
-  });
-
-  var slot11 = $("#info_sloti11");
-  $('#sloti11').on("mouseout", function (event) {
-    slot11.hide();
-  });
-
-  var slot12 = $("#info_sloti12");
-  $('#sloti12').on("mouseover", function (event) {
-    slot12.show();
-  });
-
-  var slot12 = $("#info_sloti12");
-  $('#sloti12').on("mouseout", function (event) {
-    slot12.hide();
-  });
-
-  var slot13 = $("#info_sloti13");
-  $('#sloti13').on("mouseover", function (event) {
-    slot13.show();
-  });
-
-  var slot13 = $("#info_sloti13");
-  $('#sloti13').on("mouseout", function (event) {
-    slot13.hide();
-  });
-
-  var slot14 = $("#info_sloti14");
-  $('#sloti14').on("mouseover", function (event) {
-    slot14.show();
-  });
-
-  var slot14 = $("#info_sloti14");
-  $('#sloti14').on("mouseout", function (event) {
-    slot14.hide();
-  });
 
   $('#sloti0').on("click", function (event) {
     if (slot[0][1] == "N") slot[0][1] = false
     if (slot[0][1] == false) {
       slot[0][1] = confirm("Deseja equipar este item?")
       if (slot[0][1] == true) {
-        $('#sloti0').css('border', '5px solid red');
+        $(slot).css('border', '5px solid grey');
         slot[0][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
@@ -541,7 +408,7 @@ function eventos_inventario() {
     if (slot[1][1] == false) {
       slot[1][1] = confirm("Deseja equipar este item?")
       if (slot[1][1] == true) {
-        $('#sloti1').css('border', '5px solid red');
+        $('#sloti1').css('border', '5px solid grey');
         slot[1][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
@@ -593,7 +460,7 @@ function eventos_inventario() {
     if (slot[2][1] == false) {
       slot[2][1] = confirm("Deseja equipar este item?")
       if (slot[2][1] == true) {
-        $('#sloti2').css('border', '5px solid red');
+        $('#sloti2').css('border', '5px solid grey');
         slot[2][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
@@ -645,7 +512,7 @@ function eventos_inventario() {
     if (slot[3][1] == false) {
       slot[3][1] = confirm("Deseja equipar este item?")
       if (slot[3][1] == true) {
-        $('#sloti3').css('border', '5px solid red');
+        $('#sloti3').css('border', '5px solid grey');
         slot[3][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
@@ -697,7 +564,7 @@ function eventos_inventario() {
     if (slot[4][1] == false) {
       slot[4][1] = confirm("Deseja equipar este item?")
       if (slot[4][1] == true) {
-        $('#sloti4').css('border', '5px solid red');
+        $('#sloti4').css('border', '5px solid grey');
         slot[4][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
@@ -749,7 +616,7 @@ function eventos_inventario() {
     if (slot[5][1] == false) {
       slot[5][1] = confirm("Deseja equipar este item?")
       if (slot[5][1] == true) {
-        $('#sloti5').css('border', '5px solid red');
+        $('#sloti5').css('border', '5px solid grey');
         slot[5][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
@@ -801,7 +668,7 @@ function eventos_inventario() {
     if (slot[6][1] == false) {
       slot[6][1] = confirm("Deseja equipar este item?")
       if (slot[6][1] == true) {
-        $('#sloti6').css('border', '5px solid red');
+        $('#sloti6').css('border', '5px solid grey');
         slot[6][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
@@ -853,7 +720,7 @@ function eventos_inventario() {
     if (slot[7][1] == false) {
       slot[7][1] = confirm("Deseja equipar este item?")
       if (slot[7][1] == true) {
-        $('#sloti7').css('border', '5px solid red');
+        $('#sloti7').css('border', '5px solid grey');
         slot[7][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
@@ -905,7 +772,7 @@ function eventos_inventario() {
     if (slot[8][1] == false) {
       slot[8][1] = confirm("Deseja equipar este item?")
       if (slot[8][1] == true) {
-        $('#sloti8').css('border', '5px solid red');
+        $('#sloti8').css('border', '5px solid grey');
         slot[8][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
@@ -957,7 +824,7 @@ function eventos_inventario() {
     if (slot[9][1] == false) {
       slot[9][1] = confirm("Deseja equipar este item?")
       if (slot[9][1] == true) {
-        $('#sloti9').css('border', '5px solid red');
+        $('#sloti9').css('border', '5px solid grey');
         slot[9][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
@@ -1009,7 +876,7 @@ function eventos_inventario() {
     if (slot[10][1] == false) {
       slot[10][1] = confirm("Deseja equipar este item?")
       if (slot[10][1] == true) {
-        $('#sloti10').css('border', '5px solid red');
+        $('#sloti10').css('border', '5px solid grey');
         slot[10][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
@@ -1061,7 +928,7 @@ function eventos_inventario() {
     if (slot[11][1] == false) {
       slot[11][1] = confirm("Deseja equipar este item?")
       if (slot[11][1] == true) {
-        $('#sloti11').css('border', '5px solid red');
+        $('#sloti11').css('border', '5px solid grey');
         slot[11][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
@@ -1113,7 +980,7 @@ function eventos_inventario() {
     if (slot[12][1] == false) {
       slot[12][1] = confirm("Deseja equipar este item?")
       if (slot[12][1] == true) {
-        $('#sloti12').css('border', '5px solid red');
+        $('#sloti12').css('border', '5px solid grey');
         slot[12][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
@@ -1165,7 +1032,7 @@ function eventos_inventario() {
     if (slot[13][1] == false) {
       slot[13][1] = confirm("Deseja equipar este item?")
       if (slot[13][1] == true) {
-        $('#sloti13').css('border', '5px solid red');
+        $('#sloti13').css('border', '5px solid grey');
         slot[13][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
@@ -1217,7 +1084,7 @@ function eventos_inventario() {
     if (slot[14][1] == false) {
       slot[14][1] = confirm("Deseja equipar este item?")
       if (slot[14][1] == true) {
-        $('#sloti14').css('border', '5px solid red');
+        $('#sloti14').css('border', '5px solid grey');
         slot[14][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
@@ -1278,162 +1145,12 @@ window.addEventListener("load", eventos_forja)
 
 function eventos_forja() {
 
-  var slot0 = $("#info_slotf0");
-  $('#slotf0').on("mouseover", function (event) {
-    slot0.show();
-  });
-
-  var slot0 = $("#info_slotf0");
-  $('#slotf0').on("mouseout", function (event) {
-    slot0.hide();
-  });
-
-  var slot1 = $("#info_slotf1");
-  $('#slotf1').on("mouseover", function (event) {
-    slot1.show();
-  });
-
-  var slot1 = $("#info_slotf1");
-  $('#slotf1').on("mouseout", function (event) {
-    slot1.hide();
-  });
-
-  var slot2 = $("#info_slotf2");
-  $('#slotf2').on("mouseover", function (event) {
-    slot2.show();
-  });
-
-  var slot2 = $("#info_slotf2");
-  $('#slotf2').on("mouseout", function (event) {
-    slot2.hide();
-  });
-
-  var slot3 = $("#info_slotf3");
-  $('#slotf3').on("mouseover", function (event) {
-    slot3.show();
-  });
-
-  var slot3 = $("#info_slotf3");
-  $('#slotf3').on("mouseout", function (event) {
-    slot3.hide();
-  });
-
-  var slot4 = $("#info_slotf4");
-  $('#slotf4').on("mouseover", function (event) {
-    slot4.show();
-  });
-
-  var slot4 = $("#info_slotf4");
-  $('#slotf4').on("mouseout", function (event) {
-    slot4.hide();
-  });
-
-  var slot5 = $("#info_slotf5");
-  $('#slotf5').on("mouseover", function (event) {
-    slot5.show();
-  });
-
-  var slot5 = $("#info_slotf5");
-  $('#slotf5').on("mouseout", function (event) {
-    slot5.hide();
-  });
-
-  var slot6 = $("#info_slotf6");
-  $('#slotf6').on("mouseover", function (event) {
-    slot6.show();
-  });
-
-  var slot6 = $("#info_slotf6");
-  $('#slotf6').on("mouseout", function (event) {
-    slot6.hide();
-  });
-
-  var slot7 = $("#info_slotf7");
-  $('#slotf7').on("mouseover", function (event) {
-    slot7.show();
-  });
-
-  var slot7 = $("#info_slotf7");
-  $('#slotf7').on("mouseout", function (event) {
-    slot7.hide();
-  });
-
-  var slot8 = $("#info_slotf8");
-  $('#slotf8').on("mouseover", function (event) {
-    slot8.show();
-  });
-
-  var slot8 = $("#info_slotf8");
-  $('#slotf8').on("mouseout", function (event) {
-    slot8.hide();
-  });
-
-  var slot9 = $("#info_slotf9");
-  $('#slotf9').on("mouseover", function (event) {
-    slot9.show();
-  });
-
-  var slot9 = $("#info_slotf9");
-  $('#slotf9').on("mouseout", function (event) {
-    slot9.hide();
-  });
-
-  var slot10 = $("#info_slotf10");
-  $('#slotf10').on("mouseover", function (event) {
-    slot10.show();
-  });
-
-  var slot10 = $("#info_slotf10");
-  $('#slotf10').on("mouseout", function (event) {
-    slot10.hide();
-  });
-
-  var slot11 = $("#info_slotf11");
-  $('#slotf11').on("mouseover", function (event) {
-    slot11.show();
-  });
-
-  var slot11 = $("#info_slotf11");
-  $('#slotf11').on("mouseout", function (event) {
-    slot11.hide();
-  });
-
-  var slot12 = $("#info_slotf12");
-  $('#slotf12').on("mouseover", function (event) {
-    slot12.show();
-  });
-
-  var slot12 = $("#info_slotf12");
-  $('#slotf12').on("mouseout", function (event) {
-    slot12.hide();
-  });
-
-  var slot13 = $("#info_slotf13");
-  $('#slotf13').on("mouseover", function (event) {
-    slot13.show();
-  });
-
-  var slot13 = $("#info_slotf13");
-  $('#slotf13').on("mouseout", function (event) {
-    slot13.hide();
-  });
-
-  var slot14 = $("#info_slotf14");
-  $('#slotf14').on("mouseover", function (event) {
-    slot14.show();
-  });
-
-  var slot14 = $("#info_slotf14");
-  $('#slotf14').on("mouseout", function (event) {
-    slot14.hide();
-  });
-
   $('#slotf0').on("click", function (event) {
     if (slot[0][1] == "N") slot[0][1] = false
     if (slot[0][1] == false) {
       slot[0][1] = confirm("Deseja selecionar este item?")
       if (slot[0][1] == true) {
-        $('#slotf0').css('border', '5px solid red');
+        $('#slotf0').css('border', '5px solid grey');
         slot[0][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itensf.php',
@@ -1483,7 +1200,7 @@ function eventos_forja() {
     if (slot[1][1] == false) {
       slot[1][1] = confirm("Deseja selecionar este item?")
       if (slot[1][1] == true) {
-        $('#slotf1').css('border', '5px solid red');
+        $('#slotf1').css('border', '5px solid grey');
         slot[1][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
@@ -1535,7 +1252,7 @@ function eventos_forja() {
     if (slot[2][1] == false) {
       slot[2][1] = confirm("Deseja selecionar este item?")
       if (slot[2][1] == true) {
-        $('#slotf2').css('border', '5px solid red');
+        $('#slotf2').css('border', '5px solid grey');
         slot[2][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
@@ -1587,7 +1304,7 @@ function eventos_forja() {
     if (slot[3][1] == false) {
       slot[3][1] = confirm("Deseja selecionar este item?")
       if (slot[3][1] == true) {
-        $('#slotf3').css('border', '5px solid red');
+        $('#slotf3').css('border', '5px solid grey');
         slot[3][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
@@ -1639,7 +1356,7 @@ function eventos_forja() {
     if (slot[4][1] == false) {
       slot[4][1] = confirm("Deseja selecionar este item?")
       if (slot[4][1] == true) {
-        $('#slotf4').css('border', '5px solid red');
+        $('#slotf4').css('border', '5px solid grey');
         slot[4][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
@@ -1691,7 +1408,7 @@ function eventos_forja() {
     if (slot[5][1] == false) {
       slot[5][1] = confirm("Deseja selecionar este item?")
       if (slot[5][1] == true) {
-        $('#slotf5').css('border', '5px solid red');
+        $('#slotf5').css('border', '5px solid grey');
         slot[5][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
@@ -1743,7 +1460,7 @@ function eventos_forja() {
     if (slot[6][1] == false) {
       slot[6][1] = confirm("Deseja selecionar este item?")
       if (slot[6][1] == true) {
-        $('#slotf6').css('border', '5px solid red');
+        $('#slotf6').css('border', '5px solid grey');
         slot[6][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
@@ -1795,7 +1512,7 @@ function eventos_forja() {
     if (slot[7][1] == false) {
       slot[7][1] = confirm("Deseja selecionar este item?")
       if (slot[7][1] == true) {
-        $('#slotf7').css('border', '5px solid red');
+        $('#slotf7').css('border', '5px solid grey');
         slot[7][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
@@ -1847,7 +1564,7 @@ function eventos_forja() {
     if (slot[8][1] == false) {
       slot[8][1] = confirm("Deseja selecionar este item?")
       if (slot[8][1] == true) {
-        $('#slotf8').css('border', '5px solid red');
+        $('#slotf8').css('border', '5px solid grey');
         slot[8][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
@@ -1899,7 +1616,7 @@ function eventos_forja() {
     if (slot[9][1] == false) {
       slot[9][1] = confirm("Deseja selecionar este item?")
       if (slot[9][1] == true) {
-        $('#slotf9').css('border', '5px solid red');
+        $('#slotf9').css('border', '5px solid grey');
         slot[9][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
@@ -1951,7 +1668,7 @@ function eventos_forja() {
     if (slot[10][1] == false) {
       slot[10][1] = confirm("Deseja selecionar este item?")
       if (slot[10][1] == true) {
-        $('#slotf10').css('border', '5px solid red');
+        $('#slotf10').css('border', '5px solid grey');
         slot[10][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
@@ -2003,7 +1720,7 @@ function eventos_forja() {
     if (slot[11][1] == false) {
       slot[11][1] = confirm("Deseja selecionar este item?")
       if (slot[11][1] == true) {
-        $('#slotf11').css('border', '5px solid red');
+        $('#slotf11').css('border', '5px solid grey');
         slot[11][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
@@ -2055,7 +1772,7 @@ function eventos_forja() {
     if (slot[12][1] == false) {
       slot[12][1] = confirm("Deseja selecionar este item?")
       if (slot[12][1] == true) {
-        $('#slotf12').css('border', '5px solid red');
+        $('#slotf12').css('border', '5px solid grey');
         slot[12][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
@@ -2107,7 +1824,7 @@ function eventos_forja() {
     if (slot[13][1] == false) {
       slot[13][1] = confirm("Deseja selecionar este item?")
       if (slot[13][1] == true) {
-        $('#slotf13').css('border', '5px solid red');
+        $('#slotf13').css('border', '5px solid grey');
         slot[13][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
@@ -2159,7 +1876,7 @@ function eventos_forja() {
     if (slot[14][1] == false) {
       slot[14][1] = confirm("Deseja selecionar este item?")
       if (slot[14][1] == true) {
-        $('#slotf14').css('border', '5px solid red');
+        $('#slotf14').css('border', '5px solid grey');
         slot[14][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
@@ -2239,377 +1956,34 @@ function eventos_market() {
     }
   });
 
-
-
-  var slot0 = $("#info_slotm0");
-  $('#slotm0').on("mouseover", function (event) {
-    //$('#slotm0').removeAttr('name');
-    //$('#slotm0').hide();
-    //$('#slotm0').css('background', 'transparent');
-    // var gold = $(".gold");
-    // gold.html("GOLD - "+9999);
-    // $('#slotm0').css('background', 'rgb(116, 84, 42)');
-    //$('#slotm0').removeAttr('id');
-    $('#slotm0').css('border', '5px solid red');
-    slot0.show();
-
+  $('.sloti').on("mouseover", function (event) {
+    var slot = $(this).data("slot")
+    var info = $(this).data("info")
+    $(slot).css('border', '5px solid grey');
+    $(info).show();
   });
 
-  var slot0 = $("#info_slotm0");
-  $('#slotm0').on("mouseout", function (event) {
-    $('#slotm0').css('border', '5px solid black');
-    slot0.hide();
+  $('.sloti').on("mouseout", function (event) {
+    var slot = $(this).data("slot")
+    var info = $(this).data("info")
+    $(slot).css('border', '5px solid black');
+    $(info).hide();
   });
 
-  var slot1 = $("#info_slotm1");
-  $('#slotm1').on("mouseover", function (event) {
-    $('#slotm1').css('border', '5px solid red');
-    slot1.show();
+  $('.slotm').on("mouseover", function (event) {
+    var slot = $(this).data("slot")
+    var info = $(this).data("info")
+    $(slot).css('border', '5px solid grey');
+    $(info).show();
   });
 
-  var slot1 = $("#info_slotm1");
-  $('#slotm1').on("mouseout", function (event) {
-    $('#slotm1').css('border', '5px solid black');
-    slot1.hide();
+  $('.slotm').on("mouseout", function (event) {
+    var slot = $(this).data("slot")
+    var info = $(this).data("info")
+    $(slot).css('border', '5px solid black');
+    $(info).hide();
   });
 
-  var slot2 = $("#info_slotm2");
-  $('#slotm2').on("mouseover", function (event) {
-    $('#slotm2').css('border', '5px solid red');
-    slot2.show();
-  });
-
-  var slot2 = $("#info_slotm2");
-  $('#slotm2').on("mouseout", function (event) {
-    $('#slotm2').css('border', '5px solid black');
-    slot2.hide();
-  });
-
-  var slot3 = $("#info_slotm3");
-  $('#slotm3').on("mouseover", function (event) {
-    $('#slotm3').css('border', '5px solid red');
-    slot3.show();
-  });
-
-  var slot3 = $("#info_slotm3");
-  $('#slotm3').on("mouseout", function (event) {
-    $('#slotm3').css('border', '5px solid black');
-
-    slot3.hide();
-  });
-
-  var slot4 = $("#info_slotm4");
-  $('#slotm4').on("mouseover", function (event) {
-    $('#slotm4').css('border', '5px solid red');
-    slot4.show();
-  });
-
-  var slot4 = $("#info_slotm4");
-  $('#slotm4').on("mouseout", function (event) {
-    $('#slotm4').css('border', '5px solid black');
-    slot4.hide();
-  });
-
-  var slot5 = $("#info_slotm5");
-  $('#slotm5').on("mouseover", function (event) {
-    $('#slotm5').css('border', '5px solid red');
-    slot5.show();
-  });
-
-  var slot5 = $("#info_slotm5");
-  $('#slotm5').on("mouseout", function (event) {
-    $('#slotm5').css('border', '5px solid black');
-
-    slot5.hide();
-  });
-
-  var slot6 = $("#info_slotm6");
-  $('#slotm6').on("mouseover", function (event) {
-    $('#slotm6').css('border', '5px solid red');
-    slot6.show();
-  });
-
-  var slot6 = $("#info_slotm6");
-  $('#slotm6').on("mouseout", function (event) {
-    $('#slotm6').css('border', '5px solid black');
-    slot6.hide();
-  });
-
-  var slot7 = $("#info_slotm7");
-  $('#slotm7').on("mouseover", function (event) {
-    $('#slotm7').css('border', '5px solid red');
-    slot7.show();
-  });
-
-  var slot7 = $("#info_slotm7");
-  $('#slotm7').on("mouseout", function (event) {
-    $('#slotm7').css('border', '5px solid black');
-    slot7.hide();
-  });
-
-  var slot8 = $("#info_slotm8");
-  $('#slotm8').on("mouseover", function (event) {
-    $('#slotm8').css('border', '5px solid red');
-    slot8.show();
-  });
-
-  var slot8 = $("#info_slotm8");
-  $('#slotm8').on("mouseout", function (event) {
-    $('#slotm8').css('border', '5px solid black');
-    slot8.hide();
-  });
-
-  var slot9 = $("#info_slotm9");
-  $('#slotm9').on("mouseover", function (event) {
-    $('#slotm9').css('border', '5px solid red');
-    slot9.show();
-  });
-
-  var slot9 = $("#info_slotm9");
-  $('#slotm9').on("mouseout", function (event) {
-    $('#slotm9').css('border', '5px solid black');
-    slot9.hide();
-  });
-
-  var slot10 = $("#info_slotm10");
-  $('#slotm10').on("mouseover", function (event) {
-    $('#slotm10').css('border', '5px solid red');
-    slot10.show();
-  });
-
-  var slot10 = $("#info_slotm10");
-  $('#slotm10').on("mouseout", function (event) {
-    $('#slotm10').css('border', '5px solid black');
-    slot10.hide();
-  });
-
-  var slot11 = $("#info_slotm11");
-  $('#slotm11').on("mouseover", function (event) {
-    $('#slotm11').css('border', '5px solid red');
-    slot11.show();
-  });
-
-  var slot11 = $("#info_slotm11");
-  $('#slotm11').on("mouseout", function (event) {
-    $('#slotm11').css('border', '5px solid black');
-    slot11.hide();
-  });
-
-  var slot12 = $("#info_slotm12");
-  $('#slotm12').on("mouseover", function (event) {
-    $('#slotm12').css('border', '5px solid red');
-    slot12.show();
-  });
-
-  var slot12 = $("#info_slotm12");
-  $('#slotm12').on("mouseout", function (event) {
-    $('#slotm12').css('border', '5px solid black');
-    slot12.hide();
-  });
-
-  var slot13 = $("#info_slotm13");
-  $('#slotm13').on("mouseover", function (event) {
-    $('#slotm13').css('border', '5px solid red');
-    slot13.show();
-  });
-
-  var slot13 = $("#info_slotm13");
-  $('#slotm13').on("mouseout", function (event) {
-    $('#slotm13').css('border', '5px solid black');
-    slot13.hide();
-  });
-
-  var slot14 = $("#info_slotm14");
-  $('#slotm14').on("mouseover", function (event) {
-    $('#slotm14').css('border', '5px solid red');
-    slot14.show();
-  });
-
-  var slot14 = $("#info_slotm14");
-  $('#slotm14').on("mouseout", function (event) {
-    $('#slotm14').css('border', '5px solid black');
-    slot14.hide();
-  });
-
-  var slot15 = $("#info_slotm15");
-  $('#slotm15').on("mouseover", function (event) {
-    $('#slotm15').css('border', '5px solid red');
-    slot15.show();
-  });
-
-  var slot15 = $("#info_slotm15");
-  $('#slotm15').on("mouseout", function (event) {
-    $('#slotm15').css('border', '5px solid black');
-    slot15.hide();
-  });
-
-  var slot16 = $("#info_slotm16");
-  $('#slotm16').on("mouseover", function (event) {
-    $('#slotm16').css('border', '5px solid red');
-    slot16.show();
-  });
-
-  var slot16 = $("#info_slotm16");
-  $('#slotm16').on("mouseout", function (event) {
-    $('#slotm16').css('border', '5px solid black');
-    slot16.hide();
-  });
-
-  var slot17 = $("#info_slotm17");
-  $('#slotm17').on("mouseover", function (event) {
-    $('#slotm17').css('border', '5px solid red');
-    slot17.show();
-  });
-
-  var slot17 = $("#info_slotm17");
-  $('#slotm17').on("mouseout", function (event) {
-    $('#slotm17').css('border', '5px solid black');
-    slot17.hide();
-  });
-
-  var slot18 = $("#info_slotm18");
-  $('#slotm18').on("mouseover", function (event) {
-    $('#slotm18').css('border', '5px solid red');
-    slot18.show();
-  });
-
-  var slot18 = $("#info_slotm18");
-  $('#slotm18').on("mouseout", function (event) {
-    $('#slotm18').css('border', '5px solid black');
-    slot18.hide();
-  });
-
-  var slot19 = $("#info_slotm19");
-  $('#slotm19').on("mouseover", function (event) {
-    $('#slotm19').css('border', '5px solid red');
-    slot19.show();
-  });
-
-  var slot19 = $("#info_slotm19");
-  $('#slotm19').on("mouseout", function (event) {
-    $('#slotm19').css('border', '5px solid black');
-    slot19.hide();
-  });
-
-  var slot20 = $("#info_slotm20");
-  $('#slotm20').on("mouseover", function (event) {
-    $('#slotm20').css('border', '5px solid red');
-    slot20.show();
-  });
-
-  var slot20 = $("#info_slotm20");
-  $('#slotm20').on("mouseout", function (event) {
-    $('#slotm20').css('border', '5px solid black');
-    slot20.hide();
-  });
-
-  var slot21 = $("#info_slotm21");
-  $('#slotm21').on("mouseover", function (event) {
-    $('#slotm21').css('border', '5px solid red');
-    slot21.show();
-  });
-
-  var slot21 = $("#info_slotm21");
-  $('#slotm21').on("mouseout", function (event) {
-    $('#slotm21').css('border', '5px solid black');
-    slot21.hide();
-  });
-
-  var slot22 = $("#info_slotm22");
-  $('#slotm22').on("mouseover", function (event) {
-    $('#slotm22').css('border', '5px solid red');
-    slot22.show();
-  });
-
-  var slot22 = $("#info_slotm22");
-  $('#slotm22').on("mouseout", function (event) {
-    $('#slotm22').css('border', '5px solid black');
-    slot22.hide();
-  });
-
-  var slot23 = $("#info_slotm23");
-  $('#slotm23').on("mouseover", function (event) {
-    $('#slotm23').css('border', '5px solid red');
-    slot23.show();
-  });
-
-  var slot23 = $("#info_slotm23");
-  $('#slotm23').on("mouseout", function (event) {
-    $('#slotm23').css('border', '5px solid black');
-    slot23.hide();
-  });
-
-  var slot24 = $("#info_slotm24");
-  $('#slotm24').on("mouseover", function (event) {
-    $('#slotm24').css('border', '5px solid red');
-    slot24.show();
-  });
-
-  var slot24 = $("#info_slotm24");
-  $('#slotm24').on("mouseout", function (event) {
-    $('#slotm24').css('border', '5px solid black');
-    slot24.hide();
-  });
-
-  var slot25 = $("#info_slotm25");
-  $('#slotm25').on("mouseover", function (event) {
-    $('#slotm25').css('border', '5px solid red');
-    slot25.show();
-  });
-
-  var slot25 = $("#info_slotm25");
-  $('#slotm25').on("mouseout", function (event) {
-    $('#slotm25').css('border', '5px solid black');
-    slot25.hide();
-  });
-
-  var slot26 = $("#info_slotm26");
-  $('#slotm26').on("mouseover", function (event) {
-    $('#slotm26').css('border', '5px solid red');
-    slot26.show();
-  });
-
-  var slot26 = $("#info_slotm26");
-  $('#slotm26').on("mouseout", function (event) {
-    $('#slotm26').css('border', '5px solid black');
-    slot26.hide();
-  });
-
-  var slot27 = $("#info_slotm27");
-  $('#slotm27').on("mouseover", function (event) {
-    $('#slotm27').css('border', '5px solid red');
-    slot27.show();
-  });
-
-  var slot27 = $("#info_slotm27");
-  $('#slotm27').on("mouseout", function (event) {
-    $('#slotm27').css('border', '5px solid black');
-    slot27.hide();
-  });
-
-  var slot28 = $("#info_slotm28");
-  $('#slotm28').on("mouseover", function (event) {
-    $('#slotm28').css('border', '5px solid red');
-    slot28.show();
-  });
-
-  var slot28 = $("#info_slotm28");
-  $('#slotm28').on("mouseout", function (event) {
-    $('#slotm28').css('border', '5px solid black');
-    slot28.hide();
-  });
-
-  var slot29 = $("#info_slotm29");
-  $('#slotm29').on("mouseover", function (event) {
-    $('#slotm29').css('border', '5px solid red');
-    slot29.show();
-  });
-
-  var slot29 = $("#info_slotm29");
-  $('#slotm29').on("mouseout", function (event) {
-    $('#slotm29').css('border', '5px solid black');
-    slot29.hide();
-  });
 
   $('#slotm0').on("click", function (event) {
     var compra = confirm("Deseja comprar este item?")
