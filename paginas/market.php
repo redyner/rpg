@@ -25,7 +25,7 @@
  
 
         </div>
-        <div id="selecao_item">
+        <div id="comprar_item">
         <div id='texto_inventario'>Market</div>
 
         <?php 
@@ -55,11 +55,13 @@
         for($i=0;$i<=14;$i++){
     ?>
 
-        <div id = "<?php if (isset($slot[$i])) echo 'slotm'.$i ?>" data-info="<?php if (isset($slot[$i])) echo '#info_slotm'.$i ?>" data-slot ="<?php if (isset($slot[$i])) echo '#slotm'.$i ?>" data-id_inventario ="<?php if (isset($slot[$i]['id_inventario'])) echo $slot[$i]['id_inventario'] ?>" data-indice ="<?php if (isset($slot[$i])) echo $i ?>" name = '<?php if (isset($slot[$i])) echo $slot[$i]['nm_item'] ?>'  class='slotm' ></div>
+        <div id = "<?php if (isset($slot[$i])) echo 'slotm'.$i ?>" data-info="<?php if (isset($slot[$i])) echo '#info_slotm'.$i ?>" data-id_inventario ="<?php if (isset($slot[$i]['id_inventario'])) echo $slot[$i]['id_inventario'] ?>" data-indice ="<?php echo $i ?>" name = '<?php if (isset($slot[$i])) echo $slot[$i]['nm_item'] ?>'  class= "<?php echo isset($slot[$i]) ? 'slotm' : 'slot_empty' ?>" ></div>
     
     <?php
         }
     ?>
+    </div>
+    <div id="vender_item">
 
     <?php 
         $i=15;
@@ -93,7 +95,7 @@
         for($i=15;$i<=29;$i++){
     ?>
 
-        <div id = "<?php if (isset($slot[$i])) echo 'slotm'.$i ?>" data-info="<?php if (isset($slot[$i])) echo '#info_slotm'.$i ?>" data-slot ="<?php if (isset($slot[$i])) echo '#slotm'.$i ?>" data-id_inventario ="<?php if (isset($slot[$i]['id_inventario'])) echo $slot[$i]['id_inventario'] ?>" data-indice ="<?php if (isset($slot[$i])) echo $i ?>" name = "<?php if (isset($slot[$i])) echo $slot[$i]['nm_item'] ?>"  class='sloti'  <?php if (isset($slot[$i]['equipado']) && $slot[$i]['equipado'] == 'S') echo "style='border: 5px solid red'" ?> ></div>
+        <div id = "<?php if (isset($slot[$i])) echo 'slotm'.$i ?>" data-info="<?php if (isset($slot[$i])) echo '#info_slotm'.$i ?>" data-id_inventario ="<?php if (isset($slot[$i]['id_inventario'])) echo $slot[$i]['id_inventario'] ?>" data-indice ="<?php echo $i ?>" name = "<?php echo isset($slot[$i]) ? $slot[$i]['nm_item'] :  $i ?>"  class= "<?php echo isset($slot[$i]) ? 'slotm' : 'slot_empty' ?>"  <?php if (isset($slot[$i]['equipado']) && $slot[$i]['equipado'] == 'S') echo "style='border: 5px solid grey'" ?> ></div>
         
     <?php
 

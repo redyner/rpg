@@ -281,20 +281,19 @@ window.addEventListener("load", eventos_inventario)
 function eventos_inventario() {
 
   $('.slot').on("mouseover", function (event) {
-    var box = $(this).data("slot")
+    var box = this.id
     var info = $(this).data("info")
-    $(box).css('border', '5px solid grey');
+    $('#'+box).css('border', '5px solid grey');
     $(info).show();
   });
 
   $('.slot').on("mouseout", function (event) {
-    var box = $(this).data("slot")
+    var box = this.id
     var info = $(this).data("info");
     var indice = $(this).data("indice")
-    if (slot[indice][1]=="N") $(box).css('border', '5px solid black')
+    if (slot[indice][1]=="N") $('#'+box).css('border', '5px solid black')
     $(info).hide()
   });
-
 
   $('.slot').on("click", function (event) {
     var id_inventario = $(this).data("id_inventario")
@@ -364,28 +363,28 @@ window.addEventListener("load", eventos_forja)
 function eventos_forja() {
 
   $('.slotf').on("mouseover", function (event) {
-    var box = $(this).data("slot")
+    var box = this.id
     var info = $(this).data("info")
-    $(box).css('border', '5px solid grey');
+    $('#'+box).css('border', '5px solid grey');
     $(info).show();
   });
 
   $('.slotf').on("mouseout", function (event) {
-    var box = $(this).data("slot")
+    var box = this.id
     var info = $(this).data("info");
     var indice = $(this).data("indice")
-    if (slot[indice][1]=="N") $(box).css('border', '5px solid black')
+    if (slot[indice][1]=="N") $('#'+box).css('border', '5px solid black')
     $(info).hide()
   });
 
   $('.slotf').on("click", function (event) {
-    var box = $(this).data("slot")
+    var box = this.id
     var id_inventario = $(this).data("id_inventario")
     var indice = $(this).data("indice")
     if (slot[indice][1] == "N") {
       equipar = confirm("Deseja selecionar este item?")
       if (equipar == true) {
-        $(box).css('border', '5px solid grey');
+        $('#'+box).css('border', '5px solid grey');
         slot[indice][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itensf.php',
@@ -412,7 +411,7 @@ function eventos_forja() {
     else {
       equipar = confirm("Deseja remover este item?")
       if (equipar == true) {
-        $(box).css('border', '5px solid black');
+        $('#'+box).css('border', '5px solid black');
         slot[indice][1] = "N";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itensf.php',
@@ -477,11 +476,11 @@ window.addEventListener("load", eventos_market)
 
 function eventos_market() {
 
-  var slots_venda = $(".sloti");
-  slots_venda.hide();
-
-  var slots_compra = $(".slotm");
+  var slots_compra = $("#comprar_item");
   slots_compra.show();
+
+  var slots_venda = $("#vender_item");
+  slots_venda.hide();
 
   $('#vendercomprar').on("click", function (event) {
     if ($('#vendercomprar').html() == 'Vender') {
@@ -496,67 +495,52 @@ function eventos_market() {
     }
   });
 
-  $('.sloti').on("mouseover", function (event) {
-    var box = $(this).data("slot")
-    var info = $(this).data("info")
-    $(box).css('border', '5px solid grey');
-    $(info).show();
-  });
-
-  $('.sloti').on("mouseout", function (event) {
-    var box = $(this).data("slot")
-    var info = $(this).data("info")
-    $(box).css('border', '5px solid black');
-    $(info).hide();
-  });
-
   $('.slotm').on("mouseover", function (event) {
-    var box = $(this).data("slot")
+    var box = this.id
     var info = $(this).data("info")
-    $(box).css('border', '5px solid grey');
+    $('#'+box).css('border', '5px solid grey');
     $(info).show();
   });
 
   $('.slotm').on("mouseout", function (event) {
-    var box = $(this).data("slot")
+    var box = this.id
     var info = $(this).data("info")
-    $(box).css('border', '5px solid black');
+    $('#'+box).css('border', '5px solid black');
     $(info).hide();
   });
 
-
   $('.slotm').on("click", function (event) {
     var indice = $(this).data("indice")
+    var id = this.id
     var id_inventario = $(this).data("id_inventario")
-    var compra = confirm("Deseja comprar este item?")
-    if (compra == true) {
+    if ($('#vendercomprar').html()=="Vender") var compra = confirm("Deseja comprar este item?")
+    if ($('#vendercomprar').html()=="Comprar") var venda = confirm("Deseja vender este item?")
+    if (compra == true || venda == true) {
+      if (compra == true) var tipo = "c"
+      else var tipo = "v"
       $.ajax({
         url: 'http://localhost/RPG/paginas/itensm.php',
         method: 'POST',
-        data: { id_item: slot[indice][0], id_inventario: id_inventario, valor: slot[indice][1], tipo: 'c' },
+        data: { id_item: slot[indice][0], id_inventario: id_inventario, valor: slot[indice][1], tipo: tipo },
         dataType: 'json',
         success: function (result) {
           $(".gold").html("GOLD - "+result['gold']);
-        },
-        error: function (result) {
-          alert(JSON.stringify(result));
-        }
-      })
-    }
-  });
-
-  $('.sloti').on("click", function (event) {
-    var indice = $(this).data("indice")
-    var id_inventario = $(this).data("id_inventario")
-    var venda = confirm("Deseja vender este item?")
-    if (venda == true) {
-      $.ajax({
-        url: 'http://localhost/RPG/paginas/itensm.php',
-        method: 'POST',
-        data: { id_item: slot[indice][0], id_inventario: id_inventario, valor: slot[indice][1], tipo: 'v'},
-        dataType: 'json',
-        success: function (result) {
-          $(".gold").html("GOLD - "+result['gold']);
+          if (tipo == "v")
+          {
+            $('#'+id).attr("data-info", "")
+            $('#'+id).attr("data-slot", "")
+            $('#'+id).attr("data-id_inventario", "")
+            $('#'+id).attr("data-indice", "")
+            $('#'+id).attr("name", "")
+            $('#'+id).attr("class", "slot_empty")
+            $('#'+id).hide()
+            $('#'+id).attr("id", "")
+          }
+          else{
+             ///////////////////////////////////////////////////////////////
+            //adicionar evento para adicionar imagem aos itens para venda//
+          ////////////////////////////////////////////////////////////////
+          }
         },
         error: function (result) {
           alert(JSON.stringify(result));
