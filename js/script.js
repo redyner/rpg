@@ -302,6 +302,11 @@ function eventos_inventario() {
     if (slot[indice][1] == "N") {
       var equipar = confirm("Deseja equipar este item?")
       if (equipar == true) {
+        $('.slot').css('border', '5px solid black');
+        for(var i=0;i<slot.length;i++)
+        {
+        slot[i][1] = "N";
+        }
         $('#'+box).css('border', '5px solid grey');
         slot[indice][1] = "S";
         $.ajax({
@@ -319,6 +324,9 @@ function eventos_inventario() {
             $("#str_personagem").html("STR - " + str)
             $("#int_personagem").html("INT - " + int)
             $("#dex_personagem").html("DEX - " + dex)
+          },
+          error: function (result) {
+            alert(JSON.stringify(result));
           }
         })
       } else slot[indice][1] = "N";
