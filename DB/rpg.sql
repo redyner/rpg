@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 06-Out-2021 às 04:03
+-- Tempo de geração: 12-Out-2021 às 18:10
 -- Versão do servidor: 5.7.31
 -- versão do PHP: 7.4.9
 
@@ -156,21 +156,21 @@ CREATE TABLE IF NOT EXISTS `inventarios` (
 --
 
 INSERT INTO `inventarios` (`id_inventario`, `slot`, `refino`, `equipado`, `id_personagem`, `id_item`) VALUES
-(1, '1', 0, 'N', 1, 2),
+(1, '1', 0, 'N', 1, 1),
 (2, '1', 0, 'N', 2, 1),
 (3, '1', 0, 'N', 3, 3),
-(4, '2', 0, 'N', 1, NULL),
-(5, '3', 0, 'N', 1, NULL),
-(6, '4', 0, 'N', 1, NULL),
-(7, '5', 0, 'N', 1, NULL),
-(8, '6', 0, 'N', 1, NULL),
+(4, '2', 0, 'N', 1, 2),
+(5, '3', 0, 'N', 1, 3),
+(6, '4', 0, 'N', 1, 1),
+(7, '5', 0, 'N', 1, 2),
+(8, '6', 0, 'N', 1, 3),
 (9, '7', 0, 'N', 1, NULL),
 (10, '8', 0, 'N', 1, NULL),
 (11, '9', 0, 'N', 1, NULL),
 (12, '10', 0, 'N', 1, NULL),
 (13, '11', 0, 'N', 1, NULL),
-(14, '12', NULL, 'N', 1, NULL),
-(15, '13', NULL, 'N', 1, NULL),
+(14, '12', 0, 'N', 1, NULL),
+(15, '13', 0, 'N', 1, NULL),
 (16, '14', NULL, 'N', 1, NULL),
 (17, '15', NULL, 'N', 1, NULL);
 
@@ -186,6 +186,7 @@ CREATE TABLE IF NOT EXISTS `itens` (
   `nm_item` varchar(45) DEFAULT NULL,
   `lv` varchar(45) DEFAULT NULL,
   `valor` varchar(45) DEFAULT NULL,
+  `tipo` int(11) DEFAULT '1',
   `id_classe` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_item`),
   KEY `id_classe_idx` (`id_classe`)
@@ -195,13 +196,13 @@ CREATE TABLE IF NOT EXISTS `itens` (
 -- Extraindo dados da tabela `itens`
 --
 
-INSERT INTO `itens` (`id_item`, `nm_item`, `lv`, `valor`, `id_classe`) VALUES
-(1, 'espada1', '1', '100', 1),
-(2, 'arco1', '1', '100', 2),
-(3, 'cajado1', '1', '100', 3),
-(4, 'espada2', '10', '1000', 1),
-(5, 'arco2', '10', '1000', 2),
-(6, 'cajado2', '10', '1000', 3);
+INSERT INTO `itens` (`id_item`, `nm_item`, `lv`, `valor`, `tipo`, `id_classe`) VALUES
+(1, 'espada1', '1', '100', 1, 1),
+(2, 'arco1', '1', '100', 1, 2),
+(3, 'cajado1', '1', '100', 1, 3),
+(4, 'espada2', '10', '1000', 1, 1),
+(5, 'arco2', '10', '1000', 1, 2),
+(6, 'cajado2', '10', '1000', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -229,7 +230,7 @@ CREATE TABLE IF NOT EXISTS `personagens` (
 --
 
 INSERT INTO `personagens` (`id_personagem`, `nick`, `xp`, `xp_max`, `lv`, `gold`, `id_classe`, `id_player`) VALUES
-(1, 'Apolo', 4350, 9550, 19, 7400, 2, 1),
+(1, 'Apolo', 8100, 9550, 19, 7260, 2, 1),
 (2, 'Samuel', 0, 100, 1, 0, 1, 2),
 (3, 'Artemis', 0, 100, 1, 0, 3, 3);
 

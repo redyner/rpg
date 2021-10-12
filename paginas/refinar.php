@@ -10,6 +10,8 @@ $id_inventario = $_POST['id_inventario'];
 
 $selecionado = $_POST['equipado'];
 
+$refino = $_POST['ref'];
+
 $sql = "SELECT it.nm_item nome, sta*(refino+1) sta, `str`*(refino+1) `str`, `int`*(refino+1) `int`, dex*(refino+1) dex, refino
 FROM rpg.inventarios i
 JOIN rpg.personagens p ON p.id_personagem = i.id_personagem

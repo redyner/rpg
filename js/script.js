@@ -10,7 +10,7 @@
 window.addEventListener("load", eventos_batalha);
 
 function eventos_batalha() {
-  document.getElementById("atacar").addEventListener("click", iniciar);
+  document.getElementById("atacar").addEventListener("click", iniciar_batalha);
 }
 
 var intervalo;
@@ -19,7 +19,7 @@ function reiniciar() {
   location.reload();
 }
 
-function iniciar() {
+function iniciar_batalha() {
   document.getElementById("atacar").disabled = true;
   document.getElementById("atacar").innerHTML = "Atacando"
   intervalo = setInterval(function (event) {
@@ -29,7 +29,7 @@ function iniciar() {
   }, 1000);
 }
 
-function parar() {
+function parar_batalha() {
   clearInterval(intervalo)
 }
 
@@ -132,7 +132,7 @@ function combate(hp_1, hp_2) {
     document.getElementById("atacar").disabled = false;
     document.getElementById("atacar").id = "reiniciar"
     document.getElementById("reiniciar").addEventListener("click", reiniciar);
-    parar();
+    parar_batalha();
   }
 
   function calculo_dano() {
@@ -371,6 +371,8 @@ window.addEventListener("load", eventos_forja)
 
 function eventos_forja() {
 
+  var porcentagem_refinar = 0;
+
   var selecionado = false;
 
   $('.slotf').on("mouseover", function (event) {
@@ -458,28 +460,55 @@ function eventos_forja() {
   $('#refinar').on("click", function (event) {
     var id_inventario = $('.avatar_item').data("id_inventario")
     var equipado = $('.avatar_item').data("equipado")
-      if (selecionado == true) refinar = confirm("Deseja refinar este item?")
-      if (refinar == true) {
-        $.ajax({
-          url: 'http://localhost/RPG/paginas/itensf.php',
-          method: 'POST',
-          data: {id_inventario: id_inventario, equipado: equipado },
-          dataType: 'json',
-          success: function (result) {
-            console.log(result)
-            nome = result['nome']
-            sta = result['sta']
-            str = result['str']
-            int = result['int']
-            dex = result['dex']
-            ref = result['ref']
-            id_inventario = result['id_inventario']
-            equipado = result['equipado']
-            $('#relatorio').html("Teste")
-          }
-        })
-      }
+    if (selecionado == true)
+    {
+      comfirma_refinar = confirm("Deseja refinar este item?")
+      if (comfirma_refinar == true) iniciar_refino(id_inventario,equipado)
+    }  
     });
+
+    function iniciar_refino(id_inventario,equipado)
+    {
+      refinando = setInterval(function (event) {
+        var barra_refinar = $('#barra_refinar');
+        var refinar_atual = $("#refinar_atual");
+
+        refinar(barra_refinar, refinar_atual,id_inventario,equipado);
+      }, 1000);
+    }
+
+    function refinar(barra_refinar, refinar_atual,id_inventario,equipado)
+    {
+          id_inventario;
+          porcentagem_refinar += 25;
+          refinar_atual.width(porcentagem_refinar + "%");
+          if(refinar_atual.width()>=250)
+          {
+            $.ajax({
+              url: 'http://localhost/RPG/paginas/refinar.php',
+              method: 'POST',
+              data: {id_inventario: id_inventario, equipado: equipado, ref: ref},
+              dataType: 'json',
+              success: function (result) {
+                console.log(result)
+                nome = result['nome']
+                sta = result['sta']
+                str = result['str']
+                int = result['int']
+                dex = result['dex']
+                ref = result['ref']
+                id_inventario = result['id_inventario']
+                equipado = result['equipado']
+              }
+            })
+            $('#status_refino').html("Item Refinado com sucesso!")
+            parar_refino();
+          }
+    }
+    
+    function parar_refino() {
+      clearInterval(refinando)
+    }
 
     
 

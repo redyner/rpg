@@ -312,13 +312,20 @@ text-align: center;
 
 
 #refinar_atual{
-    width: 250px;
+    width: 0px;
     height: 20px;
     background-image: url(../imagens/barras/barra_amarela.jpg);
     font: normal 7pt "gb";
     color: white;
 
     }
+
+#status_refino{
+    margin-top: 50px;
+    background-image: url(../imagens/barras/barra_verde.jpg);
+    font: normal 7pt "gb";
+    color: white;
+}
 
 .avatar_inimigo_selecao{
     margin: 25px 25px 10px;
