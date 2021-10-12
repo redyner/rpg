@@ -371,6 +371,8 @@ window.addEventListener("load", eventos_forja)
 
 function eventos_forja() {
 
+  var selecionado = false;
+
   $('.slotf').on("mouseover", function (event) {
     var box = this.id
     var info = $(this).data("info")
@@ -418,6 +420,7 @@ function eventos_forja() {
             $('.avatar_item').attr("data-id_inventario", id_inventario)
             $('.avatar_item').attr("data-equipado", equipado)
             $('.avatar_item').attr("name", result['nome'])
+            selecionado = true;
           }
         })
       } else slot[indice][1] = "N";
@@ -445,6 +448,7 @@ function eventos_forja() {
             $('.avatar_item').attr("data-id_inventario", "")
             $('.avatar_item').attr("data-equipado", "")
             $('.avatar_item').attr("name", "")
+            selecionado = false;
           }
         })
       } else slot[indice][1] = "S";
@@ -454,7 +458,7 @@ function eventos_forja() {
   $('#refinar').on("click", function (event) {
     var id_inventario = $('.avatar_item').data("id_inventario")
     var equipado = $('.avatar_item').data("equipado")
-      refinar = confirm("Deseja refinar este item?")
+      if (selecionado == true) refinar = confirm("Deseja refinar este item?")
       if (refinar == true) {
         $.ajax({
           url: 'http://localhost/RPG/paginas/refinar.php',
