@@ -463,13 +463,17 @@ function eventos_forja() {
     if (selecionado == true)
     {
       comfirma_refinar = confirm("Deseja refinar este item?")
-      if (comfirma_refinar == true) iniciar_refino(id_inventario,equipado)
+      if (comfirma_refinar == true) {
+        porcentagem_refinar = 0;
+
+        iniciar_refino(id_inventario,equipado)
+      }
     }  
     });
 
     function iniciar_refino(id_inventario,equipado)
     {
-      refinando = setInterval(function (event) {
+        refinando = setInterval(function (event) {
         var barra_refinar = $('#barra_refinar');
         var refinar_atual = $("#refinar_atual");
 
@@ -480,8 +484,9 @@ function eventos_forja() {
     function refinar(barra_refinar, refinar_atual,id_inventario,equipado)
     {
           id_inventario;
-          porcentagem_refinar += 25;
           refinar_atual.width(porcentagem_refinar + "%");
+          porcentagem_refinar += 25;
+          $('#status_refino').html("");
           if(refinar_atual.width()>=250)
           {
             $.ajax({
