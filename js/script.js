@@ -486,7 +486,8 @@ function eventos_forja() {
           id_inventario;
           refinar_atual.width(porcentagem_refinar + "%");
           porcentagem_refinar += 25;
-          $('#status_refino').html("");
+          $('#sucesso').html("");
+          $('#falha').html("");
           if(refinar_atual.width()>=250)
           {
             $.ajax({
@@ -506,7 +507,8 @@ function eventos_forja() {
                 equipado = result['equipado']
               }
             })
-            $('#status_refino').html("Item Refinado com sucesso!")
+            $('#sucesso').html("Item Refinado com sucesso!")
+            $('#falha').html("O fortalecimento falhou!")
             parar_refino();
           }
     }

@@ -23,7 +23,8 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
             <div  id='barra_refinar'>
                 <div  id='refinar_atual'></div>
                 <button id="refinar">Refinar</button>
-                <div id="status_refino"></div>
+                <div id="sucesso"></div>
+                <div id="falha"></div>
             </div>
             
         <div class="avatar_item" data-id_inventario="" data-equipado=""></div>
