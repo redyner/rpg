@@ -123,8 +123,8 @@ nav ul li a{
  }
 
  #refinar{
-     margin-top: 150px;
-     margin-left: 100px;
+     margin-top: 100px;
+     margin-left: 20px;
      width: 97px;
      background-image: url(../imagens/barras/barra_cinza.jpg); 
      color: white;
@@ -299,6 +299,26 @@ text-align: center;
 background-image: url(../imagens/barras/barra_roxa.jpg);
 
 }
+
+#barra_refinar{
+    margin-top: 25px;
+    margin-left: 10px;
+width: 250px;
+height: 20px;
+border: solid 1px;
+float: left;
+text-align: center;
+}
+
+
+#refinar_atual{
+    width: 250px;
+    height: 20px;
+    background-image: url(../imagens/barras/barra_amarela.jpg);
+    font: normal 7pt "gb";
+    color: white;
+
+    }
 
 .avatar_inimigo_selecao{
     margin: 25px 25px 10px;
