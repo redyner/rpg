@@ -461,7 +461,7 @@ function eventos_forja() {
       if (selecionado == true) refinar = confirm("Deseja refinar este item?")
       if (refinar == true) {
         $.ajax({
-          url: 'http://localhost/RPG/paginas/refinar.php',
+          url: 'http://localhost/RPG/paginas/itensf.php',
           method: 'POST',
           data: {id_inventario: id_inventario, equipado: equipado },
           dataType: 'json',
@@ -475,10 +475,13 @@ function eventos_forja() {
             ref = result['ref']
             id_inventario = result['id_inventario']
             equipado = result['equipado']
+            $('#relatorio').html("Teste")
           }
         })
       }
     });
+
+    
 
 }
 
