@@ -298,10 +298,11 @@ function eventos_inventario() {
   $('.slot').on("click", function (event) {
     var id_inventario = $(this).data("id_inventario")
     var indice = $(this).data("indice")
+    var box = this.id
     if (slot[indice][1] == "N") {
       var equipar = confirm("Deseja equipar este item?")
       if (equipar == true) {
-        $(slot).css('border', '5px solid grey');
+        $('#'+box).css('border', '5px solid grey');
         slot[indice][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
@@ -325,12 +326,12 @@ function eventos_inventario() {
     else {
       equipar = confirm("Deseja desequipar este item?")
       if (equipar == true) {
-        $('.slot').css('border', '5px solid black');
+        $('#'+box).css('border', '5px solid black');
         slot[indice][1] = "N";
         $.ajax({
           url: 'http://localhost/RPG/paginas/itens.php',
           method: 'POST',
-          data: { id_inventario: slot[0][0], equipado: slot[indice][1] },
+          data: { id_inventario: id_inventario, equipado: slot[indice][1] },
           dataType: 'json',
           success: function (result) {
             console.log(result)

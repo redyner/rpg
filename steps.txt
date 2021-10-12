@@ -1,13 +1,12 @@
-Inclusão de itens do inventário
-Ajustes de eventos do inventário
-Inclusão de itens do Market
-Ajustes de eventos do Market
-Batalha amistosa contra amigos
-Ajustar criação de personagem
-Ao cadastrar redirecionar para página inicial
-Configuração de cadastro
+
+Adicionar item ao inventário quando comprá-lo no Market
+
+Validação de evento de equipar
+
+Configurações de cadastro como edição de senha
+
 Organização css
+
 Página de Skills
-Página de Ferreiro
-Criação de item?
-Itens de acesso Boss
+
+Refino de item
