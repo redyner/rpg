@@ -1,8 +1,6 @@
 
 Adicionar item ao inventário quando comprá-lo no Market
 
-Validação de evento de equipar
-
 Configurações de cadastro como edição de senha
 
 Organização css
