@@ -393,6 +393,11 @@ function eventos_forja() {
     if (slot[indice][1] == "N") {
       equipar = confirm("Deseja selecionar este item?")
       if (equipar == true) {
+        $('.slotf').css('border', '5px solid black');
+        for(var i=0;i<slot.length;i++)
+        {
+        slot[i][1] = "N";
+        }
         $('#'+box).css('border', '5px solid grey');
         slot[indice][1] = "S";
         $.ajax({
