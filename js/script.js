@@ -371,6 +371,8 @@ window.addEventListener("load", eventos_forja)
 
 function eventos_forja() {
 
+  var ref = 0;
+
   var porcentagem_refinar = 0;
 
   var selecionado = false;
@@ -466,23 +468,25 @@ function eventos_forja() {
       if (comfirma_refinar == true) {
         porcentagem_refinar = 0;
 
-        iniciar_refino(id_inventario,equipado)
+        iniciar_refino(id_inventario,equipado,ref)
       }
     }  
     });
 
-    function iniciar_refino(id_inventario,equipado)
+    function iniciar_refino(id_inventario,equipado,ref)
     {
         refinando = setInterval(function (event) {
         var barra_refinar = $('#barra_refinar');
         var refinar_atual = $("#refinar_atual");
 
-        refinar(barra_refinar, refinar_atual,id_inventario,equipado);
+        refinar(barra_refinar, refinar_atual,id_inventario,equipado,ref);
       }, 1000);
     }
 
     function refinar(barra_refinar, refinar_atual,id_inventario,equipado)
     {
+          if (ref>3) var dificuldade = 50; 
+          else var dificuldade = 90
           id_inventario;
           refinar_atual.width(porcentagem_refinar + "%");
           porcentagem_refinar += 25;
