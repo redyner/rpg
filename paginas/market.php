@@ -62,6 +62,7 @@
     ?>
     </div>
     <div id="vender_item">
+    <div id='texto_inventario'>Market</div>
 
     <?php 
         $i=15;
