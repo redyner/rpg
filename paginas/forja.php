@@ -76,7 +76,7 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
         for($i=0;$i<=14;$i++){
     ?>
     
-    <div id="info_sloti<?php echo $i ?>" class="informacoes_item">
+    <div id="info_slotf<?php echo $i ?>" class="informacoes_item">
         <p><?php echo isset($slot[$i]) ? $slot[$i]['nm_item'] : 0?></p>
         <p>LEVEL - <?php echo isset($slot[$i]) ? $slot[$i]['lv'] : 0 ?></p>
         <p>STA - <?php echo isset($slot[$i]) ? $slot[$i]['sta'] : 0 ?></p>

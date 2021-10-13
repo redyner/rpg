@@ -371,7 +371,11 @@ window.addEventListener("load", eventos_forja)
 
 function eventos_forja() {
 
-  var ref = 0;
+  var ref_att = 0;
+
+  var sucesso = 0;
+
+  var falha = 0;
 
   var porcentagem_refinar = 0;
 
@@ -388,7 +392,7 @@ function eventos_forja() {
     var box = this.id
     var info = $(this).data("info");
     var indice = $(this).data("indice")
-    if (slot[indice][1]=="N") $('#'+box).css('border', '5px solid black')
+    if (slot[indice][1]=="N") $('#'+box).css('border', '5px solid black');
     $(info).hide()
   });
 
@@ -399,6 +403,9 @@ function eventos_forja() {
     if (slot[indice][1] == "N") {
       equipar = confirm("Deseja selecionar este item?")
       if (equipar == true) {
+        $('#sucesso').html("");
+        $('#falha').html("");
+        $("#refinar_atual").width("0%");
         $('.slotf').css('border', '5px solid black');
         for(var i=0;i<slot.length;i++)
         {
@@ -418,7 +425,7 @@ function eventos_forja() {
             str = result['str']
             int = result['int']
             dex = result['dex']
-            ref = result['ref']
+            ref_att = result['ref']
             id_inventario = result['id_inventario']
             equipado = result['equipado']
             $('.avatar_item').attr("data-id_inventario", id_inventario)
@@ -432,6 +439,9 @@ function eventos_forja() {
     else {
       equipar = confirm("Deseja remover este item?")
       if (equipar == true) {
+        $('#sucesso').html("");
+        $('#falha').html("");
+        $("#refinar_atual").width("0%");
         $('#'+box).css('border', '5px solid black');
         slot[indice][1] = "N";
         $.ajax({
@@ -446,7 +456,7 @@ function eventos_forja() {
             str = result['str']
             int = result['int']
             dex = result['dex']
-            ref = result['ref']
+            ref_att = result['ref']
             id_inventario = result['id_inventario']
             equipado = result['equipado']
             $('.avatar_item').attr("data-id_inventario", "")
@@ -464,40 +474,63 @@ function eventos_forja() {
     var equipado = $('.avatar_item').data("equipado")
     if (selecionado == true)
     {
-      comfirma_refinar = confirm("Deseja refinar este item?")
+      var custo_refinar = (parseInt(ref_att)+1)*25
+      comfirma_refinar = confirm("Deseja refinar este item?\n"+"Custo: "+custo_refinar)
       if (comfirma_refinar == true) {
-        porcentagem_refinar = 0;
+        $.ajax({
+          url: 'http://localhost/RPG/paginas/consulta.php',
+          method: 'POST',
+          dataType: 'json',
+          success: function (result) {
+          $(".gold").html("GOLD - "+(result['gold']-custo_refinar));
+          },error: function (result) {
+            alert(JSON.stringify(result));
+          }
+        });
 
-        iniciar_refino(id_inventario,equipado,ref)
+        $('#sucesso').html("");
+        $('#falha').html("");
+        $("#refinar_atual").width("0%");
+        porcentagem_refinar = 0;
+        sucesso = 0;
+        falha = 0;
+        iniciar_refino(id_inventario,equipado)
       }
     }  
     });
 
-    function iniciar_refino(id_inventario,equipado,ref)
+    function iniciar_refino(id_inventario,equipado)
     {
         refinando = setInterval(function (event) {
         var barra_refinar = $('#barra_refinar');
         var refinar_atual = $("#refinar_atual");
 
-        refinar(barra_refinar, refinar_atual,id_inventario,equipado,ref);
+        refinar(barra_refinar, refinar_atual,id_inventario,equipado);
       }, 1000);
     }
 
     function refinar(barra_refinar, refinar_atual,id_inventario,equipado)
     {
-          if (ref>3) var dificuldade = 50; 
-          else var dificuldade = 90
-          id_inventario;
-          refinar_atual.width(porcentagem_refinar + "%");
-          porcentagem_refinar += 25;
           $('#sucesso').html("");
           $('#falha').html("");
-          if(refinar_atual.width()>=250)
+          var taxa_de_sucesso = 100;
+          var dificuldade = 100-ref_att*5; 
+          var chance_de_sucesso = Math.round(Math.random() * (taxa_de_sucesso - 1) + 1);
+          if(chance_de_sucesso<=dificuldade){
+            porcentagem_refinar += 25;
+            sucesso +=1;
+          }else falha +=1;
+
+          refinar_atual.width(porcentagem_refinar + "%");
+
+          if(sucesso >= 4 || falha > 0)
+          {
+          if(refinar_atual.width()>=225)
           {
             $.ajax({
               url: 'http://localhost/RPG/paginas/refinar.php',
               method: 'POST',
-              data: {id_inventario: id_inventario, equipado: equipado, ref: ref},
+              data: {id_inventario: id_inventario, equipado: equipado, ref: ref_att},
               dataType: 'json',
               success: function (result) {
                 console.log(result)
@@ -506,15 +539,21 @@ function eventos_forja() {
                 str = result['str']
                 int = result['int']
                 dex = result['dex']
-                ref = result['ref']
+                ref_att = result['ref']
                 id_inventario = result['id_inventario']
                 equipado = result['equipado']
+              },error: function (result) {
+                alert(JSON.stringify(result));
               }
             })
             $('#sucesso').html("Item Refinado com sucesso!")
+            parar_refino();
+          }
+          else{
             $('#falha').html("O fortalecimento falhou!")
             parar_refino();
           }
+        }
     }
     
     function parar_refino() {
