@@ -583,14 +583,14 @@ function eventos_market() {
   var slots_venda = $("#vender_item");
   slots_venda.hide();
 
-  $('#vendercomprar').on("click", function (event) {
-    if ($('#vendercomprar').html() == 'Vender') {
-      $('#vendercomprar').html("Comprar");
+  $('#vendercomprar').on("click", function (event) { 
+    if ($('#vendercomprar').html() == 'Vender') {      
+      $('#vendercomprar').html("Comprar");                
       slots_venda.show();
-      slots_compra.hide();
+      slots_compra.hide(); 
     }
     else {
-      $('#vendercomprar').html("Vender")
+      $('#vendercomprar').html("Vender")      
       slots_venda.hide();
       slots_compra.show();
     }
@@ -625,8 +625,12 @@ function eventos_market() {
         data: { id_item: slot[indice][0], id_inventario: id_inventario, valor: slot[indice][1], tipo: tipo, opcao: "market" },
         dataType: 'json',
         success: function (result) {
-          $(".gold").html("GOLD - "+result['gold']);
+          $(".gold").html("GOLD - "+result['gold']);    
           
+          if (tipo == "c")
+          {
+          location.reload();
+          }
           if (tipo == "v")
           {
             $('#'+id).off('click');
@@ -637,8 +641,7 @@ function eventos_market() {
             $('#'+id).attr("name", "")
             $('#'+id).attr("class", "slot_empty")
             //$('#'+id).hide()
-            $('#'+id).attr("id", "")          
-            
+            $('#'+id).attr("id", "")  
           }
           else{
              ///////////////////////////////////////////////////////////////
