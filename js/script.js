@@ -626,6 +626,7 @@ function eventos_market() {
         dataType: 'json',
         success: function (result) {
           $(".gold").html("GOLD - "+result['gold']);
+          $('#'+id).off('click');
           if (tipo == "v")
           {
             $('#'+id).attr("data-info", "")
@@ -634,8 +635,9 @@ function eventos_market() {
             $('#'+id).attr("data-indice", "")
             $('#'+id).attr("name", "")
             $('#'+id).attr("class", "slot_empty")
-            $('#'+id).hide()
-            $('#'+id).attr("id", "")
+            //$('#'+id).hide()
+            $('#'+id).attr("id", "")          
+
           }
           else{
              ///////////////////////////////////////////////////////////////
