@@ -482,10 +482,10 @@ function eventos_forja() {
         $.ajax({
           url: 'http://localhost/RPG/paginas/sql.php',
           method: 'POST',
-          data: {opcao: "consulta"},
+          data: {opcao: "custo", custo_refinar: custo_refinar},
           dataType: 'json',
           success: function (result) {
-          $(".gold").html("GOLD - "+(result['gold']-custo_refinar));
+          $(".gold").html("GOLD - "+(result['gold']));
           },error: function (result) {
             alert(JSON.stringify(result));
           }

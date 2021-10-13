@@ -203,7 +203,11 @@ if ($opcao == "refinar") {
         echo json_encode($atributos);
 }
 
-if ($opcao == "consulta") {
+if ($opcao == "custo") {
+
+        $custo_refinar = $_POST['custo_refinar'];
+
+        $_SESSION['gold'] -= $custo_refinar;
 
         $atributos['gold'] = $_SESSION['gold'];
 
