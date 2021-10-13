@@ -430,6 +430,7 @@ function eventos_forja() {
             equipado = result['equipado']
             $('.avatar_item').attr("data-id_inventario", id_inventario)
             $('.avatar_item').attr("data-equipado", equipado)
+            $('.avatar_item').attr("data-indice", indice)
             $('.avatar_item').attr("name", result['nome'])
             selecionado = true;
           }
@@ -461,6 +462,7 @@ function eventos_forja() {
             equipado = result['equipado']
             $('.avatar_item').attr("data-id_inventario", "")
             $('.avatar_item').attr("data-equipado", "")
+            $('.avatar_item').attr("data-indice", "")
             $('.avatar_item').attr("name", "")
             selecionado = false;
           }
@@ -512,6 +514,7 @@ function eventos_forja() {
 
     function refinar(barra_refinar, refinar_atual,id_inventario,equipado)
     {
+          var indice = $('.avatar_item').data("indice")
           $('#sucesso').html("");
           $('#falha').html("");
           var taxa_de_sucesso = 100;
@@ -543,6 +546,11 @@ function eventos_forja() {
                 ref_att = result['ref']
                 id_inventario = result['id_inventario']
                 equipado = result['equipado']
+                $('#ref_sta'+indice).html("STA - "+sta)
+                $('#ref_str'+indice).html("STR - "+str)
+                $('#ref_int'+indice).html("INT - "+int)
+                $('#ref_dex'+indice).html("DEX - "+dex)
+                $('#ref_ref'+indice).html("REF - "+ref_att)
               },error: function (result) {
                 alert(JSON.stringify(result));
               }

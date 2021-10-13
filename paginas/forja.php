@@ -27,7 +27,7 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
                 <div id="falha"></div>
             </div>
             
-        <div class="avatar_item" data-id_inventario="" data-equipado=""></div>
+        <div class="avatar_item" data-id_inventario="" data-equipado="" data-indice =""></div>
 
     </div>
     <div id="selecao_item">
@@ -79,11 +79,11 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
     <div id="info_slotf<?php echo $i ?>" class="informacoes_item">
         <p><?php echo isset($slot[$i]) ? $slot[$i]['nm_item'] : 0?></p>
         <p>LEVEL - <?php echo isset($slot[$i]) ? $slot[$i]['lv'] : 0 ?></p>
-        <p>STA - <?php echo isset($slot[$i]) ? $slot[$i]['sta'] : 0 ?></p>
-        <p>STR - <?php echo isset($slot[$i]) ? $slot[$i]['str'] : 0 ?></p>
-        <p>INT - <?php echo isset($slot[$i]) ? $slot[$i]['int'] : 0 ?></p>
-        <p>DEX - <?php echo isset($slot[$i]) ? $slot[$i]['dex'] : 0 ?></p>   
-        <p>REF - <?php echo isset($slot[$i]) ? $slot[$i]['ref'] : 0 ?></p>    
+        <p id="ref_sta<?php echo $i ?>">STA - <?php echo isset($slot[$i]) ? $slot[$i]['sta'] : 0 ?></p>
+        <p id="ref_str<?php echo $i ?>">STR - <?php echo isset($slot[$i]) ? $slot[$i]['str'] : 0 ?></p>
+        <p id="ref_int<?php echo $i ?>">INT - <?php echo isset($slot[$i]) ? $slot[$i]['int'] : 0 ?></p>
+        <p id="ref_dex<?php echo $i ?>">DEX - <?php echo isset($slot[$i]) ? $slot[$i]['dex'] : 0 ?></p>   
+        <p id="ref_ref<?php echo $i ?>">REF - <?php echo isset($slot[$i]) ? $slot[$i]['ref'] : 0 ?></p>    
         <p>VALOR - <?php echo isset($slot[$i]) ? $slot[$i]['valor'] : 0 ?></p>  
     </div>
 
