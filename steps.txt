@@ -1,5 +1,7 @@
 
-Adicionar item ao inventário quando comprá-lo no Market
+PRIORIDADE - Adicionar item ao inventário quando comprá-lo no Market
+
+PRIORIDADE - Remover evento do slot ao vender item no Market sem ocultar o slot
 
 Configurações de cadastro como edição de senha
 
