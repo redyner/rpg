@@ -642,6 +642,8 @@ function eventos_market() {
             $('#'+id).attr("class", "slot_empty")
             //$('#'+id).hide()
             $('#'+id).attr("id", "")  
+            $('.slot_empty').css('border', '5px solid black')
+            $('.informacoes_item').hide()
           }
           else{
              ///////////////////////////////////////////////////////////////
