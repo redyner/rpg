@@ -91,15 +91,15 @@ function combate(hp_1, hp_2) {
           'int_personagem': int_personagem,
           'dex_personagem': dex_personagem,
           'xp_inimigo': xp_inimigo,
-          'gold': gold
+          'gold': gold,          
         }
 
         var dados = JSON.stringify(personagem);
 
         $.ajax({
-          url: 'http://localhost/RPG/paginas/levelup.php',
+          url: 'http://localhost/RPG/paginas/sql.php',
           type: 'POST',
-          data: { data: dados },
+          data: { data: dados, opcao: "levelup" },
           success: function (result) {
             console.log(result)
           }
@@ -111,15 +111,15 @@ function combate(hp_1, hp_2) {
         //////////////////////////////////////////////////////////////////////////////////////////
         var personagem = {
           'xp': xp,
-          'gold': gold
+          'gold': gold,         
         }
 
         var dados = JSON.stringify(personagem);
 
         $.ajax({
-          url: 'http://localhost/RPG/paginas/levelup.php',
+          url: 'http://localhost/RPG/paginas/sql.php',
           type: 'POST',
-          data: { data: dados },
+          data: { data: dados, opcao: "levelup" },
           success: function (result) {
             console.log(result)
           }
@@ -250,9 +250,9 @@ function eventos_arena() {
     var nick_buscado = $('#busca_nick').val();
 
     $.ajax({
-      url: 'http://localhost/RPG/paginas/buscaarena.php',
+      url: 'http://localhost/RPG/paginas/sql.php',
       method: 'POST',
-      data: { busca_nick: nick_buscado },
+      data: { busca_nick: nick_buscado, opcao: "buscaarena" },
       dataType: 'json'
     }).done(function (result) {
       $('.avatar_inimigo_batalha').attr("name", result['classe_inimigo'])
@@ -310,9 +310,9 @@ function eventos_inventario() {
         $('#'+box).css('border', '5px solid grey');
         slot[indice][1] = "S";
         $.ajax({
-          url: 'http://localhost/RPG/paginas/itens.php',
+          url: 'http://localhost/RPG/paginas/sql.php',
           method: 'POST',
-          data: { id_inventario: id_inventario, equipado: slot[indice][1] },
+          data: { id_inventario: id_inventario, equipado: slot[indice][1], opcao: "equipar" },
           dataType: 'json',
           success: function (result) {
             console.log(result)
@@ -337,9 +337,9 @@ function eventos_inventario() {
         $('#'+box).css('border', '5px solid black');
         slot[indice][1] = "N";
         $.ajax({
-          url: 'http://localhost/RPG/paginas/itens.php',
+          url: 'http://localhost/RPG/paginas/sql.php',
           method: 'POST',
-          data: { id_inventario: id_inventario, equipado: slot[indice][1] },
+          data: { id_inventario: id_inventario, equipado: slot[indice][1], opcao: "equipar" },
           dataType: 'json',
           success: function (result) {
             console.log(result)
@@ -414,9 +414,9 @@ function eventos_forja() {
         $('#'+box).css('border', '5px solid grey');
         slot[indice][1] = "S";
         $.ajax({
-          url: 'http://localhost/RPG/paginas/itensf.php',
+          url: 'http://localhost/RPG/paginas/sql.php',
           method: 'POST',
-          data: { id_inventario: id_inventario, equipado: slot[indice][1] },
+          data: { id_inventario: id_inventario, equipado: slot[indice][1], opcao: "forja" },
           dataType: 'json',
           success: function (result) {
             console.log(result)
@@ -445,9 +445,9 @@ function eventos_forja() {
         $('#'+box).css('border', '5px solid black');
         slot[indice][1] = "N";
         $.ajax({
-          url: 'http://localhost/RPG/paginas/itensf.php',
+          url: 'http://localhost/RPG/paginas/sql.php',
           method: 'POST',
-          data: { id_inventario: id_inventario, equipado: slot[indice][1] },
+          data: { id_inventario: id_inventario, equipado: slot[indice][1], opcao: "forja" },
           dataType: 'json',
           success: function (result) {
             console.log(result)
@@ -478,8 +478,9 @@ function eventos_forja() {
       comfirma_refinar = confirm("Deseja refinar este item?\n"+"Custo: "+custo_refinar)
       if (comfirma_refinar == true) {
         $.ajax({
-          url: 'http://localhost/RPG/paginas/consulta.php',
+          url: 'http://localhost/RPG/paginas/sql.php',
           method: 'POST',
+          data: {opcao: "consulta"},
           dataType: 'json',
           success: function (result) {
           $(".gold").html("GOLD - "+(result['gold']-custo_refinar));
@@ -528,9 +529,9 @@ function eventos_forja() {
           if(refinar_atual.width()>=225)
           {
             $.ajax({
-              url: 'http://localhost/RPG/paginas/refinar.php',
+              url: 'http://localhost/RPG/paginas/sql.php',
               method: 'POST',
-              data: {id_inventario: id_inventario, equipado: equipado, ref: ref_att},
+              data: {id_inventario: id_inventario, equipado: equipado, ref: ref_att, opcao: "refinar"},
               dataType: 'json',
               success: function (result) {
                 console.log(result)
@@ -619,9 +620,9 @@ function eventos_market() {
       if (compra == true) var tipo = "c"
       else var tipo = "v"
       $.ajax({
-        url: 'http://localhost/RPG/paginas/itensm.php',
+        url: 'http://localhost/RPG/paginas/sql.php',
         method: 'POST',
-        data: { id_item: slot[indice][0], id_inventario: id_inventario, valor: slot[indice][1], tipo: tipo },
+        data: { id_item: slot[indice][0], id_inventario: id_inventario, valor: slot[indice][1], tipo: tipo, opcao: "market" },
         dataType: 'json',
         success: function (result) {
           $(".gold").html("GOLD - "+result['gold']);

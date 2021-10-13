@@ -1,5 +1,7 @@
 <?php
 
+
+
 $GLOBALS['conexao'] = conexao();
 $conexao = $GLOBALS['conexao'];
 
@@ -23,3 +25,4 @@ function conexao()
 
     return $conexao;
 }
+
