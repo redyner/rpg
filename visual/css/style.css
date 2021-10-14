@@ -94,7 +94,6 @@ nav ul li a{
     color: white;
     font: normal 7pt "gb";
 }
-
 #sub_cadastrar {
     margin-top: 10px;
     margin-left: 48.5px;
@@ -622,4 +621,58 @@ text-align: center;
 	background:rgb(116, 84, 42);    
 	display: none;
 }
+#painel_perfil{
+    font: normal 10pt "gb";
+    color: white;
+    width: 550px;
+    height: 300px;
+    background-image: url(../imagens/papeis/papel.jpg);
+    float: left;
+    
+}
+#painel_perfil input{
+    width: 150px;  
+}
+#titulo_perfil{
+    margin-top: 5%;
+    margin-left: 20%;
+}
+#dados_perfil{
+    margin-top: 5%;
+    margin-left: 20%;
+    width: 250px;   
+    text-align: center; 
+}
+#dados_perfil input, label{
+      
+    background-color: transparent;
+    border: 0px;
+    color: white;
+    margin: 2px;
+}
+#alterar_senha{
+    margin-top: 4%;
+    margin-left: 15%;
+    width: 150px;
+    text-align: center;
+    display: none;
+}
+#botao_alterar {
+    margin-top: 2%;
+    width: 150px;
+    background-image: url(../imagens/barras/barra_cinza.jpg);
+    color: white;
+    font: normal 7pt "gb";    
+}
+
+.botao_alterar1{
+    margin-left: 20%;
+    
+}
+.botao_alterar2{
+    margin-left: 20%;
+}
+
+
+
 
