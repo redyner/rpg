@@ -527,9 +527,9 @@ function eventos_forja() {
 
           refinar_atual.width(porcentagem_refinar + "%");
 
-          if(sucesso >= 4 || falha > 0)
+          if(sucesso == 4 || falha > 0)
           {
-          if(refinar_atual.width()>=225)
+          if(sucesso == 4)
           {
             $.ajax({
               url: 'http://localhost/RPG/paginas/sql.php',
