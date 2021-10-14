@@ -1,12 +1,8 @@
 
-PRIORIDADE - Adicionar item ao inventário quando comprá-lo no Market
-
-PRIORIDADE - Remover evento do slot ao vender item no Market sem ocultar o slot
-
 Configurações de cadastro como edição de senha
 
 Organização css
 
 Página de Skills
 
-Refino de item
+Validação de consumo de gold
