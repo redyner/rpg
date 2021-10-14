@@ -1,6 +1,4 @@
 
-Configurações de cadastro como edição de senha
-
 Organização css
 
 Página de Skills

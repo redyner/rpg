@@ -29,9 +29,7 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
                 <label for="">NICK</label>
                 <input type="text" disabled value="<?php echo $_SESSION['nick'] ?>">
                 <label for="">LEVEL</label>
-                <input type="text" disabled value="<?php echo $_SESSION['lv'] ?>">
-                <label for="">Criação</label>
-                <input type="text" disabled value="<?php echo "10/01/2021" ?>">
+                <input type="text" disabled value="<?php echo $_SESSION['lv'] ?>">                
             </div>
 
             <div id="opcoes_perfil">

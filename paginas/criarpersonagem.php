@@ -30,13 +30,13 @@
             if (empty($nick)) echo "Insira um nome!";
             else {
                 $sql = "SELECT nick FROM personagens WHERE nick = '{$nick}'";
-                $novo_usuario = mysqli_num_rows(mysqli_query($conexao, $sql));
-                if (!empty($novo_usuario)) {
+                $novo_personagem = mysqli_num_rows(mysqli_query($conexao, $sql));
+                if (!empty($novo_personagem)) {
                     echo "Este nome já esta sendo utilizado!";
                 } else {
                     $sql = "INSERT INTO `personagens`(`nick`, `id_classe`, `id_player`) 
                      VALUES ( '$nick', '$classe', '$id_player' )";
-                    $sql = mysqli_query($conexao, $sql);
+                    $executar = mysqli_query($conexao, $sql);
                     session_unset();
                     session_destroy();                   
                     echo "<script type=\"text/javascript\">

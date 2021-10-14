@@ -17,12 +17,12 @@
            if(empty($login)||empty($senha)) echo "Todos os campos devem ser preenchidos!";
            else{
             $senha = md5($senha);
-            $sql = "SELECT id_player FROM player WHERE login = '{$login}'";
-            $valida_login = mysqli_num_rows(mysqli_query($conexao,$sql));
-            if($valida_login == 0)
+            $sql = "SELECT `login` FROM player WHERE login = '{$login}'";
+            $login_existe = mysqli_num_rows(mysqli_query($conexao,$sql));
+            if($login_existe == 0)
             {
                 $sql = "INSERT INTO `player`(`login`,`senha`) VALUES ( '$login', '$senha')";
-                $teste = mysqli_query($conexao,$sql);
+                $executar = mysqli_query($conexao,$sql);
                 echo "Cadastro realizado com sucesso!";
             }else echo "Login já cadastrado!";
            }
