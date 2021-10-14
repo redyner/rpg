@@ -37,7 +37,8 @@ if(isset($_GET['pagina']))
             elseif($pagina == "batalha") (isset($_SESSION['id_player']) && isset($_SESSION['id_personagem'])) ? include "paginas/batalha.php" : include "paginas/criarpersonagem.php";
             elseif($pagina == "forja") (isset($_SESSION['id_player']) && isset($_SESSION['id_personagem'])) ? include "paginas/forja.php" : include "paginas/criarpersonagem.php";
             elseif($pagina == "arena") (isset($_SESSION['id_player']) && isset($_SESSION['id_personagem'])) ? include "paginas/arena.php" : include "paginas/criarpersonagem.php";
-            elseif($pagina == "sair") (isset($_SESSION['id_player']) && isset($_SESSION['id_personagem'])) ? include "paginas/sair.php" : include "paginas/sair.php";
+            elseif($pagina == "perfil") (isset($_SESSION['id_player']) && isset($_SESSION['id_personagem'])) ? include "paginas/perfil.php" : include "paginas/perfil.php";
+            elseif($pagina == "sair") (isset($_SESSION['id_player']) && isset($_SESSION['id_personagem'])) ? include "paginas/sair.php" : include "paginas/sair.php";            
             else (isset($_SESSION['id_player']) && isset($_SESSION['id_personagem'])) ? include "paginas/jogo.php" : include "paginas/criarpersonagem.php";
 
         }      
@@ -51,6 +52,7 @@ if(isset($_GET['pagina']))
             elseif($pagina == "batalha") include "paginas/login.php";
             elseif($pagina == "forja") include "paginas/login.php";
             elseif($pagina == "arena") include "paginas/login.php";
+            elseif($pagina == "perfil") include "paginas/login.php";
             elseif($pagina == "sair") include "paginas/login.php";
             elseif($pagina == "cadastrar") include "paginas/cadastrar.php";
             else include "paginas/login.php";

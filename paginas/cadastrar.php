@@ -28,12 +28,15 @@
            }
         }
         ?>
-        <!-- formulário de login-->
+        <!-- formulário de login-->        
         <form action="" method="POST" id="painel_login">
             <label for="login">Login</label>
             <input type="text" name='login' id="login">
-            <label for="senha">Senha</label>
+            <label for="senha">Senha</label>            
             <input type="password" name="senha" id="senha">
+            <label>Email</label>
+            <input type="email" name="email" id="email">
             <input type="submit" value="Cadastrar" id="sub_cadastrar" name="cadastrar">
         </form>
     </div>
+

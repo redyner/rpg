@@ -27,6 +27,7 @@
             $info_player = mysqli_fetch_assoc(mysqli_query($conexao,$sql));
             if($valida_login == 1)
             {
+                $_SESSION['login'] = $info_player['login'];
                 $_SESSION['id_personagem'] = $info_player['id_personagem'];
                 $_SESSION['id_player'] = $info_player['id_player'];
                 $info_player = $_SESSION['id_player'];
