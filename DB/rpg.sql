@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 12-Out-2021 às 18:10
+-- Tempo de geração: 14-Out-2021 às 01:49
 -- Versão do servidor: 5.7.31
 -- versão do PHP: 7.4.9
 
@@ -149,21 +149,21 @@ CREATE TABLE IF NOT EXISTS `inventarios` (
   PRIMARY KEY (`id_inventario`),
   KEY `fk_iventarios_personagens1_idx` (`id_personagem`),
   KEY `fk_iventarios_Itens1_idx` (`id_item`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `inventarios`
 --
 
 INSERT INTO `inventarios` (`id_inventario`, `slot`, `refino`, `equipado`, `id_personagem`, `id_item`) VALUES
-(1, '1', 0, 'N', 1, 1),
+(1, '1', 6, 'S', 1, 5),
 (2, '1', 0, 'N', 2, 1),
 (3, '1', 0, 'N', 3, 3),
-(4, '2', 0, 'N', 1, 2),
-(5, '3', 0, 'N', 1, 3),
-(6, '4', 0, 'N', 1, 1),
-(7, '5', 0, 'N', 1, 2),
-(8, '6', 0, 'N', 1, 3),
+(4, '2', 0, 'N', 1, NULL),
+(5, '3', 0, 'N', 1, NULL),
+(6, '4', 0, 'N', 1, NULL),
+(7, '5', 0, 'N', 1, NULL),
+(8, '6', 0, 'N', 1, NULL),
 (9, '7', 0, 'N', 1, NULL),
 (10, '8', 0, 'N', 1, NULL),
 (11, '9', 0, 'N', 1, NULL),
@@ -172,7 +172,8 @@ INSERT INTO `inventarios` (`id_inventario`, `slot`, `refino`, `equipado`, `id_pe
 (14, '12', 0, 'N', 1, NULL),
 (15, '13', 0, 'N', 1, NULL),
 (16, '14', NULL, 'N', 1, NULL),
-(17, '15', NULL, 'N', 1, NULL);
+(17, '15', NULL, 'N', 1, NULL),
+(18, '4', NULL, 'N', 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -230,7 +231,7 @@ CREATE TABLE IF NOT EXISTS `personagens` (
 --
 
 INSERT INTO `personagens` (`id_personagem`, `nick`, `xp`, `xp_max`, `lv`, `gold`, `id_classe`, `id_player`) VALUES
-(1, 'Apolo', 8100, 9550, 19, 7260, 2, 1),
+(1, 'Apolo', 10300, 10550, 20, -59710, 2, 1),
 (2, 'Samuel', 0, 100, 1, 0, 1, 2),
 (3, 'Artemis', 0, 100, 1, 0, 3, 3);
 
