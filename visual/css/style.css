@@ -253,7 +253,7 @@ a {
 /* Pagina: Market */
 
 #vendercomprar {
-    margin          : 15%;
+    margin-top          : 15%;
     background-image: url(../imagens/barras/barra_cinza.jpg);
     color           : white;
     font            : normal 7pt "gb";
@@ -298,6 +298,12 @@ a {
 
 #botao_refinar {
     margin-top: 40%;
+}
+
+#status_refinar {
+    background-image: url(../imagens/barras/barra_rosa.jpg);
+    font            : normal 7pt "gb";
+    color           : white;
 }
 
 #sucesso {

@@ -427,13 +427,14 @@ function eventos_forja() {
             str = result['str']
             int = result['int']
             dex = result['dex']
-            ref_att = result['ref']
+            ref_att = parseInt(result['ref'])
             id_inventario = result['id_inventario']
             equipado = result['equipado']
             $('.icone_item').attr("data-id_inventario", id_inventario)
             $('.icone_item').attr("data-equipado", equipado)
             $('.icone_item').attr("data-indice", indice)
             $('.icone_item').attr("name", result['nome'])
+            $('#status_refinar').html("Chance de sucesso: "+Math.round(((100-ref_att*4)/100)**4*100)+"%")
             selecionado = true;
           }
         })
@@ -459,7 +460,7 @@ function eventos_forja() {
             str = result['str']
             int = result['int']
             dex = result['dex']
-            ref_att = result['ref']
+            ref_att = parseInt(result['ref'])
             id_inventario = result['id_inventario']
             equipado = result['equipado']
             $('.icone_item').attr("data-id_inventario", "")
@@ -478,7 +479,7 @@ function eventos_forja() {
     var equipado = $('.icone_item').data("equipado")
     if (selecionado == true)
     {
-      var custo_refinar = (parseInt(ref_att)+1)*25
+      var custo_refinar = (ref_att+1)*25
       comfirma_refinar = confirm("Deseja refinar este item?\n"+"Custo: "+custo_refinar)
       if (comfirma_refinar == true) {
         $.ajax({
@@ -520,7 +521,7 @@ function eventos_forja() {
           $('#sucesso').html("");
           $('#falha').html("");
           var taxa_de_sucesso = 100;
-          var dificuldade = 100-ref_att*5; 
+          var dificuldade = 100-ref_att*4; 
           var chance_de_sucesso = Math.round(Math.random() * (taxa_de_sucesso - 1) + 1);
           if(chance_de_sucesso<=dificuldade){
             porcentagem_refinar += 25;
@@ -545,7 +546,7 @@ function eventos_forja() {
                 str = result['str']
                 int = result['int']
                 dex = result['dex']
-                ref_att = result['ref']
+                ref_att = parseInt(result['ref'])
                 id_inventario = result['id_inventario']
                 equipado = result['equipado']
                 $('#ref_sta'+indice).html("STA - "+sta)
@@ -553,6 +554,7 @@ function eventos_forja() {
                 $('#ref_int'+indice).html("INT - "+int)
                 $('#ref_dex'+indice).html("DEX - "+dex)
                 $('#ref_ref'+indice).html("REF - "+ref_att)
+                $('#status_refinar').html("Chance de sucesso: "+Math.round(((100-ref_att*4)/100)**4*100)+"%")
               },error: function (result) {
                 alert(JSON.stringify(result));
               }

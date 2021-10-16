@@ -10,7 +10,9 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
     <?php include "menu.php" ?>
     <div class="painel"">
         <div class=" avatar" id="mercador"></div>
-    <button class="botao" id="vendercomprar">Vender</button>
+        <button class="botao" id="vendercomprar">Vender</button>
+        <div class="icone_item" data-id_inventario="" data-equipado="" data-indice="">
+        </div>
 
 </div>
 <div class="painel_inferior">
