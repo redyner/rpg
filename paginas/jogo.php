@@ -57,7 +57,7 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
 
             for ($i = 0; $i <= 14; $i++) {
             ?>
-                <div id="<?php if (isset($slot[$i])) echo 'sloti' . $i ?>" data-menu="teste" data-info="<?php if (isset($slot[$i])) echo '#info_sloti' . $i ?>" data-id_inventario="<?php if (isset($slot[$i]['id_inventario'])) echo $slot[$i]['id_inventario'] ?>" data-indice="<?php echo $i ?>" name='<?php if (isset($slot[$i])) echo $slot[$i]['nm_item'] ?>' class="<?php echo isset($slot[$i]) ? 'slot' : 'slot_empty' ?>" <?php if (isset($slot[$i]['equipado']) && $slot[$i]['equipado'] == 'S') echo "style='border: 5px solid grey'" ?>></div>
+                <div id="<?php if (isset($slot[$i])) echo 'sloti' . $i ?>" data-info="<?php if (isset($slot[$i])) echo '#info_sloti' . $i ?>" data-id_inventario="<?php if (isset($slot[$i]['id_inventario'])) echo $slot[$i]['id_inventario'] ?>" data-indice="<?php echo $i ?>" name='<?php if (isset($slot[$i])) echo $slot[$i]['nm_item'] ?>' class="<?php echo isset($slot[$i]) ? 'slot' : 'slot_empty' ?>" <?php if (isset($slot[$i]['equipado']) && $slot[$i]['equipado'] == 'S') echo "style='border: 5px solid grey'" ?>></div>
             <?php
             }
             ?>

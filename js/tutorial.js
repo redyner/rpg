@@ -265,7 +265,7 @@ $('td[name*="tcol"]' )   // matches those that contain 'tcol'
     //$('#slotm0').hide();
     //$('#slotm0').css('background', 'transparent');
     // var gold = $(".gold");
-    // gold.html("GOLD - "+9999);
+    // gold.html("GOLD "+9999);
     // $('#slotm0').css('background', 'rgb(116, 84, 42)');
     //$('#slotm0').removeAttr('id');
 

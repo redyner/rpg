@@ -1,8 +1,13 @@
 
-Organização css
+Nova página com árvore de Skills
 
-Página de Skills
+Slots itens equipados para remover itens do inventário quando equipados.
 
-slots itens equipados
+Info itens no market na div apropriada
 
-info itens no market
+Nova página com funcionalidades de adicionar amigos
+
+Ajuste arena: Inimigos aleatórios e sistema de elo
+
+Buscar amigos para combate por lista de amigos invés de pesquisar por nick
+
