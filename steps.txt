@@ -2,5 +2,3 @@
 Organização css
 
 Página de Skills
-
-Validação de consumo de gold
