@@ -2,3 +2,5 @@
 Organização css
 
 Página de Skills
+
+slots itens equipados
