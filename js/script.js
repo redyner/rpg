@@ -78,6 +78,7 @@ function combate(hp_1, hp_2) {
         int_personagem += int_lv;
         dex_personagem += dex_lv;
         gold += lv_inimigo * 10;
+        $('.gold').html("GOLD - "+gold);
         document.getElementById("relatorio").innerHTML += "Parabens! voce subiu para o nivel " + lv + "<br>";
         ////////////////////////////////////////////////////////////////////////////////////////////
         //Aqui eu preciso atualizar as informações do banco de dados e atualizá-los na sessão php//
@@ -106,6 +107,7 @@ function combate(hp_1, hp_2) {
         });
       } else {
         gold += lv_inimigo * 10;
+        $('.gold').html("GOLD - "+gold);
         ////////////////////////////////////////////////////////////////////////////////////////////
         //Aqui eu preciso atualizar as informações do banco de dados e atualizá-los na sessão php//
         //////////////////////////////////////////////////////////////////////////////////////////
