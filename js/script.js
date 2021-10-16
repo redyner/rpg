@@ -78,6 +78,7 @@ function combate(hp_1, hp_2) {
         int_personagem += int_lv;
         dex_personagem += dex_lv;
         gold += lv_inimigo * 10;
+        $('.gold').html("GOLD - "+gold);
         document.getElementById("relatorio").innerHTML += "Parabens! voce subiu para o nivel " + lv + "<br>";
         ////////////////////////////////////////////////////////////////////////////////////////////
         //Aqui eu preciso atualizar as informações do banco de dados e atualizá-los na sessão php//
@@ -106,6 +107,7 @@ function combate(hp_1, hp_2) {
         });
       } else {
         gold += lv_inimigo * 10;
+        $('.gold').html("GOLD - "+gold);
         ////////////////////////////////////////////////////////////////////////////////////////////
         //Aqui eu preciso atualizar as informações do banco de dados e atualizá-los na sessão php//
         //////////////////////////////////////////////////////////////////////////////////////////
@@ -255,7 +257,7 @@ function eventos_arena() {
       data: { busca_nick: nick_buscado, opcao: "buscaarena" },
       dataType: 'json'
     }).done(function (result) {
-      $('.avatar_inimigo_batalha').attr("name", result['classe_inimigo'])
+      $('.avatar_batalha_inimigo').attr("name", result['classe_inimigo'])
       nick_inimigo = result['nick_inimigo']
       sta_inimigo = result['sta_inimigo']
       str_inimigo = result['str_inimigo']
@@ -425,13 +427,14 @@ function eventos_forja() {
             str = result['str']
             int = result['int']
             dex = result['dex']
-            ref_att = result['ref']
+            ref_att = parseInt(result['ref'])
             id_inventario = result['id_inventario']
             equipado = result['equipado']
-            $('.avatar_item').attr("data-id_inventario", id_inventario)
-            $('.avatar_item').attr("data-equipado", equipado)
-            $('.avatar_item').attr("data-indice", indice)
-            $('.avatar_item').attr("name", result['nome'])
+            $('.icone_item').attr("data-id_inventario", id_inventario)
+            $('.icone_item').attr("data-equipado", equipado)
+            $('.icone_item').attr("data-indice", indice)
+            $('.icone_item').attr("name", result['nome'])
+            $('#status_refinar').html("Chance de sucesso: "+Math.round(((100-ref_att*4)/100)**4*100)+"%")
             selecionado = true;
           }
         })
@@ -457,13 +460,13 @@ function eventos_forja() {
             str = result['str']
             int = result['int']
             dex = result['dex']
-            ref_att = result['ref']
+            ref_att = parseInt(result['ref'])
             id_inventario = result['id_inventario']
             equipado = result['equipado']
-            $('.avatar_item').attr("data-id_inventario", "")
-            $('.avatar_item').attr("data-equipado", "")
-            $('.avatar_item').attr("data-indice", "")
-            $('.avatar_item').attr("name", "")
+            $('.icone_item').attr("data-id_inventario", "")
+            $('.icone_item').attr("data-equipado", "")
+            $('.icone_item').attr("data-indice", "")
+            $('.icone_item').attr("name", "")
             selecionado = false;
           }
         })
@@ -471,12 +474,12 @@ function eventos_forja() {
     }
   });
 
-  $('#refinar').on("click", function (event) {
-    var id_inventario = $('.avatar_item').data("id_inventario")
-    var equipado = $('.avatar_item').data("equipado")
+  $('#botao_refinar').on("click", function (event) {
+    var id_inventario = $('.icone_item').data("id_inventario")
+    var equipado = $('.icone_item').data("equipado")
     if (selecionado == true)
     {
-      var custo_refinar = (parseInt(ref_att)+1)*25
+      var custo_refinar = (ref_att+1)*25
       comfirma_refinar = confirm("Deseja refinar este item?\n"+"Custo: "+custo_refinar)
       if (comfirma_refinar == true) {
         $.ajax({
@@ -486,18 +489,18 @@ function eventos_forja() {
           dataType: 'json',
           success: function (result) {
           $(".gold").html("GOLD - "+(result['gold']));
+          $('#sucesso').html("");
+          $('#falha').html("");
+          $("#refinar_atual").width("0%");
+          porcentagem_refinar = 0;
+          sucesso = 0;
+          falha = 0;
+          if(result['custo_refinar']>result['gold_anterior']) alert("Gold Insuficiente!")
+          else iniciar_refino(id_inventario,equipado)
           },error: function (result) {
             alert(JSON.stringify(result));
           }
         });
-
-        $('#sucesso').html("");
-        $('#falha').html("");
-        $("#refinar_atual").width("0%");
-        porcentagem_refinar = 0;
-        sucesso = 0;
-        falha = 0;
-        iniciar_refino(id_inventario,equipado)
       }
     }  
     });
@@ -514,11 +517,11 @@ function eventos_forja() {
 
     function refinar(barra_refinar, refinar_atual,id_inventario,equipado)
     {
-          var indice = $('.avatar_item').data("indice")
+          var indice = $('.icone_item').data("indice")
           $('#sucesso').html("");
           $('#falha').html("");
           var taxa_de_sucesso = 100;
-          var dificuldade = 100-ref_att*5; 
+          var dificuldade = 100-ref_att*4; 
           var chance_de_sucesso = Math.round(Math.random() * (taxa_de_sucesso - 1) + 1);
           if(chance_de_sucesso<=dificuldade){
             porcentagem_refinar += 25;
@@ -543,7 +546,7 @@ function eventos_forja() {
                 str = result['str']
                 int = result['int']
                 dex = result['dex']
-                ref_att = result['ref']
+                ref_att = parseInt(result['ref'])
                 id_inventario = result['id_inventario']
                 equipado = result['equipado']
                 $('#ref_sta'+indice).html("STA - "+sta)
@@ -551,6 +554,7 @@ function eventos_forja() {
                 $('#ref_int'+indice).html("INT - "+int)
                 $('#ref_dex'+indice).html("DEX - "+dex)
                 $('#ref_ref'+indice).html("REF - "+ref_att)
+                $('#status_refinar').html("Chance de sucesso: "+Math.round(((100-ref_att*4)/100)**4*100)+"%")
               },error: function (result) {
                 alert(JSON.stringify(result));
               }
@@ -637,7 +641,8 @@ function eventos_market() {
           
           if (tipo == "c")
           {
-          location.reload();
+          if(result['valor']>result['gold']) alert("Gold Insuficiente!")
+          else location.reload();
           }
           if (tipo == "v")
           {
