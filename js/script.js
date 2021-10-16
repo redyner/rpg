@@ -257,7 +257,7 @@ function eventos_arena() {
       data: { busca_nick: nick_buscado, opcao: "buscaarena" },
       dataType: 'json'
     }).done(function (result) {
-      $('.avatar_inimigo_batalha').attr("name", result['classe_inimigo'])
+      $('.avatar_batalha_inimigo').attr("name", result['classe_inimigo'])
       nick_inimigo = result['nick_inimigo']
       sta_inimigo = result['sta_inimigo']
       str_inimigo = result['str_inimigo']
@@ -430,10 +430,10 @@ function eventos_forja() {
             ref_att = result['ref']
             id_inventario = result['id_inventario']
             equipado = result['equipado']
-            $('.avatar_item').attr("data-id_inventario", id_inventario)
-            $('.avatar_item').attr("data-equipado", equipado)
-            $('.avatar_item').attr("data-indice", indice)
-            $('.avatar_item').attr("name", result['nome'])
+            $('.icone_item').attr("data-id_inventario", id_inventario)
+            $('.icone_item').attr("data-equipado", equipado)
+            $('.icone_item').attr("data-indice", indice)
+            $('.icone_item').attr("name", result['nome'])
             selecionado = true;
           }
         })
@@ -462,10 +462,10 @@ function eventos_forja() {
             ref_att = result['ref']
             id_inventario = result['id_inventario']
             equipado = result['equipado']
-            $('.avatar_item').attr("data-id_inventario", "")
-            $('.avatar_item').attr("data-equipado", "")
-            $('.avatar_item').attr("data-indice", "")
-            $('.avatar_item').attr("name", "")
+            $('.icone_item').attr("data-id_inventario", "")
+            $('.icone_item').attr("data-equipado", "")
+            $('.icone_item').attr("data-indice", "")
+            $('.icone_item').attr("name", "")
             selecionado = false;
           }
         })
@@ -473,9 +473,9 @@ function eventos_forja() {
     }
   });
 
-  $('#refinar').on("click", function (event) {
-    var id_inventario = $('.avatar_item').data("id_inventario")
-    var equipado = $('.avatar_item').data("equipado")
+  $('#botao_refinar').on("click", function (event) {
+    var id_inventario = $('.icone_item').data("id_inventario")
+    var equipado = $('.icone_item').data("equipado")
     if (selecionado == true)
     {
       var custo_refinar = (parseInt(ref_att)+1)*25
@@ -516,7 +516,7 @@ function eventos_forja() {
 
     function refinar(barra_refinar, refinar_atual,id_inventario,equipado)
     {
-          var indice = $('.avatar_item').data("indice")
+          var indice = $('.icone_item').data("indice")
           $('#sucesso').html("");
           $('#falha').html("");
           var taxa_de_sucesso = 100;
