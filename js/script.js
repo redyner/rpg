@@ -475,6 +475,7 @@ function eventos_forja() {
   });
 
   $('#botao_refinar').on("click", function (event) {
+    $('#botao_refinar').prop( "disabled", true );
     var id_inventario = $('.icone_item').data("id_inventario")
     var equipado = $('.icone_item').data("equipado")
     if (selecionado == true)
@@ -560,10 +561,12 @@ function eventos_forja() {
               }
             })
             $('#sucesso').html("Item Refinado com sucesso!")
+            $('#botao_refinar').prop( "disabled", false );
             parar_refino();
           }
           else{
             $('#falha').html("O fortalecimento falhou!")
+            $('#botao_refinar').prop( "disabled", false );
             parar_refino();
           }
         }
