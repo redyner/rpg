@@ -4,3 +4,5 @@ Organização css
 Página de Skills
 
 slots itens equipados
+
+info itens no market
