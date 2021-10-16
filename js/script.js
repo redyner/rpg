@@ -494,7 +494,7 @@ function eventos_forja() {
           porcentagem_refinar = 0;
           sucesso = 0;
           falha = 0;
-          if(result['custo_refinar']>result['gold']) alert("Gold Insuficiente!")
+          if(result['custo_refinar']>result['gold_anterior']) alert("Gold Insuficiente!")
           else iniciar_refino(id_inventario,equipado)
           },error: function (result) {
             alert(JSON.stringify(result));
