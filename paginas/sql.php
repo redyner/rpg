@@ -228,7 +228,8 @@ if ($opcao == "market") {
 
         $tipo = $_POST['tipo'];
 
-        if ($tipo == "c") {
+        if ($tipo == "c" && $valor <= $_SESSION['gold']) {
+
                 $sql = "SELECT count(*) `count` FROM rpg.inventarios
                 WHERE id_personagem = '{$id_personagem}'";
 
@@ -267,7 +268,8 @@ if ($opcao == "market") {
 
                         mysqli_query($conexao, $sql);
                 }
-        } else {
+        } 
+        if ($tipo == "v") {
 
                 $gold_atual = ($_SESSION['gold'] + $valor / 2);
 
@@ -283,6 +285,7 @@ if ($opcao == "market") {
         }
 
         $atributos['gold'] = $_SESSION['gold'];
+        $atributos['valor'] = $valor;
 
         $atributos_json = json_encode($atributos);
         echo json_encode($atributos);

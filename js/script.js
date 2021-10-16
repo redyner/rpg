@@ -639,7 +639,8 @@ function eventos_market() {
           
           if (tipo == "c")
           {
-          location.reload();
+          if(result['valor']>result['gold']) alert("Gold Insuficiente!")
+          else location.reload();
           }
           if (tipo == "v")
           {
