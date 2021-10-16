@@ -207,9 +207,10 @@ if ($opcao == "custo") {
 
         $custo_refinar = $_POST['custo_refinar'];
 
-        $_SESSION['gold'] -= $custo_refinar;
+        if($custo_refinar<=$_SESSION['gold']) $_SESSION['gold'] -= $custo_refinar;
 
         $atributos['gold'] = $_SESSION['gold'];
+        $atributos['custo_refinar'] = $custo_refinar;
 
         $atributos_json = json_encode($atributos);
         echo json_encode($atributos);

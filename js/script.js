@@ -78,6 +78,7 @@ function combate(hp_1, hp_2) {
         int_personagem += int_lv;
         dex_personagem += dex_lv;
         gold += lv_inimigo * 10;
+        $('.gold').html("GOLD - "+gold);
         document.getElementById("relatorio").innerHTML += "Parabens! voce subiu para o nivel " + lv + "<br>";
         ////////////////////////////////////////////////////////////////////////////////////////////
         //Aqui eu preciso atualizar as informações do banco de dados e atualizá-los na sessão php//
@@ -106,6 +107,7 @@ function combate(hp_1, hp_2) {
         });
       } else {
         gold += lv_inimigo * 10;
+        $('.gold').html("GOLD - "+gold);
         ////////////////////////////////////////////////////////////////////////////////////////////
         //Aqui eu preciso atualizar as informações do banco de dados e atualizá-los na sessão php//
         //////////////////////////////////////////////////////////////////////////////////////////
@@ -486,18 +488,18 @@ function eventos_forja() {
           dataType: 'json',
           success: function (result) {
           $(".gold").html("GOLD - "+(result['gold']));
+          $('#sucesso').html("");
+          $('#falha').html("");
+          $("#refinar_atual").width("0%");
+          porcentagem_refinar = 0;
+          sucesso = 0;
+          falha = 0;
+          if(result['custo_refinar']>result['gold']) alert("Gold Insuficiente!")
+          else iniciar_refino(id_inventario,equipado)
           },error: function (result) {
             alert(JSON.stringify(result));
           }
         });
-
-        $('#sucesso').html("");
-        $('#falha').html("");
-        $("#refinar_atual").width("0%");
-        porcentagem_refinar = 0;
-        sucesso = 0;
-        falha = 0;
-        iniciar_refino(id_inventario,equipado)
       }
     }  
     });
