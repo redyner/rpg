@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 14-Out-2021 às 01:49
+-- Tempo de geração: 18-Out-2021 às 19:43
 -- Versão do servidor: 5.7.31
 -- versão do PHP: 7.4.9
 
@@ -82,6 +82,7 @@ DROP TABLE IF EXISTS `classes`;
 CREATE TABLE IF NOT EXISTS `classes` (
   `id_classe` int(11) NOT NULL AUTO_INCREMENT,
   `nm_classe` varchar(45) DEFAULT NULL,
+  `imagem` varchar(45) NOT NULL,
   PRIMARY KEY (`id_classe`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
@@ -89,10 +90,30 @@ CREATE TABLE IF NOT EXISTS `classes` (
 -- Extraindo dados da tabela `classes`
 --
 
-INSERT INTO `classes` (`id_classe`, `nm_classe`) VALUES
-(1, 'warrior'),
-(2, 'archer'),
-(3, 'wizard');
+INSERT INTO `classes` (`id_classe`, `nm_classe`, `imagem`) VALUES
+(1, 'warrior', 'warrior.jpg'),
+(2, 'archer', 'archer.jpg'),
+(3, 'wizard', 'wizard.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `equipe`
+--
+
+DROP TABLE IF EXISTS `equipe`;
+CREATE TABLE IF NOT EXISTS `equipe` (
+  `id_equipe` int(11) NOT NULL AUTO_INCREMENT,
+  `id_player` int(11) NOT NULL,
+  PRIMARY KEY (`id_equipe`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Extraindo dados da tabela `equipe`
+--
+
+INSERT INTO `equipe` (`id_equipe`, `id_player`) VALUES
+(1, 2);
 
 -- --------------------------------------------------------
 
@@ -109,6 +130,7 @@ CREATE TABLE IF NOT EXISTS `inimigos` (
   `lv` int(11) DEFAULT NULL,
   `raridade` int(11) DEFAULT NULL,
   `drop` int(11) DEFAULT NULL,
+  `imagem` varchar(45) NOT NULL,
   PRIMARY KEY (`id_inimigo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
@@ -116,21 +138,21 @@ CREATE TABLE IF NOT EXISTS `inimigos` (
 -- Extraindo dados da tabela `inimigos`
 --
 
-INSERT INTO `inimigos` (`id_inimigo`, `nm_inimigo`, `classe`, `xp`, `lv`, `raridade`, `drop`) VALUES
-(1, 'Javali', NULL, 100, 1, NULL, NULL),
-(2, 'Urso', NULL, 250, 3, NULL, NULL),
-(3, 'Lobo', NULL, 250, 3, NULL, NULL),
-(4, 'Drag', NULL, 750, 8, NULL, NULL),
-(5, 'Goblin', NULL, 100, 1, NULL, NULL),
-(6, 'Orc', NULL, 500, 5, NULL, NULL),
-(7, 'Boss', NULL, 5000, 50, NULL, NULL),
-(8, 'Blue_Drag', NULL, 3000, 30, NULL, NULL),
-(9, 'Cerberus', NULL, 750, 8, NULL, NULL),
-(10, 'Demon', NULL, 750, 8, NULL, NULL),
-(11, 'Ogro', NULL, 750, 8, NULL, NULL),
-(12, 'Ice_Warrior', NULL, 750, 8, NULL, NULL),
-(13, 'Snake', NULL, 150, 2, NULL, NULL),
-(14, 'Ice_King', NULL, 1500, 15, NULL, NULL);
+INSERT INTO `inimigos` (`id_inimigo`, `nm_inimigo`, `classe`, `xp`, `lv`, `raridade`, `drop`, `imagem`) VALUES
+(1, 'Javali', NULL, 100, 1, NULL, NULL, 'jav.jpg'),
+(2, 'Urso', NULL, 250, 3, NULL, NULL, 'urso.jpg'),
+(3, 'Lobo', NULL, 250, 3, NULL, NULL, 'lobo.jpg'),
+(4, 'Drag', NULL, 750, 8, NULL, NULL, 'red_drag.jpg'),
+(5, 'Goblin', NULL, 100, 1, NULL, NULL, 'goblin.jpg'),
+(6, 'Orc', NULL, 500, 5, NULL, NULL, 'orc.jpg'),
+(7, 'Boss', NULL, 5000, 50, NULL, NULL, 'boss.jpg'),
+(8, 'Blue_Drag', NULL, 3000, 30, NULL, NULL, 'blue_drag.jpg'),
+(9, 'Cerberus', NULL, 750, 8, NULL, NULL, 'cerberus.jpg'),
+(10, 'Demon', NULL, 750, 8, NULL, NULL, 'demon.jpg'),
+(11, 'Ogro', NULL, 750, 8, NULL, NULL, 'ogro.jpg'),
+(12, 'Ice_Warrior', NULL, 750, 8, NULL, NULL, 'ice_warrior.jpg'),
+(13, 'Snake', NULL, 150, 2, NULL, NULL, 'snake.jpg'),
+(14, 'Ice_King', NULL, 1500, 15, NULL, NULL, 'ice_king.jpg');
 
 -- --------------------------------------------------------
 
@@ -146,34 +168,48 @@ CREATE TABLE IF NOT EXISTS `inventarios` (
   `equipado` char(1) DEFAULT 'N',
   `id_personagem` int(11) NOT NULL,
   `id_item` int(11) DEFAULT NULL,
+  `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_inventario`),
   KEY `fk_iventarios_personagens1_idx` (`id_personagem`),
   KEY `fk_iventarios_Itens1_idx` (`id_item`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `inventarios`
 --
 
-INSERT INTO `inventarios` (`id_inventario`, `slot`, `refino`, `equipado`, `id_personagem`, `id_item`) VALUES
-(1, '1', 6, 'S', 1, 5),
-(2, '1', 0, 'N', 2, 1),
-(3, '1', 0, 'N', 3, 3),
-(4, '2', 0, 'N', 1, NULL),
-(5, '3', 0, 'N', 1, NULL),
-(6, '4', 0, 'N', 1, NULL),
-(7, '5', 0, 'N', 1, NULL),
-(8, '6', 0, 'N', 1, NULL),
-(9, '7', 0, 'N', 1, NULL),
-(10, '8', 0, 'N', 1, NULL),
-(11, '9', 0, 'N', 1, NULL),
-(12, '10', 0, 'N', 1, NULL),
-(13, '11', 0, 'N', 1, NULL),
-(14, '12', 0, 'N', 1, NULL),
-(15, '13', 0, 'N', 1, NULL),
-(16, '14', NULL, 'N', 1, NULL),
-(17, '15', NULL, 'N', 1, NULL),
-(18, '4', NULL, 'N', 2, NULL);
+INSERT INTO `inventarios` (`id_inventario`, `slot`, `refino`, `equipado`, `id_personagem`, `id_item`, `data`) VALUES
+(1, '1', 6, 'S', 1, 5, '2021-10-18 19:39:45'),
+(2, '1', 0, 'N', 2, 3, '2021-10-18 19:39:45'),
+(3, '1', 0, 'N', 3, 3, '2021-10-18 19:39:45'),
+(4, '2', 0, 'N', 1, NULL, '2021-10-18 19:39:45'),
+(5, '3', 0, 'N', 1, NULL, '2021-10-18 19:39:45'),
+(6, '4', 0, 'N', 1, NULL, '2021-10-18 19:39:45'),
+(7, '5', 0, 'N', 1, NULL, '2021-10-18 19:39:45'),
+(8, '6', 0, 'N', 1, NULL, '2021-10-18 19:39:45'),
+(9, '7', 0, 'N', 1, NULL, '2021-10-18 19:39:45'),
+(10, '8', 0, 'N', 1, NULL, '2021-10-18 19:39:45'),
+(11, '9', 0, 'N', 1, NULL, '2021-10-18 19:39:45'),
+(12, '10', 0, 'N', 1, NULL, '2021-10-18 19:39:45'),
+(13, '11', 0, 'N', 1, NULL, '2021-10-18 19:39:45'),
+(14, '12', 0, 'N', 1, NULL, '2021-10-18 19:39:45'),
+(15, '13', 0, 'N', 1, NULL, '2021-10-18 19:39:45'),
+(16, '14', NULL, 'N', 1, NULL, '2021-10-18 19:39:45'),
+(17, '15', NULL, 'N', 1, NULL, '2021-10-18 19:39:45'),
+(18, '4', 1000, 'N', 2, 1, '2021-10-18 19:39:45'),
+(19, '4', 3, 'N', 2, 3, '2021-10-18 19:39:45'),
+(20, '4', 130, 'N', 2, 4, '2021-10-18 19:39:45'),
+(21, '5', 0, 'N', 2, NULL, '2021-10-18 19:39:45'),
+(22, '6', 0, 'N', 2, NULL, '2021-10-18 19:39:45'),
+(23, '7', 0, 'N', 2, NULL, '2021-10-18 19:39:45'),
+(24, '8', 0, 'N', 2, NULL, '2021-10-18 19:39:45'),
+(25, '9', 0, 'N', 2, NULL, '2021-10-18 19:39:45'),
+(26, '10', 0, 'N', 2, NULL, '2021-10-18 19:39:45'),
+(27, '11', 0, 'N', 2, NULL, '2021-10-18 19:39:45'),
+(28, '12', 0, 'N', 2, NULL, '2021-10-18 19:39:45'),
+(29, '13', 0, 'N', 2, NULL, '2021-10-18 19:39:45'),
+(30, '14', 0, 'N', 2, NULL, '2021-10-18 19:39:45'),
+(31, '15', 0, 'N', 2, NULL, '2021-10-18 19:39:45');
 
 -- --------------------------------------------------------
 
@@ -189,6 +225,7 @@ CREATE TABLE IF NOT EXISTS `itens` (
   `valor` varchar(45) DEFAULT NULL,
   `tipo` int(11) DEFAULT '1',
   `id_classe` int(11) DEFAULT NULL,
+  `imagem` varchar(45) NOT NULL,
   PRIMARY KEY (`id_item`),
   KEY `id_classe_idx` (`id_classe`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -197,13 +234,13 @@ CREATE TABLE IF NOT EXISTS `itens` (
 -- Extraindo dados da tabela `itens`
 --
 
-INSERT INTO `itens` (`id_item`, `nm_item`, `lv`, `valor`, `tipo`, `id_classe`) VALUES
-(1, 'espada1', '1', '100', 1, 1),
-(2, 'arco1', '1', '100', 1, 2),
-(3, 'cajado1', '1', '100', 1, 3),
-(4, 'espada2', '10', '1000', 1, 1),
-(5, 'arco2', '10', '1000', 1, 2),
-(6, 'cajado2', '10', '1000', 1, 3);
+INSERT INTO `itens` (`id_item`, `nm_item`, `lv`, `valor`, `tipo`, `id_classe`, `imagem`) VALUES
+(1, 'espada1', '1', '100', 1, 1, 'espada.png'),
+(2, 'arco1', '1', '100', 1, 2, 'arco.png'),
+(3, 'cajado1', '1', '100', 1, 3, 'cajado.jpg'),
+(4, 'espada2', '10', '1000', 1, 1, 'espada2.png'),
+(5, 'arco2', '10', '1000', 1, 2, 'arco2.png'),
+(6, 'cajado2', '10', '1000', 1, 3, 'cajado2.jpg');
 
 -- --------------------------------------------------------
 
@@ -224,16 +261,16 @@ CREATE TABLE IF NOT EXISTS `personagens` (
   PRIMARY KEY (`id_personagem`),
   KEY `fk_personagens_classes1_idx` (`id_classe`),
   KEY `fk_personagens_player1_idx` (`id_player`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `personagens`
 --
 
 INSERT INTO `personagens` (`id_personagem`, `nick`, `xp`, `xp_max`, `lv`, `gold`, `id_classe`, `id_player`) VALUES
-(1, 'Apolo', 10300, 10550, 20, -59710, 2, 1),
-(2, 'Samuel', 0, 100, 1, 0, 1, 2),
-(3, 'Artemis', 0, 100, 1, 0, 3, 3);
+(1, 'Apolo', 10300, 10550, 20, 9999999, 2, 1),
+(2, 'Samuel', 7100, 53150, 1001, 9999999, 1, 2),
+(3, 'Artemis', 0, 100, 1, 9999999, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -246,17 +283,19 @@ CREATE TABLE IF NOT EXISTS `player` (
   `id_player` int(11) NOT NULL AUTO_INCREMENT,
   `login` varchar(45) DEFAULT NULL,
   `senha` varchar(45) DEFAULT NULL,
+  `email` varchar(45) NOT NULL,
+  `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_player`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `player`
 --
 
-INSERT INTO `player` (`id_player`, `login`, `senha`) VALUES
-(1, 'rediner', 'df819af6bdcb198c22040c26d9f3bd98'),
-(2, 'Samuel', '81dc9bdb52d04dc20036dbd8313ed055'),
-(3, 'helen', 'df819af6bdcb198c22040c26d9f3bd98');
+INSERT INTO `player` (`id_player`, `login`, `senha`, `email`, `data`) VALUES
+(1, 'rediner', 'df819af6bdcb198c22040c26d9f3bd98', '', '2021-10-18 19:42:02'),
+(2, 'Samuel', '81dc9bdb52d04dc20036dbd8313ed055', '', '2021-10-18 19:42:02'),
+(3, 'helen', 'df819af6bdcb198c22040c26d9f3bd98', '', '2021-10-18 19:42:02');
 
 -- --------------------------------------------------------
 
@@ -289,6 +328,7 @@ CREATE TABLE IF NOT EXISTS `skills` (
   `lv` int(11) DEFAULT NULL,
   `mutiplicador` int(11) DEFAULT NULL,
   `id_classe` int(11) NOT NULL,
+  `imagem` varchar(45) NOT NULL,
   PRIMARY KEY (`id_skill`),
   KEY `fk_skills_classes1_idx` (`id_classe`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
