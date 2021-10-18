@@ -1,11 +1,9 @@
     <div class="conteudo">
         <div class="logo"></div>
         <nav class="menu">
-            <ul>
-                <li><a href="http://localhost/rpg/index.php?pagina=sair">Sair</a></li>
-            </ul>
+        <?php include "menu.php" ?>
         </nav>
-        <form action="http://localhost/RPG/paginas/sql.php" method="POST" class="form" id="form_login">
+        <form action="http://localhost/RPG/paginas/sql.php" method="POST" class="form" id="form_Personagem">
             <label for="login">nick</label>
             <input class="input" type="text" name='nick' id="login" required>
             <label for="classe">classe</label>

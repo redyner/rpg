@@ -137,7 +137,7 @@ if ($opcao == "forja") {
 
         $equipado = $_POST['equipado'];
 
-        $sql = "SELECT it.nm_item nome, sta*(refino+1) sta, `str`*(refino+1) `str`, `int`*(refino+1) `int`, dex*(refino+1) dex, refino
+        $sql = "SELECT it.nm_item nome, it.imagem, sta*(refino+1) sta, `str`*(refino+1) `str`, `int`*(refino+1) `int`, dex*(refino+1) dex, refino
                 FROM rpg.inventarios i
                 JOIN rpg.personagens p ON p.id_personagem = i.id_personagem
                 JOIN rpg.atributos a ON i.id_item = a.id_item
@@ -146,6 +146,7 @@ if ($opcao == "forja") {
         $equipamento = mysqli_fetch_assoc(mysqli_query($conexao, $sql));
 
         $atributos['nome'] = $equipamento['nome'];
+        $atributos['imagem'] = $equipamento['imagem'];
         $atributos['sta'] = $equipamento['sta'];
         $atributos['str'] = $equipamento['str'];
         $atributos['int'] = $equipamento['int'];

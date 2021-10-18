@@ -66,3 +66,12 @@ function att_atributos($id_personagem)
 
         return $atributos;
 }
+
+function avatarClasse($classe){
+
+        $sql = "SELECT `imagem` FROM `classes` WHERE `nm_classe` = '{$classe}'";
+        $resultado = mysqli_fetch_assoc(mysqli_query($GLOBALS['conexao'], $sql));
+        $imagem = $resultado['imagem'];
+
+        return $imagem;
+}

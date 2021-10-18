@@ -423,17 +423,20 @@ function eventos_forja() {
           success: function (result) {
             console.log(result)
             nome = result['nome']
+            imagem = result['imagem']
             sta = result['sta']
             str = result['str']
             int = result['int']
             dex = result['dex']
+            img = 'http://localhost/rpg/visual/imagens/itens/' + imagem
             ref_att = parseInt(result['ref'])
             id_inventario = result['id_inventario']
             equipado = result['equipado']
             $('.icone_item').attr("data-id_inventario", id_inventario)
             $('.icone_item').attr("data-equipado", equipado)
             $('.icone_item').attr("data-indice", indice)
-            $('.icone_item').attr("name", result['nome'])
+            $('.icone_item').attr("name", result['nome'])     
+            $('.icone_item').attr( "src", img)        
             $('#status_refinar').html("Chance de sucesso: "+Math.round(((100-ref_att*4)/100)**4*100)+"%")
             selecionado = true;
           }
@@ -651,16 +654,17 @@ function eventos_market() {
           }
           if (tipo == "v")
           {
+            
             $('#'+id).off('click');
+            $('#'+id).attr( "src", "http://localhost/rpg/visual/imagens/itens/vazio.png")
             $('#'+id).attr("data-info", "")
             $('#'+id).attr("data-slot", "")
             $('#'+id).attr("data-id_inventario", "")
             $('#'+id).attr("data-indice", "")
             $('#'+id).attr("name", "")
-            $('#'+id).attr("class", "slot_empty")
-            //$('#'+id).hide()
-            $('#'+id).attr("id", "")  
-            $('.slot_empty').css('border', '5px solid black')
+            $('#'+id).attr("id", "")              
+            $('#'+id).attr("class", "slot_empty")   
+            $('.slot_empty').css('border', '5px solid black')            
             $('.informacoes_item').hide()
           }
           else{

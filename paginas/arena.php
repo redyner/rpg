@@ -38,7 +38,7 @@ if (isset($_GET['id'])) {
             </div>
         </div>
 
-        <div id="avatar_arena" class="avatar_batalha" name="<?php echo $classe ?>"></div>
+        <div id="avatar_arena" class="avatar_batalha" name="<?php echo $classe."_arena" ?>"></div>
         <div class="avatar_batalha_inimigo"></div>
 
         <button class="botao" id="atacar"> Atacar </button>

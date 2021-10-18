@@ -1,10 +1,6 @@
     <div class="conteudo">
         <div class="logo"></div>
-        <nav class="menu">
-            <ul>
-                <li><a href="http://localhost/rpg">Login</a></li>
-            </ul>
-        </nav>
+        <?php include "menu.php" ?>
         <form action="http://localhost/RPG/paginas/sql.php" method="POST" class="form" id="form_login">
             <label for="login">Login</label>
             <input type="text" name='login' id="login" class="input" required>

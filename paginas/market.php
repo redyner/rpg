@@ -20,13 +20,14 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
     <div id="comprar_item" class="invetario">
         <?php
         $i = 0;
-        $sql = "SELECT i.id_item, i.nm_item, i.lv, i.valor, i.id_classe, `sta`, `str`, `int`, `dex`
+        $sql = "SELECT i.id_item, i.imagem, i.nm_item, i.lv, i.valor, i.id_classe, `sta`, `str`, `int`, `dex`
                 FROM rpg.itens i
                     JOIN rpg.atributos a ON i.id_item = a.id_item
                     JOIN rpg.classes c ON c.id_classe = i.id_classe";
         $resultado = mysqli_query($conexao, $sql);
         while ($info_item = mysqli_fetch_assoc($resultado)) {
             $slot[$i]['id_item'] = $info_item['id_item'];
+            $slot[$i]['imagem'] = $info_item['imagem'];
             $slot[$i]['nm_item'] = $info_item['nm_item'];
             $slot[$i]['lv'] = $info_item['lv'];
             $slot[$i]['valor'] = $info_item['valor'];
@@ -41,13 +42,13 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
       
         for ($i = 0; $i <= 14; $i++) {
         ?>
-            <div id="<?php if (isset($slot[$i])) echo 'slotm' . $i ?>" data-info="<?php if (isset($slot[$i])) echo '#info_slotm' . $i ?>" data-id_inventario="<?php if (isset($slot[$i]['id_inventario'])) echo $slot[$i]['id_inventario'] ?>" data-indice="<?php echo $i ?>" name='<?php if (isset($slot[$i])) echo $slot[$i]['nm_item'] ?>' class="<?php echo isset($slot[$i]) ? 'slotm' : 'slot_empty' ?>"></div>
+            <img src="http://localhost/rpg/visual/imagens/itens/<?php if (isset($slot[$i])) echo $slot[$i]['imagem']; else echo "vazio.png";?>" style="background-size: contain;"  id="<?php if (isset($slot[$i])) echo 'slotm' . $i ?>" data-info="<?php if (isset($slot[$i])) echo '#info_slotm' . $i ?>" data-id_inventario="<?php if (isset($slot[$i]['id_inventario'])) echo $slot[$i]['id_inventario'] ?>" data-indice="<?php echo $i ?>" name='<?php if (isset($slot[$i])) echo $slot[$i]['nm_item'] ?>' class="<?php echo isset($slot[$i]) ? 'slotm' : 'slot_empty' ?>">
         <?php  } ?>
     </div>
     <div id="vender_item">
         <?php
         $i = 15;
-        $sql = "SELECT i.id_item, i.nm_item, i.lv, i.valor, i.id_classe, `sta`, `str`, `int`, `dex`, iv.equipado, iv.id_inventario, refino
+        $sql = "SELECT i.id_item, i.imagem, i.nm_item, i.lv, i.valor, i.id_classe, `sta`, `str`, `int`, `dex`, iv.equipado, iv.id_inventario, refino
                 FROM rpg.inventarios iv
                     JOIN rpg.itens i ON i.id_item = iv.id_item 
                     JOIN rpg.atributos a ON i.id_item = a.id_item
@@ -57,6 +58,7 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
         $resultado = mysqli_query($conexao, $sql);
         while ($info_item = mysqli_fetch_assoc($resultado)) {
             $slot[$i]['id_item'] = $info_item['id_item'];
+            $slot[$i]['imagem'] = $info_item['imagem'];
             $slot[$i]['nm_item'] = $info_item['nm_item'];
             $slot[$i]['lv'] = $info_item['lv'];
             $slot[$i]['valor'] = $info_item['valor'];
@@ -73,7 +75,7 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
   
         for ($i = 15; $i <= 29; $i++) {
         ?>
-            <div id="<?php if (isset($slot[$i])) echo 'slotm' . $i ?>" data-info="<?php if (isset($slot[$i])) echo '#info_slotm' . $i ?>" data-id_inventario="<?php if (isset($slot[$i]['id_inventario'])) echo $slot[$i]['id_inventario'] ?>" data-indice="<?php echo $i ?>" name="<?php echo isset($slot[$i]) ? $slot[$i]['nm_item'] :  $i ?>" class="<?php echo isset($slot[$i]) ? 'slotm' : 'slot_empty' ?>" <?php if (isset($slot[$i]['equipado']) && $slot[$i]['equipado'] == 'S') echo "style='border: 5px solid grey'" ?>></div>
+            <img src="http://localhost/rpg/visual/imagens/itens/<?php if (isset($slot[$i])) echo $slot[$i]['imagem']; else echo "vazio.png";?>" style="background-size: contain;" id="<?php if (isset($slot[$i])) echo 'slotm' . $i ?>" data-info="<?php if (isset($slot[$i])) echo '#info_slotm' . $i ?>" data-id_inventario="<?php if (isset($slot[$i]['id_inventario'])) echo $slot[$i]['id_inventario'] ?>" data-indice="<?php echo $i ?>" name="<?php echo isset($slot[$i]) ? $slot[$i]['nm_item'] :  $i ?>" class="<?php echo isset($slot[$i]) ? 'slotm' : 'slot_empty' ?>" <?php if (isset($slot[$i]['equipado']) && $slot[$i]['equipado'] == 'S') echo "style='border: 5px solid grey'"?>>
             <?php  } ?>
     </div>
 </div>

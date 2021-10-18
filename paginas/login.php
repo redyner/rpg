@@ -2,9 +2,7 @@
 <div class="conteudo">
     <div class="logo"></div>
     <nav class="menu">
-    <ul>
-        <li><a href="http://localhost/rpg/index.php?pagina=cadastrar"">Cadastrar</a></li>
-    </ul>
+    <?php include "menu.php" ?>
 </nav>
     <form action="http://localhost/RPG/paginas/sql.php" method="POST" class="form" id="form_login">
         <label class="label" for="login">Login</label>
