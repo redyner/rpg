@@ -69,7 +69,7 @@ for ($i = 0; $i <= 14; $i++) {
         <p id="ref_int<?php echo $i ?>">INT - <?php echo isset($slot[$i]) ? $slot[$i]['int'] : 0 ?></p>
         <p id="ref_dex<?php echo $i ?>">DEX - <?php echo isset($slot[$i]) ? $slot[$i]['dex'] : 0 ?></p>
         <p id="ref_ref<?php echo $i ?>">REF - <?php echo isset($slot[$i]) ? $slot[$i]['ref'] : 0 ?></p>
-        <p>VALOR - <?php echo isset($slot[$i]) ? $slot[$i]['valor'] : 0 ?></p>
+        <p>VALOR - <?php echo isset($slot[$i]) ? valorPontos($slot[$i]['valor']) : 0 ?></p>
     </div>
 <?php } ?>
 <script>

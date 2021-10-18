@@ -75,3 +75,9 @@ function avatarClasse($classe){
 
         return $imagem;
 }
+function valorPontos($val){
+
+        $valor = number_format($val, 0, ',', '.');
+
+        return $valor;
+}

@@ -27,7 +27,7 @@
                     </li>
                 </ul>
                 <div id="info_moedas">
-                    <li class="gold">GOLD <?php echo $_SESSION['gold'] ?></li>
+                    <li class="gold">GOLD <?php echo valorPontos($_SESSION['gold'])?></li>
                 </div>
             </div>
         </div>

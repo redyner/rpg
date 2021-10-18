@@ -95,7 +95,7 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
             <p>INT - <?php echo isset($slot[$i]) ? $slot[$i]['int'] : 0 ?></p>
             <p>DEX - <?php echo isset($slot[$i]) ? $slot[$i]['dex'] : 0 ?></p>
             <p>REF - <?php echo isset($slot[$i]) ? $slot[$i]['ref'] : 0 ?></p>
-            <p>Valor <?php echo isset($slot[$i]) ? $slot[$i]['valor'] : 0 ?></p>
+            <p>Valor <?php echo isset($slot[$i]) ? valorPontos($slot[$i]['valor']) : 0 ?></p>
         </div>
 
     <?php } ?>
