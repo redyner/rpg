@@ -78,16 +78,17 @@ a {
     width     : 100%;
     height    : 350px;
     text-align: center;
+    margin: 0 auto;
 }
 
 
 .painel_infor {
-    width           : 550px;
-    height          : 300px;
+    width           : 495px;
+    height          : 305px;
     float           : right;
     font            : normal 10pt "gb";
     color           : white;
-    background-color: rgba(71, 61, 40, 0.2);
+    background-color: rgba(71, 61, 40, 0.2);     
 }
 
 .painel_infor p {
@@ -104,8 +105,8 @@ a {
     width      : 250px;
     height     : 20px;
     border     : solid 1px;
-    margin-left: 28%;
-    margin-top : 5%;
+    margin-left: 25%;
+    margin-top : 1%;
 }
 
 .barras_hp {
@@ -195,6 +196,74 @@ a {
     height: 900px;
 }
 
+#informacao_    {
+    width: 250px;
+    float: left;
+    margin-top: 4%;
+    margin-left: 5%;
+}
+
+#avatar_personagem{
+    width : 180px;
+    height: 300px;   
+    margin-left: 20%;  
+}
+
+/* 
+*   Itens Equipados
+*/
+#itens_equipados{   
+   width: 300px;
+   height: 300px;  
+   font-size: 12px;
+   color: black;
+   border: 2px solid black;
+   background   : rgb(114, 87, 52);
+   font-family: 'Courier New', Courier, monospace;
+   float: left;
+}
+.item_equipado{  
+    width        : 50px;
+    height       : 50px;
+    border-radius: 10px;
+    border       : solid 2px;
+    background   : rgb(116, 84, 42);
+    margin: 2%;
+}
+
+/* divs  */ 
+#armadura{    
+    float: left;
+    margin-top: 4%;
+    display: inline-block;
+}
+
+#arma_joia{   
+    float: right;
+    margin-top: -96%;
+    display: inline-block;
+}
+
+/* Itens */ 
+/*
+#e_elmo{}
+#e_colar{}
+#e_bonus{}
+#e_peitoral{}
+#e_luvas{}
+#e_calca{}
+#e_anel{}
+#e_botas{}
+#e_bonus2{}
+*/
+#e_arma{ 
+   margin-top: 96%;
+}
+/*
+#e_escudo{}
+*/
+
+
 /* Pagina: Dungeon e Batalha */
 
 #selecao_inimigo {
@@ -248,12 +317,10 @@ a {
     float : left;
 }
 
-
-
 /* Pagina: Market */
 
 #vendercomprar {
-    margin-top          : 15%;
+    margin-top: 15%;
     background-image: url(../imagens/barras/barra_cinza.jpg);
     color           : white;
     font            : normal 7pt "gb";
@@ -343,6 +410,12 @@ a {
 }
 
 /* Perfil */
+
+#avatar_perfil{
+    width : 180px;
+    height: 300px; 
+    margin-left: 10%;
+}
 
 #painel_perfil {
     text-align: center;
@@ -438,17 +511,17 @@ nav ul li a {
 /* Personagens  */
 
 div[name="warrior"] {
-    background-size : 250px 300px;
+    background-size : 180px 300px;
     background-image: url(../imagens/classes/warrior.jpg);
 }
 
 div[name="archer"] {
-    background-size : 250px 300px;
+    background-size : 180px 300px;
     background-image: url(../imagens/classes/archer.jpg);
 }
 
 div[name="wizard"] {
-    background-size : 250px 300px;
+    background-size : 180px 300px;
     background-image: url(../imagens/classes/wizard.jpg);
 }
 

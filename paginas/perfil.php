@@ -7,7 +7,7 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
 <div class="conteudo" id="conteudo_perfil">
     <div class="logo"></div>
     <?php include "menu.php" ?>
-    <div class="avatar" name="<?php echo $_SESSION['classe'] ?>"></div>
+    <div class="avatar" id="avatar_perfil" name="<?php echo $_SESSION['classe'] ?>"></div>
     <div class="painel_infor" id="painel_perfil">
         <p class="titulo">Painel do Jogador</p>
         <p>Login: <?php echo $_SESSION['login'] ?> </p>

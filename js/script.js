@@ -483,7 +483,7 @@ function eventos_forja() {
       var custo_refinar = (ref_att+1)*25
       comfirma_refinar = confirm("Deseja refinar este item?\n"+"Custo: "+custo_refinar)
       if (comfirma_refinar == true) {
-        $.ajax({
+        $.ajax({          
           url: 'http://localhost/RPG/paginas/sql.php',
           method: 'POST',
           data: {opcao: "custo", custo_refinar: custo_refinar},
@@ -492,7 +492,8 @@ function eventos_forja() {
           $(".gold").html("GOLD "+(result['gold']));
           $('#sucesso').html("");
           $('#falha').html("");
-          $("#refinar_atual").width("0%");
+          $("#refinar_atual").width("0%"); 
+          $('#botao_refinar').prop( "disabled", true );         
           porcentagem_refinar = 0;
           sucesso = 0;
           falha = 0;
@@ -510,7 +511,7 @@ function eventos_forja() {
     {
         refinando = setInterval(function (event) {
         var barra_refinar = $('#barra_refinar');
-        var refinar_atual = $("#refinar_atual");
+        var refinar_atual = $("#refinar_atual");        
 
         refinar(barra_refinar, refinar_atual,id_inventario,equipado);
       }, 1000);
@@ -520,7 +521,7 @@ function eventos_forja() {
     {
           var indice = $('.icone_item').data("indice")
           $('#sucesso').html("");
-          $('#falha').html("");
+          $('#falha').html("");        
           var taxa_de_sucesso = 100;
           var dificuldade = 100-ref_att*4; 
           var chance_de_sucesso = Math.round(Math.random() * (taxa_de_sucesso - 1) + 1);
@@ -556,6 +557,7 @@ function eventos_forja() {
                 $('#ref_dex'+indice).html("DEX - "+dex)
                 $('#ref_ref'+indice).html("REF - "+ref_att)
                 $('#status_refinar').html("Chance de sucesso: "+Math.round(((100-ref_att*4)/100)**4*100)+"%")
+                $('#botao_refinar').prop( "disabled", false ); 
               },error: function (result) {
                 alert(JSON.stringify(result));
               }

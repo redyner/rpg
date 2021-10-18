@@ -10,20 +10,41 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
     <?php include "menu.php" ?>
 
     <div class="painel">
-        <div class="avatar" name="<?php echo $_SESSION['classe'] ?>"></div>
+        <div id="itens_equipados">
+
+            <div id="armadura">
+                <div id="e_elmo" class="item_equipado">Elmo</div>
+                <div id="e_peitoral" class="item_equipado">peitoral</div>
+                <div id="e_luvas" class="item_equipado">Luva</div>
+                <div id="e_calca" class="item_equipado">calça</div>
+                <div id="e_botas" class="item_equipado">botas</div>
+            </div>
+
+            <div id="avatar_personagem" name="<?php echo $_SESSION['classe'] ?>"></div>
+
+            <div id="arma_joia">                
+                <div id="e_colar" class="item_equipado">Colar</div>
+                <div id="e_anel" class="item_equipado">Anel</div>
+                <div id="e_arma" class="item_equipado">Arma</div>
+                <div id="e_escudo" class="item_equipado">Escudo</div>
+            </div>
+        </div>
         <div class="painel_infor">
             <p class="titulo">EXP</p>
             <div class="barra" id="barra_xp">
                 <div id="xp_xpmax"><?php echo $_SESSION['xp'] . "/" . $_SESSION['xp_max']; ?></div>
                 <div id="xp_atual" style="width: <?php echo $porcentagem_xp ?>%"></div>
             </div>
-            <p id="nick_personagem">NICK - <?php echo $_SESSION['nick'] ?></p>
-            <p id="lv_personagem">LEVEL - <?php echo $_SESSION['lv'] ?></p>
-            <p id="sta_personagem">STA - <?php echo $_SESSION['sta'] ?></p>
-            <p id="str_personagem">STR - <?php echo $_SESSION['str'] ?></p>
-            <p id="int_personagem">INT - <?php echo $_SESSION['int'] ?></p>
-            <p id="dex_personagem">DEX - <?php echo $_SESSION['dex'] ?></p>
+            <div id="informacao_personagem">
+                <p id="nick_personagem">NICK - <?php echo $_SESSION['nick'] ?></p>
+                <p id="lv_personagem">LEVEL - <?php echo $_SESSION['lv'] ?></p>
+                <p id="sta_personagem">STA - <?php echo $_SESSION['sta'] ?></p>
+                <p id="str_personagem">STR - <?php echo $_SESSION['str'] ?></p>
+                <p id="int_personagem">INT - <?php echo $_SESSION['int'] ?></p>
+                <p id="dex_personagem">DEX - <?php echo $_SESSION['dex'] ?></p>
+            </div>
         </div>
+
     </div>
     <hr>
     <div class="painel_inferior">
