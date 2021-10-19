@@ -52,13 +52,13 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
             <div class="titulo">Inventario</div>
             <?php
             $i = 0;
-            $sql = "SELECT i.id_item, i.imagem, i.nm_item, i.lv, i.valor, i.id_classe, `sta`, `str`, `int`, `dex`, iv.equipado, iv.id_inventario, refino
+            $sql = "SELECT i.id_item, i.imagem, i.nm_item, i.lv, i.valor, i.id_classe, `sta`, `str`, `int`, `dex`, iv.equipado, iv.id_inventario, iv.data, refino
                 FROM rpg.inventarios iv
                 JOIN rpg.itens i ON i.id_item = iv.id_item 
                 JOIN rpg.atributos a ON i.id_item = a.id_item
                 JOIN rpg.personagens p ON p.id_personagem = iv.id_personagem
                 WHERE p.id_personagem = '{$_SESSION['id_personagem']}'
-                ORDER BY iv.slot";
+                ORDER BY iv.data ASC";
             $resultado = mysqli_query($conexao, $sql);
             while ($info_item = mysqli_fetch_assoc($resultado)) {
                 $slot[$i]['id_item'] = $info_item['id_item'];

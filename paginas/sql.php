@@ -268,7 +268,7 @@ if ($opcao == "market") {
 
                         mysqli_query($conexao, $sql);
 
-                        $sql = "UPDATE `rpg`.`inventarios` SET `refino` = '0', `id_item` = '{$id_item}' WHERE `id_inventario` = '{$id_inventario['id_inventario']}'";
+                        $sql = "UPDATE `rpg`.`inventarios` SET `refino` = '0', `id_item` = '{$id_item}', `data`= now() WHERE `id_inventario` = '{$id_inventario['id_inventario']}'";
 
                         mysqli_query($conexao, $sql);
                 }
@@ -283,7 +283,7 @@ if ($opcao == "market") {
 
                 mysqli_query($conexao, $sql);
 
-                $sql = "UPDATE `rpg`.`inventarios` SET `refino` = '0', `id_item` = NULL, `equipado` = 'N'  WHERE `id_inventario` = '{$id_inventario}'";
+                $sql = "UPDATE `rpg`.`inventarios` SET `refino` = '0', `id_item` = NULL, `equipado` = 'N', `data`= now()  WHERE `id_inventario` = '{$id_inventario}'";
 
                 mysqli_query($conexao, $sql);
         }

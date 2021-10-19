@@ -30,7 +30,7 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
                     JOIN rpg.atributos a ON i.id_item = a.id_item
                     JOIN rpg.personagens p ON p.id_personagem = iv.id_personagem
                 WHERE p.id_personagem = '{$_SESSION['id_personagem']}'
-                    ORDER BY iv.slot";
+                ORDER BY iv.data ASC";
     $resultado = mysqli_query($conexao, $sql);
     while ($info_item = mysqli_fetch_assoc($resultado)) {
         $slot[$i]['id_item'] = $info_item['id_item'];

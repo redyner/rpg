@@ -77,7 +77,7 @@ function avatarClasse($classe){
 }
 function valorPontos($val){
 
-        $valor = number_format($val, 0, ',', '.');
+       $resultado = number_format($val, 0, ',', '.');
 
-        return $valor;
+        return $resultado;
 }
