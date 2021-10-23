@@ -108,3 +108,40 @@ function infos_item($id_inventario,$equipado){
 
         return $infos_item;
 }
+
+function preencher_slots($equipado){
+
+        $i = 0;
+        $slot = [];
+        if($equipado == "N") $order = "iv.data ASC";
+        else $order = "i.tipo ASC";
+
+        $sql = "SELECT i.id_item, i.imagem, i.nm_item, i.lv, i.valor, i.id_classe, `sta`, `str`, `int`, `dex`, iv.equipado, iv.id_inventario, iv.data, refino, i.tipo
+            FROM rpg.inventarios iv
+            JOIN rpg.itens i ON i.id_item = iv.id_item 
+            JOIN rpg.atributos a ON i.id_item = a.id_item
+            JOIN rpg.personagens p ON p.id_personagem = iv.id_personagem
+            WHERE p.id_personagem = '{$_SESSION['id_personagem']}'
+            AND iv.equipado = '{$equipado}'
+            ORDER BY $order";
+        $resultado = mysqli_query($GLOBALS['conexao'], $sql);
+        while ($info_item = mysqli_fetch_assoc($resultado)) {
+            $slot[$i]['id_item'] = $info_item['id_item'];
+            $slot[$i]['imagem'] = $info_item['imagem'];
+            $slot[$i]['nm_item'] = $info_item['nm_item'];
+            $slot[$i]['lv'] = $info_item['lv'];
+            $slot[$i]['valor'] = $info_item['valor'];
+            $slot[$i]['id_classe'] = $info_item['id_classe'];
+            $slot[$i]['sta'] = $info_item['sta'] * ($info_item['refino'] + 1);
+            $slot[$i]['str'] = $info_item['str'] * ($info_item['refino'] + 1);
+            $slot[$i]['int'] = $info_item['int'] * ($info_item['refino'] + 1);
+            $slot[$i]['dex'] = $info_item['dex'] * ($info_item['refino'] + 1);
+            $slot[$i]['tipo'] = $info_item['tipo'];
+            $slot[$i]['ref'] = $info_item['refino'];
+            $slot[$i]['equipado'] = $info_item['equipado'];
+            $slot[$i]['id_inventario'] = $info_item['id_inventario'];
+            $i++;
+        }
+
+        return $slot;
+}
