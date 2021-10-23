@@ -23,7 +23,9 @@ session_start();
 </head>
 
 <body>
-    
+
+<embed src="audio/theme" autostart = "true" loop="true" width="0" height="0">
+
 <?php
 if(isset($_GET['pagina'])) 
 {
