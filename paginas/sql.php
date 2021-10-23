@@ -123,10 +123,17 @@ if ($opcao == "equipar") {
                 mysqli_query($conexao, $sql);
         }
 
+        $resultado = [];
+
+        $infos_item = infos_item($id_inventario,$equipado);
+
+        $resultado['infos_item'] = $infos_item;
+
         $atributos = att_atributos($id_personagem);
 
-        $atributos_json = json_encode($atributos);
-        echo json_encode($atributos);
+        $resultado['atributos'] = $atributos;
+
+        echo json_encode($resultado);
 }
 
 if ($opcao == "forja") {
@@ -137,26 +144,9 @@ if ($opcao == "forja") {
 
         $equipado = $_POST['equipado'];
 
-        $sql = "SELECT it.nm_item nome, it.imagem, sta*(refino+1) sta, `str`*(refino+1) `str`, `int`*(refino+1) `int`, dex*(refino+1) dex, refino
-                FROM rpg.inventarios i
-                JOIN rpg.personagens p ON p.id_personagem = i.id_personagem
-                JOIN rpg.atributos a ON i.id_item = a.id_item
-                JOIN rpg.itens it ON it.id_item = i.id_item
-                WHERE i.id_personagem = '{$id_personagem}' AND i.id_inventario = {$id_inventario}";
-        $equipamento = mysqli_fetch_assoc(mysqli_query($conexao, $sql));
+        $infos_item = infos_item($id_inventario,$equipado);
 
-        $atributos['nome'] = $equipamento['nome'];
-        $atributos['imagem'] = $equipamento['imagem'];
-        $atributos['sta'] = $equipamento['sta'];
-        $atributos['str'] = $equipamento['str'];
-        $atributos['int'] = $equipamento['int'];
-        $atributos['dex'] = $equipamento['dex'];
-        $atributos['ref'] = $equipamento['refino'];
-        $atributos['equipado'] = $equipado;
-        $atributos['id_inventario'] = $id_inventario;
-
-        $atributos_json = json_encode($atributos);
-        echo json_encode($atributos);
+        echo json_encode($infos_item);
 }
 
 if ($opcao == "refinar") {

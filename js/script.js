@@ -318,14 +318,17 @@ function eventos_inventario() {
           dataType: 'json',
           success: function (result) {
             console.log(result)
-            sta = result['sta']
-            str = result['str']
-            int = result['int']
-            dex = result['dex']
+            sta = result['atributos']['sta']
+            str = result['atributos']['str']
+            int = result['atributos']['int']
+            dex = result['atributos']['dex']
+            tipo = result['infos_item']['tipo']
+            img = "http://localhost/rpg/visual/imagens/itens/" + result['infos_item']['imagem']
             $("#sta_personagem").html("STA - " + sta)
             $("#str_personagem").html("STR - " + str)
             $("#int_personagem").html("INT - " + int)
             $("#dex_personagem").html("DEX - " + dex)
+            $('#item_equipado_'+tipo).attr( "src", img)
           },
           error: function (result) {
             alert(JSON.stringify(result));
@@ -345,14 +348,17 @@ function eventos_inventario() {
           dataType: 'json',
           success: function (result) {
             console.log(result)
-            sta = result['sta']
-            str = result['str']
-            int = result['int']
-            dex = result['dex']
+            sta = result['atributos']['sta']
+            str = result['atributos']['str']
+            int = result['atributos']['int']
+            dex = result['atributos']['dex']
+            tipo = result['infos_item']['tipo']
+            img = "http://localhost/rpg/visual/imagens/itens/vazio.png"
             $("#sta_personagem").html("STA - " + sta)
             $("#str_personagem").html("STR - " + str)
             $("#int_personagem").html("INT - " + int)
             $("#dex_personagem").html("DEX - " + dex)
+            $('#item_equipado_'+tipo).attr( "src", img)
           }
         })
       } else slot[indice][1] = "S";
@@ -435,8 +441,8 @@ function eventos_forja() {
             $('.icone_item').attr("data-id_inventario", id_inventario)
             $('.icone_item').attr("data-equipado", equipado)
             $('.icone_item').attr("data-indice", indice)
-            $('.icone_item').attr("name", result['nome'])     
-            $('.icone_item').attr( "src", img)        
+            $('.icone_item').attr("name", result['nome'])
+            $('.icone_item').attr( "src", img)
             $('#status_refinar').html("Chance de sucesso: "+Math.round(((100-ref_att*4)/100)**4*100)+"%")
             selecionado = true;
           }
@@ -463,6 +469,7 @@ function eventos_forja() {
             str = result['str']
             int = result['int']
             dex = result['dex']
+            img = "http://localhost/rpg/visual/imagens/itens/vazio.png"
             ref_att = parseInt(result['ref'])
             id_inventario = result['id_inventario']
             equipado = result['equipado']
@@ -470,6 +477,7 @@ function eventos_forja() {
             $('.icone_item').attr("data-equipado", "")
             $('.icone_item').attr("data-indice", "")
             $('.icone_item').attr("name", "")
+            $('.icone_item').attr( "src", img)
             selecionado = false;
           }
         })

@@ -245,13 +245,11 @@ img{
 #armadura{    
     float: left;
     margin-top: 4%;
-    display: inline-block;
 }
 
 #arma_joia{   
     float: right;
     margin-top: -96%;
-    display: inline-block;
 }
 
 /* Itens */ 
@@ -272,7 +270,10 @@ img{
 /*
 #e_escudo{}
 */
-
+.icone_equipado{
+    width        : 50px;
+    height       : 50px;
+}
 
 /* Pagina: Dungeon e Batalha */
 

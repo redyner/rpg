@@ -75,9 +75,36 @@ function avatarClasse($classe){
 
         return $imagem;
 }
+
 function valorPontos($val){
 
        $resultado = number_format($val, 0, ',', '.');
 
         return $resultado;
+}
+
+function infos_item($id_inventario,$equipado){
+
+        $id_personagem = $_SESSION['id_personagem'];
+
+        $sql = "SELECT it.nm_item nome, it.imagem, sta*(refino+1) sta, `str`*(refino+1) `str`, `int`*(refino+1) `int`, dex*(refino+1) dex, refino, it.tipo
+                FROM rpg.inventarios i
+                JOIN rpg.personagens p ON p.id_personagem = i.id_personagem
+                JOIN rpg.atributos a ON i.id_item = a.id_item
+                JOIN rpg.itens it ON it.id_item = i.id_item
+                WHERE i.id_personagem = '{$id_personagem}' AND i.id_inventario = {$id_inventario}";
+        $equipamento = mysqli_fetch_assoc(mysqli_query($GLOBALS['conexao'], $sql));
+
+        $infos_item['nome'] = $equipamento['nome'];
+        $infos_item['imagem'] = $equipamento['imagem'];
+        $infos_item['sta'] = $equipamento['sta'];
+        $infos_item['str'] = $equipamento['str'];
+        $infos_item['int'] = $equipamento['int'];
+        $infos_item['dex'] = $equipamento['dex'];
+        $infos_item['ref'] = $equipamento['refino'];
+        $infos_item['tipo'] = $equipamento['tipo'];
+        $infos_item['equipado'] = $equipado;
+        $infos_item['id_inventario'] = $id_inventario;
+
+        return $infos_item;
 }
