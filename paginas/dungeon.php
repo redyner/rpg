@@ -3,8 +3,10 @@
         $porcentagem_xp = $_SESSION['xp']*100/$_SESSION['xp_max'];
         if ($porcentagem_xp<0) $porcentagem_xp = 0;
 
-    ?>    
-    
+    ?>
+
+<embed src="audio/theme" autostart = "true" loop="true" width="0" height="0">
+
 <div class="conteudo">
     <div class="logo"></div>
     <?php include "menu.php" ?>
