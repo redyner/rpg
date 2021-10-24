@@ -292,8 +292,7 @@ function eventos_inventario() {
   $('.slot').on("mouseout", function (event) {
     var box = this.id
     var info = $(this).data("info");
-    var indice = $(this).data("indice")
-    if (slot[indice][1]=="N") $('#'+box+'d').css('border', '5px solid black')
+    $('#'+box).css('border', '5px solid black')
     $(info).hide()
   });
 
@@ -307,8 +306,7 @@ function eventos_inventario() {
   $('.slote').on("mouseout", function (event) {
     var box = this.id
     var info = $(this).data("info");
-    var indice = $(this).data("indice")
-    if (slot[indice][1]=="S") $('#'+box+'d').css('border', '2px solid black')
+    $('#'+box+'d').css('border', '2px solid black')
     $(info).hide()
   });
 
@@ -345,6 +343,7 @@ function eventos_inventario() {
             $("#dex_personagem").html("DEX - " + dex)
             $('#slote'+tipo).attr("src", img)
             location.reload();
+            event.preventDefault();
           },
           error: function (result) {
             alert(JSON.stringify(result));
@@ -380,6 +379,7 @@ function eventos_inventario() {
             $("#dex_personagem").html("DEX - " + dex)
             $('#slote'+tipo).attr( "src", img)
             location.reload();
+            event.preventDefault();
           }
         })
       } else slot[indice][1] = "S";
@@ -679,6 +679,7 @@ function eventos_market() {
           {
           if(result['valor']>result['gold']) alert("Gold Insuficiente!")
           else location.reload();
+          event.preventDefault();
           }
           if (tipo == "v")
           {
