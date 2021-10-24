@@ -109,10 +109,9 @@ function infos_item($id_inventario,$equipado){
         return $infos_item;
 }
 
-function preencher_slots($equipado){
+function preencher_slots($equipado,$indice = 0,$slot = []){
 
-        $i = 0;
-        $slot = [];
+        $i = $indice;
         if($equipado == "N") $order = "iv.data ASC";
         else $order = "i.tipo ASC";
 

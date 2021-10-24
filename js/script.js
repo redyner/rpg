@@ -293,7 +293,22 @@ function eventos_inventario() {
     var box = this.id
     var info = $(this).data("info");
     var indice = $(this).data("indice")
-    if (slot[indice][1]=="N") $('#'+box).css('border', '5px solid black')
+    if (slot[indice][1]=="N") $('#'+box+'d').css('border', '5px solid black')
+    $(info).hide()
+  });
+
+  $('.slote').on("mouseover", function (event) {
+    var box = this.id
+    var info = $(this).data("info")
+    $('#'+box+'d').css('border', '2px solid grey');
+    $(info).show();
+  });
+
+  $('.slote').on("mouseout", function (event) {
+    var box = this.id
+    var info = $(this).data("info");
+    var indice = $(this).data("indice")
+    if (slot[indice][1]=="S") $('#'+box+'d').css('border', '2px solid black')
     $(info).hide()
   });
 
@@ -328,7 +343,8 @@ function eventos_inventario() {
             $("#str_personagem").html("STR - " + str)
             $("#int_personagem").html("INT - " + int)
             $("#dex_personagem").html("DEX - " + dex)
-            $('#item_equipado_'+tipo).attr( "src", img)
+            $('#slote'+tipo).attr("src", img)
+            location.reload();
           },
           error: function (result) {
             alert(JSON.stringify(result));
@@ -336,10 +352,14 @@ function eventos_inventario() {
         })
       } else slot[indice][1] = "N";
     }
-    else {
+  });
+
+
+    $('.slote').on("click", function (event) {
+      var id_inventario = $(this).data("id_inventario")
+      var indice = $(this).data("indice")
       equipar = confirm("Deseja desequipar este item?")
       if (equipar == true) {
-        $('#'+box).css('border', '5px solid black');
         slot[indice][1] = "N";
         $.ajax({
           url: 'http://localhost/RPG/paginas/sql.php',
@@ -358,11 +378,11 @@ function eventos_inventario() {
             $("#str_personagem").html("STR - " + str)
             $("#int_personagem").html("INT - " + int)
             $("#dex_personagem").html("DEX - " + dex)
-            $('#item_equipado_'+tipo).attr( "src", img)
+            $('#slote'+tipo).attr( "src", img)
+            location.reload();
           }
         })
       } else slot[indice][1] = "S";
-    }
   });
 
 }
@@ -486,18 +506,18 @@ function eventos_forja() {
   });
 
   $('#botao_refinar').on("click", function (event) {
-    $('#botao_refinar').prop( "disabled", true );
     var id_inventario = $('.icone_item').data("id_inventario")
     var equipado = $('.icone_item').data("equipado")
     if (selecionado == true)
     {
+      $('#botao_refinar').prop( "disabled", true );
       var custo_refinar = (ref_att+1)*25
       comfirma_refinar = confirm("Deseja refinar este item?\n"+"Custo: "+custo_refinar)
       if (comfirma_refinar == true) {
         $.ajax({          
           url: 'http://localhost/RPG/paginas/sql.php',
           method: 'POST',
-          data: {opcao: "custo", custo_refinar: custo_refinar},
+          data: {opcao: "custo", custo_refinar: custo_refinar, id_inventario: id_inventario},
           dataType: 'json',
           success: function (result) {
           $(".gold").html("GOLD "+(result['gold']));

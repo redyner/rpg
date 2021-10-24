@@ -16,20 +16,20 @@ $slot = preencher_slots("S");
     <div class="painel">
         <div id="itens_equipados">
             <div id="armadura">
-                <div id="e_elmo" class="item_equipado" name="Elmo"><img id="item_equipado_5" class="icone_equipado" src="http://localhost/rpg/visual/imagens/itens/vazio.png"></div>
-                <div id="e_peitoral" class="item_equipado" name="Couraça"><img id="item_equipado_6" class="icone_equipado" src="http://localhost/rpg/visual/imagens/itens/vazio.png"></div>
-                <div id="e_luvas" class="item_equipado" name="Luvas"><img id="item_equipado_7" class="icone_equipado" src="http://localhost/rpg/visual/imagens/itens/vazio.png"></div>
-                <div id="e_calca" class="item_equipado" name="Calça"><img id="item_equipado_8" class="icone_equipado" src="http://localhost/rpg/visual/imagens/itens/vazio.png"></div>
-                <div id="e_botas" class="item_equipado" name="Botas"><img id="item_equipado_9" class="icone_equipado" src="http://localhost/rpg/visual/imagens/itens/vazio.png"></div>
+                <div id="slote5d" class="item_equipado" name="Elmo"><img src="http://localhost/rpg/visual/imagens/itens/<?php if (isset($slot[4])) echo $slot[4]['imagem']; else echo "vazio.png";?>" style="background-size: contain;" id="slote5" data-info="<?php if (isset($slot[4])) echo '#info_sloti4' ?>" data-id_inventario="<?php if (isset($slot[4]['id_inventario'])) echo $slot[4]['id_inventario'] ?>" data-indice="<?php echo 4 ?>"  class="<?php echo isset($slot[4]) ? 'slote' : 'slote_empty' ?>"> </div>
+                <div id="slote6d" class="item_equipado" name="Couraça"><img src="http://localhost/rpg/visual/imagens/itens/<?php if (isset($slot[5])) echo $slot[5]['imagem']; else echo "vazio.png";?>" style="background-size: contain;" id="slote6" data-info="<?php if (isset($slot[5])) echo '#info_sloti5' ?>" data-id_inventario="<?php if (isset($slot[5]['id_inventario'])) echo $slot[5]['id_inventario'] ?>" data-indice="<?php echo 5 ?>" class="<?php echo isset($slot[5]) ? 'slote' : 'slote_empty' ?>"> </div>
+                <div id="slote7d" class="item_equipado" name="Luvas"><img src="http://localhost/rpg/visual/imagens/itens/<?php if (isset($slot[6])) echo $slot[6]['imagem']; else echo "vazio.png";?>" style="background-size: contain;" id="slote7" data-info="<?php if (isset($slot[6])) echo '#info_sloti6' ?>" data-id_inventario="<?php if (isset($slot[6]['id_inventario'])) echo $slot[6]['id_inventario'] ?>" data-indice="<?php echo 6 ?>" class="<?php echo isset($slot[6]) ? 'slote' : 'slote_empty' ?>"> </div>
+                <div id="slote8d" class="item_equipado" name="Calça"><img src="http://localhost/rpg/visual/imagens/itens/<?php if (isset($slot[7])) echo $slot[7]['imagem']; else echo "vazio.png";?>" style="background-size: contain;" id="slote8" data-info="<?php if (isset($slot[7])) echo '#info_sloti7' ?>" data-id_inventario="<?php if (isset($slot[7]['id_inventario'])) echo $slot[7]['id_inventario'] ?>" data-indice="<?php echo 7 ?>" class="<?php echo isset($slot[7]) ? 'slote' : 'slote_empty' ?>"> </div>
+                <div id="slote9d" class="item_equipado" name="Botas"><img src="http://localhost/rpg/visual/imagens/itens/<?php if (isset($slot[8])) echo $slot[8]['imagem']; else echo "vazio.png";?>" style="background-size: contain;" id="slote9" data-info="<?php if (isset($slot[8])) echo '#info_sloti8' ?>" data-id_inventario="<?php if (isset($slot[8]['id_inventario'])) echo $slot[8]['id_inventario'] ?>" data-indice="<?php echo 8 ?>" class="<?php echo isset($slot[8]) ? 'slote' : 'slote_empty' ?>"> </div>
             </div>
 
-            <div id="avatar_personagem" name="<?php echo $_SESSION['classe'] ?>"></div>
+            <div id="avatar_personagem" name="<?php echo $_SESSION['classe'] ?>_perfil"></div>
 
             <div id="arma_joia">                
-                <div id="e_colar" class="item_equipado" name="Colar"><img id="item_equipado_4" class="icone_equipado" src="http://localhost/rpg/visual/imagens/itens/vazio.png"></div>
-                <div id="e_anel" class="item_equipado" name="Anel"><img id="item_equipado_3" class="icone_equipado" src="http://localhost/rpg/visual/imagens/itens/vazio.png"></div>
-                <div id="e_arma" class="item_equipado" name="Arma"><img id="item_equipado_1" class="icone_equipado" src="http://localhost/rpg/visual/imagens/itens/<?php if (isset($slot[0])) echo $slot[0]['imagem']; else echo "vazio.png";?>"> </div>
-                <div id="e_escudo" class="item_equipado" name="Escudo"><img id="item_equipado_2" class="icone_equipado" src="http://localhost/rpg/visual/imagens/itens/vazio.png"></div>
+                <div id="slote4d" class="item_equipado" name="Colar"><img src="http://localhost/rpg/visual/imagens/itens/<?php if (isset($slot[3])) echo $slot[3]['imagem']; else echo "vazio.png";?>" style="background-size: contain;" id="slote4" data-info="<?php if (isset($slot[3])) echo '#info_sloti3' ?>" data-id_inventario="<?php if (isset($slot[3]['id_inventario'])) echo $slot[3]['id_inventario'] ?>" data-indice="<?php echo 3 ?>" class="<?php echo isset($slot[3]['id_inventario']) ? 'slote' : 'slote_empty' ?>"> </div>
+                <div id="slote3d" class="item_equipado" name="Anel"><img src="http://localhost/rpg/visual/imagens/itens/<?php if (isset($slot[2])) echo $slot[2]['imagem']; else echo "vazio.png";?>" style="background-size: contain;" id="slote3" data-info="<?php if (isset($slot[2])) echo '#info_sloti2' ?>" data-id_inventario="<?php if (isset($slot[2]['id_inventario'])) echo $slot[2]['id_inventario'] ?>" data-indice="<?php echo 2 ?>" class="<?php echo isset($slot[2]['id_inventario']) ? 'slote' : 'slote_empty' ?>"> </div>
+                <div id="slote1d" class="item_equipado" name="Arma"><img src="http://localhost/rpg/visual/imagens/itens/<?php if (isset($slot[0])) echo $slot[0]['imagem']; else echo "vazio.png";?>" style="background-size: contain;" id="slote1" data-info="<?php if (isset($slot[0])) echo '#info_sloti0' ?>" data-id_inventario="<?php if (isset($slot[0]['id_inventario'])) echo $slot[0]['id_inventario'] ?>" data-indice="<?php echo 0 ?>" class="<?php echo isset($slot[0]['id_inventario']) ? 'slote' : 'slote_empty' ?>"> </div>
+                <div id="slote2d" class="item_equipado" name="Escudo"><img src="http://localhost/rpg/visual/imagens/itens/<?php if (isset($slot[1])) echo $slot[1]['imagem']; else echo "vazio.png";?>" style="background-size: contain;" id="slote2" data-info="<?php if (isset($slot[1])) echo '#info_sloti1' ?>" data-id_inventario="<?php if (isset($slot[1]['id_inventario'])) echo $slot[1]['id_inventario'] ?>" data-indice="<?php echo 1 ?>" class="<?php echo isset($slot[1]['id_inventario']) ? 'slote' : 'slote_empty' ?>"> </div>
             </div>
         </div>
         <div class="painel_infor">
@@ -54,8 +54,8 @@ $slot = preencher_slots("S");
         <div class="inventario">
             <div class="titulo">Inventario</div>
             <?php
-            $slot = preencher_slots("N");
-            for ($i = 0; $i <= 14; $i++) {
+            $slot = preencher_slots("N",9,$slot);
+            for ($i = 9; $i <= 23; $i++) {
             ?>
                 <img src="http://localhost/rpg/visual/imagens/itens/<?php if (isset($slot[$i])) echo $slot[$i]['imagem']; else echo "vazio.png";?>" style="background-size: contain;" id="<?php if (isset($slot[$i])) echo 'sloti' . $i ?>" data-info="<?php if (isset($slot[$i])) echo '#info_sloti' . $i ?>" data-id_inventario="<?php if (isset($slot[$i]['id_inventario'])) echo $slot[$i]['id_inventario'] ?>" data-indice="<?php echo $i ?>"  class="<?php echo isset($slot[$i]) ? 'slot' : 'slot_empty' ?>" <?php if (isset($slot[$i]['equipado']) && $slot[$i]['equipado'] == 'S') echo "style='border: 5px solid grey'" ?>>
             <?php } ?>
@@ -63,7 +63,7 @@ $slot = preencher_slots("S");
     </div>
 
     <?php
-    for ($i = 0; $i <= 14; $i++) {
+    for ($i = 0; $i <= 23; $i++) {
     ?>
         <div id="info_sloti<?php echo $i ?>" class="informacoes_item">
             <p class="titulo" style="margin-bottom: 5%;"><?php echo isset($slot[$i]) ? $slot[$i]['nm_item'] : 0 ?></p>

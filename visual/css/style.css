@@ -232,6 +232,7 @@ img{
    font-family: 'Courier New', Courier, monospace;
    float: left;
 }
+
 .item_equipado{  
     width        : 50px;
     height       : 50px;
@@ -264,13 +265,18 @@ img{
 #e_botas{}
 #e_bonus2{}
 */
-#e_arma{ 
+#slote1d{ 
    margin-top: 96%;
 }
 /*
 #e_escudo{}
 */
-.icone_equipado{
+.slote{
+    width        : 50px;
+    height       : 50px;
+}
+
+.slote_empty{
     width        : 50px;
     height       : 50px;
 }
@@ -536,32 +542,32 @@ nav li a{
 /* Personagens  */
 
 div[name="warrior"] {
-    background-size : 180px 300px;
+    background-size : 250px 250px;
     background-image: url(../imagens/classes/warrior.jpg);
 }
 
 div[name="archer"] {
-    background-size : 180px 300px;
+    background-size : 250px 250px;
     background-image: url(../imagens/classes/archer.jpg);
 }
 
 div[name="wizard"] {
-    background-size : 180px 300px;
+    background-size : 250px 250px;
     background-image: url(../imagens/classes/wizard.jpg);
 }
 
-div[name="warrior_arena"] {
-    background-size : 250px 300px;
+div[name="warrior_perfil"] {
+    background-size : 180px 300px;
     background-image: url(../imagens/classes/warrior.jpg);
 }
 
-div[name="archer_arena"] {
-    background-size : 250px 300px;
+div[name="archer_perfil"] {
+    background-size : 180px 300px;
     background-image: url(../imagens/classes/archer.jpg);
 }
 
-div[name="wizard_arena"] {
-    background-size : 250px 300px;
+div[name="wizard_perfil"] {
+    background-size : 180px 300px;
     background-image: url(../imagens/classes/wizard.jpg);
 }
 
