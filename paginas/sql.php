@@ -93,39 +93,54 @@ if ($opcao == "buscaarena") {
 }
 
 if ($opcao == "equipar") {
+
+        $id_player = $_SESSION['id_player'];
+        
         $id_personagem = $_SESSION['id_personagem'];
 
-        $id_inventario = $_POST['id_inventario'];
+        $id_inventario = isset($_POST['id_inventario']) ? $_POST['id_inventario'] : 0;
 
         $equipado = $_POST['equipado'];
 
         $sql = "SELECT id_inventario, equipado, tipo FROM rpg.inventarios iv
-                JOIN rpg.itens it ON it.id_item = iv.id_item
-                where id_personagem = '{$id_personagem}'
-                and id_inventario = '{$id_inventario}'";
+        JOIN rpg.itens it ON it.id_item = iv.id_item
+        where id_personagem = '{$id_personagem}'
+        and id_inventario = '{$id_inventario}'";
         $tipo_selecionado = mysqli_fetch_assoc(mysqli_query($conexao, $sql));
 
-        $sql = "SELECT id_inventario, equipado, tipo FROM rpg.inventarios iv
-                JOIN rpg.itens it ON it.id_item = iv.id_item
-                where id_personagem = '{$id_personagem}'
-                and equipado = 'S'";
+        $sql = "SELECT id_equipamento, i.tipo 
+                FROM rpg.equipamentos e
+                JOIN rpg.itens i ON i.id_item = e.id_item
+                WHERE id_personagem = '{$id_personagem}'
+                AND tipo = '{$tipo_selecionado['tipo']}'";
+
         $tipo_equipado = mysqli_fetch_assoc(mysqli_query($conexao, $sql));
+
         $tipo_equipado['tipo'] = isset($tipo_equipado['tipo']) ? $tipo_equipado['tipo'] : 0;
         $tipo_equipado['id_inventario'] = isset($tipo_equipado['id_inventario']) ? $tipo_equipado['id_inventario'] : 0;
 
-        if ($tipo_selecionado['tipo'] == $tipo_equipado['tipo'] && $tipo_selecionado['id_inventario'] != $tipo_equipado['id_inventario']) {
-                $sql = "UPDATE `inventarios` SET `equipado` = '{$equipado}' WHERE id_personagem = '{$id_personagem}' AND id_inventario = '{$id_inventario}'";
-                mysqli_query($conexao, $sql);
-                $sql = "UPDATE `inventarios` SET `equipado` = 'N' WHERE id_personagem = '{$id_personagem}' AND id_inventario = '{$tipo_equipado['id_inventario']}'";
-                mysqli_query($conexao, $sql);
-        } else {
-                $sql = "UPDATE `inventarios` SET `equipado` = '{$equipado}' WHERE id_personagem = '{$id_personagem}' AND id_inventario = '{$id_inventario}'";
-                mysqli_query($conexao, $sql);
-        }
+                if ($tipo_selecionado['tipo'] == $tipo_equipado['tipo']) {
+                        $sql = "UPDATE `inventarios` SET `equipado` = '{$equipado}' WHERE id_personagem = '{$id_personagem}' AND id_inventario = '{$id_inventario}'";
+                        mysqli_query($conexao, $sql);
+                        $sql = "UPDATE `inventarios` SET `equipado` = 'N' WHERE id_personagem = '{$id_personagem}' AND id_inventario = '{$tipo_equipado['id_inventario']}'";
+                        mysqli_query($conexao, $sql);
+                } else {
+                        $infos_item = infos_item($id_inventario,"N");
+                        
+                        $sql = "UPDATE `inventarios` SET `refino` = null, id_item = null WHERE id_personagem = '{$id_personagem}' AND id_inventario = '{$id_inventario}'";
+                        mysqli_query($conexao, $sql);
+
+                        $sql = "SELECT * FROM rpg.equipamentos e
+                                WHERE id_personagem = '{$id_personagem}'
+                                AND slot = '{$infos_item['tipo']}'";
+        
+                        $id_equipamento = mysqli_fetch_assoc(mysqli_query($conexao, $sql));
+        
+                        $sql = "UPDATE `equipamentos` SET `refino` = '{$infos_item['ref']}', id_item = '{$infos_item['id_item']}' WHERE id_personagem = '{$id_personagem}' AND id_equipamento = '{$id_equipamento['id_equipamento']}'";
+                        mysqli_query($conexao, $sql);
+                }
 
         $resultado = [];
-
-        $infos_item = infos_item($id_inventario,$equipado);
 
         $resultado['infos_item'] = $infos_item;
 
@@ -134,6 +149,48 @@ if ($opcao == "equipar") {
         $resultado['atributos'] = $atributos;
 
         echo json_encode($resultado);
+}
+
+if($opcao == "desequipar"){
+
+        $id_equipamento = isset($_POST['id_equipamento']) ? $_POST['id_equipamento'] : 0;
+
+        $id_player = $_SESSION['id_player'];
+        
+        $id_personagem = $_SESSION['id_personagem'];
+
+        $equipado = $_POST['equipado'];
+
+        $sql = "SELECT MIN(id_inventario) AS primeiro FROM rpg.inventarios e
+        WHERE id_personagem = '{$id_personagem}'
+        AND id_item IS NULL";
+
+        $slot_vago = mysqli_fetch_assoc(mysqli_query($conexao, $sql));
+
+        $infos_item = infos_item($id_equipamento,"S");
+
+        $sql = "UPDATE `equipamentos` SET `refino` = null, id_item = null WHERE id_personagem = '{$id_personagem}' AND id_equipamento = '{$id_equipamento}'";
+        mysqli_query($conexao, $sql);
+                
+        $sql = "UPDATE `inventarios` SET `refino` = '{$infos_item['ref']}', id_item = '{$infos_item['id_item']}' WHERE id_personagem = '{$id_personagem}' AND id_inventario = '{$slot_vago['primeiro']}'";
+        mysqli_query($conexao, $sql);
+
+                $sql = "SELECT * FROM rpg.equipamentos e
+                        WHERE id_personagem = '{$id_personagem}'
+                        AND slot = '{$infos_item['tipo']}'";
+
+                $id_equipamentos = mysqli_fetch_assoc(mysqli_query($conexao, $sql));
+
+$resultado = [];
+
+$resultado['infos_item'] = $infos_item;
+
+$atributos = att_atributos($id_personagem);
+
+$resultado['atributos'] = $atributos;
+
+echo json_encode($resultado);
+
 }
 
 if ($opcao == "forja") {
@@ -441,6 +498,22 @@ if ($opcao == "novo_personagem") {
                 $sql = "INSERT INTO `personagens`(`nick`, `id_classe`, `id_player`) 
                  VALUES ( '$nick', '$classe', '$id_player' )";
                 $executar = mysqli_query($conexao, $sql);
+
+                $sql = "SELECT `id_personagem` 
+                FROM `personagens`
+                WHERE id_player = '{$id_player}'";
+                $id_personagem =mysqli_fetch_assoc(mysqli_query($conexao, $sql));
+        
+                for($i=1;$i<=8;$i++){
+                $sql = "INSERT INTO `equipamentos`(`slot`,`id_personagem`) VALUES ( '$i', '{$id_personagem['id_personagem']}')";
+                mysqli_query($conexao, $sql); 
+                }//adiciona um slot aos equipamentos
+        
+                for($i=1;$i<=15;$i++){
+                $sql = "INSERT INTO `inventarios`(`slot`,`id_personagem`) VALUES ( '$i', '{$id_personagem['id_personagem']}')";
+                mysqli_query($conexao, $sql); 
+                }//adiciona um slot ao inventário
+        }
                 session_unset();
                 session_destroy();
                 echo "<script type=\"text/javascript\">
@@ -448,4 +521,3 @@ if ($opcao == "novo_personagem") {
                 location.href = 'http://localhost/rpg';                 
                 </script>";
         }
-}

@@ -24,10 +24,10 @@ $slot = preencher_slots("S");
             </div>
 
             <div id="arma_joia">                
-                <img src="http://localhost/rpg/visual/imagens/itens/<?php if (isset($slot[3])) echo $slot[3]['imagem']; else echo "vazio.png";?>" style="background-size: contain;" id="slote4" data-info="<?php if (isset($slot[3])) echo '#info_sloti3' ?>" data-id_inventario="<?php if (isset($slot[3]['id_inventario'])) echo $slot[3]['id_inventario'] ?>" data-indice="<?php echo 3 ?>" class="<?php echo isset($slot[3]['id_inventario']) ? 'slote' : 'slote_empty' ?>"> 
-                <img src="http://localhost/rpg/visual/imagens/itens/<?php if (isset($slot[2])) echo $slot[2]['imagem']; else echo "vazio.png";?>" style="background-size: contain;" id="slote3" data-info="<?php if (isset($slot[2])) echo '#info_sloti2' ?>" data-id_inventario="<?php if (isset($slot[2]['id_inventario'])) echo $slot[2]['id_inventario'] ?>" data-indice="<?php echo 2 ?>" class="<?php echo isset($slot[2]['id_inventario']) ? 'slote' : 'slote_empty' ?>"> 
-                <img src="http://localhost/rpg/visual/imagens/itens/<?php if (isset($slot[0])) echo $slot[0]['imagem']; else echo "vazio.png";?>" style="background-size: contain;" id="slote1" data-info="<?php if (isset($slot[0])) echo '#info_sloti0' ?>" data-id_inventario="<?php if (isset($slot[0]['id_inventario'])) echo $slot[0]['id_inventario'] ?>" data-indice="<?php echo 0 ?>" class="<?php echo isset($slot[0]['id_inventario']) ? 'slote' : 'slote_empty' ?>"> 
-                <img src="http://localhost/rpg/visual/imagens/itens/<?php if (isset($slot[1])) echo $slot[1]['imagem']; else echo "vazio.png";?>" style="background-size: contain;" id="slote2" data-info="<?php if (isset($slot[1])) echo '#info_sloti1' ?>" data-id_inventario="<?php if (isset($slot[1]['id_inventario'])) echo $slot[1]['id_inventario'] ?>" data-indice="<?php echo 1 ?>" class="<?php echo isset($slot[1]['id_inventario']) ? 'slote' : 'slote_empty' ?>"> 
+                <img src="http://localhost/rpg/visual/imagens/itens/<?php if (isset($slot[3])) echo $slot[3]['imagem']; else echo "vazio.png";?>" style="background-size: contain;" id="slote4" data-info="<?php if (isset($slot[3])) echo '#info_sloti3' ?>" data-id_equipamento="<?php if (isset($slot[3]['id_equipamento'])) echo $slot[3]['id_equipamento'] ?>" data-indice="<?php echo 3 ?>" class="<?php echo isset($slot[3]['id_equipamento']) ? 'slote' : 'slote_empty' ?>"> 
+                <img src="http://localhost/rpg/visual/imagens/itens/<?php if (isset($slot[2])) echo $slot[2]['imagem']; else echo "vazio.png";?>" style="background-size: contain;" id="slote3" data-info="<?php if (isset($slot[2])) echo '#info_sloti2' ?>" data-id_equipamento="<?php if (isset($slot[2]['id_equipamento'])) echo $slot[2]['id_equipamento'] ?>" data-indice="<?php echo 2 ?>" class="<?php echo isset($slot[2]['id_equipamento']) ? 'slote' : 'slote_empty' ?>"> 
+                <img src="http://localhost/rpg/visual/imagens/itens/<?php if (isset($slot[0])) echo $slot[0]['imagem']; else echo "vazio.png";?>" style="background-size: contain;" id="slote1" data-info="<?php if (isset($slot[0])) echo '#info_sloti0' ?>" data-id_equipamento="<?php if (isset($slot[0]['id_equipamento'])) echo $slot[0]['id_equipamento'] ?>" data-indice="<?php echo 0 ?>" class="<?php echo isset($slot[0]['id_equipamento']) ? 'slote' : 'slote_empty' ?>"> 
+                <img src="http://localhost/rpg/visual/imagens/itens/<?php if (isset($slot[1])) echo $slot[1]['imagem']; else echo "vazio.png";?>" style="background-size: contain;" id="slote2" data-info="<?php if (isset($slot[1])) echo '#info_sloti1' ?>" data-id_equipamento="<?php if (isset($slot[1]['id_equipamento'])) echo $slot[1]['id_equipamento'] ?>" data-indice="<?php echo 1 ?>" class="<?php echo isset($slot[1]['id_equipamento']) ? 'slote' : 'slote_empty' ?>"> 
             </div>
 
             <div id="avatar_personagem" name="<?php echo $_SESSION['classe'] ?>_perfil"></div>
@@ -77,17 +77,6 @@ $slot = preencher_slots("S");
         </div>
 
     <?php } ?>
-
-    <script>
-        var slot = [
-            <?php
-            for ($i = 0; $i <= 13; $i++) {
-            ?>[<?php echo isset($slot[$i]) ? $slot[$i]['id_inventario'] : 0 ?>, "<?php echo isset($slot[$i]) ? $slot[$i]['equipado'] : 0 ?>"],
-            <?php
-            }
-            ?>[<?php echo isset($slot[15]) ? $slot[15]['id_inventario'] : 0 ?>, "<?php echo isset($slot[15]) ? $slot[15]['equipado'] : 0 ?>"]
-        ]
-    </script>
     
     <script src="../js/jquery.js"></script>
 </div>

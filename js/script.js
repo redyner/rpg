@@ -313,22 +313,15 @@ function eventos_inventario() {
   $('.slot').on("click", function (event) {
     event.preventDefault();
     var id_inventario = $(this).data("id_inventario")
-    var indice = $(this).data("indice")
     var box = this.id
-    if (slot[indice][1] == "N") {
       var equipar = confirm("Deseja equipar este item?")
       if (equipar == true) {
         $('.slot').css('border', '5px solid black');
-        for(var i=0;i<slot.length;i++)
-        {
-        slot[i][1] = "N";
-        }
         $('#'+box).css('border', '5px solid grey');
-        slot[indice][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/sql.php',
           method: 'POST',
-          data: { id_inventario: id_inventario, equipado: slot[indice][1], opcao: "equipar" },
+          data: { id_inventario: id_inventario, equipado: "N", opcao: "equipar" },
           dataType: 'json',
           success: function (result) {
             console.log(result)
@@ -350,22 +343,20 @@ function eventos_inventario() {
             alert(JSON.stringify(result));
           }
         })
-      } else slot[indice][1] = "N";
-    }
+      }
+
   });
 
 
     $('.slote').on("click", function (event) {
       event.preventDefault();
-      var id_inventario = $(this).data("id_inventario")
-      var indice = $(this).data("indice")
+      var id_equipamento = $(this).data("id_equipamento")
       equipar = confirm("Deseja desequipar este item?")
       if (equipar == true) {
-        slot[indice][1] = "N";
         $.ajax({
           url: 'http://localhost/RPG/paginas/sql.php',
           method: 'POST',
-          data: { id_inventario: id_inventario, equipado: slot[indice][1], opcao: "equipar" },
+          data: { id_equipamento: id_equipamento, equipado: "S", opcao: "desequipar" },
           dataType: 'json',
           success: function (result) {
             console.log(result)
@@ -381,9 +372,12 @@ function eventos_inventario() {
             $("#dex_personagem").html("DEX - " + dex)
             $('#slote'+tipo).attr( "src", img)
             location.reload();
+          },
+          error: function (result) {
+            alert(JSON.stringify(result));
           }
         })
-      } else slot[indice][1] = "S";
+      }
   });
 
 }
