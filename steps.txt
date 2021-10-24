@@ -1,3 +1,4 @@
+Prioridade correção de bugs forja
 
 Nova página com árvore de Skills
 
@@ -7,7 +8,4 @@ Ajuste arena: Inimigos aleatórios e sistema de elo
 
 Buscar amigos para combate por lista de amigos invés de pesquisar por nick
 
-
-
 Info itens no market na div apropriada
-Slots itens equipados para remover itens do inventário quando equipados.

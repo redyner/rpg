@@ -412,21 +412,6 @@ if ($opcao == "login") {
                 WHERE p.id_personagem = '{$_SESSION['id_personagem']}'";
                 $info_player = mysqli_fetch_assoc(mysqli_query($conexao, $sql));
 
-                //lista equipamentos
-                // $sql = "SELECT sta,str,int,dex,refino
-                // FROM rpg.iventarios i
-                // JOIN rpg.personagens p ON p.id_personagem = i.id_personagem
-                // JOIN rpg.atributos a ON i.id_item = a.id_item
-                // WHERE i.id_personagem = '{$id_player}' AND slot IS NULL";
-                // $equipamento = mysqli_query($conexao,$sql);
-                // $i=1;
-                // $equipamentos['slot1'] = '';
-                // while($i<=($equipamento->num_rows)){
-                // $equipamentos["slot".$i] = mysqli_fetch_assoc($equipamento);
-                // $i = $i+1;
-                // }
-                // $item_slot1 = $equipamentos['slot1']['sta'];
-
                 $sql = "SELECT sum(sta*(refino+1)) sta, sum(`str`*(refino+1)) `str`, sum(`int`*(refino+1)) `int`, sum(dex*(refino+1)) dex
                 FROM rpg.inventarios i
                 JOIN rpg.personagens p ON p.id_personagem = i.id_personagem
