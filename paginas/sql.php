@@ -102,27 +102,36 @@ if ($opcao == "equipar") {
 
         $equipado = $_POST['equipado'];
 
-        $sql = "SELECT id_inventario, equipado, tipo FROM rpg.inventarios iv
+        $sql = "SELECT id_inventario, tipo FROM rpg.inventarios iv
         JOIN rpg.itens it ON it.id_item = iv.id_item
         where id_personagem = '{$id_personagem}'
         and id_inventario = '{$id_inventario}'";
-        $tipo_selecionado = mysqli_fetch_assoc(mysqli_query($conexao, $sql));
+        $item_selecionado = mysqli_fetch_assoc(mysqli_query($conexao, $sql));
 
-        $sql = "SELECT id_equipamento, i.tipo 
+        $sql = "SELECT id_equipamento, i.tipo, refino, e.id_item
                 FROM rpg.equipamentos e
                 JOIN rpg.itens i ON i.id_item = e.id_item
                 WHERE id_personagem = '{$id_personagem}'
-                AND tipo = '{$tipo_selecionado['tipo']}'";
+                AND tipo = '{$item_selecionado['tipo']}'";
 
-        $tipo_equipado = mysqli_fetch_assoc(mysqli_query($conexao, $sql));
+        $item_equipado = mysqli_fetch_assoc(mysqli_query($conexao, $sql));
 
-        $tipo_equipado['tipo'] = isset($tipo_equipado['tipo']) ? $tipo_equipado['tipo'] : 0;
-        $tipo_equipado['id_inventario'] = isset($tipo_equipado['id_inventario']) ? $tipo_equipado['id_inventario'] : 0;
+        $item_equipado['tipo'] = isset($item_equipado['tipo']) ? $item_equipado['tipo'] : 0;
+        $item_equipado['id_equipamento'] = isset($item_equipado['id_equipamento']) ? $item_equipado['id_equipamento'] : 0;
 
-                if ($tipo_selecionado['tipo'] == $tipo_equipado['tipo']) {
-                        $sql = "UPDATE `inventarios` SET `equipado` = '{$equipado}' WHERE id_personagem = '{$id_personagem}' AND id_inventario = '{$id_inventario}'";
+                if ($item_selecionado['tipo'] == $item_equipado['tipo']) {
+                        $infos_item = infos_item($id_inventario,"N");
+                        
+                        $sql = "UPDATE `inventarios` SET `refino` = '{$item_equipado['refino']}', id_item = '{$item_equipado['id_item']}' WHERE id_personagem = '{$id_personagem}' AND id_inventario = '{$id_inventario}'";
                         mysqli_query($conexao, $sql);
-                        $sql = "UPDATE `inventarios` SET `equipado` = 'N' WHERE id_personagem = '{$id_personagem}' AND id_inventario = '{$tipo_equipado['id_inventario']}'";
+
+                        $sql = "SELECT * FROM rpg.equipamentos e
+                                WHERE id_personagem = '{$id_personagem}'
+                                AND slot = '{$infos_item['tipo']}'";
+        
+                        $id_equipamento = mysqli_fetch_assoc(mysqli_query($conexao, $sql));
+        
+                        $sql = "UPDATE `equipamentos` SET `refino` = '{$infos_item['ref']}', id_item = '{$infos_item['id_item']}' WHERE id_personagem = '{$id_personagem}' AND id_equipamento = '{$item_equipado['id_equipamento']}'";
                         mysqli_query($conexao, $sql);
                 } else {
                         $infos_item = infos_item($id_inventario,"N");

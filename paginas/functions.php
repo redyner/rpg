@@ -36,10 +36,10 @@ function att_atributos($id_personagem)
         $info_player = mysqli_fetch_assoc(mysqli_query($GLOBALS['conexao'], $sql));
 
         $sql = "SELECT sum(sta*(refino+1)) sta, sum(`str`*(refino+1)) `str`, sum(`int`*(refino+1)) `int`, sum(dex*(refino+1)) dex
-        FROM rpg.inventarios i
-        JOIN rpg.personagens p ON p.id_personagem = i.id_personagem
-        JOIN rpg.atributos a ON i.id_item = a.id_item
-        WHERE i.id_personagem = '{$id_personagem}' AND i.equipado IN ('S','s')";
+        FROM rpg.equipamentos e
+        JOIN rpg.personagens p ON p.id_personagem = e.id_personagem
+        JOIN rpg.atributos a ON e.id_item = a.id_item
+        WHERE e.id_personagem = '{$id_personagem}'";
         $equipamento = mysqli_fetch_assoc(mysqli_query($GLOBALS['conexao'], $sql));
 
         if (!empty($equipamento)) {
