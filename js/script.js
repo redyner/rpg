@@ -10,7 +10,7 @@
 window.addEventListener("load", eventos_batalha);
 
 function eventos_batalha() {
-  document.getElementById("atacar").addEventListener("click", iniciar_batalha);
+  $("#atacar").on("click", iniciar_batalha);
 }
 
 var intervalo;
@@ -299,14 +299,14 @@ function eventos_inventario() {
   $('.slote').on("mouseover", function (event) {
     var box = this.id
     var info = $(this).data("info")
-    $('#'+box+'d').css('border', '2px solid grey');
+    $('#'+box).css('border', '2px solid grey');
     $(info).show();
   });
 
   $('.slote').on("mouseout", function (event) {
     var box = this.id
     var info = $(this).data("info");
-    $('#'+box+'d').css('border', '2px solid black')
+    $('#'+box).css('border', '2px solid black')
     $(info).hide()
   });
 
