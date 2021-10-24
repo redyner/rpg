@@ -215,8 +215,8 @@ img{
 
 #avatar_personagem{
     width : 180px;
-    height: 298px;   
-    margin-left: 20%;  
+    height: 298px;
+    margin-left: 20%;
 }
 
 /* 
@@ -233,7 +233,7 @@ img{
    float: left;
 }
 
-.item_equipado{  
+.slote{  
     width        : 50px;
     height       : 50px;
     border-radius: 10px;
@@ -242,15 +242,26 @@ img{
     margin: 2%;
 }
 
-/* divs  */ 
-#armadura{    
-    float: left;
-    margin-top: 4%;
+.slote_empty{  
+    width        : 50px;
+    height       : 50px;
+    border-radius: 10px;
+    border       : solid 2px;
+    background   : rgb(116, 84, 42);
+    margin: 2%;
 }
 
-#arma_joia{   
+/* divs  */
+#armadura{
+    width        : 50px;
+    height       : 300px;
+    float: left;
+}
+
+#arma_joia{
+    width        : 50px;
+    height       : 300px;
     float: right;
-    margin-top: -96%;
 }
 
 /* Itens */ 
@@ -265,8 +276,8 @@ img{
 #e_botas{}
 #e_bonus2{}
 */
-#slote1d{ 
-   margin-top: 96%;
+#slote1{ 
+   margin-top: 100%;
 }
 /*
 #e_escudo{}
@@ -284,7 +295,7 @@ img{
 /* Pagina: Dungeon e Batalha */
 
 #selecao_inimigo {
-    width           : 100%;
+    width           : 98%;
     height          : 200px;
     border-top      : solid 1px;
     background-image: url(../imagens/papeis/papel.jpg);

@@ -311,6 +311,7 @@ function eventos_inventario() {
   });
 
   $('.slot').on("click", function (event) {
+    event.preventDefault();
     var id_inventario = $(this).data("id_inventario")
     var indice = $(this).data("indice")
     var box = this.id
@@ -342,8 +343,8 @@ function eventos_inventario() {
             $("#int_personagem").html("INT - " + int)
             $("#dex_personagem").html("DEX - " + dex)
             $('#slote'+tipo).attr("src", img)
+            $('#slote'+tipo).attr("class", "slote")
             location.reload();
-            event.preventDefault();
           },
           error: function (result) {
             alert(JSON.stringify(result));
@@ -355,6 +356,7 @@ function eventos_inventario() {
 
 
     $('.slote').on("click", function (event) {
+      event.preventDefault();
       var id_inventario = $(this).data("id_inventario")
       var indice = $(this).data("indice")
       equipar = confirm("Deseja desequipar este item?")
@@ -379,7 +381,6 @@ function eventos_inventario() {
             $("#dex_personagem").html("DEX - " + dex)
             $('#slote'+tipo).attr( "src", img)
             location.reload();
-            event.preventDefault();
           }
         })
       } else slot[indice][1] = "S";
@@ -728,3 +729,23 @@ function alterar_senha()
   $('#opcoes_perfil').hide();    
   });
 }
+
+///////////////////////////////////////////////////////////////////////////////
+
+//////////////////////
+//SCRIPTS     TESTE//
+////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+
+  function um(botao){
+    $('#um').html("Dois")
+    $('#um').attr('id',"dois")
+    botao.attr('onclick', 'dois($(this));');
+  }
+
+  function dois(botao){
+    $('#dois').html("Um")
+    $('#dois').attr('id',"um")
+    botao.attr('onclick', 'um($(this));');
+  }
