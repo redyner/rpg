@@ -404,6 +404,8 @@ function eventos_forja() {
 
   var selecionado = false;
 
+  var item_selecionado = 0;
+
   $('.slotf').on("mouseover", function (event) {
     var box = this.id
     var info = $(this).data("info")
@@ -422,7 +424,7 @@ function eventos_forja() {
     var box = this.id
     var id_inventario = $(this).data("id_inventario")
     var indice = $(this).data("indice")
-    if (!selecionado) {
+    if (!selecionado || (selecionado && (item_selecionado != id_inventario || item_selecionado == 0))) {
       equipar = confirm("Deseja selecionar este item?")
       if (equipar == true) {
         $('#sucesso').html("");
@@ -453,6 +455,7 @@ function eventos_forja() {
             $('.icone_item').attr( "src", img)
             $('#status_refinar').html("Chance de sucesso: "+Math.round(((100-ref_att*4)/100)**4*100)+"%")
             selecionado = true;
+            item_selecionado = id_inventario;
           }
         })
       }
