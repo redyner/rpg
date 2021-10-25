@@ -414,8 +414,7 @@ function eventos_forja() {
   $('.slotf').on("mouseout", function (event) {
     var box = this.id
     var info = $(this).data("info");
-    var indice = $(this).data("indice")
-    if (slot[indice][1]=="N") $('#'+box).css('border', '5px solid black');
+    $('#'+box).css('border', '5px solid black');
     $(info).hide()
   });
 
@@ -505,10 +504,10 @@ function eventos_forja() {
     var equipado = $('.icone_item').data("equipado")
     if (selecionado == true)
     {
-      $('#botao_refinar').prop( "disabled", true );
       var custo_refinar = (ref_att+1)*25
       comfirma_refinar = confirm("Deseja refinar este item?\n"+"Custo: "+custo_refinar)
       if (comfirma_refinar == true) {
+        $('#botao_refinar').prop( "disabled", true );
         $.ajax({          
           url: 'http://localhost/RPG/paginas/sql.php',
           method: 'POST',

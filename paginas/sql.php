@@ -210,7 +210,7 @@ if ($opcao == "forja") {
 
         $equipado = $_POST['equipado'];
 
-        $infos_item = infos_item($id_inventario,$equipado);
+        $infos_item = infos_item($id_inventario,"N");
 
         echo json_encode($infos_item);
 }
