@@ -429,7 +429,7 @@ function eventos_forja() {
       if (equipar == true) {
         $('#sucesso').html("");
         $('#falha').html("");
-        $("#refinar_atual").width("0%");
+        $('#refinar_atual').width("0%");
         $('.slotf').css('border', '5px solid black');
         $.ajax({
           url: 'http://localhost/RPG/paginas/sql.php',
@@ -465,7 +465,7 @@ function eventos_forja() {
       if (equipar == true) {
         $('#sucesso').html("");
         $('#falha').html("");
-        $("#refinar_atual").width("0%");
+        $('#refinar_atual').width("0%");
         $('#'+box).css('border', '5px solid black');
         $.ajax({
           url: 'http://localhost/RPG/paginas/sql.php',
@@ -510,10 +510,10 @@ function eventos_forja() {
           data: {opcao: "custo", custo_refinar: custo_refinar, id_inventario: id_inventario},
           dataType: 'json',
           success: function (result) {
-          $(".gold").html("GOLD "+(result['gold']));
+          $('.gold').html("GOLD "+(result['gold']));
           $('#sucesso').html("");
           $('#falha').html("");
-          $("#refinar_atual").width("0%"); 
+          $('#refinar_atual').width("0%"); 
           $('#botao_refinar').prop( "disabled", true );         
           porcentagem_refinar = 0;
           sucesso = 0;
@@ -531,10 +531,9 @@ function eventos_forja() {
     function iniciar_refino(id_inventario,equipado)
     {
         refinando = setInterval(function (event) {
-        var barra_refinar = $('#barra_refinar');
-        var refinar_atual = $("#refinar_atual");        
+        var refinar_atual = $('#refinar_atual');        
 
-        refinar(barra_refinar, refinar_atual,id_inventario,equipado);
+        refinar(refinar_atual,id_inventario,equipado);
       }, 1000);
     }
 

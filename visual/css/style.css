@@ -391,8 +391,6 @@ img{
     width           : 0px;
     height          : 18px;
     background-image: url(../imagens/barras/barra_amarela.jpg);
-    font            : normal 7pt "gb";
-    color           : white;
 }
 
 #botao_refinar {
