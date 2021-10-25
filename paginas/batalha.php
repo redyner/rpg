@@ -26,6 +26,7 @@ $nick_inimigo = $nick_inimigo['nm_inimigo'];
     <?php include "menu.php" ?>
 
     <div class="painel">
+    <button class="botao" id="atacar">Atacar</button>
         <div class="barras_hp">
             <div class="barra_hp">
                 <div class="hp_atual" id='hp_atual_1'></div>
@@ -35,13 +36,11 @@ $nick_inimigo = $nick_inimigo['nm_inimigo'];
             </div>
         </div>
         <div class="avatar_batalha" name="<?php echo $classe ?>"></div>
+        <div id="relatorio"></div>
         <div class="avatar_batalha_inimigo" id="<?php echo $nick_inimigo ?>"></div>
-        <button class="botao" id="atacar">Atacar</button>
     </div>
 
-    <div id="div_batalha">
-        <p id="relatorio"></p>
-    </div>
+
 
 
     <?php

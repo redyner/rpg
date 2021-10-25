@@ -119,8 +119,6 @@ img{
 }
 
 .barra_hp {
-    margin-top : 4%;
-    margin-left: 12%;
     width      : 250px;
     height     : 20px;
     border     : solid 1px;
@@ -320,11 +318,10 @@ img{
 }
 
 #barra_hp_2 {
-    margin-left: 13%;
+    float      : right;
 }
 
 .avatar_batalha {
-    margin: 10px 95px 10px;
     width : 250px;
     height: 250px;
     border: solid 1px;
@@ -332,7 +329,14 @@ img{
 }
 
 .avatar_batalha_inimigo {
-    margin: 10px 10px 10px;
+    width : 250px;
+    height: 250px;
+    border: solid 1px;
+    float : right;
+}
+
+#relatorio {
+    margin-left: 3%;
     width : 250px;
     height: 250px;
     border: solid 1px;
