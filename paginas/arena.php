@@ -28,7 +28,7 @@ if (isset($_GET['id'])) {
     <?php include "menu.php" ?>
 
     <div class="painel">
-
+    <button class="botao" id="atacar"> Atacar </button>
         <div class="barras_hp">
             <div class="barra_hp">
                 <div class="hp_atual" id='hp_atual_1'></div>
@@ -41,12 +41,10 @@ if (isset($_GET['id'])) {
         <div id="avatar_arena" class="avatar_batalha" name="<?php echo $classe ?>"></div>
         <div class="avatar_batalha_inimigo"></div>
 
-        <button class="botao" id="atacar"> Atacar </button>
 
 
-        <div id="div_batalha">
-            <p id="relatorio"></p>
-        </div>
+
+        <div id="relatorio"></div>
 
     </div>
     <form id="buscar_arena">
