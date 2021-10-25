@@ -1,5 +1,3 @@
-Prioridade correção de bugs forja
-
 Nova página com árvore de Skills
 
 Nova página com funcionalidades de adicionar amigos

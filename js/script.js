@@ -422,23 +422,17 @@ function eventos_forja() {
     var box = this.id
     var id_inventario = $(this).data("id_inventario")
     var indice = $(this).data("indice")
-    if (slot[indice][1] == "N") {
+    if (!selecionado) {
       equipar = confirm("Deseja selecionar este item?")
       if (equipar == true) {
         $('#sucesso').html("");
         $('#falha').html("");
         $("#refinar_atual").width("0%");
         $('.slotf').css('border', '5px solid black');
-        for(var i=0;i<slot.length;i++)
-        {
-        slot[i][1] = "N";
-        }
-        $('#'+box).css('border', '5px solid grey');
-        slot[indice][1] = "S";
         $.ajax({
           url: 'http://localhost/RPG/paginas/sql.php',
           method: 'POST',
-          data: { id_inventario: id_inventario, equipado: slot[indice][1], opcao: "forja" },
+          data: { id_inventario: id_inventario, equipado: "N", opcao: "forja" },
           dataType: 'json',
           success: function (result) {
             console.log(result)
@@ -461,7 +455,7 @@ function eventos_forja() {
             selecionado = true;
           }
         })
-      } else slot[indice][1] = "N";
+      }
     }
     else {
       equipar = confirm("Deseja remover este item?")
@@ -470,11 +464,10 @@ function eventos_forja() {
         $('#falha').html("");
         $("#refinar_atual").width("0%");
         $('#'+box).css('border', '5px solid black');
-        slot[indice][1] = "N";
         $.ajax({
           url: 'http://localhost/RPG/paginas/sql.php',
           method: 'POST',
-          data: { id_inventario: id_inventario, equipado: slot[indice][1], opcao: "forja" },
+          data: { id_inventario: id_inventario, equipado: "N", opcao: "forja" },
           dataType: 'json',
           success: function (result) {
             console.log(result)
@@ -495,7 +488,7 @@ function eventos_forja() {
             selecionado = false;
           }
         })
-      } else slot[indice][1] = "S";
+      }
     }
   });
 
@@ -542,7 +535,7 @@ function eventos_forja() {
       }, 1000);
     }
 
-    function refinar(barra_refinar, refinar_atual,id_inventario,equipado)
+    function refinar(refinar_atual,id_inventario,equipado)
     {
           var indice = $('.icone_item').data("indice")
           $('#sucesso').html("");

@@ -27,7 +27,7 @@ if ($porcentagem_xp < 0) $porcentagem_xp = 0;
             for ($i = 0; $i <= 14; $i++) {
     ?>
 
-<img src="http://localhost/rpg/visual/imagens/itens/<?php if (isset($slot[$i])) echo $slot[$i]['imagem']; else echo "vazio.png";?>" style="background-size: contain;" id="<?php if (isset($slot[$i])) echo 'slotf' . $i ?>" data-info="<?php if (isset($slot[$i])) echo '#info_slotf' . $i ?>" data-id_inventario="<?php if (isset($slot[$i]['id_inventario'])) echo $slot[$i]['id_inventario'] ?>" data-indice="<?php if (isset($slot[$i])) echo $i ?>" name='<?php if (isset($slot[$i])) echo $slot[$i]['nm_item'] ?>' class='slotf' <?php if (isset($slot[$i]['equipado']) && $slot[$i]['equipado'] == 'S') echo "style='border: 5px solid grey'" ?>>
+<img src="http://localhost/rpg/visual/imagens/itens/<?php if (isset($slot[$i])) echo $slot[$i]['imagem']; else echo "vazio.png";?>" style="background-size: contain;" id="<?php if (isset($slot[$i])) echo 'slotf' . $i ?>" data-info="<?php if (isset($slot[$i])) echo '#info_slotf' . $i ?>" data-id_inventario="<?php if (isset($slot[$i]['id_inventario'])) echo $slot[$i]['id_inventario'] ?>" data-indice="<?php if (isset($slot[$i])) echo $i ?>" name='<?php if (isset($slot[$i])) echo $slot[$i]['nm_item'] ?>' class="<?php echo isset($slot[$i]) ? 'slotf' : 'slot_empty' ?>">
 
     <?php } ?>
 </div>
@@ -47,14 +47,4 @@ for ($i = 0; $i <= 14; $i++) {
         <p>VALOR - <?php echo isset($slot[$i]) ? valorPontos($slot[$i]['valor']) : 0 ?></p>
     </div>
 <?php } ?>
-<script>
-    var slot = [
-        <?php
-        for ($i = 0; $i <= 13; $i++) {
-        ?>[<?php echo isset($slot[$i]) ? $slot[$i]['id_inventario'] : 0 ?>, "<?php echo isset($slot[$i]) ? $slot[$i]['equipado'] : 0 ?>"],
-        <?php
-        }
-        ?>[<?php echo isset($slot[15]) ? $slot[15]['id_inventario'] : 0 ?>, "<?php echo isset($slot[15]) ? $slot[15]['equipado'] : 0 ?>"]
-    ]
-</script>
 </div>
