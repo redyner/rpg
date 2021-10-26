@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 24-Out-2021 às 23:50
+-- Tempo de geração: 26-Out-2021 às 00:32
 -- Versão do servidor: 5.7.31
 -- versão do PHP: 7.4.9
 
@@ -110,21 +110,37 @@ CREATE TABLE IF NOT EXISTS `equipamentos` (
   `id_personagem` int(11) NOT NULL,
   `id_item` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_equipamento`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Extraindo dados da tabela `equipamentos`
 --
 
 INSERT INTO `equipamentos` (`id_equipamento`, `slot`, `refino`, `data`, `id_personagem`, `id_item`) VALUES
-(1, '1', 0, '2021-10-24 20:38:56', 1, 5),
+(1, '1', 11, '2021-10-24 20:38:56', 1, 5),
 (2, '2', NULL, '2021-10-24 20:38:56', 1, NULL),
 (3, '3', NULL, '2021-10-24 20:38:56', 1, NULL),
 (4, '4', NULL, '2021-10-24 20:38:56', 1, NULL),
 (5, '5', NULL, '2021-10-24 20:38:56', 1, NULL),
 (6, '6', NULL, '2021-10-24 20:38:56', 1, NULL),
 (7, '7', NULL, '2021-10-24 20:38:56', 1, NULL),
-(8, '8', NULL, '2021-10-24 20:38:56', 1, NULL);
+(8, '8', NULL, '2021-10-24 20:38:56', 1, NULL),
+(9, '1', NULL, '2021-10-25 21:30:18', 3, NULL),
+(10, '2', NULL, '2021-10-25 21:30:18', 3, NULL),
+(11, '3', NULL, '2021-10-25 21:30:18', 3, NULL),
+(12, '4', NULL, '2021-10-25 21:30:18', 3, NULL),
+(13, '5', NULL, '2021-10-25 21:30:18', 3, NULL),
+(14, '6', NULL, '2021-10-25 21:30:18', 3, NULL),
+(15, '7', NULL, '2021-10-25 21:30:18', 3, NULL),
+(16, '8', NULL, '2021-10-25 21:30:18', 3, NULL),
+(17, '1', NULL, '2021-10-25 21:30:51', 2, NULL),
+(18, '2', NULL, '2021-10-25 21:30:51', 2, NULL),
+(19, '3', NULL, '2021-10-25 21:30:51', 2, NULL),
+(20, '4', NULL, '2021-10-25 21:30:51', 2, NULL),
+(21, '5', NULL, '2021-10-25 21:30:51', 2, NULL),
+(22, '6', NULL, '2021-10-25 21:30:51', 2, NULL),
+(23, '7', NULL, '2021-10-25 21:30:51', 2, NULL),
+(24, '8', NULL, '2021-10-25 21:30:51', 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -203,7 +219,7 @@ CREATE TABLE IF NOT EXISTS `inventarios` (
   PRIMARY KEY (`id_inventario`),
   KEY `fk_iventarios_personagens1_idx` (`id_personagem`),
   KEY `fk_iventarios_Itens1_idx` (`id_item`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `inventarios`
@@ -213,7 +229,7 @@ INSERT INTO `inventarios` (`id_inventario`, `slot`, `refino`, `equipado`, `id_pe
 (1, '1', NULL, 'S', 1, NULL, '2021-10-24 20:40:40'),
 (2, '1', 0, 'N', 2, 3, '2021-10-18 19:39:45'),
 (3, '1', 0, 'N', 3, 3, '2021-10-18 19:39:45'),
-(4, '2', 0, 'N', 1, 2, '2021-10-24 20:40:48'),
+(4, '2', 4, 'N', 1, 2, '2021-10-24 20:40:48'),
 (5, '3', 0, 'N', 1, NULL, '2021-10-18 19:39:45'),
 (6, '4', 0, 'N', 1, NULL, '2021-10-18 19:39:45'),
 (7, '5', 0, 'N', 1, NULL, '2021-10-18 19:39:45'),
@@ -240,7 +256,21 @@ INSERT INTO `inventarios` (`id_inventario`, `slot`, `refino`, `equipado`, `id_pe
 (28, '12', 0, 'N', 2, NULL, '2021-10-18 19:39:45'),
 (29, '13', 0, 'N', 2, NULL, '2021-10-18 19:39:45'),
 (30, '14', 0, 'N', 2, NULL, '2021-10-18 19:39:45'),
-(31, '15', 0, 'N', 2, NULL, '2021-10-18 19:39:45');
+(31, '15', 0, 'N', 2, NULL, '2021-10-18 19:39:45'),
+(32, '2', 0, 'N', 3, 6, '2021-10-25 21:27:29'),
+(33, '3', 0, 'N', 3, 3, '2021-10-25 21:30:27'),
+(34, '4', 0, 'N', 3, 3, '2021-10-25 21:31:10'),
+(35, '5', NULL, 'N', 3, NULL, '2021-10-25 21:27:15'),
+(36, '6', NULL, 'N', 3, NULL, '2021-10-25 21:27:15'),
+(37, '7', NULL, 'N', 3, NULL, '2021-10-25 21:27:15'),
+(38, '8', NULL, 'N', 3, NULL, '2021-10-25 21:27:15'),
+(39, '9', NULL, 'N', 3, NULL, '2021-10-25 21:27:15'),
+(40, '10', NULL, 'N', 3, NULL, '2021-10-25 21:27:15'),
+(41, '11', NULL, 'N', 3, NULL, '2021-10-25 21:27:15'),
+(42, '12', NULL, 'N', 3, NULL, '2021-10-25 21:27:15'),
+(43, '13', NULL, 'N', 3, NULL, '2021-10-25 21:27:15'),
+(44, '14', NULL, 'N', 3, NULL, '2021-10-25 21:27:15'),
+(45, '15', NULL, 'N', 3, NULL, '2021-10-25 21:27:15');
 
 -- --------------------------------------------------------
 
@@ -299,9 +329,9 @@ CREATE TABLE IF NOT EXISTS `personagens` (
 --
 
 INSERT INTO `personagens` (`id_personagem`, `nick`, `xp`, `xp_max`, `lv`, `gold`, `id_classe`, `id_player`) VALUES
-(1, 'Apolo', 10400, 10550, 20, 9998919, 2, 1),
+(1, 'Apolo', 8800, 11600, 21, 9979004, 2, 1),
 (2, 'Samuel', 7100, 53150, 1001, 9999999, 1, 2),
-(3, 'Artemis', 0, 100, 1, 9999999, 3, 3);
+(3, 'Artemis', 0, 100, 1, 9998799, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -324,7 +354,7 @@ CREATE TABLE IF NOT EXISTS `player` (
 --
 
 INSERT INTO `player` (`id_player`, `login`, `senha`, `email`, `data`) VALUES
-(1, 'rediner', 'df819af6bdcb198c22040c26d9f3bd98', '', '2021-10-18 19:42:02'),
+(1, 'rediner', '54380018650342148dbc1e2b222c6515', '', '2021-10-18 19:42:02'),
 (2, 'Samuel', '81dc9bdb52d04dc20036dbd8313ed055', '', '2021-10-18 19:42:02'),
 (3, 'helen', 'df819af6bdcb198c22040c26d9f3bd98', '', '2021-10-18 19:42:02');
 
