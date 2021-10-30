@@ -405,47 +405,7 @@ if ($opcao == "login") {
                         header("location: http://localhost/rpg/index.php?pagina=criarpersonagem");
                 }
 
-                $sql = "SELECT nick, lv, xp, xp_max, c.nm_classe, sta, `str`, `int`, dex, gold 
-                FROM rpg.personagens p 
-                JOIN rpg.classes c ON c.id_classe = p.id_classe
-                JOIN rpg.atributos a ON c.id_classe = a.id_classe 
-                WHERE p.id_personagem = '{$_SESSION['id_personagem']}'";
-                $info_player = mysqli_fetch_assoc(mysqli_query($conexao, $sql));
-
-                $sql = "SELECT sum(sta*(refino+1)) sta, sum(`str`*(refino+1)) `str`, sum(`int`*(refino+1)) `int`, sum(dex*(refino+1)) dex
-                FROM rpg.inventarios i
-                JOIN rpg.personagens p ON p.id_personagem = i.id_personagem
-                JOIN rpg.atributos a ON i.id_item = a.id_item
-                WHERE i.id_personagem = '{$id_personagem}' AND i.equipado IN ('S','s')";
-                $equipamento = mysqli_fetch_assoc(mysqli_query($conexao, $sql));
-
-                if (!empty($equipamento)) {
-                        $_SESSION['sta_itens_equipados'] = $equipamento['sta'];
-                        $_SESSION['str_itens_equipados'] = $equipamento['str'];
-                        $_SESSION['int_itens_equipados'] = $equipamento['int'];
-                        $_SESSION['dex_itens_equipados'] = $equipamento['dex'];
-                } else {
-                        $_SESSION['sta_itens_equipados'] = 0;
-                        $_SESSION['str_itens_equipados'] = 0;
-                        $_SESSION['int_itens_equipados'] = 0;
-                        $_SESSION['dex_itens_equipados'] = 0;
-                }
-
-                $_SESSION['nick'] = $info_player['nick'];
-                $_SESSION['lv'] = $info_player['lv'];
-                $_SESSION['xp'] = $info_player['xp'];
-                $_SESSION['xp_max'] = $info_player['xp_max'];
-                $_SESSION['classe']  = $info_player['nm_classe'];
-                $_SESSION['sta'] = ($info_player['sta'] + ($info_player['lv'] * $info_player['sta'])) + $_SESSION['sta_itens_equipados'];
-                $_SESSION['str'] = ($info_player['str'] + ($info_player['lv'] * $info_player['str'])) + $_SESSION['str_itens_equipados'];
-                $_SESSION['int'] = ($info_player['int'] + ($info_player['lv'] * $info_player['int'])) + $_SESSION['int_itens_equipados'];
-                $_SESSION['dex'] = ($info_player['dex'] + ($info_player['lv'] * $info_player['dex'])) + $_SESSION['dex_itens_equipados'];
-                $_SESSION['gold'] = $info_player['gold'];
-                $_SESSION['sta_lv'] = $info_player['sta'];
-                $_SESSION['str_lv'] = $info_player['str'];
-                $_SESSION['int_lv'] = $info_player['int'];
-                $_SESSION['dex_lv'] = $info_player['dex'];
-
+                att_atributos($id_personagem);
 
                 header("location: http://localhost/rpg/index.php?pagina=jogo");
         } else echo "<script type=\"text/javascript\">

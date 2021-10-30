@@ -54,6 +54,17 @@ function att_atributos($id_personagem)
                 $_SESSION['dex_itens_equipados'] = 0;
         }
 
+        $_SESSION['nick'] = $info_player['nick'];
+        $_SESSION['lv'] = $info_player['lv'];
+        $_SESSION['xp'] = $info_player['xp'];
+        $_SESSION['xp_max'] = $info_player['xp_max'];
+        $_SESSION['classe']  = $info_player['nm_classe'];
+        $_SESSION['gold'] = $info_player['gold'];
+        $_SESSION['sta_lv'] = $info_player['sta'];
+        $_SESSION['str_lv'] = $info_player['str'];
+        $_SESSION['int_lv'] = $info_player['int'];
+        $_SESSION['dex_lv'] = $info_player['dex'];
+
         $_SESSION['sta'] = ($info_player['sta'] + ($info_player['lv'] * $info_player['sta'])) + $_SESSION['sta_itens_equipados'];
         $_SESSION['str'] = ($info_player['str'] + ($info_player['lv'] * $info_player['str'])) + $_SESSION['str_itens_equipados'];
         $_SESSION['int'] = ($info_player['int'] + ($info_player['lv'] * $info_player['int'])) + $_SESSION['int_itens_equipados'];
