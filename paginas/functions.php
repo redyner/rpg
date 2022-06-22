@@ -205,3 +205,4 @@ function preencher_slots($equipado,$indice = 0,$slot = []){
         }
         return $slot;
 }
+

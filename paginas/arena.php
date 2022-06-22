@@ -28,7 +28,7 @@ if (isset($_GET['id'])) {
     <?php include "menu.php" ?>
 
     <div class="painel">
-    <button class="botao" id="atacar"> Atacar </button>
+        <button class="botao" id="atacar"> Atacar </button>
         <div class="barras_hp">
             <div class="barra_hp">
                 <div class="hp_atual" id='hp_atual_1'></div>
@@ -49,7 +49,24 @@ if (isset($_GET['id'])) {
     </div>
     <form id="buscar_arena">
         <label>Nick</label>
-        <input class="input" type="text" name="busca_nick" id="busca_nick" required>
+        <input class="input" type="text" name="busca_nick" id="busca_nick" list="personagens" required autocomplete="off">
+
+
+        <datalist id="personagens">
+            <?php
+            $buscar_personagem = mysqli_query($GLOBALS['conexao'], "SELECT`nick` FROM `personagens`");
+            while ($nick = mysqli_fetch_assoc($buscar_personagem)) {
+                $nick = $nick['nick'];
+            ?>
+                <option value="<?php
+                                if ($nick != $_SESSION['nick']) {
+                                    echo $nick;
+                                } ?>">
+                <?php } ?>
+        </datalist>
+
+
+
         <button class="botao" name="buscar">Buscar</button>
     </form>
 
