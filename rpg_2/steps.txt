@@ -1,9 +1,0 @@
-Nova página com árvore de Skills
-
-Nova página com funcionalidades de adicionar amigos
-
-Ajuste arena: Inimigos aleatórios e sistema de elo
-
-Buscar amigos para combate por lista de amigos invés de pesquisar por nick
-
-Info itens no market na div apropriada
